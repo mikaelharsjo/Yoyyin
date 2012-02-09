@@ -1,0 +1,63 @@
+﻿//<%@ WebHandler Language="C#" Class="AutoCompleteHandler" %>
+using System;
+using System.Web;
+using System.Web.Services;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web.Caching;
+using yoyyin.com.Lib;
+
+namespace yoyyin.com
+{
+    [WebService(Namespace = "yoyyin.com")]
+    [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
+    public class AutoCompleteHandler : IHttpHandler
+    {
+        const string Key = "ACSearchWords";
+        public void ProcessRequest(HttpContext context)
+        {                    
+            var searchWords = GetSearchWordsFromCacheOrDb();
+            var searchWordsSeparated = FilterSearchWordsByRequest(context, searchWords);
+
+            if (searchWordsSeparated != null)
+                searchWordsSeparated.ForEach(x => context.Response.Write(x + Environment.NewLine));            
+        }
+
+        private static List<string> FilterSearchWordsByRequest(HttpContext context, IEnumerable<string> searchWords)
+        {
+            string input = context.Request.QueryString["q"];
+            var searchWordsSeparated = new List<string>();
+            foreach (string searchWord in searchWords)
+            {
+                foreach (string s in searchWord.Split(','))
+                {
+                    if (s.ToLower().StartsWith(input))
+                        searchWordsSeparated.Add(s);
+                }
+            }
+            return searchWordsSeparated;
+        }
+
+        private static IEnumerable<string> GetSearchWordsFromCacheOrDb()
+        {
+            var searchWords = new List<string>();
+            if (HttpContext.Current.Cache[Key] != null)
+                searchWords = HttpContext.Current.Cache[Key] as List<string>;
+            else
+            {
+                var uh = new UserHelper();
+                searchWords = uh.GetSearchWordsForAutoComplete();
+                HttpContext.Current.Cache.Insert(Key, searchWords, null, DateTime.Now.AddHours(24), Cache.NoSlidingExpiration);
+            }
+            return searchWords;
+        }
+
+        public bool IsReusable
+        {
+            get
+            {
+                return false;
+            }
+        }
+    }
+}

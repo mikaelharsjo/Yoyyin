@@ -1,0 +1,14 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Error404.aspx.cs" Inherits="Yoyyin.Web.Error" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <div class="span-11 textAlignRight">
+        <img src="Styles/Images/error.png" alt="Desperation" />
+    </div>
+    <div class="span-1">&nbsp;</div>
+    <div class="span-12 last">
+        <div class="gigantic marginTop">404</div>
+        <div class="marginTop"><h1>Hoppsan! Sidan hittades inte</h1></div>
+        <p>Ett fel har uppstått. Vi ber om ursäkt för detta. Kanske är sidan eller medlemmen du söker borttagen. Kom du hit via ett bokmärke bör du nog uppdatera det.</p>
+        <p><a href="Default.aspx">Tillbaka till startsidan</a></p>
+        <asp:Literal ID="litError" runat="server" />       
+    </div>
+</asp:Content>

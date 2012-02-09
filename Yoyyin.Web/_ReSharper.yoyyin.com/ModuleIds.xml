@@ -1,0 +1,5 @@
+<Modules>
+  <Module PersistentId="CF24D980-7914-4E9B-A601-1C57EE29020E" ModuleId="yoyyin.com" />
+  <Module PersistentId="E5C9F77D-AC81-4A90-937B-4F8BE8CA75DB" ModuleId="yoyyin.com.Lib" />
+  <Module PersistentId="328BD772-959C-42EB-8C16-CBC1FF074968" ModuleId="yoyyin.com.Test" />
+</Modules>

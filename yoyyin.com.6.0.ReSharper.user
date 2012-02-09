@@ -1,0 +1,1099 @@
+<Configuration>
+  <RecentFiles>
+    <RecentFiles>
+      <File id="CF24D980-7914-4E9B-A601-1C57EE29020E/d:UserControls/f:UserPosts.ascx.cs" caret="0" fromTop="0" />
+      <File id="CF24D980-7914-4E9B-A601-1C57EE29020E/d:UserControls/f:AdvancedSearch.ascx.cs" caret="0" fromTop="0" />
+      <File id="CF24D980-7914-4E9B-A601-1C57EE29020E/f:Question.aspx.cs" caret="0" fromTop="0" />
+      <File id="CF24D980-7914-4E9B-A601-1C57EE29020E/f:Member.aspx.cs" caret="0" fromTop="0" />
+      <File id="CF24D980-7914-4E9B-A601-1C57EE29020E/d:Helpers/f:WebHelpers.cs" caret="0" fromTop="0" />
+      <File id="E5C9F77D-AC81-4A90-937B-4F8BE8CA75DB/d:EntityHelpers/f:EntityFactory.cs" caret="1031" fromTop="36" />
+      <File id="328BD772-959C-42EB-8C16-CBC1FF074968/f:MultipleMatcherFixture.cs" caret="0" fromTop="0" />
+      <File id="CF24D980-7914-4E9B-A601-1C57EE29020E/d:UserControls/f:QuickSearch.ascx.cs" caret="0" fromTop="0" />
+      <File id="CF24D980-7914-4E9B-A601-1C57EE29020E/d:UserControls/f:MultiMatcherControl.ascx.cs" caret="0" fromTop="0" />
+      <File id="CF24D980-7914-4E9B-A601-1C57EE29020E/f:Register.aspx" caret="0" fromTop="0" />
+      <File id="CF24D980-7914-4E9B-A601-1C57EE29020E/f:Default.aspx.cs" caret="0" fromTop="0" />
+      <File id="CF24D980-7914-4E9B-A601-1C57EE29020E/d:Helpers/f:RouteHelper.cs" caret="0" fromTop="0" />
+      <File id="CF24D980-7914-4E9B-A601-1C57EE29020E/f:Global.asax.cs" caret="0" fromTop="0" />
+      <File id="CF24D980-7914-4E9B-A601-1C57EE29020E/f:Site.Master.cs" caret="0" fromTop="0" />
+      <File id="CF24D980-7914-4E9B-A601-1C57EE29020E/d:UserControls/f:SearchResult.ascx.cs" caret="0" fromTop="0" />
+      <File id="E5C9F77D-AC81-4A90-937B-4F8BE8CA75DB/d:Matching/f:MultipleMatcher.cs" caret="0" fromTop="0" />
+      <File id="E5C9F77D-AC81-4A90-937B-4F8BE8CA75DB/d:Extensions/f:AnswerExtensions.cs" caret="0" fromTop="0" />
+      <File id="E5C9F77D-AC81-4A90-937B-4F8BE8CA75DB/d:Extensions/f:EnumExtensions.cs" caret="0" fromTop="0" />
+      <File id="E5C9F77D-AC81-4A90-937B-4F8BE8CA75DB/d:Extensions/f:QuestionExtensions.cs" caret="0" fromTop="0" />
+      <File id="CF24D980-7914-4E9B-A601-1C57EE29020E/d:UserControls/f:LatestPosts.ascx.cs" caret="0" fromTop="0" />
+      <File id="E5C9F77D-AC81-4A90-937B-4F8BE8CA75DB/d:EntityHelpers/f:QuestionsHelper.cs" caret="5857" fromTop="163" />
+      <File id="CF24D980-7914-4E9B-A601-1C57EE29020E/f:Members.aspx.cs" caret="0" fromTop="0" />
+      <File id="E5C9F77D-AC81-4A90-937B-4F8BE8CA75DB/d:EntityHelpers/f:SniHelpers.cs" caret="498" fromTop="18" />
+      <File id="328BD772-959C-42EB-8C16-CBC1FF074968/f:TestUserRepository.cs" caret="0" fromTop="0" />
+      <File id="328BD772-959C-42EB-8C16-CBC1FF074968/f:UserProviderFixture.cs" caret="554" fromTop="23" />
+      <File id="CA00E16D-2B05-4B84-837B-32DFC2A3FF94/f:IUserRepository.cs" caret="1472" fromTop="17" />
+      <File id="E5C9F77D-AC81-4A90-937B-4F8BE8CA75DB/f:Constants.cs" caret="1462" fromTop="34" />
+      <File id="CA00E16D-2B05-4B84-837B-32DFC2A3FF94/f:Constants.cs" caret="279" fromTop="12" />
+      <File id="CA00E16D-2B05-4B84-837B-32DFC2A3FF94/f:EntityUserRepository.cs" caret="317" fromTop="13" />
+      <File id="E5C9F77D-AC81-4A90-937B-4F8BE8CA75DB/d:Extensions/f:UserExtensions.cs" caret="837" fromTop="24" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="CA00E16D-2B05-4B84-837B-32DFC2A3FF94/f:IUserRepository.cs" caret="643" fromTop="21" />
+      <File id="CA00E16D-2B05-4B84-837B-32DFC2A3FF94/f:EntityUserRepository.cs" caret="1597" fromTop="26" />
+      <File id="CA00E16D-2B05-4B84-837B-32DFC2A3FF94/f:EntityUserRepository.cs" caret="620" fromTop="20" />
+      <File id="CA00E16D-2B05-4B84-837B-32DFC2A3FF94/f:EntityUserRepository.cs" caret="1788" fromTop="13" />
+      <File id="CA00E16D-2B05-4B84-837B-32DFC2A3FF94/f:EntityUserRepository.cs" caret="2022" fromTop="18" />
+      <File id="CA00E16D-2B05-4B84-837B-32DFC2A3FF94/f:EntityUserRepository.cs" caret="2236" fromTop="23" />
+      <File id="CA00E16D-2B05-4B84-837B-32DFC2A3FF94/f:EntityUserRepository.cs" caret="2441" fromTop="28" />
+      <File id="CA00E16D-2B05-4B84-837B-32DFC2A3FF94/f:EntityUserRepository.cs" caret="4076" fromTop="25" />
+      <File id="CA00E16D-2B05-4B84-837B-32DFC2A3FF94/f:EntityUserRepository.cs" caret="4215" fromTop="27" />
+      <File id="CA00E16D-2B05-4B84-837B-32DFC2A3FF94/f:EntityUserRepository.cs" caret="4465" fromTop="35" />
+      <File id="CA00E16D-2B05-4B84-837B-32DFC2A3FF94/f:EntityUserRepository.cs" caret="5597" fromTop="19" />
+      <File id="CA00E16D-2B05-4B84-837B-32DFC2A3FF94/f:EntityUserRepository.cs" caret="5296" fromTop="11" />
+      <File id="CA00E16D-2B05-4B84-837B-32DFC2A3FF94/f:EntityUserRepository.cs" caret="12065" fromTop="12" />
+      <File id="CA00E16D-2B05-4B84-837B-32DFC2A3FF94/f:EntityUserRepository.cs" caret="12564" fromTop="26" />
+      <File id="CA00E16D-2B05-4B84-837B-32DFC2A3FF94/f:EntityUserRepository.cs" caret="12710" fromTop="28" />
+      <File id="CA00E16D-2B05-4B84-837B-32DFC2A3FF94/f:EntityUserRepository.cs" caret="12838" fromTop="31" />
+      <File id="CA00E16D-2B05-4B84-837B-32DFC2A3FF94/f:EntityUserRepository.cs" caret="13046" fromTop="38" />
+      <File id="CA00E16D-2B05-4B84-837B-32DFC2A3FF94/f:EntityUserRepository.cs" caret="13" fromTop="0" />
+      <File id="CA00E16D-2B05-4B84-837B-32DFC2A3FF94/f:EntityUserRepository.cs" caret="3447" fromTop="27" />
+      <File id="CA00E16D-2B05-4B84-837B-32DFC2A3FF94/f:EntityUserRepository.cs" caret="2698" fromTop="16" />
+      <File id="328BD772-959C-42EB-8C16-CBC1FF074968/f:UserProviderFixture.cs" caret="177" fromTop="12" />
+      <File id="328BD772-959C-42EB-8C16-CBC1FF074968/f:UserProviderFixture.cs" caret="314" fromTop="12" />
+      <File id="CA00E16D-2B05-4B84-837B-32DFC2A3FF94/f:IUserRepository.cs" caret="1472" fromTop="17" />
+      <File id="E5C9F77D-AC81-4A90-937B-4F8BE8CA75DB/f:Constants.cs" caret="1467" fromTop="34" />
+      <File id="CA00E16D-2B05-4B84-837B-32DFC2A3FF94/f:Constants.cs" caret="279" fromTop="12" />
+      <File id="CA00E16D-2B05-4B84-837B-32DFC2A3FF94/f:EntityUserRepository.cs" caret="4896" fromTop="25" />
+      <File id="E5C9F77D-AC81-4A90-937B-4F8BE8CA75DB/d:Extensions/f:UserExtensions.cs" caret="145" fromTop="6" />
+      <File id="CA00E16D-2B05-4B84-837B-32DFC2A3FF94/f:EntityUserRepository.cs" caret="304" fromTop="12" />
+      <File id="E5C9F77D-AC81-4A90-937B-4F8BE8CA75DB/d:Extensions/f:UserExtensions.cs" caret="340" fromTop="11" />
+      <File id="E5C9F77D-AC81-4A90-937B-4F8BE8CA75DB/d:Extensions/f:UserExtensions.cs" caret="836" fromTop="24" />
+    </RecentEdits>
+  </RecentFiles>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="AspCodeCompletionContext">
+      <Item value="&amp;AElig;" priority="5" />
+      <Item value="alt" priority="42" />
+      <Item value="h1" priority="7" />
+      <Item value="id" priority="70" />
+      <Item value="body" priority="62" />
+      <Item value="onclick" priority="21" />
+      <Item value="debugger" priority="7" />
+      <Item value="return" priority="9" />
+      <Item value="false" priority="9" />
+      <Item value="style" priority="20" />
+      <Item value="display" priority="121" />
+      <Item value="ValidateRequest" priority="6" />
+      <Item value="marginBottomLarge" priority="6" />
+      <Item value="server" priority="69" />
+      <Item value="img" priority="6" />
+      <Item value="src" priority="6" />
+      <Item value="yoyyin.com.csproj" priority="6" />
+      <Item value="Styles" priority="6" />
+      <Item value="Images" priority="6" />
+      <Item value="logoSmall.png" priority="6" />
+      <Item value="div" priority="85" />
+      <Item value="asp" priority="57" />
+      <Item value="ID" priority="48" />
+      <Item value="runat" priority="85" />
+      <Item value="class" priority="129" />
+      <Item value="br" priority="41" />
+      <Item value="a" priority="20" />
+      <Item value="href" priority="7" />
+      <Item value="ItemTemplate" priority="13" />
+      <Item value="Text" priority="7" />
+      <Item value="ContentPlaceHolderID" priority="6" />
+      <Item value="MainContentAfterJavaScriptIncluded" priority="13" />
+      <Item value="script" priority="41" />
+      <Item value="datafld" priority="20" />
+      <Item value="button" priority="20" />
+      <Item value="EnableBackground" priority="19" />
+      <Item value="CssClass" priority="21" />
+      <Item value="input" priority="24" />
+      <Item value="BorderStyle" priority="7" />
+      <Item value="width" priority="9" />
+      <Item value="type" priority="72" />
+      <Item value="text/C#" priority="13" />
+      <Item value="text/javascript" priority="49" />
+      <Item value="DataBinding" priority="6" />
+      <Item value="hideWhenSearch" priority="7" />
+      <Item value="LoggedIn" priority="7" />
+      <Item value="title" priority="6" />
+      <Item value="btnFeedBack" priority="7" />
+      <Item value="Static" priority="35" />
+      <Item value="ClientIDMode" priority="34" />
+      <Item value="User" priority="6" />
+      <Item value="clear" priority="13" />
+      <Item value="span" priority="6" />
+      <Item value="Visible" priority="6" />
+      <Item value="Users" priority="13" />
+      <Item value="SrcUsers" priority="6" />
+    </ItemStatistics>
+    <ItemStatistics item="HtmlEntityCodeCompletionContext">
+      <Item value="&amp;AElig;" priority="5" />
+    </ItemStatistics>
+    <ItemStatistics item="CssCodeCompletionContext">
+      <Item value="button" priority="5" />
+      <Item value="img" priority="11" />
+      <Item value="border" priority="29" />
+      <Item value="border-radius" priority="5" />
+      <Item value="width" priority="96" />
+      <Item value="float" priority="47" />
+      <Item value="display" priority="30" />
+      <Item value="btnSearchTop" priority="4" />
+      <Item value="font-size" priority="11" />
+      <Item value="background-color" priority="17" />
+      <Item value="height" priority="11" />
+      <Item value="margin-bottom" priority="23" />
+      <Item value="inline" priority="11" />
+      <Item value="margin" priority="23" />
+      <Item value="position" priority="5" />
+      <Item value="top" priority="12" />
+      <Item value="left" priority="5" />
+      <Item value="li" priority="5" />
+      <Item value="font-weight" priority="11" />
+      <Item value="margin-left" priority="11" />
+      <Item value="text-align" priority="11" />
+      <Item value="vertical-align" priority="5" />
+      <Item value="closeDialogButton" priority="4" />
+      <Item value="divRegister" priority="4" />
+      <Item value="input" priority="0" />
+      <Item value="type" priority="5" />
+      <Item value="background-image" priority="5" />
+      <Item value="bottom" priority="5" />
+      <Item value="emailRegister" priority="4" />
+      <Item value="userTypesDescriptions" priority="4" />
+      <Item value="txtComment" priority="9" />
+      <Item value="textarea" priority="5" />
+      <Item value="deleteLinkInHeader" priority="4" />
+      <Item value="margin-right" priority="3" />
+      <Item value="multipleMatchDescription" priority="4" />
+      <Item value="clear" priority="5" />
+      <Item value="multipleMatchPercentage" priority="4" />
+      <Item value="matchSummaryText" priority="4" />
+      <Item value="padding" priority="5" />
+      <Item value="users" priority="4" />
+      <Item value="usersLeft" priority="4" />
+      <Item value="usersRight" priority="4" />
+    </ItemStatistics>
+    <ItemStatistics item="JavaScriptSpecificContext">
+      <Item value="function" priority="142" />
+      <Item value="firstUserId" priority="10" />
+      <Item value="secondUserId" priority="10" />
+      <Item value="ShowDialog" priority="10" />
+      <Item value="alert" priority="128" />
+      <Item value="GetMatcher" priority="10" />
+      <Item value="visitingUserId" priority="10" />
+      <Item value="currentUserId" priority="10" />
+      <Item value="return" priority="16" />
+      <Item value="false" priority="16" />
+      <Item value="debugger" priority="27" />
+      <Item value="var" priority="43" />
+      <Item value="userId" priority="21" />
+      <Item value="Current`0" priority="5" />
+      <Item value="UserID" priority="5" />
+      <Item value="EnableBackground" priority="22" />
+      <Item value="ShowDialogTemporarily" priority="21" />
+      <Item value="if" priority="21" />
+      <Item value="milliseconds" priority="21" />
+      <Item value="MakeAjaxCall" priority="32" />
+      <Item value="textAreaWidth" priority="10" />
+      <Item value="OnCommentsLoaded" priority="10" />
+      <Item value="OnError" priority="32" />
+      <Item value="CssRule" priority="20" />
+      <Item value="setTimeout" priority="10" />
+      <Item value="confirm" priority="10" />
+      <Item value="itemName" priority="10" />
+      <Item value="questionId" priority="10" />
+      <Item value="data" priority="10" />
+      <Item value="ScriptEngine" priority="10" />
+    </ItemStatistics>
+    <ItemStatistics item="CSharpCodeCompletionContext">
+      <Item value="public" priority="2350" />
+      <Item value="Guid`0" priority="543" />
+      <Item value="private" priority="511" />
+      <Item value="Matcher`0" priority="127" />
+      <Item value="override" priority="127" />
+      <Item value="if" priority="575" />
+      <Item value="FirstUserId" priority="63" />
+      <Item value="SeconduserId" priority="31" />
+      <Item value="return" priority="1502" />
+      <Item value="new" priority="2439" />
+      <Item value="Matcher" priority="57" />
+      <Item value="UserControl`0" priority="31" />
+      <Item value="_firstUser" priority="383" />
+      <Item value="EntityFactory`0" priority="31" />
+      <Item value="_entityFactory" priority="96" />
+      <Item value="SecondUserId" priority="31" />
+      <Item value="_secondUser" priority="158" />
+      <Item value="_matcher" priority="64" />
+      <Item value="EntityFactory" priority="28" />
+      <Item value="firstUserImage" priority="31" />
+      <Item value="secondUserImage" priority="31" />
+      <Item value="litMatchResultFirst" priority="31" />
+      <Item value="MatchResult`0" priority="318" />
+      <Item value="bool" priority="191" />
+      <Item value="isMatch" priority="63" />
+      <Item value="CheckSniNo`0" priority="63" />
+      <Item value="null" priority="319" />
+      <Item value="false" priority="94" />
+      <Item value="string" priority="2388" />
+      <Item value="const" priority="63" />
+      <Item value="InitializeUsers`0" priority="31" />
+      <Item value="var" priority="895" />
+      <Item value="matcher" priority="96" />
+      <Item value="Assert`0" priority="511" />
+      <Item value="Is`0" priority="383" />
+      <Item value="expected" priority="122" />
+      <Item value="StringBuilder" priority="28" />
+      <Item value="stringBuilder" priority="95" />
+      <Item value="htmlStart" priority="31" />
+      <Item value="MatchResults" priority="32" />
+      <Item value="Dictionary" priority="63" />
+      <Item value="Enum`0" priority="31" />
+      <Item value="MatchType`0" priority="513" />
+      <Item value="_matchResults" priority="287" />
+      <Item value="CheckSniHead`0" priority="31" />
+      <Item value="CheckSearchWords`0" priority="63" />
+      <Item value="Dictionary&lt;MatchType,MatchResult&gt;" priority="28" />
+      <Item value="SniHead" priority="61" />
+      <Item value="Title" priority="124" />
+      <Item value="SniItem" priority="61" />
+      <Item value="foreach" priority="287" />
+      <Item value="matchResult" priority="386" />
+      <Item value="in" priority="255" />
+      <Item value="htmlItem" priority="31" />
+      <Item value="_firstUserHtml" priority="63" />
+      <Item value="firstUserStringBuilder" priority="31" />
+      <Item value="_secondUserHtml" priority="31" />
+      <Item value="secondUserStringBuilder" priority="31" />
+      <Item value="userTypesNeeded" priority="31" />
+      <Item value="allNeedUserTypes" priority="31" />
+      <Item value="secondUserType" priority="31" />
+      <Item value="compareWithUserType" priority="31" />
+      <Item value="user" priority="994" />
+      <Item value="secondWordsArray" priority="31" />
+      <Item value="returnValue" priority="95" />
+      <Item value="ReturnMessage" priority="16" />
+      <Item value="_matchingValue" priority="31" />
+      <Item value="static" priority="95" />
+      <Item value="input" priority="159" />
+      <Item value="typeof" priority="63" />
+      <Item value="System" priority="93" />
+      <Item value="HttpUnhandledException`0" priority="26" />
+      <Item value="void" priority="223" />
+      <Item value="for" priority="31" />
+      <Item value="int" priority="383" />
+      <Item value="i" priority="63" />
+      <Item value="as" priority="159" />
+      <Item value="matchType" priority="31" />
+      <Item value="case" priority="447" />
+      <Item value="SearchWords" priority="16" />
+      <Item value="UserType" priority="82" />
+      <Item value="WebHelpers`0" priority="258" />
+      <Item value="HttpBrowserCapabilities`0" priority="31" />
+      <Item value="User`0" priority="308" />
+      <Item value="UserTypes`0" priority="355" />
+      <Item value="EnumHelper`0" priority="31" />
+      <Item value="repUserTypes" priority="223" />
+      <Item value="Container" priority="31" />
+      <Item value="object" priority="31" />
+      <Item value="dataItem" priority="31" />
+      <Item value="userType" priority="95" />
+      <Item value="sb" priority="63" />
+      <Item value="Control`0" priority="63" />
+      <Item value="item" priority="287" />
+      <Item value="CheckBox`0" priority="32" />
+      <Item value="chkUserType" priority="127" />
+      <Item value="DBNull`0" priority="31" />
+      <Item value="hiddenUserType" priority="127" />
+      <Item value="RepeaterItem`0" priority="63" />
+      <Item value="txtUserTypeDescription" priority="415" />
+      <Item value="switch" priority="31" />
+      <Item value="Businessman" priority="16" />
+      <Item value="break" priority="383" />
+      <Item value="Entrepreneur" priority="33" />
+      <Item value="Financing" priority="33" />
+      <Item value="ConsoleCancelEventArgs`0" priority="31" />
+      <Item value="Innovator" priority="33" />
+      <Item value="Investor" priority="33" />
+      <Item value="Retiring" priority="33" />
+      <Item value="default" priority="63" />
+      <Item value="throw" priority="95" />
+      <Item value="true" priority="94" />
+      <Item value="Exception" priority="28" />
+      <Item value="Current`0" priority="357" />
+      <Item value="try" priority="63" />
+      <Item value="class" priority="434" />
+      <Item value="searchWordsHandler" priority="65" />
+      <Item value="SearchWordsHandler" priority="58" />
+      <Item value="EntityBase`0" priority="95" />
+      <Item value="using" priority="92" />
+      <Item value="yoyyin.com" priority="30" />
+      <Item value="Lib" priority="112" />
+      <Item value="SearchWordsHandler`0" priority="64" />
+      <Item value="List" priority="254" />
+      <Item value="List&lt;string&gt;" priority="57" />
+      <Item value="_searchWordsOutput" priority="95" />
+      <Item value="_rawInputData" priority="63" />
+      <Item value="x" priority="769" />
+      <Item value="IEnumerable" priority="919" />
+      <Item value="actual" priority="63" />
+      <Item value="else" priority="95" />
+      <Item value="firstWords" priority="31" />
+      <Item value="secondWords" priority="31" />
+      <Item value="GetControlFromWizardStep`0" priority="63" />
+      <Item value="enum" priority="63" />
+      <Item value="WizStep`0" priority="633" />
+      <Item value="imgYoyyin" priority="31" />
+      <Item value="retHtml" priority="31" />
+      <Item value="divTips" priority="31" />
+      <Item value="_stepTipHtml" priority="31" />
+      <Item value="Region`0" priority="31" />
+      <Item value="control" priority="63" />
+      <Item value="currentTip" priority="31" />
+      <Item value="textAreaWidth" priority="31" />
+      <Item value="TextAreaWidth" priority="37" />
+      <Item value="chkShowAddress" priority="31" />
+      <Item value="chkShowEmail" priority="31" />
+      <Item value="chkShowOnMap" priority="31" />
+      <Item value="orderby" priority="31" />
+      <Item value="descending" priority="31" />
+      <Item value="Eval`0" priority="383" />
+      <Item value="XPathSelect`0" priority="159" />
+      <Item value="Linq" priority="53" />
+      <Item value="Answer" priority="86" />
+      <Item value="Expressions" priority="26" />
+      <Item value="Answer`0" priority="159" />
+      <Item value="com" priority="139" />
+      <Item value="libToViewDomain" priority="32" />
+      <Item value="LibToViewDomain" priority="28" />
+      <Item value="dateTime" priority="63" />
+      <Item value="UserId" priority="131" />
+      <Item value="userId" priority="160" />
+      <Item value="ViewDomain" priority="53" />
+      <Item value="answer" priority="388" />
+      <Item value="QuestionAnswer`0" priority="126" />
+      <Item value="QuestionAnswer" priority="28" />
+      <Item value="Heading" priority="63" />
+      <Item value="DateTime`0" priority="161" />
+      <Item value="GetHashCode`0" priority="31" />
+      <Item value="AppDomainSetup`0" priority="31" />
+      <Item value="Created" priority="92" />
+      <Item value="questionAnswer" priority="65" />
+      <Item value="Text" priority="124" />
+      <Item value="IDictionary" priority="31" />
+      <Item value="question" priority="292" />
+      <Item value="ownerUserId" priority="31" />
+      <Item value="yoyyin" priority="63" />
+      <Item value="QuestionAnswerConverter`0" priority="26" />
+      <Item value="questionAnswerConverter" priority="129" />
+      <Item value="QuestionAnswerConverter" priority="57" />
+      <Item value="List&lt;Answer&gt;" priority="28" />
+      <Item value="DateTime" priority="115" />
+      <Item value="questionAnswers" priority="65" />
+      <Item value="answers" priority="31" />
+      <Item value="this" priority="95" />
+      <Item value="User" priority="394" />
+      <Item value="Alias" priority="31" />
+      <Item value="TheoryAttribute`0" priority="31" />
+      <Item value="commentConverter" priority="64" />
+      <Item value="CommentConverter" priority="28" />
+      <Item value="UserComments`0" priority="63" />
+      <Item value="UserComments" priority="28" />
+      <Item value="TimeStamp" priority="59" />
+      <Item value="CommentUserId" priority="32" />
+      <Item value="Name" priority="192" />
+      <Item value="aspnet_Users" priority="32" />
+      <Item value="CommentView" priority="28" />
+      <Item value="GetHeading`0" priority="32" />
+      <Item value="comment" priority="65" />
+      <Item value="convertedComment" priority="27" />
+      <Item value="MessageConverter" priority="58" />
+      <Item value="messageConverter" priority="156" />
+      <Item value="userMessages" priority="32" />
+      <Item value="UserMessages" priority="28" />
+      <Item value="FromMessage" priority="32" />
+      <Item value="messageView" priority="27" />
+      <Item value="MessageView" priority="28" />
+      <Item value="message" priority="230" />
+      <Item value="notNullaleDateTime" priority="31" />
+      <Item value="Message" priority="32" />
+      <Item value="UserName" priority="32" />
+      <Item value="UserMessages`0" priority="63" />
+      <Item value="userMessageses" priority="64" />
+      <Item value="Convert`0" priority="63" />
+      <Item value="PreviewOfMessage" priority="32" />
+      <Item value="TruncateText`0" priority="31" />
+      <Item value="stringToTruncate" priority="31" />
+      <Item value="maxCharacters" priority="31" />
+      <Item value="test" priority="511" />
+      <Item value="ise" priority="447" />
+      <Item value="UserMessagesID" priority="32" />
+      <Item value="IQuestionAnswer`0" priority="31" />
+      <Item value="DisplayName" priority="63" />
+      <Item value="IEnumerable`0" priority="31" />
+      <Item value="QuestionView`0" priority="90" />
+      <Item value="questions" priority="64" />
+      <Item value="interface" priority="123" />
+      <Item value="IConverter`0" priority="31" />
+      <Item value="Question`0" priority="62" />
+      <Item value="shouldBeConverted" priority="127" />
+      <Item value="IConverter" priority="159" />
+      <Item value="IView`0" priority="95" />
+      <Item value="questionView" priority="63" />
+      <Item value="QuestionConverter" priority="57" />
+      <Item value="Post`0" priority="31" />
+      <Item value="posts" priority="31" />
+      <Item value="ShortText" priority="65" />
+      <Item value="post" priority="98" />
+      <Item value="questionConverter" priority="96" />
+      <Item value="NumberOfAnswers" priority="32" />
+      <Item value="QuestionId" priority="102" />
+      <Item value="displayName" priority="31" />
+      <Item value="Date" priority="32" />
+      <Item value="questionsConverter" priority="31" />
+      <Item value="login" priority="31" />
+      <Item value="Request" priority="31" />
+      <Item value="Response" priority="31" />
+      <Item value="Id" priority="32" />
+      <Item value="OperationContract" priority="31" />
+      <Item value="Entities" priority="287" />
+      <Item value="questionId" priority="95" />
+      <Item value="from" priority="31" />
+      <Item value="where" priority="127" />
+      <Item value="select" priority="127" />
+      <Item value="QuestionsHelper`0" priority="31" />
+      <Item value="questionsHelper" priority="96" />
+      <Item value="QuestionsHelper" priority="28" />
+      <Item value="answerId" priority="31" />
+      <Item value="AnswerId" priority="32" />
+      <Item value="_searchWordsWithCount" priority="127" />
+      <Item value="KeyValuePair" priority="31" />
+      <Item value="keyValuePair" priority="32" />
+      <Item value="myList" priority="31" />
+      <Item value="Exception`0" priority="31" />
+      <Item value="ISearchWordsProvider`0" priority="127" />
+      <Item value="searchWordsProvider" priority="129" />
+      <Item value="_searchWordsProvider" priority="31" />
+      <Item value="ProfileSearchWordsProvider" priority="58" />
+      <Item value="CompetencesSeacrhWordsProvider" priority="28" />
+      <Item value="T`0" priority="30" />
+      <Item value="alternativeGetMethod" priority="31" />
+      <Item value="Delegate`0" priority="31" />
+      <Item value="_cachedItemProvider" priority="159" />
+      <Item value="cachedWords" priority="31" />
+      <Item value="GetWordsFromDb`0" priority="64" />
+      <Item value="NullReferenceException`0" priority="63" />
+      <Item value="OutOfMemoryException`0" priority="159" />
+      <Item value="cachedItem" priority="63" />
+      <Item value="SetItem`0" priority="31" />
+      <Item value="CompetencesSearchWordsProvider`0" priority="63" />
+      <Item value="competencesSearchWordsProvider" priority="91" />
+      <Item value="CompetencesSearchWordsProvider" priority="28" />
+      <Item value="CachedItemProvider&lt;IEnumerable&lt;string&gt;&gt;" priority="28" />
+      <Item value="txtYourCompetence" priority="63" />
+      <Item value="litCurrentYourCompetence" priority="31" />
+      <Item value="RouteHelper`0" priority="63" />
+      <Item value="route" priority="64" />
+      <Item value="RouteHelper" priority="61" />
+      <Item value="cachedUsers" priority="31" />
+      <Item value="UserHelper`0" priority="63" />
+      <Item value="_userHelper" priority="129" />
+      <Item value="userHelper" priority="96" />
+      <Item value="AddStaticRoutes`0" priority="31" />
+      <Item value="RouteTable`0" priority="31" />
+      <Item value="RouteBase`0" priority="31" />
+      <Item value="routeBase" priority="32" />
+      <Item value="Route" priority="28" />
+      <Item value="UserHelper" priority="57" />
+      <Item value="word" priority="63" />
+      <Item value="Environment`0" priority="31" />
+      <Item value="HttpContext`0" priority="31" />
+      <Item value="aspnet_Users`0" priority="31" />
+      <Item value="context" priority="31" />
+      <Item value="jsSerializer" priority="31" />
+      <Item value="searchWordsByRequest" priority="31" />
+      <Item value="TestFixtureAttribute`0" priority="31" />
+      <Item value="searchWords" priority="64" />
+      <Item value="SearchWordsOrganizer`0" priority="58" />
+      <Item value="SearchWordsOrganizer" priority="54" />
+      <Item value="organizer" priority="31" />
+      <Item value="MultipleMatcherFixture`0" priority="31" />
+      <Item value="multipleMatcher" priority="289" />
+      <Item value="MultipleMatcher" priority="57" />
+      <Item value="SniNo" priority="129" />
+      <Item value="_user" priority="95" />
+      <Item value="_users" priority="95" />
+      <Item value="users" priority="127" />
+      <Item value="userToCompare" priority="31" />
+      <Item value="CacheKey" priority="31" />
+      <Item value="CachedItemProvider&lt;List&lt;User&gt;&gt;" priority="28" />
+      <Item value="lstMatches" priority="31" />
+      <Item value="matchers" priority="63" />
+      <Item value="match" priority="191" />
+      <Item value="SearchWordsMatchResult" priority="63" />
+      <Item value="UserTypeMatch" priority="63" />
+      <Item value="MultipleMatcher`0" priority="31" />
+      <Item value="Matched" priority="95" />
+      <Item value="matched" priority="31" />
+      <Item value="Tried" priority="63" />
+      <Item value="tried" priority="31" />
+      <Item value="MultipleMatcherStats" priority="28" />
+      <Item value="readonly" priority="63" />
+      <Item value="_matchers" priority="192" />
+      <Item value="MatchAll`0" priority="31" />
+      <Item value="_succesfullMatchers" priority="95" />
+      <Item value="GetSuccesFullMatches`0" priority="31" />
+      <Item value="matches" priority="31" />
+      <Item value="count" priority="159" />
+      <Item value="SearchWordsCompetenceMatch" priority="31" />
+      <Item value="litMatchSummary" priority="31" />
+      <Item value="UserControls" priority="95" />
+      <Item value="MultipleMatchView`0" priority="31" />
+      <Item value="MultipleMatchView" priority="86" />
+      <Item value="Percentage" priority="60" />
+      <Item value="GetMatchCount`0" priority="31" />
+      <Item value="multipleMatchConverter" priority="64" />
+      <Item value="MultipleMatchConverter" priority="28" />
+      <Item value="litMatchSummaryPercentage" priority="31" />
+      <Item value="notLoggedIn" priority="31" />
+      <Item value="_question" priority="155" />
+      <Item value="SetUp" priority="58" />
+      <Item value="_currentUserId" priority="31" />
+      <Item value="Guid" priority="57" />
+      <Item value="QuestionPage`0" priority="63" />
+      <Item value="Question" priority="60" />
+      <Item value="OwnerUserId" priority="31" />
+      <Item value="_ownerUserId" priority="95" />
+      <Item value="notLoggedInUserId" priority="31" />
+      <Item value="deleteAllowed" priority="127" />
+      <Item value="Test" priority="31" />
+      <Item value="_answer" priority="31" />
+      <Item value="_answerOwnerUserId" priority="32" />
+      <Item value="XmlSiteMapProvider`0" priority="27" />
+      <Item value="UserView" priority="28" />
+      <Item value="Description" priority="31" />
+      <Item value="UserID" priority="32" />
+      <Item value="ProfileUrl" priority="32" />
+      <Item value="virtual" priority="31" />
+      <Item value="lstMembers" priority="26" />
+      <Item value="userConverter" priority="150" />
+      <Item value="UserConverter" priority="55" />
+      <Item value="uh" priority="31" />
+      <Item value="sniHelper" priority="31" />
+      <Item value="group" priority="31" />
+      <Item value="byte" priority="90" />
+      <Item value="SniHead`0" priority="31" />
+      <Item value="Yoyyin" priority="62" />
+      <Item value="currentUserId" priority="31" />
+      <Item value="Domain" priority="26" />
+      <Item value="SniItem`0" priority="31" />
+      <Item value="fixt" priority="61" />
+      <Item value="Image" priority="32" />
+      <Item value="bytes" priority="32" />
+      <Item value="userToConvert" priority="63" />
+      <Item value="UserConverterFixture`0" priority="31" />
+      <Item value="actualUserView" priority="59" />
+      <Item value="MailHelper`0" priority="95" />
+      <Item value="_mail" priority="32" />
+      <Item value="MailHelper" priority="87" />
+      <Item value="_mailHelper" priority="64" />
+      <Item value="mail" priority="32" />
+      <Item value="mailHelper" priority="27" />
+      <Item value="sniHead" priority="127" />
+      <Item value="g" priority="95" />
+      <Item value="let" priority="31" />
+      <Item value="firstSniHead" priority="127" />
+      <Item value="UserProviderFixture`0" priority="31" />
+      <Item value="userProvider" priority="32" />
+      <Item value="UserProviderFixture" priority="28" />
+      <Item value="SetUpAttribute`0" priority="31" />
+      <Item value="UserProvider`0" priority="31" />
+      <Item value="_userProvider" priority="32" />
+      <Item value="NotFiniteNumberException`0" priority="31" />
+      <Item value="IUserRepository`0" priority="127" />
+      <Item value="EntityUserRepository`0" priority="63" />
+      <Item value="dataContext" priority="32" />
+      <Item value="YoyyinEntities1`0" priority="95" />
+      <Item value="entities1" priority="65" />
+      <Item value="_entities" priority="95" />
+      <Item value="entities" priority="31" />
+      <Item value="IList" priority="31" />
+      <Item value="TestUserRepository`0" priority="31" />
+      <Item value="TestUserRepository" priority="62" />
+      <Item value="List&lt;User&gt;" priority="28" />
+      <Item value="SniHeadID" priority="31" />
+      <Item value="IQueryable`0" priority="191" />
+      <Item value="userRepository" priority="32" />
+      <Item value="UserExtensionBase`0" priority="63" />
+      <Item value="YoyyinEntities1" priority="57" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Guid">
+      <Item value="Empty" priority="107" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:yoyyin.com.Lib.EntityFactory">
+      <Item value="GetUser`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.UI.WebControls.Literal">
+      <Item value="Text" priority="161" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:yoyyin.com.Lib.Matcher">
+      <Item value="SniHeadMatch" priority="26" />
+      <Item value="GetFirstUserResultsAsHtml`0" priority="54" />
+      <Item value="SearchWordsCompetenceMatch" priority="27" />
+      <Item value="SearchWordsMatchResult" priority="23" />
+      <Item value="UserTypeMatch" priority="27" />
+      <Item value="SniNoMatch" priority="83" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Boolean">
+      <Item value="ToString`0" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:yoyyin.com.UserControls.UserImage">
+      <Item value="User" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:yoyyin.com.Lib.User">
+      <Item value="SniHead" priority="107" />
+      <Item value="SniNo" priority="110" />
+      <Item value="SniItem" priority="95" />
+      <Item value="SearchWordsCompetenceNeeded" priority="53" />
+      <Item value="UserId" priority="217" />
+      <Item value="City" priority="53" />
+      <Item value="DescBusinessman" priority="54" />
+      <Item value="DescEntrepreneur" priority="53" />
+      <Item value="DescFinancing" priority="53" />
+      <Item value="DescInnovator" priority="53" />
+      <Item value="DescInvestor" priority="53" />
+      <Item value="DescRetiring" priority="53" />
+      <Item value="UserTypesNeeded" priority="26" />
+      <Item value="ShowAddress" priority="26" />
+      <Item value="ShowEmail" priority="26" />
+      <Item value="ShowOnMap" priority="26" />
+      <Item value="Alias" priority="53" />
+      <Item value="Name" priority="54" />
+      <Item value="GetDisplayName`0" priority="192" />
+      <Item value="SearchWordsCompetence" priority="26" />
+      <Item value="BusinessDescription" priority="27" />
+      <Item value="DisplayName" priority="27" />
+      <Item value="BusinessTitle" priority="27" />
+      <Item value="Active" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:yoyyin.com.Lib.SniHead">
+      <Item value="Title" priority="53" />
+      <Item value="User" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:yoyyin.com.Lib.SniItem">
+      <Item value="Title" priority="107" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@NUnit.Framework.Assert">
+      <Item value="That`0" priority="377" />
+      <Item value="Fail`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@NUnit.Framework.Is">
+      <Item value="EqualTo`0" priority="242" />
+      <Item value="Not" priority="81" />
+      <Item value="Null" priority="54" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Text.StringBuilder">
+      <Item value="Append`0" priority="107" />
+      <Item value="ToString`0" priority="80" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.Dictionary`2">
+      <Item value="Add`0" priority="134" />
+      <Item value="Values" priority="108" />
+      <Item value="Keys" priority="54" />
+      <Item value="Count" priority="26" />
+      <Item value="ContainsKey`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@yoyyin.com.Lib.MatchType">
+      <Item value="SniHead" priority="80" />
+      <Item value="SniItem" priority="103" />
+      <Item value="SearchWords" priority="50" />
+      <Item value="SeacrhWordsCompetence" priority="26" />
+      <Item value="UserType" priority="55" />
+      <Item value="SearchWordsCompetence" priority="27" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:yoyyin.com.Lib.MatchResult">
+      <Item value="IsMatch`0" priority="335" />
+      <Item value="FirstValue" priority="81" />
+      <Item value="SecondValue" priority="54" />
+      <Item value="MatchingValue" priority="81" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.String">
+      <Item value="IsNullOrEmpty`0" priority="242" />
+      <Item value="Format`0" priority="134" />
+      <Item value="Empty" priority="377" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:yoyyin.com.Lib.UserTypes">
+      <Item value="GetTitle`0" priority="80" />
+      <Item value="GetDescription`0" priority="26" />
+      <Item value="ToString`0" priority="55" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.String">
+      <Item value="ToLower`0" priority="81" />
+      <Item value="Replace`0" priority="107" />
+      <Item value="Contains`0" priority="26" />
+      <Item value="Split`0" priority="26" />
+      <Item value="Trim`0" priority="80" />
+      <Item value="Equals`0" priority="27" />
+      <Item value="Truncate`0" priority="300" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.UI.WebControls.TextBox">
+      <Item value="Text" priority="377" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Exception">
+      <Item value="InnerException" priority="26" />
+      <Item value="Message" priority="26" />
+      <Item value="GetType`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:yoyyin.com.Lib.MatchType">
+      <Item value="GetTitle`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@yoyyin.com.WebHelpers">
+      <Item value="GetUserName`0" priority="81" />
+      <Item value="IsLoggedIn`0" priority="53" />
+      <Item value="GetHeading`0" priority="55" />
+      <Item value="FormatHeading`0" priority="27" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.UI.WebControls.Repeater">
+      <Item value="DataSource" priority="26" />
+      <Item value="DataBind`0" priority="26" />
+      <Item value="Controls" priority="26" />
+      <Item value="Items" priority="108" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.UI.WebControls.RepeaterItem">
+      <Item value="DataItem" priority="26" />
+      <Item value="FindControl`0" priority="80" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.UI.WebControls.CheckBox">
+      <Item value="Checked" priority="134" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.UI.WebControls.HiddenField">
+      <Item value="Value" priority="80" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Enum">
+      <Item value="Parse`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@yoyyin.com.Current">
+      <Item value="UserID" priority="191" />
+      <Item value="User" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:yoyyin.com.Lib.SearchWordsHandler">
+      <Item value="GetAllSearchWords`0" priority="83" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Void">
+      <Item value="Equals`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.List`1">
+      <Item value="Add`0" priority="26" />
+      <Item value="Contains`0" priority="26" />
+      <Item value="Count" priority="26" />
+      <Item value="Select`2" priority="26" />
+      <Item value="Reverse`0" priority="26" />
+      <Item value="ForEach`0" priority="27" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.Dictionary`2+ValueCollection">
+      <Item value="ToList`1" priority="54" />
+      <Item value="Select`2" priority="27" />
+      <Item value="First`1" priority="27" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Int32">
+      <Item value="Equals`0" priority="26" />
+      <Item value="ToString`0" priority="109" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.Dictionary`2+KeyCollection">
+      <Item value="OrderBy`2" priority="81" />
+      <Item value="ToList`1" priority="27" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@yoyyin.com.Register+WizStep">
+      <Item value="RoleNeeded" priority="107" />
+      <Item value="PersonalInfo" priority="54" />
+      <Item value="Role" priority="53" />
+      <Item value="Searchwords" priority="53" />
+      <Item value="Files" priority="53" />
+      <Item value="Idea" priority="80" />
+      <Item value="Start" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@yoyyin.com.Lib.UserTypes">
+      <Item value="Financing" priority="26" />
+      <Item value="Entrepreneur" priority="55" />
+      <Item value="Businessman" priority="27" />
+      <Item value="Retiring" priority="27" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.UI.HtmlControls.HtmlGenericControl">
+      <Item value="InnerHtml" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:yoyyin.com.Lib.Question">
+      <Item value="Created" priority="26" />
+      <Item value="OwnerUserId" priority="163" />
+      <Item value="QuestionID" priority="81" />
+      <Item value="User" priority="54" />
+      <Item value="Text" priority="27" />
+      <Item value="GetNumberOfAnswers`0" priority="27" />
+      <Item value="DeleteAllowed`0" priority="27" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:yoyyin.com.Lib.Answer">
+      <Item value="Created" priority="54" />
+      <Item value="Text" priority="27" />
+      <Item value="UserId" priority="137" />
+      <Item value="AnswerID" priority="81" />
+      <Item value="User" priority="82" />
+      <Item value="QuestionID" priority="53" />
+      <Item value="DeleteAllowed`0" priority="55" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:yoyyin.com.ViewDomain.LibToViewDomain">
+      <Item value="ConvertLibAnswers`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:yoyyin.com.ViewDomain.Answer">
+      <Item value="UserId" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:yoyyin.com.ViewDomain.QuestionAnswer">
+      <Item value="Created" priority="27" />
+      <Item value="Text" priority="27" />
+      <Item value="Heading" priority="27" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:yoyyin.com.ViewDomain.QuestionAnswerConverter">
+      <Item value="ConvertAnswers`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.IEnumerable`1">
+      <Item value="Count`1" priority="81" />
+      <Item value="First`1" priority="82" />
+      <Item value="Select`2" priority="163" />
+      <Item value="ToList`1" priority="165" />
+      <Item value="ToArray`1" priority="26" />
+      <Item value="ElementAt`1" priority="110" />
+      <Item value="Reverse`1" priority="26" />
+      <Item value="Where`1" priority="107" />
+      <Item value="OrderByDescending`2" priority="26" />
+      <Item value="GroupBy`2" priority="26" />
+      <Item value="AsQueryable`1" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@yoyyin.com.Lib.aspnet_Users">
+      <Item value="aspnet_UsersReference" priority="27" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:yoyyin.com.Lib.UserComments">
+      <Item value="TimeStamp" priority="26" />
+      <Item value="Text" priority="27" />
+      <Item value="User" priority="27" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:yoyyin.com.Test.CommentView">
+      <Item value="Heading" priority="27" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:yoyyin.com.Lib.UserMessages">
+      <Item value="TimeStamp" priority="27" />
+      <Item value="FromMessage" priority="55" />
+      <Item value="User" priority="27" />
+      <Item value="UserMessagesID" priority="27" />
+      <Item value="FromUserId" priority="55" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.DateTime">
+      <Item value="ToFormattedString`0" priority="110" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:yoyyin.com.ViewDomain.MessageConverter">
+      <Item value="Convert`0" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:yoyyin.com.ViewDomain.QuestionConverter">
+      <Item value="Convert`0" priority="134" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:yoyyin.com.ViewDomain.QuestionView">
+      <Item value="DisplayName" priority="26" />
+      <Item value="Date" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Data.Objects.ObjectSet`1">
+      <Item value="Include`0" priority="133" />
+      <Item value="First`1" priority="54" />
+      <Item value="Select`0" priority="26" />
+      <Item value="DeleteObject`0" priority="26" />
+      <Item value="Where`0" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Object">
+      <Item value="ToString`0" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.UI.WebControls.Login">
+      <Item value="LoggedIn" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.HttpRequest">
+      <Item value="Url" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.HttpResponse">
+      <Item value="Redirect`0" priority="26" />
+      <Item value="Write`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:yoyyin.com.Lib.Post">
+      <Item value="Created" priority="27" />
+      <Item value="QuestionId" priority="27" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:yoyyin.com.Lib.YoyyinEntities1">
+      <Item value="DeleteObject`0" priority="80" />
+      <Item value="Question" priority="26" />
+      <Item value="Answer" priority="81" />
+      <Item value="SaveChanges`0" priority="53" />
+      <Item value="SniHead" priority="27" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:yoyyin.com.Lib.QuestionsHelper">
+      <Item value="DeleteQuestion`0" priority="26" />
+      <Item value="DeleteAllowed`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.KeyValuePair`2">
+      <Item value="Key" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:yoyyin.com.Lib.ISearchWordsProvider">
+      <Item value="GetWords`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Delegate">
+      <Item value="DynamicInvoke`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:yoyyin.com.Lib.CachedItemProvider`1">
+      <Item value="GetItem`0" priority="76" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:yoyyin.com.Lib.CompetencesSearchWordsProvider">
+      <Item value="GetWords`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Data.Objects.ObjectResult`1">
+      <Item value="ToList`1" priority="53" />
+      <Item value="AsQueryable`1" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.UI.HtmlControls.HtmlInputText">
+      <Item value="Attributes" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:yoyyin.com.Lib.UserHelper">
+      <Item value="GetAllUsers`0" priority="54" />
+      <Item value="GetAllUsersIncludingSni`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Web.Routing.RouteTable">
+      <Item value="Routes" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.Routing.RouteCollection">
+      <Item value="Contains`0" priority="26" />
+      <Item value="Add`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Environment">
+      <Item value="NewLine" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.HttpContext">
+      <Item value="Response" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.Script.Serialization.JavaScriptSerializer">
+      <Item value="Serialize`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:yoyyin.com.Lib.SearchWordsOrganizer">
+      <Item value="GetAllSearchWords`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:yoyyin.com.Lib.Matching.MultipleMatcher">
+      <Item value="MatchAll`0" priority="26" />
+      <Item value="GetSuccesFullMatches`0" priority="27" />
+      <Item value="GetStats`0" priority="54" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.UI.WebControls.ListView">
+      <Item value="DataSource" priority="26" />
+      <Item value="DataBind`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Data.Objects.ObjectQuery`1">
+      <Item value="Include`0" priority="53" />
+      <Item value="ToList`1" priority="26" />
+      <Item value="Execute`0" priority="26" />
+      <Item value="Select`0" priority="27" />
+      <Item value="Where`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:yoyyin.com.Lib.Matching.Matcher">
+      <Item value="SniHeadMatch" priority="26" />
+      <Item value="SniNoMatch" priority="26" />
+      <Item value="SearchWordsCompetenceMatch" priority="26" />
+      <Item value="GetMatchingUser`0" priority="164" />
+      <Item value="GetMatchCount`0" priority="54" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:yoyyin.com.Lib.Matching.MatchResult">
+      <Item value="IsMatch`0" priority="215" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:yoyyin.com.Lib.Matching.MultipleMatcherStats">
+      <Item value="ToString`0" priority="26" />
+      <Item value="GetStatsAsPercentage`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:yoyyin.com.ViewDomain.MultipleMatchConverter">
+      <Item value="Convert`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.UI.HtmlControls.HtmlAnchor">
+      <Item value="Visible" priority="27" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:yoyyin.com.ViewDomain.UserConverter">
+      <Item value="Convert`0" priority="22" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:yoyyin.com.UserControls.Users">
+      <Item value="SrcUsers" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Data.Objects.DataClasses.EntityCollection`1">
+      <Item value="First`1" priority="80" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:yoyyin.com.Lib.SniHelper">
+      <Item value="GetAllSniIncludingUsers`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Yoyyin.Domain.UserMessages">
+      <Item value="User1" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@Yoyyin.Web.Current">
+      <Item value="UserID" priority="107" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Yoyyin.Domain.Question">
+      <Item value="Title" priority="27" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Yoyyin.Domain.User">
+      <Item value="Image" priority="54" />
+      <Item value="SniHead" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Yoyyin.PresentationModel.UserConverter">
+      <Item value="Convert`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Yoyyin.Domain.SniHead">
+      <Item value="SniItem" priority="53" />
+      <Item value="Title" priority="26" />
+      <Item value="SniHeadID" priority="26" />
+      <Item value="User" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Linq.IGrouping`2">
+      <Item value="First`1" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Yoyyin.Domain.SniItem">
+      <Item value="Title" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Yoyyin.Web.UserControls.Users">
+      <Item value="SrcUsers" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Yoyyin.Domain.YoyyinEntities1">
+      <Item value="User" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Yoyyin.Data.YoyyinEntities1">
+      <Item value="User" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Yoyyin.Data.User">
+      <Item value="SniHeadID" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Yoyyin.Data.IUserRepository">
+      <Item value="GetUsersWithSniHeadOf`0" priority="27" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.IList`1">
+      <Item value="Where`1" priority="26" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <UnitTestRunner>
+    <Providers />
+  </UnitTestRunner>
+  <UnitTestRunnerNUnit>
+    <NUnitInstallDir IsNull="False">
+    </NUnitInstallDir>
+    <UseAddins>Never</UseAddins>
+  </UnitTestRunnerNUnit>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean>
+      <setting name="SolutionAnalysisEnabled">False</setting>
+    </boolean>
+  </SettingsComponent>
+  <UnitTestSessions>
+    <Session>
+      <Name>Session #1</Name>
+      <Elements>
+        <UnitTestElement Provider="nUnit" Id="Yoyyin.Tests.PresentationModel.UserConverterFixture" type="NUnitTestFixtureElement" Project="328BD772-959C-42EB-8C16-CBC1FF074968" />
+        <UnitTestElement Provider="nUnit" Id="Yoyyin.Tests.PresentationModel.UserConverterFixture.Convert_UserWithImage_ShouldStillHaveUserForPerformanceReasons" ParentId="Yoyyin.Tests.PresentationModel.UserConverterFixture" type="NUnitTestElement" TypeName="Yoyyin.Tests.PresentationModel.UserConverterFixture" MethodName="Convert_UserWithImage_ShouldStillHaveUserForPerformanceReasons" Project="328BD772-959C-42EB-8C16-CBC1FF074968" />
+      </Elements>
+    </Session>
+  </UnitTestSessions>
+</Configuration>

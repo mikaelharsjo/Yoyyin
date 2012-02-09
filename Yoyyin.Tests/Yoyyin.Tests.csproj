@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{328BD772-959C-42EB-8C16-CBC1FF074968}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Yoyyin.Tests</RootNamespace>
+    <AssemblyName>Yoyyin.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="nunit.framework">
+      <HintPath>..\yoyyin.com\packages\NUnit.2.5.10.11092\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Category\CategoryFixture.cs" />
+    <Compile Include="MatcherFixture.cs" />
+    <Compile Include="MultipleMatcherFixture.cs" />
+    <Compile Include="PresentationModel\UserConverterFixture.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QAFixture.cs" />
+    <Compile Include="Repositories\UserRepositoryFixture.cs" />
+    <Compile Include="SearchWordsTest.cs" />
+    <Compile Include="Services\FakeCurrentUser.cs" />
+    <Compile Include="Services\UserServiceFixture.cs" />
+    <Compile Include="StringExtensionTest.cs" />
+    <Compile Include="Repositories\TestUserRepository.cs" />
+    <Compile Include="ViewDomainTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Yoyyin.Data\Yoyyin.Data.csproj">
+      <Project>{CA00E16D-2B05-4B84-837B-32DFC2A3FF94}</Project>
+      <Name>Yoyyin.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Yoyyin.Domain\Yoyyin.Domain.csproj">
+      <Project>{E5C9F77D-AC81-4A90-937B-4F8BE8CA75DB}</Project>
+      <Name>Yoyyin.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Yoyyin.PresentationModel\Yoyyin.PresentationModel.csproj">
+      <Project>{CF5F540A-46AB-45B2-8CA1-46C3CDD11C17}</Project>
+      <Name>Yoyyin.PresentationModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="NewFolder1\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

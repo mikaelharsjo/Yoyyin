@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="YoyyinModelStoreContainer" CdmEntityContainer="YoyyinEntities1">
+    <EntitySetMapping Name="SniHead">
+      <EntityTypeMapping TypeName="YoyyinModel.SniHead">
+        <MappingFragment StoreEntitySet="SniHead">
+          <ScalarProperty Name="SniHeadID" ColumnName="SniHeadID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SniItem">
+      <EntityTypeMapping TypeName="YoyyinModel.SniItem">
+        <MappingFragment StoreEntitySet="SniItem">
+          <ScalarProperty Name="SniNo" ColumnName="SniNo" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="SniHeadID" ColumnName="SniHeadID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="YoyyinModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserMessages">
+      <EntityTypeMapping TypeName="YoyyinModel.UserMessages">
+        <MappingFragment StoreEntitySet="UserMessages">
+          <ScalarProperty Name="FromUserId" ColumnName="FromUserId" />
+          <ScalarProperty Name="ToUserId" ColumnName="ToUserId" />
+          <ScalarProperty Name="FromMessage" ColumnName="FromMessage" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="UserMessagesID" ColumnName="UserMessagesID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="usp_AutoComplete_Get" FunctionName="YoyyinModel.Store.usp_AutoComplete_Get" />
+    <EntitySetMapping Name="User">
+      <EntityTypeMapping TypeName="YoyyinModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="ShowOnMap" ColumnName="ShowOnMap" />
+          <ScalarProperty Name="ShowAddress" ColumnName="ShowAddress" />
+          <ScalarProperty Name="ShowEmail" ColumnName="ShowEmail" />
+          <ScalarProperty Name="DescBusinessman" ColumnName="DescBusinessman" />
+          <ScalarProperty Name="DescRetiring" ColumnName="DescRetiring" />
+          <ScalarProperty Name="DescFinancing" ColumnName="DescFinancing" />
+          <ScalarProperty Name="DescInvestor" ColumnName="DescInvestor" />
+          <ScalarProperty Name="DescInnovator" ColumnName="DescInnovator" />
+          <ScalarProperty Name="DescEntrepreneur" ColumnName="DescEntrepreneur" />
+          <ScalarProperty Name="Alias" ColumnName="Alias" />
+          <ScalarProperty Name="UserTypeDescription" ColumnName="UserTypeDescription" />
+          <ScalarProperty Name="UserTypesNeeded" ColumnName="UserTypesNeeded" />
+          <ScalarProperty Name="UserType" ColumnName="UserType" />
+          <ScalarProperty Name="SearchWordsCompetenceNeeded" ColumnName="SearchWordsCompetenceNeeded" />
+          <ScalarProperty Name="SearchWordsCompetence" ColumnName="SearchWordsCompetence" />
+          <ScalarProperty Name="ForumUserID" ColumnName="ForumUserID" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="FacebookID" ColumnName="FacebookID" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="SearchWords" ColumnName="SearchWords" />
+          <ScalarProperty Name="SniNo" ColumnName="SniNo" />
+          <ScalarProperty Name="SniHeadID" ColumnName="SniHeadID" />
+          <ScalarProperty Name="BusinessDescription" ColumnName="BusinessDescription" />
+          <ScalarProperty Name="BusinessTitle" ColumnName="BusinessTitle" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="CVFileName" ColumnName="CVFileName" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+          <ScalarProperty Name="Street" ColumnName="Street" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aspnet_Users">
+      <EntityTypeMapping TypeName="YoyyinModel.aspnet_Users">
+        <MappingFragment StoreEntitySet="aspnet_Users">
+          <ScalarProperty Name="LastActivityDate" ColumnName="LastActivityDate" />
+          <ScalarProperty Name="IsAnonymous" ColumnName="IsAnonymous" />
+          <ScalarProperty Name="MobileAlias" ColumnName="MobileAlias" />
+          <ScalarProperty Name="LoweredUserName" ColumnName="LoweredUserName" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserComments">
+      <EntityTypeMapping TypeName="YoyyinModel.UserComments">
+        <MappingFragment StoreEntitySet="UserComments">
+          <ScalarProperty Name="CommentCommentID" ColumnName="CommentCommentID" />
+          <ScalarProperty Name="CommentID" ColumnName="CommentID" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="CommentUserId" ColumnName="CommentUserId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserVisits">
+      <EntityTypeMapping TypeName="YoyyinModel.UserVisits">
+        <MappingFragment StoreEntitySet="UserVisits">
+          <ScalarProperty Name="UserVisitID" ColumnName="UserVisitID" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="VisitingUserId" ColumnName="VisitingUserId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="usp_User_GetPopular" FunctionName="YoyyinModel.Store.usp_User_GetPopular" />
+    <EntitySetMapping Name="UserBookmarks">
+      <EntityTypeMapping TypeName="YoyyinModel.UserBookmarks">
+        <MappingFragment StoreEntitySet="UserBookmarks">
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="BookmarkedUserID" ColumnName="BookmarkedUserID" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="usp_User_GetCount" FunctionName="YoyyinModel.Store.usp_User_GetCount" />
+    <EntitySetMapping Name="Answer">
+      <EntityTypeMapping TypeName="YoyyinModel.Answer">
+        <MappingFragment StoreEntitySet="Answer">
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="AnswerID" ColumnName="AnswerID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Question">
+      <EntityTypeMapping TypeName="YoyyinModel.Question">
+        <MappingFragment StoreEntitySet="Question">
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="OwnerUserId" ColumnName="OwnerUserId" />
+          <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="usp_SearchWords_GetAll" FunctionName="YoyyinModel.Store.usp_SearchWords_GetAll" />
+  </EntityContainerMapping>
+</Mapping>

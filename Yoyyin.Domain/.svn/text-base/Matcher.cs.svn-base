@@ -1,0 +1,154 @@
+using System;
+using System.Collections.Generic;
+using System.Text;
+using yoyyin.com.Lib.Extensions;
+
+namespace yoyyin.com.Lib
+{
+    public class Matcher
+    {
+        private readonly User _firstUser;
+        private readonly User _secondUser;
+
+        public MatchResult SniHeadMatch 
+        { 
+            get { return _matchResults[MatchType.SniHead]; }
+        }
+        public MatchResult SniNoMatch
+        {
+            get { return _matchResults[MatchType.SniItem]; }
+        }
+        public MatchResult SearchWordsMatchResult
+        {
+            get { return _matchResults[MatchType.SearchWords]; }
+        }
+        public MatchResult SearchWordsCompetenceMatch
+        {
+            get { return _matchResults[MatchType.SearchWordsCompetence]; }
+        }
+        public MatchResult UserTypeMatch
+        {
+            get { return _matchResults[MatchType.UserType]; }
+        }
+        
+        private Dictionary<MatchType, MatchResult> _matchResults;
+        private string _firstUserHtml;
+        private string _secondUserHtml;
+        private string _matchHtml;
+
+        public Matcher(User firstUser, User secondUser)
+        {
+            _secondUser = secondUser;
+            _firstUser = firstUser;
+
+            _matchResults = new Dictionary<MatchType, MatchResult>
+                                {
+                                    {MatchType.SniHead, CheckSniHead()},
+                                    {MatchType.SniItem, CheckSniNo()},
+                                    {
+                                        MatchType.SearchWords,
+                                        CheckSearchWords(_firstUser.SearchWords, _secondUser.SearchWords)
+                                        },
+                                    {
+                                        MatchType.SearchWordsCompetence,
+                                        CheckSearchWords(_firstUser.SearchWordsCompetenceNeeded,
+                                                         _secondUser.SearchWordsCompetence)
+                                        },
+                                    {
+                                        MatchType.UserType,
+                                        CheckUserType(_firstUser.UserTypesNeeded, _secondUser.UserType.ToString())
+                                        }
+                                };
+            SetHtml();
+        }
+
+        private MatchResult CheckSniHead()
+        {
+            if (string.IsNullOrEmpty(_firstUser.SniHeadID) || string.IsNullOrEmpty(_secondUser.SniHeadID))
+                return new MatchResult(false);
+
+            bool isMatch = _firstUser.SniHeadID == _secondUser.SniHeadID;
+            return new MatchResult(isMatch, _firstUser.SniHead.Title, _secondUser.SniHead.Title, _secondUser.SniHead.Title);
+        }
+
+        private MatchResult CheckSniNo()
+        {
+            if (string.IsNullOrEmpty(_firstUser.SniNo) || string.IsNullOrEmpty(_secondUser.SniNo))
+                return new MatchResult(false);
+
+            bool isMatch = _firstUser.SniNo == _secondUser.SniNo;
+            return new MatchResult(isMatch, _firstUser.SniItem.Title, _secondUser.SniItem.Title, _secondUser.SniItem.Title);
+        }
+
+        private MatchResult CheckUserType(string userTypesNeeded, string secondUserType)
+        {
+            if (userTypesNeeded == null || secondUserType == null)
+                return new MatchResult(false);
+
+            string allNeededUserTypesTitles = "";
+            var compareWithUserType = (UserTypes)Enum.Parse(typeof(UserTypes), secondUserType);
+            foreach (string userType in userTypesNeeded.Split(','))
+            {
+                var firstType = (UserTypes) Enum.Parse(typeof (UserTypes), userType);
+                allNeededUserTypesTitles += firstType.GetTitle();
+                if (firstType == compareWithUserType)
+                    return new MatchResult(true, firstType.GetTitle(), compareWithUserType.GetTitle(),
+                                           compareWithUserType.GetDescription());
+            }
+             
+            return new MatchResult(false, allNeededUserTypesTitles, compareWithUserType.GetTitle(), string.Empty);
+        }
+
+        private MatchResult CheckSearchWords(string firstWords, string secondWords)
+        {
+            if (firstWords == null || secondWords == null)
+                return new MatchResult(false);
+
+            foreach (var searchWord in firstWords.Split(','))
+            {
+                foreach (var searchWord2 in secondWords.Split(','))
+                {
+                    if (searchWord.ToLower().Contains(searchWord2.ToLower()))
+                        return new MatchResult(true, firstWords, secondWords, searchWord);
+                }
+            }
+
+            return new MatchResult(false);
+        }
+
+        public void SetHtml()
+        {
+            const string htmlStart = "<ul>";
+            const string htmlItem = "<li>{0}</li>";
+            const string htmlEnd = "</ul>";
+
+            var firstUserStringBuilder = new StringBuilder(); 
+            var secondUserStringBuilder = new StringBuilder();
+            
+            firstUserStringBuilder.Append(htmlStart);
+            secondUserStringBuilder.Append(htmlStart);
+
+            foreach (var matchResult in _matchResults.Values)
+            {
+                firstUserStringBuilder.Append(string.Format(htmlItem, matchResult.FirstValue));
+                secondUserStringBuilder.Append(string.Format(htmlItem, matchResult.SecondValue));
+            }
+
+            firstUserStringBuilder.Append(htmlEnd);
+            secondUserStringBuilder.Append(htmlEnd);
+
+            _firstUserHtml = firstUserStringBuilder.ToString();
+            _secondUserHtml = secondUserStringBuilder.ToString();
+        }
+
+        public string GetFirstUserResultsAsHtml()
+        {
+            return _firstUserHtml;
+        }
+
+        public string GetSecondUserResultsAsHtml()
+        {
+            return _secondUserHtml;
+        }
+    }
+}

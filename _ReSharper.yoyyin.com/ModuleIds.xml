@@ -1,0 +1,8 @@
+<Modules>
+  <Module PersistentId="CF24D980-7914-4E9B-A601-1C57EE29020E" ModuleId="yoyyin.com" />
+  <Module PersistentId="E5C9F77D-AC81-4A90-937B-4F8BE8CA75DB" ModuleId="yoyyin.com.Lib" />
+  <Module PersistentId="328BD772-959C-42EB-8C16-CBC1FF074968" ModuleId="yoyyin.com.Test" />
+  <Module PersistentId="CF5F540A-46AB-45B2-8CA1-46C3CDD11C17" ModuleId="Yoyyin.PresentationModel" />
+  <Module PersistentId="CA00E16D-2B05-4B84-837B-32DFC2A3FF94" ModuleId="Yoyyin.Data" />
+  <Module PersistentId="10034866-8E95-4793-8193-8C6378A4A131" ModuleId="Yoyyin.Services" />
+</Modules>

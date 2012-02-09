@@ -1,0 +1,39 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using yoyyin.com.Lib;
+
+namespace yoyyin.com.UserControls
+{
+    public partial class MatcherControl : System.Web.UI.UserControl
+    {
+        public string FirstUserId { get; set; }
+        public string SecondUserId { get; set; }
+        
+        private User _firstUser;
+        private User _secondUser;
+
+        private Matcher _matcher;
+        private EntityFactory _entityFactory;
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (FirstUserId == string.Empty || SecondUserId == string.Empty)
+                return;
+
+            _entityFactory = new EntityFactory();
+            _firstUser = _entityFactory.GetUser(FirstUserId);
+            _secondUser = _entityFactory.GetUser(SecondUserId);
+
+            _matcher = new Matcher(_firstUser, _secondUser);
+            firstUserImage.User = _firstUser;
+            secondUserImage.User = _secondUser;
+
+            litMatchResultFirst.Text = _matcher.GetFirstUserResultsAsHtml();
+            litMatchResultSecond.Text = _matcher.GetSecondUserResultsAsHtml();
+        }
+    }
+}

@@ -1,0 +1,1100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="YoyyinModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="YoyyinModelStoreContainer">
+          <EntitySet Name="Answer" EntityType="YoyyinModel.Store.Answer" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="aspnet_Users" EntityType="YoyyinModel.Store.aspnet_Users" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Question" EntityType="YoyyinModel.Store.Question" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SniHead" EntityType="YoyyinModel.Store.SniHead" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SniItem" EntityType="YoyyinModel.Store.SniItem" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="sysdiagrams" EntityType="YoyyinModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="User" EntityType="YoyyinModel.Store.User" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserBookmarks" EntityType="YoyyinModel.Store.UserBookmarks" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserComments" EntityType="YoyyinModel.Store.UserComments" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserMessages" EntityType="YoyyinModel.Store.UserMessages" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserVisits" EntityType="YoyyinModel.Store.UserVisits" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Answer_Question" Association="YoyyinModel.Store.FK_Answer_Question">
+            <End Role="Question" EntitySet="Question" />
+            <End Role="Answer" EntitySet="Answer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Answer_User" Association="YoyyinModel.Store.FK_Answer_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Answer" EntitySet="Answer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Question_User" Association="YoyyinModel.Store.FK_Question_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Question" EntitySet="Question" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SniItem_SniHead" Association="YoyyinModel.Store.FK_SniItem_SniHead">
+            <End Role="SniHead" EntitySet="SniHead" />
+            <End Role="SniItem" EntitySet="SniItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_aspnet_Users" Association="YoyyinModel.Store.FK_User_aspnet_Users">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_SniHead" Association="YoyyinModel.Store.FK_User_SniHead">
+            <End Role="SniHead" EntitySet="SniHead" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_SniItem" Association="YoyyinModel.Store.FK_User_SniItem">
+            <End Role="SniItem" EntitySet="SniItem" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserBookmarks_aspnet_Users" Association="YoyyinModel.Store.FK_UserBookmarks_aspnet_Users">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="UserBookmarks" EntitySet="UserBookmarks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserBookmarks_aspnet_Users1" Association="YoyyinModel.Store.FK_UserBookmarks_aspnet_Users1">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="UserBookmarks" EntitySet="UserBookmarks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserComments_User" Association="YoyyinModel.Store.FK_UserComments_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="UserComments" EntitySet="UserComments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserMessages_User" Association="YoyyinModel.Store.FK_UserMessages_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="UserMessages" EntitySet="UserMessages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserMessages_User1" Association="YoyyinModel.Store.FK_UserMessages_User1">
+            <End Role="User" EntitySet="User" />
+            <End Role="UserMessages" EntitySet="UserMessages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserVisits_aspnet_Users1" Association="YoyyinModel.Store.FK_UserVisits_aspnet_Users1">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="UserVisits" EntitySet="UserVisits" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Answer">
+          <Key>
+            <PropertyRef Name="AnswerID" />
+          </Key>
+          <Property Name="AnswerID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="QuestionID" Type="int" Nullable="false" />
+          <Property Name="Created" Type="datetime" Nullable="false" />
+          <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="aspnet_Users">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="LoweredUserName" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="MobileAlias" Type="nvarchar" MaxLength="16" />
+          <Property Name="IsAnonymous" Type="bit" Nullable="false" />
+          <Property Name="LastActivityDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Question">
+          <Key>
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="QuestionID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="OwnerUserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Category" Type="int" Nullable="false" />
+          <Property Name="Created" Type="datetime" Nullable="false" />
+          <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Title" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="SniHead">
+          <Key>
+            <PropertyRef Name="SniHeadID" />
+          </Key>
+          <Property Name="SniHeadID" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Title" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="SniItem">
+          <Key>
+            <PropertyRef Name="SniNo" />
+          </Key>
+          <Property Name="SniNo" Type="nvarchar" Nullable="false" MaxLength="5" />
+          <Property Name="Title" Type="nvarchar" MaxLength="500" />
+          <Property Name="SniHeadID" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CompanyName" Type="nvarchar" Nullable="false" MaxLength="200" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="200" />
+          <Property Name="Street" Type="nvarchar" Nullable="false" MaxLength="200" />
+          <Property Name="ZipCode" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="City" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="Phone" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Url" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="CVFileName" Type="nvarchar" MaxLength="100" />
+          <Property Name="Image" Type="image" />
+          <Property Name="BusinessTitle" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="BusinessDescription" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="SniHeadID" Type="nvarchar" MaxLength="50" />
+          <Property Name="SniNo" Type="nvarchar" MaxLength="5" />
+          <Property Name="Latitude" Type="float" />
+          <Property Name="Longitude" Type="float" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="FacebookID" Type="nvarchar" MaxLength="50" />
+          <Property Name="ForumUserID" Type="int" />
+          <Property Name="SearchWords" Type="nvarchar" MaxLength="300" />
+          <Property Name="SearchWordsCompetence" Type="nvarchar" MaxLength="300" />
+          <Property Name="SearchWordsCompetenceNeeded" Type="nvarchar" MaxLength="300" />
+          <Property Name="UserType" Type="int" />
+          <Property Name="UserTypesNeeded" Type="nvarchar" MaxLength="20" />
+          <Property Name="UserTypeDescription" Type="nvarchar" MaxLength="300" />
+          <Property Name="Alias" Type="nvarchar" MaxLength="300" />
+          <Property Name="DescEntrepreneur" Type="nvarchar" MaxLength="500" />
+          <Property Name="DescInnovator" Type="nvarchar" MaxLength="500" />
+          <Property Name="DescInvestor" Type="nvarchar" MaxLength="500" />
+          <Property Name="DescFinancing" Type="nvarchar" MaxLength="500" />
+          <Property Name="DescRetiring" Type="nvarchar" MaxLength="500" />
+          <Property Name="DescBusinessman" Type="nvarchar" MaxLength="500" />
+          <Property Name="ShowEmail" Type="bit" Nullable="false" />
+          <Property Name="ShowAddress" Type="bit" Nullable="false" />
+          <Property Name="ShowOnMap" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserBookmarks">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="BookmarkedUserID" />
+          </Key>
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="BookmarkedUserID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="TimeStamp" Type="datetime" />
+        </EntityType>
+        <EntityType Name="UserComments">
+          <Key>
+            <PropertyRef Name="CommentID" />
+          </Key>
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CommentUserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Text" Type="nvarchar" Nullable="false" MaxLength="1000" />
+          <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+          <Property Name="CommentID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CommentCommentID" Type="int" />
+        </EntityType>
+        <EntityType Name="UserMessages">
+          <Key>
+            <PropertyRef Name="UserMessagesID" />
+          </Key>
+          <Property Name="FromUserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ToUserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="FromMessage" Type="nvarchar" MaxLength="500" />
+          <Property Name="TimeStamp" Type="datetime" />
+          <Property Name="Subject" Type="nvarchar" MaxLength="100" />
+          <Property Name="UserMessagesID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="UserVisits">
+          <Key>
+            <PropertyRef Name="UserVisitID" />
+          </Key>
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="VisitingUserId" Type="uniqueidentifier" />
+          <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+          <Property Name="UserVisitID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <Association Name="FK_Answer_Question">
+          <End Role="Question" Type="YoyyinModel.Store.Question" Multiplicity="1" />
+          <End Role="Answer" Type="YoyyinModel.Store.Answer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Question">
+              <PropertyRef Name="QuestionID" />
+            </Principal>
+            <Dependent Role="Answer">
+              <PropertyRef Name="QuestionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Answer_User">
+          <End Role="User" Type="YoyyinModel.Store.User" Multiplicity="1" />
+          <End Role="Answer" Type="YoyyinModel.Store.Answer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Answer">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Question_User">
+          <End Role="User" Type="YoyyinModel.Store.User" Multiplicity="1" />
+          <End Role="Question" Type="YoyyinModel.Store.Question" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Question">
+              <PropertyRef Name="OwnerUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SniItem_SniHead">
+          <End Role="SniHead" Type="YoyyinModel.Store.SniHead" Multiplicity="0..1" />
+          <End Role="SniItem" Type="YoyyinModel.Store.SniItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SniHead">
+              <PropertyRef Name="SniHeadID" />
+            </Principal>
+            <Dependent Role="SniItem">
+              <PropertyRef Name="SniHeadID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_aspnet_Users">
+          <End Role="aspnet_Users" Type="YoyyinModel.Store.aspnet_Users" Multiplicity="1" />
+          <End Role="User" Type="YoyyinModel.Store.User" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_SniHead">
+          <End Role="SniHead" Type="YoyyinModel.Store.SniHead" Multiplicity="0..1" />
+          <End Role="User" Type="YoyyinModel.Store.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SniHead">
+              <PropertyRef Name="SniHeadID" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="SniHeadID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_SniItem">
+          <End Role="SniItem" Type="YoyyinModel.Store.SniItem" Multiplicity="0..1" />
+          <End Role="User" Type="YoyyinModel.Store.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SniItem">
+              <PropertyRef Name="SniNo" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="SniNo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserBookmarks_aspnet_Users">
+          <End Role="aspnet_Users" Type="YoyyinModel.Store.aspnet_Users" Multiplicity="1" />
+          <End Role="UserBookmarks" Type="YoyyinModel.Store.UserBookmarks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="UserBookmarks">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserBookmarks_aspnet_Users1">
+          <End Role="aspnet_Users" Type="YoyyinModel.Store.aspnet_Users" Multiplicity="1" />
+          <End Role="UserBookmarks" Type="YoyyinModel.Store.UserBookmarks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="UserBookmarks">
+              <PropertyRef Name="BookmarkedUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserComments_User">
+          <End Role="User" Type="YoyyinModel.Store.User" Multiplicity="1" />
+          <End Role="UserComments" Type="YoyyinModel.Store.UserComments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="UserComments">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserMessages_User">
+          <End Role="User" Type="YoyyinModel.Store.User" Multiplicity="1" />
+          <End Role="UserMessages" Type="YoyyinModel.Store.UserMessages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="UserMessages">
+              <PropertyRef Name="FromUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserMessages_User1">
+          <End Role="User" Type="YoyyinModel.Store.User" Multiplicity="1" />
+          <End Role="UserMessages" Type="YoyyinModel.Store.UserMessages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="UserMessages">
+              <PropertyRef Name="ToUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserVisits_aspnet_Users1">
+          <End Role="aspnet_Users" Type="YoyyinModel.Store.aspnet_Users" Multiplicity="0..1" />
+          <End Role="UserVisits" Type="YoyyinModel.Store.UserVisits" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="UserVisits">
+              <PropertyRef Name="VisitingUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="usp_AutoComplete_Get" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_SearchWords_GetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_User_GetCount" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_User_GetPopular" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="YoyyinModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="YoyyinEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="SniHead" EntityType="YoyyinModel.SniHead" />
+          <EntitySet Name="SniItem" EntityType="YoyyinModel.SniItem" />
+          <EntitySet Name="sysdiagrams" EntityType="YoyyinModel.sysdiagrams" />
+          <EntitySet Name="UserMessages" EntityType="YoyyinModel.UserMessages" />
+          <AssociationSet Name="FK_SniItem_SniHead" Association="YoyyinModel.FK_SniItem_SniHead">
+            <End Role="SniHead" EntitySet="SniHead" />
+            <End Role="SniItem" EntitySet="SniItem" />
+          </AssociationSet>
+          <FunctionImport Name="usp_AutoComplete_Get" ReturnType="Collection(String)">
+          </FunctionImport>
+          <EntitySet Name="User" EntityType="YoyyinModel.User" />
+          <AssociationSet Name="FK_User_SniHead" Association="YoyyinModel.FK_User_SniHead">
+            <End Role="SniHead" EntitySet="SniHead" />
+            <End Role="User" EntitySet="User" /></AssociationSet>
+          <AssociationSet Name="FK_User_SniItem" Association="YoyyinModel.FK_User_SniItem">
+            <End Role="SniItem" EntitySet="SniItem" />
+            <End Role="User" EntitySet="User" /></AssociationSet>
+          <EntitySet Name="aspnet_Users" EntityType="YoyyinModel.aspnet_Users" />
+          <AssociationSet Name="FK_User_aspnet_Users" Association="YoyyinModel.FK_User_aspnet_Users">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="User" EntitySet="User" /></AssociationSet>
+          <AssociationSet Name="FK_UserMessages_aspnet_Users" Association="YoyyinModel.FK_UserMessages_aspnet_Users">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="UserMessages" EntitySet="UserMessages" /></AssociationSet>
+          <AssociationSet Name="FK_UserMessages_aspnet_Users1" Association="YoyyinModel.FK_UserMessages_aspnet_Users1">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="UserMessages" EntitySet="UserMessages" /></AssociationSet>
+          <EntitySet Name="UserComments" EntityType="YoyyinModel.UserComments" />
+          <AssociationSet Name="FK_UserComments_aspnet_Users" Association="YoyyinModel.FK_UserComments_aspnet_Users">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="UserComments" EntitySet="UserComments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserComments_aspnet_Users1" Association="YoyyinModel.FK_UserComments_aspnet_Users1">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="UserComments" EntitySet="UserComments" />
+          </AssociationSet>
+          <EntitySet Name="UserVisits" EntityType="YoyyinModel.UserVisits" />
+          <AssociationSet Name="FK_UserVisits_aspnet_Users1" Association="YoyyinModel.FK_UserVisits_aspnet_Users1">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="UserVisits" EntitySet="UserVisits" />
+          </AssociationSet>
+          <FunctionImport Name="usp_User_GetPopular" ReturnType="Collection(Guid)">
+          </FunctionImport>
+          <FunctionImport Name="usp_YAF_GetCategoriesAndForums" ReturnType="Collection(YoyyinModel.usp_YAF_GetCategoriesAndForums_Result)">
+          <Parameter Name="BoardID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="UserBookmarks" EntityType="YoyyinModel.UserBookmarks" />
+          <AssociationSet Name="FK_UserBookmarks_aspnet_Users" Association="YoyyinModel.FK_UserBookmarks_aspnet_Users">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="UserBookmarks" EntitySet="UserBookmarks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserBookmarks_aspnet_Users1" Association="YoyyinModel.FK_UserBookmarks_aspnet_Users1">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="UserBookmarks" EntitySet="UserBookmarks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserComments_UserComments" Association="YoyyinModel.FK_UserComments_UserComments">
+            <End Role="UserComments" EntitySet="UserComments" />
+            <End Role="UserComments1" EntitySet="UserComments" />
+          </AssociationSet>
+          <FunctionImport Name="usp_User_GetCount" ReturnType="Collection(Int32)" />
+          <EntitySet Name="Answer" EntityType="YoyyinModel.Answer" />
+          <EntitySet Name="Question" EntityType="YoyyinModel.Question" />
+          <AssociationSet Name="FK_Answer_Question" Association="YoyyinModel.FK_Answer_Question">
+            <End Role="Question" EntitySet="Question" />
+            <End Role="Answer" EntitySet="Answer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Answer_User" Association="YoyyinModel.FK_Answer_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Answer" EntitySet="Answer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Question_User" Association="YoyyinModel.FK_Question_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Question" EntitySet="Question" />
+          </AssociationSet>
+          <FunctionImport Name="usp_SearchWords_GetAll" ReturnType="Collection(String)" />
+          <AssociationSet Name="FK_UserComments_User" Association="YoyyinModel.FK_UserComments_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="UserComments" EntitySet="UserComments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserMessages_User" Association="YoyyinModel.FK_UserMessages_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="UserMessages" EntitySet="UserMessages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserMessages_User1" Association="YoyyinModel.FK_UserMessages_User1">
+            <End Role="User" EntitySet="User" />
+            <End Role="UserMessages" EntitySet="UserMessages" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="SniHead">
+          <Key>
+            <PropertyRef Name="SniHeadID" />
+          </Key>
+          <Property Name="SniHeadID" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Title" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="SniItem" Relationship="YoyyinModel.FK_SniItem_SniHead" FromRole="SniHead" ToRole="SniItem" />
+          <NavigationProperty Name="User" Relationship="YoyyinModel.FK_User_SniHead" FromRole="SniHead" ToRole="User" />
+        </EntityType>
+        <EntityType Name="SniItem">
+          <Key>
+            <PropertyRef Name="SniNo" />
+          </Key>
+          <Property Name="SniNo" Type="String" Nullable="false" MaxLength="5" Unicode="true" FixedLength="false" />
+          <Property Name="Title" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="SniHeadID" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="SniHead" Relationship="YoyyinModel.FK_SniItem_SniHead" FromRole="SniItem" ToRole="SniHead" />
+          <NavigationProperty Name="User" Relationship="YoyyinModel.FK_User_SniItem" FromRole="SniItem" ToRole="User" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="UserMessages">
+          <Key>
+            <PropertyRef Name="UserMessagesID" />
+          </Key>
+          <Property Name="FromUserId" Type="Guid" Nullable="false" />
+          <Property Name="ToUserId" Type="Guid" Nullable="false" />
+          <Property Name="FromMessage" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="TimeStamp" Type="DateTime" />
+          <Property Name="Subject" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="UserMessagesID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="aspnet_Users" Relationship="YoyyinModel.FK_UserMessages_aspnet_Users" FromRole="UserMessages" ToRole="aspnet_Users" />
+          <NavigationProperty Name="aspnet_Users1" Relationship="YoyyinModel.FK_UserMessages_aspnet_Users1" FromRole="UserMessages" ToRole="aspnet_Users" />
+          <NavigationProperty Name="User" Relationship="YoyyinModel.FK_UserMessages_User" FromRole="UserMessages" ToRole="User" />
+          <NavigationProperty Name="User1" Relationship="YoyyinModel.FK_UserMessages_User1" FromRole="UserMessages" ToRole="User" />
+        </EntityType>
+        <Association Name="FK_SniItem_SniHead">
+          <End Role="SniHead" Type="YoyyinModel.SniHead" Multiplicity="0..1" />
+          <End Role="SniItem" Type="YoyyinModel.SniItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SniHead">
+              <PropertyRef Name="SniHeadID" />
+            </Principal>
+            <Dependent Role="SniItem">
+              <PropertyRef Name="SniHeadID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" /></Key>
+          <Property Type="Guid" Name="UserId" Nullable="false" />
+          <Property Type="String" Name="CompanyName" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Street" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ZipCode" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="City" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Phone" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Url" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CVFileName" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Binary" Name="Image" MaxLength="Max" FixedLength="false" />
+          <Property Type="String" Name="BusinessTitle" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" DefaultValue="" />
+          <Property Type="String" Name="BusinessDescription" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" DefaultValue="" />
+          <Property Type="String" Name="SniHeadID" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SniNo" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SearchWords" MaxLength="300" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="SniHead" Relationship="YoyyinModel.FK_User_SniHead" FromRole="User" ToRole="SniHead" />
+          <NavigationProperty Name="SniItem" Relationship="YoyyinModel.FK_User_SniItem" FromRole="User" ToRole="SniItem" />
+          <Property Type="Double" Name="Latitude" />
+          <Property Type="Double" Name="Longitude" />
+          <NavigationProperty Name="aspnet_Users" Relationship="YoyyinModel.FK_User_aspnet_Users" FromRole="User" ToRole="aspnet_Users" />
+          <Property Type="String" Name="FacebookID" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="Active" />
+          <Property Type="Int32" Name="ForumUserID" />
+          <Property Type="String" Name="SearchWordsCompetence" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SearchWordsCompetenceNeeded" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="UserType" />
+          <Property Type="String" Name="UserTypesNeeded" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="UserTypeDescription" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Alias" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DescEntrepreneur" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DescInnovator" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DescInvestor" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DescFinancing" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DescRetiring" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DescBusinessman" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="ShowEmail" Nullable="false" />
+          <Property Type="Boolean" Name="ShowAddress" Nullable="false" />
+          <Property Type="Boolean" Name="ShowOnMap" Nullable="false" />
+          <NavigationProperty Name="Answer" Relationship="YoyyinModel.FK_Answer_User" FromRole="User" ToRole="Answer" />
+          <NavigationProperty Name="Question" Relationship="YoyyinModel.FK_Question_User" FromRole="User" ToRole="Question" />
+          <NavigationProperty Name="UserComments" Relationship="YoyyinModel.FK_UserComments_User" FromRole="User" ToRole="UserComments" />
+          <NavigationProperty Name="UserMessages" Relationship="YoyyinModel.FK_UserMessages_User" FromRole="User" ToRole="UserMessages" />
+          <NavigationProperty Name="UserMessages1" Relationship="YoyyinModel.FK_UserMessages_User1" FromRole="User" ToRole="UserMessages" /></EntityType>
+        <Association Name="FK_User_SniHead">
+          <End Type="YoyyinModel.SniHead" Role="SniHead" Multiplicity="0..1" />
+          <End Type="YoyyinModel.User" Role="User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SniHead">
+              <PropertyRef Name="SniHeadID" /></Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="SniHeadID" /></Dependent></ReferentialConstraint></Association>
+        <Association Name="FK_User_SniItem">
+          <End Type="YoyyinModel.SniItem" Role="SniItem" Multiplicity="0..1" />
+          <End Type="YoyyinModel.User" Role="User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SniItem">
+              <PropertyRef Name="SniNo" /></Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="SniNo" /></Dependent></ReferentialConstraint></Association>
+        <EntityType Name="aspnet_Users">
+          <Key>
+            <PropertyRef Name="UserId" /></Key>
+          <Property Type="Guid" Name="ApplicationId" Nullable="false" />
+          <Property Type="Guid" Name="UserId" Nullable="false" />
+          <Property Type="String" Name="UserName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LoweredUserName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MobileAlias" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsAnonymous" Nullable="false" />
+          <Property Type="DateTime" Name="LastActivityDate" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="YoyyinModel.FK_User_aspnet_Users" FromRole="aspnet_Users" ToRole="User" />
+          <NavigationProperty Name="UserMessages" Relationship="YoyyinModel.FK_UserMessages_aspnet_Users" FromRole="aspnet_Users" ToRole="UserMessages" />
+          <NavigationProperty Name="UserMessages1" Relationship="YoyyinModel.FK_UserMessages_aspnet_Users1" FromRole="aspnet_Users" ToRole="UserMessages" />
+          <NavigationProperty Name="UserComments" Relationship="YoyyinModel.FK_UserComments_aspnet_Users" FromRole="aspnet_Users" ToRole="UserComments" />
+          <NavigationProperty Name="UserComments1" Relationship="YoyyinModel.FK_UserComments_aspnet_Users1" FromRole="aspnet_Users" ToRole="UserComments" />
+          <NavigationProperty Name="UserVisits" Relationship="YoyyinModel.FK_UserVisits_aspnet_Users1" FromRole="aspnet_Users" ToRole="UserVisits" />
+          <NavigationProperty Name="UserBookmarks" Relationship="YoyyinModel.FK_UserBookmarks_aspnet_Users" FromRole="aspnet_Users" ToRole="UserBookmarks" />
+          <NavigationProperty Name="UserBookmarks1" Relationship="YoyyinModel.FK_UserBookmarks_aspnet_Users1" FromRole="aspnet_Users" ToRole="UserBookmarks" />
+          </EntityType>
+        <Association Name="FK_User_aspnet_Users">
+          <End Type="YoyyinModel.aspnet_Users" Role="aspnet_Users" Multiplicity="1" />
+          <End Type="YoyyinModel.User" Role="User" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" /></Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="UserId" /></Dependent></ReferentialConstraint></Association>
+        <Association Name="FK_UserMessages_aspnet_Users">
+          <End Type="YoyyinModel.aspnet_Users" Role="aspnet_Users" Multiplicity="1" />
+          <End Type="YoyyinModel.UserMessages" Role="UserMessages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" /></Principal>
+            <Dependent Role="UserMessages">
+              <PropertyRef Name="FromUserId" /></Dependent></ReferentialConstraint></Association>
+        <Association Name="FK_UserMessages_aspnet_Users1">
+          <End Type="YoyyinModel.aspnet_Users" Role="aspnet_Users" Multiplicity="1" />
+          <End Type="YoyyinModel.UserMessages" Role="UserMessages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" /></Principal>
+            <Dependent Role="UserMessages">
+              <PropertyRef Name="ToUserId" /></Dependent></ReferentialConstraint></Association>
+        <EntityType Name="UserComments">
+          <Key>
+            <PropertyRef Name="CommentID" />
+          </Key>
+          <Property Type="Guid" Name="UserId" Nullable="false" />
+          <Property Type="Guid" Name="CommentUserId" Nullable="false" />
+          <Property Type="String" Name="Text" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="TimeStamp" Nullable="false" />
+          <Property Type="Int32" Name="CommentID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="aspnet_Users" Relationship="YoyyinModel.FK_UserComments_aspnet_Users" FromRole="UserComments" ToRole="aspnet_Users" />
+          <NavigationProperty Name="aspnet_Users1" Relationship="YoyyinModel.FK_UserComments_aspnet_Users1" FromRole="UserComments" ToRole="aspnet_Users" />
+          <Property Type="Int32" Name="CommentCommentID" />
+          <NavigationProperty Name="UserComments1" Relationship="YoyyinModel.FK_UserComments_UserComments" FromRole="UserComments" ToRole="UserComments1" />
+          <NavigationProperty Name="UserComments2" Relationship="YoyyinModel.FK_UserComments_UserComments" FromRole="UserComments1" ToRole="UserComments" />
+          <NavigationProperty Name="User" Relationship="YoyyinModel.FK_UserComments_User" FromRole="UserComments" ToRole="User" />
+        </EntityType>
+        <Association Name="FK_UserComments_aspnet_Users">
+          <End Type="YoyyinModel.aspnet_Users" Role="aspnet_Users" Multiplicity="1" />
+          <End Type="YoyyinModel.UserComments" Role="UserComments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="UserComments">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserComments_aspnet_Users1">
+          <End Type="YoyyinModel.aspnet_Users" Role="aspnet_Users" Multiplicity="1" />
+          <End Type="YoyyinModel.UserComments" Role="UserComments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="UserComments">
+              <PropertyRef Name="CommentUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="UserVisits">
+          <Key>
+            <PropertyRef Name="UserVisitID" />
+          </Key>
+          <Property Type="Guid" Name="UserId" Nullable="false" />
+          <Property Type="Guid" Name="VisitingUserId" />
+          <Property Type="DateTime" Name="TimeStamp" Nullable="false" />
+          <Property Type="Int32" Name="UserVisitID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="aspnet_Users" Relationship="YoyyinModel.FK_UserVisits_aspnet_Users1" FromRole="UserVisits" ToRole="aspnet_Users" />
+        </EntityType>
+        <Association Name="FK_UserVisits_aspnet_Users1">
+          <End Type="YoyyinModel.aspnet_Users" Role="aspnet_Users" Multiplicity="0..1" />
+          <End Type="YoyyinModel.UserVisits" Role="UserVisits" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="UserVisits">
+              <PropertyRef Name="VisitingUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="usp_YAF_GetCategoriesAndForums_Result">
+          <Property Type="Int32" Name="ForumID" Nullable="false" />
+          <Property Type="Int32" Name="CategoryID" Nullable="false" />
+          <Property Type="String" Name="ForumName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Description" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="CategoryName" Nullable="false" MaxLength="128" />
+        </ComplexType>
+        <EntityType Name="UserBookmarks">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="BookmarkedUserID" />
+          </Key>
+          <Property Type="Guid" Name="UserId" Nullable="false" />
+          <Property Type="Guid" Name="BookmarkedUserID" Nullable="false" />
+          <Property Type="DateTime" Name="TimeStamp" />
+          <NavigationProperty Name="aspnet_Users" Relationship="YoyyinModel.FK_UserBookmarks_aspnet_Users" FromRole="UserBookmarks" ToRole="aspnet_Users" />
+          <NavigationProperty Name="aspnet_Users1" Relationship="YoyyinModel.FK_UserBookmarks_aspnet_Users1" FromRole="UserBookmarks" ToRole="aspnet_Users" />
+        </EntityType>
+        <Association Name="FK_UserBookmarks_aspnet_Users">
+          <End Type="YoyyinModel.aspnet_Users" Role="aspnet_Users" Multiplicity="1" />
+          <End Type="YoyyinModel.UserBookmarks" Role="UserBookmarks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="UserBookmarks">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserBookmarks_aspnet_Users1">
+          <End Type="YoyyinModel.aspnet_Users" Role="aspnet_Users" Multiplicity="1" />
+          <End Type="YoyyinModel.UserBookmarks" Role="UserBookmarks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="UserBookmarks">
+              <PropertyRef Name="BookmarkedUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserComments_UserComments">
+          <End Type="YoyyinModel.UserComments" Role="UserComments" Multiplicity="0..1" />
+          <End Type="YoyyinModel.UserComments" Role="UserComments1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserComments">
+              <PropertyRef Name="CommentID" />
+            </Principal>
+            <Dependent Role="UserComments1">
+              <PropertyRef Name="CommentCommentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Answer">
+          <Key>
+            <PropertyRef Name="AnswerID" />
+          </Key>
+          <Property Type="Int32" Name="AnswerID" Nullable="false" />
+          <Property Type="Guid" Name="UserId" Nullable="false" />
+          <Property Type="Int32" Name="QuestionID" Nullable="false" />
+          <Property Type="DateTime" Name="Created" Nullable="false" />
+          <Property Type="String" Name="Text" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Question" Relationship="YoyyinModel.FK_Answer_Question" FromRole="Answer" ToRole="Question" />
+          <NavigationProperty Name="User" Relationship="YoyyinModel.FK_Answer_User" FromRole="Answer" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Question">
+          <Key>
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Type="Int32" Name="QuestionID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Guid" Name="OwnerUserId" Nullable="false" />
+          <Property Type="Int32" Name="Category" Nullable="false" />
+          <Property Type="DateTime" Name="Created" Nullable="false" />
+          <Property Type="String" Name="Text" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Answer" Relationship="YoyyinModel.FK_Answer_Question" FromRole="Question" ToRole="Answer" />
+          <NavigationProperty Name="User" Relationship="YoyyinModel.FK_Question_User" FromRole="Question" ToRole="User" />
+          <Property Type="String" Name="Title" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_Answer_Question">
+          <End Type="YoyyinModel.Question" Role="Question" Multiplicity="1" />
+          <End Type="YoyyinModel.Answer" Role="Answer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Question">
+              <PropertyRef Name="QuestionID" />
+            </Principal>
+            <Dependent Role="Answer">
+              <PropertyRef Name="QuestionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Answer_User">
+          <End Type="YoyyinModel.User" Role="User" Multiplicity="1" />
+          <End Type="YoyyinModel.Answer" Role="Answer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Answer">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Question_User">
+          <End Type="YoyyinModel.User" Role="User" Multiplicity="1" />
+          <End Type="YoyyinModel.Question" Role="Question" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Question">
+              <PropertyRef Name="OwnerUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserComments_User">
+          <End Type="YoyyinModel.User" Role="User" Multiplicity="1" />
+          <End Type="YoyyinModel.UserComments" Role="UserComments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="UserComments">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserMessages_User">
+          <End Type="YoyyinModel.User" Role="User" Multiplicity="1" />
+          <End Type="YoyyinModel.UserMessages" Role="UserMessages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="UserMessages">
+              <PropertyRef Name="FromUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserMessages_User1">
+          <End Type="YoyyinModel.User" Role="User" Multiplicity="1" />
+          <End Type="YoyyinModel.UserMessages" Role="UserMessages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="UserMessages">
+              <PropertyRef Name="ToUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="YoyyinModelStoreContainer" CdmEntityContainer="YoyyinEntities1">
+          <EntitySetMapping Name="SniHead"><EntityTypeMapping TypeName="YoyyinModel.SniHead"><MappingFragment StoreEntitySet="SniHead">
+            <ScalarProperty Name="SniHeadID" ColumnName="SniHeadID" />
+            <ScalarProperty Name="Title" ColumnName="Title" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="SniItem"><EntityTypeMapping TypeName="YoyyinModel.SniItem"><MappingFragment StoreEntitySet="SniItem">
+            <ScalarProperty Name="SniNo" ColumnName="SniNo" />
+            <ScalarProperty Name="Title" ColumnName="Title" />
+            <ScalarProperty Name="SniHeadID" ColumnName="SniHeadID" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams"><EntityTypeMapping TypeName="YoyyinModel.sysdiagrams"><MappingFragment StoreEntitySet="sysdiagrams">
+            <ScalarProperty Name="name" ColumnName="name" />
+            <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+            <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+            <ScalarProperty Name="version" ColumnName="version" />
+            <ScalarProperty Name="definition" ColumnName="definition" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="UserMessages"><EntityTypeMapping TypeName="YoyyinModel.UserMessages"><MappingFragment StoreEntitySet="UserMessages">
+            <ScalarProperty Name="FromUserId" ColumnName="FromUserId" />
+            <ScalarProperty Name="ToUserId" ColumnName="ToUserId" />
+            <ScalarProperty Name="FromMessage" ColumnName="FromMessage" />
+            <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+            <ScalarProperty Name="Subject" ColumnName="Subject" />
+            <ScalarProperty Name="UserMessagesID" ColumnName="UserMessagesID" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="usp_AutoComplete_Get" FunctionName="YoyyinModel.Store.usp_AutoComplete_Get" />
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="YoyyinModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="ShowOnMap" ColumnName="ShowOnMap" />
+                <ScalarProperty Name="ShowAddress" ColumnName="ShowAddress" />
+                <ScalarProperty Name="ShowEmail" ColumnName="ShowEmail" />
+                <ScalarProperty Name="DescBusinessman" ColumnName="DescBusinessman" />
+                <ScalarProperty Name="DescRetiring" ColumnName="DescRetiring" />
+                <ScalarProperty Name="DescFinancing" ColumnName="DescFinancing" />
+                <ScalarProperty Name="DescInvestor" ColumnName="DescInvestor" />
+                <ScalarProperty Name="DescInnovator" ColumnName="DescInnovator" />
+                <ScalarProperty Name="DescEntrepreneur" ColumnName="DescEntrepreneur" />
+                <ScalarProperty Name="Alias" ColumnName="Alias" />
+                <ScalarProperty Name="UserTypeDescription" ColumnName="UserTypeDescription" />
+                <ScalarProperty Name="UserTypesNeeded" ColumnName="UserTypesNeeded" />
+                <ScalarProperty Name="UserType" ColumnName="UserType" />
+                <ScalarProperty Name="SearchWordsCompetenceNeeded" ColumnName="SearchWordsCompetenceNeeded" />
+                <ScalarProperty Name="SearchWordsCompetence" ColumnName="SearchWordsCompetence" />
+                <ScalarProperty Name="ForumUserID" ColumnName="ForumUserID" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="FacebookID" ColumnName="FacebookID" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="SearchWords" ColumnName="SearchWords" />
+                <ScalarProperty Name="SniNo" ColumnName="SniNo" />
+                <ScalarProperty Name="SniHeadID" ColumnName="SniHeadID" />
+                <ScalarProperty Name="BusinessDescription" ColumnName="BusinessDescription" />
+                <ScalarProperty Name="BusinessTitle" ColumnName="BusinessTitle" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="CVFileName" ColumnName="CVFileName" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="Street" ColumnName="Street" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="aspnet_Users">
+            <EntityTypeMapping TypeName="YoyyinModel.aspnet_Users">
+              <MappingFragment StoreEntitySet="aspnet_Users">
+                <ScalarProperty Name="LastActivityDate" ColumnName="LastActivityDate" />
+                <ScalarProperty Name="IsAnonymous" ColumnName="IsAnonymous" />
+                <ScalarProperty Name="MobileAlias" ColumnName="MobileAlias" />
+                <ScalarProperty Name="LoweredUserName" ColumnName="LoweredUserName" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="UserComments">
+            <EntityTypeMapping TypeName="YoyyinModel.UserComments">
+              <MappingFragment StoreEntitySet="UserComments">
+                <ScalarProperty Name="CommentCommentID" ColumnName="CommentCommentID" />
+                <ScalarProperty Name="CommentID" ColumnName="CommentID" />
+                <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="CommentUserId" ColumnName="CommentUserId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserVisits">
+            <EntityTypeMapping TypeName="YoyyinModel.UserVisits">
+              <MappingFragment StoreEntitySet="UserVisits">
+                <ScalarProperty Name="UserVisitID" ColumnName="UserVisitID" />
+                <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+                <ScalarProperty Name="VisitingUserId" ColumnName="VisitingUserId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="usp_User_GetPopular" FunctionName="YoyyinModel.Store.usp_User_GetPopular" />
+          <EntitySetMapping Name="UserBookmarks">
+            <EntityTypeMapping TypeName="YoyyinModel.UserBookmarks">
+              <MappingFragment StoreEntitySet="UserBookmarks">
+                <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+                <ScalarProperty Name="BookmarkedUserID" ColumnName="BookmarkedUserID" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="usp_User_GetCount" FunctionName="YoyyinModel.Store.usp_User_GetCount" />
+          <EntitySetMapping Name="Answer">
+            <EntityTypeMapping TypeName="YoyyinModel.Answer">
+              <MappingFragment StoreEntitySet="Answer">
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="AnswerID" ColumnName="AnswerID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Question">
+            <EntityTypeMapping TypeName="YoyyinModel.Question">
+              <MappingFragment StoreEntitySet="Question">
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="OwnerUserId" ColumnName="OwnerUserId" />
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="usp_SearchWords_GetAll" FunctionName="YoyyinModel.Store.usp_SearchWords_GetAll" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Model" ZoomLevel="70">
+        <EntityTypeShape EntityType="YoyyinModel.SniHead" Width="1.5" PointX="0.625" PointY="4" Height="1.5923063151041665" IsExpanded="true" />
+        <EntityTypeShape EntityType="YoyyinModel.SniItem" Width="1.5" PointX="0.5" PointY="1" Height="1.9802864583333339" IsExpanded="true" />
+        <EntityTypeShape EntityType="YoyyinModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="5.75" Height="0.4" IsExpanded="false" />
+        <EntityTypeShape EntityType="YoyyinModel.UserMessages" Width="1.5" PointX="2.75" PointY="5.125" Height="2.2496956380208335" IsExpanded="true" />
+        <AssociationConnector Association="YoyyinModel.FK_SniItem_SniHead" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.3125" PointY="4" />
+          <ConnectorPoint PointX="1.3125" PointY="2.9802864583333339" />
+          </AssociationConnector>
+        <EntityTypeShape EntityType="YoyyinModel.User" Width="1.5" PointX="5.25" PointY="1.125" Height="6.8514208984375" />
+        <AssociationConnector Association="YoyyinModel.FK_User_SniHead" >
+          <ConnectorPoint PointX="2.125" PointY="4.9519780045572919" />
+          <ConnectorPoint PointX="3.4166666666666665" PointY="4.951978004557291" />
+          <ConnectorPoint PointX="3.5833333333333335" PointY="4.9519780045572919" />
+          <ConnectorPoint PointX="3.8229191666666664" PointY="4.951978004557291" />
+          <ConnectorPoint PointX="3.9895858333333334" PointY="4.9519780045572919" />
+          <ConnectorPoint PointX="5.25" PointY="4.9519780045572919" />
+          </AssociationConnector>
+        <AssociationConnector Association="YoyyinModel.FK_User_SniItem" >
+          <ConnectorPoint PointX="2" PointY="2.0526432291666667" />
+          <ConnectorPoint PointX="3.1627588541666665" PointY="2.0526432291666663" />
+          <ConnectorPoint PointX="3.3294255208333334" PointY="2.0526432291666667" />
+          <ConnectorPoint PointX="3.6959652604166666" PointY="2.0526432291666663" />
+          <ConnectorPoint PointX="3.8626319270833336" PointY="2.0526432291666667" />
+          <ConnectorPoint PointX="5.25" PointY="2.0526432291666667" />
+          </AssociationConnector>
+        <EntityTypeShape EntityType="YoyyinModel.aspnet_Users" Width="1.5" PointX="7.375" PointY="0.5" Height="3.9033007812499996" />
+        <AssociationConnector Association="YoyyinModel.FK_User_aspnet_Users" >
+          <ConnectorPoint PointX="7.375" PointY="2.7641503906250002" />
+          <ConnectorPoint PointX="6.75" PointY="2.7641503906250002" />
+          </AssociationConnector>
+        <AssociationConnector Association="YoyyinModel.FK_UserMessages_aspnet_Users" >
+          <ConnectorPoint PointX="7.375" PointY="0.6738265624999995" />
+          <ConnectorPoint PointX="3.2460921875" PointY="0.6738265624999995" />
+          <ConnectorPoint PointX="3.2460921875" PointY="5.125" />
+          </AssociationConnector>
+        <AssociationConnector Association="YoyyinModel.FK_UserMessages_aspnet_Users1" >
+          <ConnectorPoint PointX="7.375" PointY="0.89941578125000055" />
+          <ConnectorPoint PointX="3.77929859375" PointY="0.89941578125000055" />
+          <ConnectorPoint PointX="3.77929859375" PointY="5.125" />
+          </AssociationConnector>
+        <EntityTypeShape EntityType="YoyyinModel.UserComments" Width="1.5" PointX="10" PointY="2.5" Height="2.085348307291667" />
+        <AssociationConnector Association="YoyyinModel.FK_UserComments_aspnet_Users" >
+          <ConnectorPoint PointX="8.875" PointY="3.7208129882812497" />
+          <ConnectorPoint PointX="10" PointY="3.7208129882812497" />
+        </AssociationConnector>
+        <AssociationConnector Association="YoyyinModel.FK_UserComments_aspnet_Users1" >
+          <ConnectorPoint PointX="8.875" PointY="3.0479064941406246" />
+          <ConnectorPoint PointX="10" PointY="3.0479064941406246" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="YoyyinModel.UserVisits" Width="1.5" PointX="12" PointY="1.5" Height="1.7566536458333317" />
+        <AssociationConnector Association="YoyyinModel.FK_UserVisits_aspnet_Users1" >
+          <ConnectorPoint PointX="8.875" PointY="1.96875" />
+          <ConnectorPoint PointX="12" PointY="1.96875" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="YoyyinModel.UserBookmarks" Width="1.5" PointX="10" PointY="5.75" Height="1.7566536458333335" />
+        <AssociationConnector Association="YoyyinModel.FK_UserBookmarks_aspnet_Users" >
+          <ConnectorPoint PointX="7.40625" PointY="4.40330078125" />
+          <ConnectorPoint PointX="7.40625" PointY="6.7091557115669085" />
+          <ConnectorPoint PointX="10" PointY="6.7091557115669085" />
+        </AssociationConnector>
+        <AssociationConnector Association="YoyyinModel.FK_UserBookmarks_aspnet_Users1" >
+          <ConnectorPoint PointX="7.421875" PointY="4.40330078125" />
+          <ConnectorPoint PointX="7.421875" PointY="6.25856486602536" />
+          <ConnectorPoint PointX="10" PointY="6.25856486602536" />
+        </AssociationConnector>
+        <AssociationConnector Association="YoyyinModel.FK_UserComments_UserComments" >
+          <ConnectorPoint PointX="10.531923076923077" PointY="5.6340950520833326" />
+          <ConnectorPoint PointX="10.531923076923077" PointY="5.8840950520833317" />
+          <ConnectorPoint PointX="10.978461538461538" PointY="5.8840950520833317" />
+          <ConnectorPoint PointX="10.978461538461538" PointY="5.6340950520833326" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="YoyyinModel.Answer" Width="1.5" PointX="12.75" PointY="5.25" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="YoyyinModel.Question" Width="1.5" PointX="7.5" PointY="7.375" Height="2.3648893229166674" />
+        <AssociationConnector Association="YoyyinModel.FK_Answer_Question" >
+          <ConnectorPoint PointX="9" PointY="8.766337890625" />
+          <ConnectorPoint PointX="13.010414166666665" PointY="8.766337890625" />
+          <ConnectorPoint PointX="13.177080833333333" PointY="8.766337890625" />
+          <ConnectorPoint PointX="13.5" PointY="8.766337890625" />
+          <ConnectorPoint PointX="13.5" PointY="7.6148893229166674" />
+        </AssociationConnector>
+        <AssociationConnector Association="YoyyinModel.FK_Answer_User" >
+          <ConnectorPoint PointX="6.75" PointY="10.107565104166666" />
+          <ConnectorPoint PointX="13.0937475" PointY="10.107565104166666" />
+          <ConnectorPoint PointX="13.0937475" PointY="7.6148893229166674" />
+        </AssociationConnector>
+        <AssociationConnector Association="YoyyinModel.FK_Question_User" >
+          <ConnectorPoint PointX="6.75" PointY="8.5574446614583337" />
+          <ConnectorPoint PointX="7.5" PointY="8.5574446614583337" />
+        </AssociationConnector>
+        <AssociationConnector Association="YoyyinModel.FK_UserComments_User" >
+          <ConnectorPoint PointX="6.75" PointY="5.0499479166666656" />
+          <ConnectorPoint PointX="7.322916666666667" PointY="5.0499479166666648" />
+          <ConnectorPoint PointX="7.505208333333333" PointY="5.0499479166666656" />
+          <ConnectorPoint PointX="10" PointY="5.0499479166666656" />
+        </AssociationConnector>
+        <AssociationConnector Association="YoyyinModel.FK_UserMessages_User" >
+          <ConnectorPoint PointX="5.25" PointY="6.5958968098958337" />
+          <ConnectorPoint PointX="4.25" PointY="6.5958968098958337" />
+        </AssociationConnector>
+        <AssociationConnector Association="YoyyinModel.FK_UserMessages_User1" >
+          <ConnectorPoint PointX="5.25" PointY="5.7979484049479169" />
+          <ConnectorPoint PointX="4.25" PointY="5.7979484049479169" />
+        </AssociationConnector>
+        </Diagram></Diagrams>
+  </Designer>
+</edmx:Edmx>

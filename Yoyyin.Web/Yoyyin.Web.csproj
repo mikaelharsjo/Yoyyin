@@ -225,6 +225,7 @@
     <Compile Include="About.aspx.designer.cs">
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Configuration\CurrentUser.cs" />
     <Compile Include="Handlers\CompetencesAutoCompleteHandler.ashx.cs">
       <DependentUpon>CompetencesAutoCompleteHandler.ashx</DependentUpon>
     </Compile>
@@ -456,6 +457,9 @@
     </Compile>
     <Compile Include="UserControls\SearchResult.ascx.designer.cs">
       <DependentUpon>SearchResult.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserControlWithDependenciesInjected.cs">
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="UserControls\Users.ascx.cs">
       <DependentUpon>Users.ascx</DependentUpon>

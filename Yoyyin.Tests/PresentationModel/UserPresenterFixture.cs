@@ -8,6 +8,8 @@ using NUnit.Framework;
 using Yoyyin.Domain;
 using Yoyyin.Domain.Services;
 using Yoyyin.PresentationModel;
+using Yoyyin.Tests.Repositories;
+using Yoyyin.Tests.Services;
 
 namespace Yoyyin.Tests.PresentationModel
 {
@@ -19,7 +21,7 @@ namespace Yoyyin.Tests.PresentationModel
         [SetUp]
         public void Setup()
         {
-            _userPresenter = new UserPresenter(new UserService(new TestUserRepository()) );
+            _userPresenter = new UserPresenter(new UserService(new TestUserRepository(), new FakeCurrentUser()) );
         }
 
         [Test]

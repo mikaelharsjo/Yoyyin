@@ -7,13 +7,6 @@ using Yoyyin.Domain.Services;
 
 namespace Yoyyin.PresentationModel
 {
-    public interface IUserPresenter
-    {
-        UserPresentation Presentate(IUser user);
-        IEnumerable<UserPresentation> Presentate(IEnumerable<Guid> userGuids);
-        IEnumerable<UserPresentation> Presentate(IEnumerable<IUser> users);
-    }
-
     public class UserPresenter : IUserPresenter
     {
         private readonly IUserService _userService;

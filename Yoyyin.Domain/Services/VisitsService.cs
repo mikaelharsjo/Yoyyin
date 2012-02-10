@@ -27,7 +27,7 @@ namespace Yoyyin.Domain.Services
 
         public Visit CreateVisit(UserVisits visits)
         {
-            return new Visit { VisitingUser = visits.VisitingUserId != null ?  _userService.GetUser((Guid)visits.VisitingUserId) : new AnonymousVisitor()};
+            return new Visit { VisitingUser = visits.VisitingUserId != null ?  _userService.GetUser((Guid)visits.VisitingUserId) : new AnonymousUser()};
         }
 
         public void LogMemberVisit(Guid visitingUserID, Guid userID)
@@ -65,14 +65,5 @@ namespace Yoyyin.Domain.Services
             visit.TimeStamp = DateTime.Now;
             _repository.Save();
         }
-    }
-
-    public class AnonymousVisitor : User
-    {
-    }
-
-    public class Visit
-    {
-        public IUser VisitingUser { get; set; }
     }
 }

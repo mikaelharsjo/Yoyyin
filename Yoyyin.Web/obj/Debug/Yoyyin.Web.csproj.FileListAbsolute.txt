@@ -38,3 +38,18 @@ C:\Users\miha.STAFF\Documents\Visual Studio 2010\Projects\Web apps\Yoyyin\Yoyyin
 C:\Users\miha.STAFF\Documents\Visual Studio 2010\Projects\Web apps\Yoyyin\Yoyyin.Web\bin\Autofac.dll
 C:\Users\miha.STAFF\Documents\Visual Studio 2010\Projects\Web apps\Yoyyin\Yoyyin.Web\bin\Autofac.Integration.Web.dll
 C:\Users\miha.STAFF\Documents\Visual Studio 2010\Projects\Web apps\Yoyyin\Yoyyin.Web\bin\Autofac.xml
+C:\Users\miha.STAFF\Yoyyin\Yoyyin.Web\bin\Yoyyin.Web.dll
+C:\Users\miha.STAFF\Yoyyin\Yoyyin.Web\bin\Yoyyin.Web.pdb
+C:\Users\miha.STAFF\Yoyyin\Yoyyin.Web\bin\Autofac.Configuration.dll
+C:\Users\miha.STAFF\Yoyyin\Yoyyin.Web\bin\Autofac.dll
+C:\Users\miha.STAFF\Yoyyin\Yoyyin.Web\bin\Autofac.Integration.Web.dll
+C:\Users\miha.STAFF\Yoyyin\Yoyyin.Web\bin\Yoyyin.Data.dll
+C:\Users\miha.STAFF\Yoyyin\Yoyyin.Web\bin\Yoyyin.Domain.dll
+C:\Users\miha.STAFF\Yoyyin\Yoyyin.Web\bin\Yoyyin.PresentationModel.dll
+C:\Users\miha.STAFF\Yoyyin\Yoyyin.Web\bin\Yoyyin.Data.pdb
+C:\Users\miha.STAFF\Yoyyin\Yoyyin.Web\bin\Yoyyin.Domain.pdb
+C:\Users\miha.STAFF\Yoyyin\Yoyyin.Web\bin\Yoyyin.PresentationModel.pdb
+C:\Users\miha.STAFF\Yoyyin\Yoyyin.Web\bin\Autofac.xml
+C:\Users\miha.STAFF\Yoyyin\Yoyyin.Web\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\miha.STAFF\Yoyyin\Yoyyin.Web\obj\Debug\Yoyyin.Web.dll
+C:\Users\miha.STAFF\Yoyyin\Yoyyin.Web\obj\Debug\Yoyyin.Web.pdb

@@ -8,6 +8,7 @@ using Yoyyin.Data;
 using Yoyyin.Domain;
 using Yoyyin.Domain.Services;
 using Yoyyin.PresentationModel;
+using Yoyyin.Web.Configuration;
 using Yoyyin.Web.Helpers;
 using User = Yoyyin.Domain.User;
 
@@ -17,17 +18,24 @@ namespace Yoyyin.Web
     {
         void Application_Start(object sender, EventArgs e)
         {
-            var routeHelper = new RouteHelper(new CachedItemProvider<IEnumerable<IUser>>(), new UserService());
-            routeHelper.AddRoutes();
-
             // Build up your application container and register your dependencies.
             var builder = new ContainerBuilder();
 
+            // repositories
             builder.RegisterType<YoyyinEntities1>();
             builder.RegisterType<EntityQARepository>().As<IQARepository>();
             builder.RegisterType<EntitySniHeadRepository>().As<ISniHeadRepository>();
+            builder.RegisterType<EntityUserRepository>().As<IUserRepository>();
 
+            // factories
+            builder.RegisterType<CategoryFactory>();
+
+            // site configuration
+            builder.RegisterType<CurrentUser>().As<ICurrentUser>();
+
+            // services
             builder.RegisterType<UserService>().As<IUserService>();
+            //builder.Register<UserService>(c => c.Resolve<>()).As<IUserService>();
             builder.RegisterType<QAService>().As<IQAService>();
             builder.RegisterType<SniHeadService>().As<ISniHeadService>();
                 
@@ -38,7 +46,12 @@ namespace Yoyyin.Web
 
             // Once you're done registering things, set the container
             // provider up with your registrations.
-            _containerProvider = new ContainerProvider(builder.Build());
+            var container = builder.Build();
+            _containerProvider = new ContainerProvider(container);
+
+            var routeHelper = new RouteHelper(new CachedItemProvider<IEnumerable<IUser>>(),
+                                              container.Resolve<IUserService>());
+            routeHelper.AddRoutes();
         }
 
         void Application_End(object sender, EventArgs e)

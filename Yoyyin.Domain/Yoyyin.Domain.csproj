@@ -47,9 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AbstractCategory.cs" />
     <Compile Include="Answer.cs" />
+    <Compile Include="BusinessIdeasCategory.cs" />
     <Compile Include="CachedItemProvider.cs" />
-    <Compile Include="Category.cs" />
+    <Compile Include="CategoryFactory.cs" />
+    <Compile Include="CategoryType.cs" />
     <Compile Include="Enumerations\MatchType.cs" />
     <Compile Include="Enumerations\UserTypes.cs" />
     <Compile Include="Extensions\DateTimeExtensions.cs">
@@ -61,14 +64,25 @@
     <Compile Include="Extensions\StringExtensions.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="FriendlyCategory.cs" />
+    <Compile Include="ICategory.cs" />
+    <Compile Include="ICurrentUser.cs" />
+    <Compile Include="IUser.cs" />
+    <Compile Include="Matching\IMultipleMatcher.cs" />
     <Compile Include="Matching\MultipleMatcher.cs" />
     <Compile Include="Matching\MultipleMatcherStats.cs" />
     <Compile Include="Message.cs" />
+    <Compile Include="MiscCategory.cs" />
+    <Compile Include="NullUser.cs" />
     <Compile Include="Question.cs" />
     <Compile Include="SearchWords\CompetencesSearchWordsProvider.cs" />
     <Compile Include="EnumHelper.cs" />
     <Compile Include="SearchWords\ISearchWordsProvider.cs" />
+    <Compile Include="SearchWords\IWordsProvider.cs" />
     <Compile Include="SearchWords\ProfileSearchWordsProvider.cs" />
+    <Compile Include="SearchWords\WordsProvider.cs" />
+    <Compile Include="Services\AnonymousUser.cs" />
+    <Compile Include="Services\Bookmark.cs" />
     <Compile Include="Services\BookmarksService.cs" />
     <Compile Include="Services\CommentsService.cs" />
     <Compile Include="Services\IBookmarksService.cs" />
@@ -84,8 +98,10 @@
     <Compile Include="Services\SniHeadService.cs" />
     <Compile Include="Services\SniItemService.cs" />
     <Compile Include="Services\UserService.cs" />
+    <Compile Include="Services\Visit.cs" />
     <Compile Include="Services\VisitsService.cs" />
     <Compile Include="SniHead.cs" />
+    <Compile Include="SniHeadWithUser.cs" />
     <Compile Include="SniItem.cs" />
     <Compile Include="ThirdParty\FacebookAuthentication.cs" />
     <Compile Include="ThirdParty\GeoResponse.cs" />

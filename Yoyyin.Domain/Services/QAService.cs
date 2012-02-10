@@ -11,9 +11,9 @@ namespace Yoyyin.Domain.Services
         private readonly IUserService _userService;
         private readonly CategoryFactory _categoryFactory;
 
-        // Poor mans Ioc Container
-        public QAService() : this(new EntityQARepository(new YoyyinEntities1()), new UserService(new EntityUserRepository()), new CategoryFactory() ){
-        }
+        //// Poor mans Ioc Container
+        //public QAService() : this(new EntityQARepository(new YoyyinEntities1()), new UserService(new EntityUserRepository()), new CategoryFactory() ){
+        //}
 
         // Dependency Injection enabled constructor
         public QAService(IQARepository repository, IUserService userService, CategoryFactory categoryFactory)

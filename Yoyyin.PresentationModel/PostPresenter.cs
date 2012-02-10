@@ -5,12 +5,6 @@ using Yoyyin.Domain.Extensions;
 
 namespace Yoyyin.PresentationModel
 {
-    public interface IPostPresenter
-    {
-        IPresentation Presentate(Post post);
-        IEnumerable<IPresentation> Presentate(IEnumerable<Post> posts);
-    }
-
     public class PostPresenter : IPresenter<Post>, IPostPresenter
     {
         public IPresentation Presentate(Post post)

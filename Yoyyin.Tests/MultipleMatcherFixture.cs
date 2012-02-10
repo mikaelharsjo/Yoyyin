@@ -5,6 +5,8 @@ using Yoyyin.Domain;
 using Yoyyin.Domain.Enumerations;
 using Yoyyin.Domain.Matching;
 using Yoyyin.Domain.Services;
+using Yoyyin.Tests.Repositories;
+using Yoyyin.Tests.Services;
 
 namespace Yoyyin.Tests
 {
@@ -16,7 +18,8 @@ namespace Yoyyin.Tests
         public void MatchAll_TwoUsers_ShouldMatchOnSni()
         {
             var multipleMatcher = new MultipleMatcher(new User() {SniNo = "A"},
-                                                                  new List<User> {new User() {SniNo = "A"}}, new UserService(new TestUserRepository()));
+                                                      new List<User> {new User {SniNo = "A"}},
+                                                      new UserService(new TestUserRepository(), new FakeCurrentUser()));
 
             var matchers = multipleMatcher.MatchAll();
             Assert.That(matchers.First().SniNoMatch.IsMatch(), Is.EqualTo(true));
@@ -50,7 +53,7 @@ namespace Yoyyin.Tests
                                                               new User {Name = "MatchesSniNoAndUserType", SniNo = "A", UserType = (int)UserTypes.Entrepreneur},
                                                               new User {Name = "NoMatch", SniNo = "B"}
                                                           },
-                                                      new UserService(new TestUserRepository()));
+                                                      new UserService(new TestUserRepository(), new FakeCurrentUser()));
             return multipleMatcher;
         }
 

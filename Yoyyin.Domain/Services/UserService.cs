@@ -11,15 +11,10 @@ namespace Yoyyin.Domain.Services
         private readonly ICurrentUser _currentUser;
 
         // avoid this, instead inject repository
-        public UserService()
-        {
-            _userRepository = new EntityUserRepository(new YoyyinEntities1());
-        }
-
-        public UserService(IUserRepository userRepository)
-        {
-            _userRepository = userRepository;
-        }
+        //public UserService()
+        //{
+        //    _userRepository = new EntityUserRepository(new YoyyinEntities1());
+        //}
 
         public UserService(IUserRepository userRepository, ICurrentUser currentUser)
         {
@@ -196,7 +191,7 @@ namespace Yoyyin.Domain.Services
 
         public IUser GetCurrentUser()
         {
-            return GetUser(_currentUser.UserId);
+            return _currentUser.UserId != Guid.Empty ? GetUser(_currentUser.UserId) : new AnonymousUser();
         }
 
         public void RemoveImage(IUser user)

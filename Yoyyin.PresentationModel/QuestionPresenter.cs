@@ -7,22 +7,6 @@ using Yoyyin.Domain.Services;
 
 namespace Yoyyin.PresentationModel
 {
-    public abstract class GenericPresenter<T> : IPresenter<T>
-    {
-        public abstract IPresentation Presentate(T shouldBeConverted);
-
-        public IEnumerable<IPresentation> Presentate(IEnumerable<T> shouldBeConverted)
-        {
-            return shouldBeConverted.Select(Presentate);
-        }
-    }
-
-    public interface IQuestionPresenter
-    {
-        IPresentation Presentate(Question question);
-        IEnumerable<IPresentation> Presentate(IEnumerable<Question> shouldBeConverted);
-    }
-
     public class QuestionPresenter : IQuestionPresenter
     {
         private readonly IQAService _qaService;

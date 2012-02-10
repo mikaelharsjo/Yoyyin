@@ -12,10 +12,4 @@ namespace Yoyyin.PresentationModel
         public int UserMessagesID { get; set; }
         public Guid FromUserId { get; set; }
     }
-
-    public class CommentView
-    {
-        public string Heading { get; set; }
-        public string Text { get; set; }
-    }
 }

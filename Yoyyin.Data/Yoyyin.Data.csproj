@@ -56,7 +56,10 @@
     <Compile Include="IEntityQARepository.cs" />
     <Compile Include="IEntitySniHeadRepository.cs" />
     <Compile Include="IEntityWordsRepository.cs" />
+    <Compile Include="IQARepository.cs" />
     <Compile Include="IRepository.cs" />
+    <Compile Include="ISniHeadRepository.cs" />
+    <Compile Include="IUserRepository.cs" />
     <Compile Include="MatchType.cs" />
     <Compile Include="Model.Designer.cs">
       <DependentUpon>Model.edmx</DependentUpon>

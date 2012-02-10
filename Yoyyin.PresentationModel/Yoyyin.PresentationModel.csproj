@@ -44,19 +44,26 @@
     <Compile Include="AnswerPresenter.cs" />
     <Compile Include="AnswerPresentation.cs" />
     <Compile Include="CommentConverter.cs" />
+    <Compile Include="CommentView.cs" />
+    <Compile Include="GenericPresenter.cs" />
+    <Compile Include="IAnswerPresenter.cs" />
+    <Compile Include="IPostPresenter.cs" />
     <Compile Include="IPresenter.cs" />
     <Compile Include="IQuestionAnswer.cs" />
     <Compile Include="IPresentation.cs" />
+    <Compile Include="IQuestionPresenter.cs" />
+    <Compile Include="IUserPresenter.cs" />
     <Compile Include="MessageConverter.cs" />
     <Compile Include="MessageView.cs" />
     <Compile Include="MultipleMatchPresentation.cs" />
+    <Compile Include="MultipleMatchPresenter.cs" />
     <Compile Include="PostPresenter.cs" />
     <Compile Include="PostPresentation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuestionPresenter.cs" />
     <Compile Include="QuestionPresentation.cs" />
     <Compile Include="UserPresenter.cs" />
-    <Compile Include="UserView.cs" />
+    <Compile Include="UserPresentation.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Yoyyin.Domain\Yoyyin.Domain.csproj">

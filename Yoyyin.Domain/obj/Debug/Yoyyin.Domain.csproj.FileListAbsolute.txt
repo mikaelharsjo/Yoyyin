@@ -26,3 +26,11 @@ C:\Users\miha.STAFF\Documents\Visual Studio 2010\Projects\Web apps\Yoyyin\Yoyyin
 C:\Users\miha.STAFF\Documents\Visual Studio 2010\Projects\Web apps\Yoyyin\Yoyyin.Domain\obj\Debug\Yoyyin.Domain.pdb
 C:\Users\miha.STAFF\Documents\Visual Studio 2010\Projects\Web apps\Yoyyin\Yoyyin.Domain\bin\Debug\Yoyyin.Data.dll
 C:\Users\miha.STAFF\Documents\Visual Studio 2010\Projects\Web apps\Yoyyin\Yoyyin.Domain\bin\Debug\Yoyyin.Data.pdb
+C:\Users\miha.STAFF\Yoyyin\Yoyyin.Domain\bin\Debug\Yoyyin.Domain.dll.config
+C:\Users\miha.STAFF\Yoyyin\Yoyyin.Domain\bin\Debug\Yoyyin.Domain.dll
+C:\Users\miha.STAFF\Yoyyin\Yoyyin.Domain\bin\Debug\Yoyyin.Domain.pdb
+C:\Users\miha.STAFF\Yoyyin\Yoyyin.Domain\bin\Debug\Yoyyin.Data.dll
+C:\Users\miha.STAFF\Yoyyin\Yoyyin.Domain\bin\Debug\Yoyyin.Data.pdb
+C:\Users\miha.STAFF\Yoyyin\Yoyyin.Domain\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\miha.STAFF\Yoyyin\Yoyyin.Domain\obj\Debug\Yoyyin.Domain.dll
+C:\Users\miha.STAFF\Yoyyin\Yoyyin.Domain\obj\Debug\Yoyyin.Domain.pdb

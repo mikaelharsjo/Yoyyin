@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Yoyyin.Data;
 
-namespace Yoyyin.Tests
+namespace Yoyyin.Tests.Repositories
 {
     public class TestUserRepository : IUserRepository
     {

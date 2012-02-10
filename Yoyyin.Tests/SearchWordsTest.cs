@@ -70,12 +70,4 @@ namespace Yoyyin.Tests
             
         }
     }
-
-    public class FakeWordsProvider : IWordsProvider
-    {
-        public IEnumerable<string> Find()
-        {
-            throw new System.NotImplementedException();
-        }
-    }
 }

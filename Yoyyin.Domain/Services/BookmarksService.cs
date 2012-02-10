@@ -59,11 +59,4 @@ namespace Yoyyin.Domain.Services
             _repository.Save();
         }
     }
-
-    public class Bookmark  
-    {
-        public IUser BookmarkedUser { get; set; }
-
-        public IUser Owner { get; set; }
-    }
 }

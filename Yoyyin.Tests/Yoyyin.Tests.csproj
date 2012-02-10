@@ -52,17 +52,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Category\CategoryFixture.cs" />
+    <Compile Include="Category\CategoryShould.cs" />
+    <Compile Include="Category\TestQARepository.cs" />
+    <Compile Include="Category\TestQAService.cs" />
+    <Compile Include="FakeWordsProvider.cs" />
     <Compile Include="MatcherFixture.cs" />
     <Compile Include="MultipleMatcherFixture.cs" />
-    <Compile Include="PresentationModel\UserConverterFixture.cs" />
+    <Compile Include="PresentationModel\UserPresenterFixture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QAFixture.cs" />
-    <Compile Include="Repositories\UserRepositoryFixture.cs" />
+    <Compile Include="Repositories\Fixture.cs" />
     <Compile Include="SearchWordsTest.cs" />
     <Compile Include="Services\FakeCurrentUser.cs" />
     <Compile Include="Services\UserServiceFixture.cs" />
-    <Compile Include="StringExtensionTest.cs" />
+    <Compile Include="StringExtensionsTest.cs" />
     <Compile Include="Repositories\TestUserRepository.cs" />
     <Compile Include="ViewDomainTest.cs" />
   </ItemGroup>

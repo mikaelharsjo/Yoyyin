@@ -6,7 +6,7 @@ using Yoyyin.Web.Helpers;
 
 namespace Yoyyin.Web.UserControls
 {
-    public partial class UserImage : System.Web.UI.UserControl
+    public partial class UserImage : UserControlWithDependenciesInjected
     {
         public Guid UserID { get; set; }
         public IUser User { get; set; }

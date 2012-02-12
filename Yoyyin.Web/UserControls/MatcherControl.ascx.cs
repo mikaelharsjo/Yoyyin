@@ -2,6 +2,7 @@
 using Yoyyin.Domain;
 using Yoyyin.Domain.Matching;
 using Yoyyin.Domain.Services;
+using Yoyyin.Domain.Users;
 
 namespace Yoyyin.Web.UserControls
 {

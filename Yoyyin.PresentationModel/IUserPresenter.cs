@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Yoyyin.Domain;
+using Yoyyin.Domain.Users;
 
 namespace Yoyyin.PresentationModel
 {

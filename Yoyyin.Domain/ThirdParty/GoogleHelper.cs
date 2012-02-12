@@ -1,4 +1,5 @@
 ﻿using Yoyyin.Data;
+using Yoyyin.Domain.Users;
 
 namespace Yoyyin.Domain.ThirdParty
 {

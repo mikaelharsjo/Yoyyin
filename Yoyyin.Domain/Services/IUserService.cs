@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Yoyyin.Domain.Users;
 
 namespace Yoyyin.Domain.Services
 {

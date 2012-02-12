@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Yoyyin.Domain.Users;
 
 namespace Yoyyin.Domain
 {

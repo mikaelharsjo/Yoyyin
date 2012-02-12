@@ -7,6 +7,7 @@ using Yoyyin.Domain;
 using Yoyyin.Domain.Extensions;
 using Yoyyin.Domain.QA;
 using Yoyyin.Domain.Services;
+using Yoyyin.Domain.Users;
 using Yoyyin.Web.Helpers;
 
 namespace Yoyyin.Web

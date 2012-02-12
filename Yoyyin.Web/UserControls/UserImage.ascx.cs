@@ -2,6 +2,7 @@
 using Yoyyin.Domain;
 using Microsoft.Web;
 using Yoyyin.Domain.Services;
+using Yoyyin.Domain.Users;
 using Yoyyin.Web.Helpers;
 
 namespace Yoyyin.Web.UserControls

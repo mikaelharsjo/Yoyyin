@@ -1,9 +1,9 @@
-﻿using System;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using Yoyyin.Domain;
 using Yoyyin.Domain.Enumerations;
 using Yoyyin.Domain.Extensions;
 using Yoyyin.Domain.Matching;
+using Yoyyin.Domain.Users;
 
 namespace Yoyyin.Tests
 {

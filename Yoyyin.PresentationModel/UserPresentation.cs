@@ -1,5 +1,5 @@
 using System;
-using Yoyyin.Domain;
+using Yoyyin.Domain.Users;
 
 namespace Yoyyin.PresentationModel
 {

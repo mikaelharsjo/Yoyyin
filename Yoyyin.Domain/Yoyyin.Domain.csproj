@@ -66,14 +66,14 @@
     </Compile>
     <Compile Include="QA\FriendlyCategory.cs" />
     <Compile Include="QA\ICategory.cs" />
-    <Compile Include="ICurrentUser.cs" />
-    <Compile Include="IUser.cs" />
+    <Compile Include="Users\ICurrentUser.cs" />
+    <Compile Include="Users\IUser.cs" />
     <Compile Include="Matching\IMultipleMatcher.cs" />
     <Compile Include="Matching\MultipleMatcher.cs" />
     <Compile Include="Matching\MultipleMatcherStats.cs" />
     <Compile Include="Message.cs" />
     <Compile Include="QA\MiscCategory.cs" />
-    <Compile Include="NullUser.cs" />
+    <Compile Include="Users\NullUser.cs" />
     <Compile Include="QA\Question.cs" />
     <Compile Include="SearchWords\CompetencesSearchWordsProvider.cs" />
     <Compile Include="EnumHelper.cs" />
@@ -81,8 +81,8 @@
     <Compile Include="SearchWords\IWordsProvider.cs" />
     <Compile Include="SearchWords\ProfileSearchWordsProvider.cs" />
     <Compile Include="SearchWords\WordsProvider.cs" />
-    <Compile Include="Services\AnonymousUser.cs" />
-    <Compile Include="Services\Bookmark.cs" />
+    <Compile Include="Users\AnonymousUser.cs" />
+    <Compile Include="Bookmark.cs" />
     <Compile Include="Services\BookmarksService.cs" />
     <Compile Include="Services\CommentsService.cs" />
     <Compile Include="Services\IBookmarksService.cs" />
@@ -98,7 +98,7 @@
     <Compile Include="Services\SniHeadService.cs" />
     <Compile Include="Services\SniItemService.cs" />
     <Compile Include="Services\UserService.cs" />
-    <Compile Include="Services\Visit.cs" />
+    <Compile Include="Visit.cs" />
     <Compile Include="Services\VisitsService.cs" />
     <Compile Include="SniHead.cs" />
     <Compile Include="SniHeadWithUser.cs" />
@@ -111,7 +111,7 @@
     <Compile Include="QA\Post.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SearchWords\SearchWordsOrganizer.cs" />
-    <Compile Include="User.cs" />
+    <Compile Include="Users\User.cs" />
     <Compile Include="Comment.cs" />
   </ItemGroup>
   <ItemGroup>

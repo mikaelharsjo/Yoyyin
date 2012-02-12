@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Yoyyin.Data;
 using Yoyyin.Domain.Services;
+using Yoyyin.Domain.Users;
 
 namespace Yoyyin.Domain.Matching
 {

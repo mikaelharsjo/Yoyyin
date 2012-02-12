@@ -10,6 +10,7 @@ using System.Text;
 using Yoyyin.Domain;
 using Yoyyin.Domain.Enumerations;
 using Yoyyin.Domain.Services;
+using Yoyyin.Domain.Users;
 using Yoyyin.Web.Helpers;
 using Yoyyin.Web.UserControls;
 

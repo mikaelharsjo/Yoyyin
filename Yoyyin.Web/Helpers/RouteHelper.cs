@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Web.Routing;
 using Yoyyin.Domain;
 using Yoyyin.Domain.Services;
+using Yoyyin.Domain.Users;
 
 namespace Yoyyin.Web.Helpers
 {

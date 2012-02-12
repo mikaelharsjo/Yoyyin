@@ -9,7 +9,7 @@ using Yoyyin.Tests.Repositories;
 using Yoyyin.Tests.Services;
 using Answer = Yoyyin.Domain.QA.Answer;
 using Question = Yoyyin.Domain.QA.Question;
-using User = Yoyyin.Domain.User;
+using User = Yoyyin.Domain.Users.User;
 
 namespace Yoyyin.Tests
 {

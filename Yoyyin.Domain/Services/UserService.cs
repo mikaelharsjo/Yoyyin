@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using Yoyyin.Data;
+using Yoyyin.Domain.Users;
+using User = Yoyyin.Domain.Users.User;
 
 namespace Yoyyin.Domain.Services
 {

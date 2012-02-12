@@ -7,7 +7,7 @@ using Yoyyin.Domain;
 using Yoyyin.PresentationModel;
 using Yoyyin.Tests.Services;
 using Answer = Yoyyin.Domain.QA.Answer;
-using User = Yoyyin.Domain.User;
+using User = Yoyyin.Domain.Users.User;
 
 namespace Yoyyin.Tests
 {

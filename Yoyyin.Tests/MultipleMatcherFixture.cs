@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
-using Yoyyin.Domain;
 using Yoyyin.Domain.Enumerations;
 using Yoyyin.Domain.Matching;
 using Yoyyin.Domain.Services;
+using Yoyyin.Domain.Users;
 using Yoyyin.Tests.Repositories;
 using Yoyyin.Tests.Services;
 

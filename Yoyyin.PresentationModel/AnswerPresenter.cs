@@ -1,15 +1,14 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using Yoyyin.Domain;
 using Yoyyin.Domain.Extensions;
 using Yoyyin.Domain.QA;
+using Yoyyin.Domain.Users;
 
 namespace Yoyyin.PresentationModel
 {
     public class AnswerPresenter : IAnswerPresenter
     {
-        private ICurrentUser _currentUser;
+        private readonly ICurrentUser _currentUser;
 
         public AnswerPresenter(ICurrentUser currentUser)
         {

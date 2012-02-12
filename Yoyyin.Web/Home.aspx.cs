@@ -3,6 +3,7 @@ using System.Web.Security;
 using Yoyyin.Domain;
 using Yoyyin.Domain.Extensions;
 using Yoyyin.Domain.Services;
+using Yoyyin.Domain.Users;
 using Yoyyin.PresentationModel;
 using Yoyyin.Web.Helpers;
 

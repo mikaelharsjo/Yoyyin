@@ -1,3 +1,5 @@
+using Yoyyin.Domain.Users;
+
 namespace Yoyyin.Domain
 {
     public class SniHeadWithUser

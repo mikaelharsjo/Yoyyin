@@ -1,4 +1,5 @@
 using System;
+using Yoyyin.Domain.Users;
 
 namespace Yoyyin.Domain
 {

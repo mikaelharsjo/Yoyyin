@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Yoyyin.Data;
+using Yoyyin.Domain.QA;
 
 namespace Yoyyin.Tests.Category
 {

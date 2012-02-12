@@ -1,5 +1,8 @@
-﻿using System.Text;
+﻿using System.Linq;
+using System.Text;
 using NUnit.Framework;
+using Yoyyin.Domain;
+using Yoyyin.Domain.QA;
 
 namespace Yoyyin.Tests.Category
 {

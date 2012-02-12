@@ -1,6 +1,9 @@
 using System;
 using System.Collections.Generic;
 using Yoyyin.Data;
+using Yoyyin.Domain.QA;
+using Answer = Yoyyin.Domain.QA.Answer;
+using Question = Yoyyin.Domain.QA.Question;
 
 namespace Yoyyin.Domain.Services
 {

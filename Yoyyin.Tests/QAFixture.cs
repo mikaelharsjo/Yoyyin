@@ -3,11 +3,12 @@ using NUnit.Framework;
 using Yoyyin.Data;
 using Yoyyin.Domain;
 using Yoyyin.Domain.Extensions;
+using Yoyyin.Domain.QA;
 using Yoyyin.Domain.Services;
 using Yoyyin.Tests.Repositories;
 using Yoyyin.Tests.Services;
-using Answer = Yoyyin.Domain.Answer;
-using Question = Yoyyin.Domain.Question;
+using Answer = Yoyyin.Domain.QA.Answer;
+using Question = Yoyyin.Domain.QA.Question;
 using User = Yoyyin.Domain.User;
 
 namespace Yoyyin.Tests

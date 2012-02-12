@@ -47,12 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AbstractCategory.cs" />
-    <Compile Include="Answer.cs" />
-    <Compile Include="BusinessIdeasCategory.cs" />
+    <Compile Include="QA\AbstractCategory.cs" />
+    <Compile Include="QA\Answer.cs" />
+    <Compile Include="QA\BusinessIdeasCategory.cs" />
     <Compile Include="CachedItemProvider.cs" />
-    <Compile Include="CategoryFactory.cs" />
-    <Compile Include="CategoryType.cs" />
+    <Compile Include="QA\CategoryFactory.cs" />
+    <Compile Include="QA\CategoryType.cs" />
     <Compile Include="Enumerations\MatchType.cs" />
     <Compile Include="Enumerations\UserTypes.cs" />
     <Compile Include="Extensions\DateTimeExtensions.cs">
@@ -64,17 +64,17 @@
     <Compile Include="Extensions\StringExtensions.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="FriendlyCategory.cs" />
-    <Compile Include="ICategory.cs" />
+    <Compile Include="QA\FriendlyCategory.cs" />
+    <Compile Include="QA\ICategory.cs" />
     <Compile Include="ICurrentUser.cs" />
     <Compile Include="IUser.cs" />
     <Compile Include="Matching\IMultipleMatcher.cs" />
     <Compile Include="Matching\MultipleMatcher.cs" />
     <Compile Include="Matching\MultipleMatcherStats.cs" />
     <Compile Include="Message.cs" />
-    <Compile Include="MiscCategory.cs" />
+    <Compile Include="QA\MiscCategory.cs" />
     <Compile Include="NullUser.cs" />
-    <Compile Include="Question.cs" />
+    <Compile Include="QA\Question.cs" />
     <Compile Include="SearchWords\CompetencesSearchWordsProvider.cs" />
     <Compile Include="EnumHelper.cs" />
     <Compile Include="SearchWords\ISearchWordsProvider.cs" />
@@ -108,7 +108,7 @@
     <Compile Include="ThirdParty\GoogleHelper.cs" />
     <Compile Include="Matching\Matcher.cs" />
     <Compile Include="Matching\MatchResult.cs" />
-    <Compile Include="Post.cs" />
+    <Compile Include="QA\Post.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SearchWords\SearchWordsOrganizer.cs" />
     <Compile Include="User.cs" />

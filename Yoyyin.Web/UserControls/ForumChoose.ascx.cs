@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Yoyyin.Domain;
 using Yoyyin.Domain.Extensions;
+using Yoyyin.Domain.QA;
 
 namespace Yoyyin.Web.UserControls
 {

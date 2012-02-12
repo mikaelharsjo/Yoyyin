@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using Yoyyin.Data;
+using Yoyyin.Domain.QA;
+using Answer = Yoyyin.Domain.QA.Answer;
+using CategoryFactory = Yoyyin.Domain.QA.CategoryFactory;
+using CategoryType = Yoyyin.Domain.QA.CategoryType;
+using Question = Yoyyin.Domain.QA.Question;
 
 namespace Yoyyin.Domain.Services
 {
@@ -23,9 +28,9 @@ namespace Yoyyin.Domain.Services
             _categoryFactory = categoryFactory;
         }
 
-        public Question CreateQuestion(Data.Question questionData)
+        public QA.Question CreateQuestion(Data.Question questionData)
         {
-            return new Question
+            return new QA.Question
                        {
                            Created = questionData.Created,
                            Category = _categoryFactory.CreateCategory((CategoryType)questionData.Category, this),

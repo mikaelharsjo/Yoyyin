@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using Yoyyin.Domain;
 using Yoyyin.Domain.Extensions;
+using Yoyyin.Domain.QA;
 using Yoyyin.Domain.Services;
 using Yoyyin.PresentationModel;
 using Yoyyin.Web.Helpers;

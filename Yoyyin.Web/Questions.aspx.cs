@@ -1,6 +1,7 @@
 ﻿using System;
 using Yoyyin.Domain;
 using Yoyyin.Domain.Extensions;
+using Yoyyin.Domain.QA;
 using Yoyyin.Web.Helpers;
 
 namespace Yoyyin.Web

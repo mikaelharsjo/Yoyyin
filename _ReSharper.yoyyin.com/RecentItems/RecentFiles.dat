@@ -14,14 +14,12 @@
     <File id="CF24D980-7914-4E9B-A601-1C57EE29020E/d:UserControls/f:Comments.ascx.cs" caret="849" fromTop="24" />
     <File id="CF24D980-7914-4E9B-A601-1C57EE29020E/f:EditUser.aspx.cs" caret="5550" fromTop="24" />
     <File id="CF24D980-7914-4E9B-A601-1C57EE29020E/d:Helpers/f:MailHelper.cs" caret="907" fromTop="20" />
-    <File id="328BD772-959C-42EB-8C16-CBC1FF074968/d:Category/f:CategoryFixture.cs" caret="1540" fromTop="11" />
     <File id="E5C9F77D-AC81-4A90-937B-4F8BE8CA75DB/d:Services/f:IQAService.cs" caret="1005" fromTop="23" />
     <File id="CF24D980-7914-4E9B-A601-1C57EE29020E/f:Service.cs" caret="621" fromTop="18" />
     <File id="CF24D980-7914-4E9B-A601-1C57EE29020E/d:UserControls/f:Contact.ascx" caret="514" fromTop="7" />
     <File id="CF24D980-7914-4E9B-A601-1C57EE29020E/d:Helpers/f:AjaxRenderer.cs" caret="2039" fromTop="6" />
     <File id="CF24D980-7914-4E9B-A601-1C57EE29020E/d:UserControls/f:UserControlWithDependenciesInjected.cs" caret="348" fromTop="12" />
     <File id="CF24D980-7914-4E9B-A601-1C57EE29020E/d:Configuration/f:CurrentUser.cs" caret="285" fromTop="12" />
-    <File id="CF24D980-7914-4E9B-A601-1C57EE29020E/d:UserControls/f:UserImage.ascx.cs" caret="806" fromTop="23" />
     <File id="CF24D980-7914-4E9B-A601-1C57EE29020E/f:Global.asax.cs" caret="1471" fromTop="37" />
     <File id="CF24D980-7914-4E9B-A601-1C57EE29020E/d:UserControls/f:Users.ascx.cs" caret="477" fromTop="15" />
     <File id="CF24D980-7914-4E9B-A601-1C57EE29020E/f:Members.aspx.cs" caret="0" fromTop="0" />
@@ -30,6 +28,8 @@
     <File id="E5C9F77D-AC81-4A90-937B-4F8BE8CA75DB/d:Services/f:UserService.cs" caret="475" fromTop="16" />
     <File id="E5C9F77D-AC81-4A90-937B-4F8BE8CA75DB/d:Services/f:QAService.cs" caret="392" fromTop="14" />
     <File id="328BD772-959C-42EB-8C16-CBC1FF074968/f:QAFixture.cs" caret="876" fromTop="26" />
+    <File id="CF24D980-7914-4E9B-A601-1C57EE29020E/d:UserControls/f:UserImage.ascx.cs" caret="806" fromTop="23" />
+    <File id="328BD772-959C-42EB-8C16-CBC1FF074968/d:Services/f:UserServiceFixture.cs" caret="475" fromTop="18" />
   </RecentFiles>
   <RecentEdits>
     <File id="CF24D980-7914-4E9B-A601-1C57EE29020E/f:Service.cs" caret="8117" fromTop="31" />
@@ -37,12 +37,8 @@
     <File id="E5C9F77D-AC81-4A90-937B-4F8BE8CA75DB/d:Services/f:UserService.cs" caret="6971" fromTop="24" />
     <File id="E5C9F77D-AC81-4A90-937B-4F8BE8CA75DB/d:Services/f:IUserService.cs" caret="724" fromTop="17" />
     <File id="CF24D980-7914-4E9B-A601-1C57EE29020E/d:UserControls/f:MatcherControl.ascx.cs" caret="99" fromTop="3" />
-    <File id="328BD772-959C-42EB-8C16-CBC1FF074968/d:Category/f:CategoryFixture.cs" caret="1554" fromTop="28" />
-    <File id="328BD772-959C-42EB-8C16-CBC1FF074968/d:Category/f:CategoryFixture.cs" caret="1279" fromTop="21" />
-    <File id="328BD772-959C-42EB-8C16-CBC1FF074968/d:Category/f:CategoryFixture.cs" caret="2544" fromTop="22" />
     <File id="E5C9F77D-AC81-4A90-937B-4F8BE8CA75DB/d:Services/f:IQAService.cs" caret="341" fromTop="11" />
     <File id="E5C9F77D-AC81-4A90-937B-4F8BE8CA75DB/d:Services/f:QAService.cs" caret="2312" fromTop="25" />
-    <File id="328BD772-959C-42EB-8C16-CBC1FF074968/d:Category/f:CategoryFixture.cs" caret="5334" fromTop="32" />
     <File id="CF24D980-7914-4E9B-A601-1C57EE29020E/d:UserControls/f:Contact.ascx.cs" caret="141" fromTop="11" />
     <File id="CF24D980-7914-4E9B-A601-1C57EE29020E/f:Service.cs" caret="945" fromTop="25" />
     <File id="CF24D980-7914-4E9B-A601-1C57EE29020E/f:Service.cs" caret="621" fromTop="18" />

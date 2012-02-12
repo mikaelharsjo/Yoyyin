@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Yoyyin.Data;
+using Yoyyin.Domain.QA;
 using Yoyyin.Domain.Services;
 
 namespace Yoyyin.Domain.Extensions

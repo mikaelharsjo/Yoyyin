@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using Yoyyin.Data;
 using Yoyyin.Domain;
+using Yoyyin.Domain.QA;
 using Yoyyin.Domain.Services;
 using Yoyyin.Tests.Repositories;
 using Yoyyin.Tests.Services;
-using Answer = Yoyyin.Domain.Answer;
-using Question = Yoyyin.Domain.Question;
+using Answer = Yoyyin.Domain.QA.Answer;
+using Question = Yoyyin.Domain.QA.Question;
 
 namespace Yoyyin.Tests.Category
 {

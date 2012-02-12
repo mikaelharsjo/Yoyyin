@@ -5,6 +5,7 @@ using System.ServiceModel.Activation;
 using System.ServiceModel.Web;
 using Yoyyin.Domain;
 using Yoyyin.Domain.Extensions;
+using Yoyyin.Domain.QA;
 using Yoyyin.Domain.Services;
 using Yoyyin.Web.Helpers;
 

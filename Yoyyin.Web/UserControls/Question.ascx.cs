@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Yoyyin.Domain;
+using Yoyyin.Domain.QA;
 using Yoyyin.Domain.Services;
 using Yoyyin.PresentationModel;
 using Yoyyin.Web.Helpers;

@@ -40,7 +40,8 @@ namespace Yoyyin.Domain.Services
                            Alias = user.Alias,
                            Active = user.Active != null && (bool)user.Active,
                            Name = user.Name,
-                           CVFileName = user.CVFileName
+                           CVFileName = user.CVFileName,
+                           Image = user.Image
                        }; // not done
         }
 

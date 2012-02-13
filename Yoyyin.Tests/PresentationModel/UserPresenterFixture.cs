@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
 using NUnit.Framework;
+using Yoyyin.Domain.Mappers;
 using Yoyyin.Domain.Services;
 using Yoyyin.Domain.Users;
 using Yoyyin.PresentationModel;
@@ -20,7 +21,9 @@ namespace Yoyyin.Tests.PresentationModel
         [SetUp]
         public void Setup()
         {
-            _userPresenter = new UserPresenter(new UserService(new TestUserRepository(), new FakeCurrentUser()) );
+            _userPresenter =
+                new UserPresenter(new UserService(new TestUserRepository(), new FakeCurrentUser(),
+                                                  new UserMapper(new SniHeadMapper(), new SniItemMapper())));
         }
 
         [Test]

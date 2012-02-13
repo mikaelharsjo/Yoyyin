@@ -9,7 +9,6 @@ namespace Yoyyin.Domain.Services
 {
     public interface IQAService
     {
-        Question CreateQuestion(Data.Question questionData);
         void CreateQuestionInDb(Question question);
         void CreateAnswerInDb(Answer answer);
         IEnumerable<Question> GetQuestionsByCategory(ICategory category);

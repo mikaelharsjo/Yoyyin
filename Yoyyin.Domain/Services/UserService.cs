@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Yoyyin.Data;
+using Yoyyin.Domain.Mappers;
 using Yoyyin.Domain.Users;
 using User = Yoyyin.Domain.Users.User;
 
@@ -11,6 +12,7 @@ namespace Yoyyin.Domain.Services
     {
         private readonly IUserRepository _userRepository;
         private readonly ICurrentUser _currentUser;
+        private readonly IUserMapper _userMapper;
 
         // avoid this, instead inject repository
         //public UserService()
@@ -18,36 +20,16 @@ namespace Yoyyin.Domain.Services
         //    _userRepository = new EntityUserRepository(new YoyyinEntities1());
         //}
 
-        public UserService(IUserRepository userRepository, ICurrentUser currentUser)
+        public UserService(IUserRepository userRepository, ICurrentUser currentUser, IUserMapper userMapper)
         {
             _userRepository = userRepository;
             _currentUser = currentUser;
-        }
-
-        public IUser CreateUser(Data.User user)
-        {
-            if (user == null) return new NullUser();
-
-            return new User
-                       {
-                           BusinessDescription = user.BusinessDescription,
-                           Latitude = user.Latitude,
-                           Longitude = user.Longitude,
-                           BusinessTitle = user.BusinessTitle,
-                           City = user.City,
-                           Street = user.Street,
-                           SniNo = user.SniNo,
-                           Alias = user.Alias,
-                           Active = user.Active != null && (bool)user.Active,
-                           Name = user.Name,
-                           CVFileName = user.CVFileName,
-                           Image = user.Image
-                       }; // not done
+            _userMapper = userMapper;
         }
 
         public IEnumerable<IUser> SearchAdvanced(string text, bool isEntrepreneur, bool isInnovator, bool isInvestor, string sniNo)
         {
-            return _userRepository.Find().Select(CreateUser);
+            return _userRepository.Find().Select(_userMapper.MapUser);
             //if (isEntrepreneur)
             //    users = users.FindAll(x => x.UserType != null && (int)x.UserType == (int)UserTypes.Entrepreneur).ToList();
             //if (isInnovator)
@@ -77,7 +59,7 @@ namespace Yoyyin.Domain.Services
                             user.Name.Contains(textToMatch) || user.SearchWords.Contains(textToMatch) ||
                             user.SniHead.Title.Contains(textToMatch) ||
                             user.SniItem.Title.Contains(textToMatch) && user.Active == true)
-                        .Select(CreateUser);
+                        .Select(_userMapper.MapUser);
         }
 
 
@@ -92,7 +74,7 @@ namespace Yoyyin.Domain.Services
         {
             return _userRepository
                         .GetAllUsersIncludingSni()
-                        .Select(CreateUser)
+                        .Select(_userMapper.MapUser)
                         .AsEnumerable();
         }
 
@@ -108,7 +90,10 @@ namespace Yoyyin.Domain.Services
 
         public IEnumerable<IUser> GetUsersBySni(string sniHeadID)
         {
-            return _userRepository.Find().Where(user => user.SniHeadID == sniHeadID).Select(CreateUser);
+            return _userRepository
+                        .Find()
+                        .Where(user => user.SniHeadID == sniHeadID)
+                        .Select(_userMapper.MapUser);
         }
 
         public void DeleteUser(Guid userId)
@@ -172,7 +157,7 @@ namespace Yoyyin.Domain.Services
             // we wan´t to enumerate here so we can dispose the ObjectContext instance
             return _userRepository
                         .Find()
-                        .Select(CreateUser); // User.Include("SniHead").Include("SniItem");
+                        .Select(_userMapper.MapUser); // User.Include("SniHead").Include("SniItem");
         }
 
         public IEnumerable<IUser> GetUsersWithSniHeadOf(string sniHead)
@@ -180,7 +165,7 @@ namespace Yoyyin.Domain.Services
             return _userRepository
                         .Find()
                         .Where(user => user.SniHeadID == sniHead)
-                        .Select(CreateUser);
+                        .Select(_userMapper.MapUser);
         }
 
         public IUser GetUser(Guid userId)
@@ -188,7 +173,7 @@ namespace Yoyyin.Domain.Services
             return _userRepository
                 .Find()
                 .Where(u => u.UserId == userId)
-                .Select(CreateUser)
+                .Select(_userMapper.MapUser)
                 .First();
         }
 

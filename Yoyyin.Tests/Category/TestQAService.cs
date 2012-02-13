@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Yoyyin.Data;
 using Yoyyin.Domain;
+using Yoyyin.Domain.Mappers;
 using Yoyyin.Domain.QA;
 using Yoyyin.Domain.Services;
 using Yoyyin.Tests.Repositories;
@@ -16,20 +17,15 @@ namespace Yoyyin.Tests.Category
     {
         private IQARepository _repository;
         private QAService _inner;
+        private IQAMapper _qaMapper;
 
-        public TestQAService()
+        public TestQAService(IQAMapper qaMapper)
         {
+            _qaMapper = qaMapper;
             _repository = new TestQARepository();
             // for keeping it, DRY, no need for extra CreateQuestion in Test for example
-            _inner = new QAService(new EntityQARepository(new YoyyinEntities1()),
-                                   new UserService(new TestUserRepository(), new FakeCurrentUser()),
-                                   new CategoryFactory());
-
-        }
-
-        public Question CreateQuestion(Data.Question questionData)
-        {
-            return _inner.CreateQuestion(questionData);
+            _inner = new QAService(new TestQARepository(),
+                                   new QAMapper(new UserMapper(new SniHeadMapper(), new SniItemMapper())));
         }
 
         public void CreateQuestionInDb(Question question)
@@ -44,7 +40,7 @@ namespace Yoyyin.Tests.Category
 
         public IEnumerable<Question> GetQuestionsByCategory(ICategory category)
         {
-            return _repository.GetQuestionsByCategory(category.CategoryId).Select(CreateQuestion);
+            return _repository.GetQuestionsByCategory(category.CategoryId).Select(_qaMapper.MapQuestion);
         }
 
         public IList<Question> GetQuestionsByUser(Guid userID)
@@ -54,7 +50,7 @@ namespace Yoyyin.Tests.Category
 
         public Question GetLatestQuestionByCategory(ICategory category)
         {
-            return CreateQuestion(_repository.GetLatestQuestionByCategory(category.CategoryId));
+            return _qaMapper.MapQuestion(_repository.GetLatestQuestionByCategory(category.CategoryId));
         }
 
         public IList<Answer> GetAnswersByUser(Guid userID)

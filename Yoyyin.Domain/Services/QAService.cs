@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Yoyyin.Data;
+using Yoyyin.Domain.Mappers;
 using Yoyyin.Domain.QA;
 using Answer = Yoyyin.Domain.QA.Answer;
 using CategoryFactory = Yoyyin.Domain.QA.CategoryFactory;
@@ -13,43 +14,17 @@ namespace Yoyyin.Domain.Services
     public class QAService : IQAService
     {
         private readonly IQARepository _repository;
-        private readonly IUserService _userService;
-        private readonly CategoryFactory _categoryFactory;
+        private readonly IQAMapper _mapper;
 
         //// Poor mans Ioc Container
         //public QAService() : this(new EntityQARepository(new YoyyinEntities1()), new UserService(new EntityUserRepository()), new CategoryFactory() ){
         //}
 
         // Dependency Injection enabled constructor
-        public QAService(IQARepository repository, IUserService userService, CategoryFactory categoryFactory)
+        public QAService(IQARepository repository, IQAMapper mapper)
         {
             _repository = repository;
-            _userService = userService;
-            _categoryFactory = categoryFactory;
-        }
-
-        public QA.Question CreateQuestion(Data.Question questionData)
-        {
-            return new QA.Question
-                       {
-                           Created = questionData.Created,
-                           Category = _categoryFactory.CreateCategory((CategoryType)questionData.Category, this),
-                           Owner = _userService.CreateUser(questionData.User),
-                           Text = questionData.Text,
-                           Title = questionData.Title
-                       };
-        }
-
-        private Answer CreateAnswer(Data.Answer answerData)
-        {
-            return new Answer
-                       {
-                           AnswerID = answerData.AnswerID,
-                           Created = answerData.Created,
-                           Question = CreateQuestion(answerData.Question),
-                           Text = answerData.Text,
-                           User = _userService.CreateUser(answerData.User)
-                       };
+            _mapper = mapper;
         }
 
         public void CreateQuestionInDb(Question question)
@@ -67,22 +42,22 @@ namespace Yoyyin.Domain.Services
         public IEnumerable<Question> GetQuestionsByCategory(ICategory category)
         {
             return _repository
-                            .GetQuestionsByCategory(category.CategoryId)
-                            .Select(CreateQuestion)
-                            .ToList();
+                .GetQuestionsByCategory(category.CategoryId)
+                .Select(_mapper.MapQuestion)
+                .ToList();
         }
 
         public IList<Question> GetQuestionsByUser(Guid userID)
         {
             return _repository
                                 .GetQuestionsByUser(userID)
-                                .Select(CreateQuestion)
+                                .Select(_mapper.MapQuestion)
                                 .ToList();
         }
 
         public Question GetLatestQuestionByCategory(ICategory category)
         {
-            return CreateQuestion(_repository
+            return _mapper.MapQuestion(_repository
                                       .GetLatestQuestionByCategory(category.CategoryId));
         }
 
@@ -98,7 +73,7 @@ namespace Yoyyin.Domain.Services
         {
             return _repository
                 .GetAnswersByUser(userID)
-                .Select(CreateAnswer)
+                .Select(_mapper.MapAnswer)
                 .ToList();
         }
 
@@ -106,7 +81,7 @@ namespace Yoyyin.Domain.Services
         {
             return _repository
                         .GetAnswersByQuestion(questionId)
-                        .Select(CreateAnswer)
+                        .Select(_mapper.MapAnswer)
                         .ToList();
         }
 
@@ -120,7 +95,7 @@ namespace Yoyyin.Domain.Services
             var questions = _repository.GetQuestionsByUser(userId);
             var answers = _repository.GetAnswersByUser(userId);
 
-            return MergeToPosts(questions.Select(CreateQuestion), answers.Select(CreateAnswer));
+            return MergeToPosts(questions.Select(_mapper.MapQuestion), answers.Select(_mapper.MapAnswer));
         }
 
         ///// <summary>
@@ -184,15 +159,15 @@ namespace Yoyyin.Domain.Services
 
         public IEnumerable<Post> GetLatestPosts(int maxPosts)
         {
-            var latestQuestions = _repository.GetLatestQuestions(maxPosts).Select(CreateQuestion);
-            var latestAnswers = _repository.GetLatestAnswers(maxPosts).Select(CreateAnswer);
+            var latestQuestions = _repository.GetLatestQuestions(maxPosts).Select(_mapper.MapQuestion);
+            var latestAnswers = _repository.GetLatestAnswers(maxPosts).Select(_mapper.MapAnswer);
 
             return MergeToPosts(latestQuestions.AsEnumerable(), latestAnswers).Take(maxPosts);
         }
 
         public Question GetQuestion(int questionID)
         {
-            return CreateQuestion(_repository.GetQuestion(questionID));
+            return _mapper.MapQuestion(_repository.GetQuestion(questionID));
         }
 
         public int GetNumberOfAnswers(int questionId)
@@ -211,8 +186,8 @@ namespace Yoyyin.Domain.Services
             var posts =
                 answers.Select(
                     answer =>
-                    new Post()
-                    {
+                    new Post
+                        {
                         DisplayName = answer.User.GetDisplayName(),
                         Created = answer.Created,
                         Text = answer.Text,
@@ -223,8 +198,8 @@ namespace Yoyyin.Domain.Services
             posts.AddRange(
                 questions.Select(
                     question =>
-                    new Post()
-                    {
+                    new Post
+                        {
                         DisplayName = question.Owner.GetDisplayName(),
                         Created = question.Created,
                         Text = question.Text,

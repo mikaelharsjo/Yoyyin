@@ -1,10 +1,5 @@
 ﻿<RecentFiles>
   <RecentFiles>
-    <File id="CF24D980-7914-4E9B-A601-1C57EE29020E/d:UserControls/f:Contact.ascx.cs" caret="0" fromTop="0" />
-    <File id="E5C9F77D-AC81-4A90-937B-4F8BE8CA75DB/f:SniHeadWithUser.cs" caret="0" fromTop="0" />
-    <File id="E5C9F77D-AC81-4A90-937B-4F8BE8CA75DB/d:Services/f:IUserService.cs" caret="0" fromTop="0" />
-    <File id="E5C9F77D-AC81-4A90-937B-4F8BE8CA75DB/d:QA/f:Answer.cs" caret="0" fromTop="0" />
-    <File id="E5C9F77D-AC81-4A90-937B-4F8BE8CA75DB/d:ThirdParty/f:GoogleHelper.cs" caret="0" fromTop="0" />
     <File id="E5C9F77D-AC81-4A90-937B-4F8BE8CA75DB/d:QA/f:Question.cs" caret="0" fromTop="0" />
     <File id="E5C9F77D-AC81-4A90-937B-4F8BE8CA75DB/d:Matching/f:MultipleMatcher.cs" caret="0" fromTop="0" />
     <File id="E5C9F77D-AC81-4A90-937B-4F8BE8CA75DB/d:Matching/f:Matcher.cs" caret="0" fromTop="0" />
@@ -19,26 +14,24 @@
     <File id="CF24D980-7914-4E9B-A601-1C57EE29020E/d:UserControls/f:QuickSearch.ascx.cs" caret="1562" fromTop="19" />
     <File id="E5C9F77D-AC81-4A90-937B-4F8BE8CA75DB/d:Users/f:ICurrentUser.cs" caret="0" fromTop="0" />
     <File id="CF5F540A-46AB-45B2-8CA1-46C3CDD11C17/f:AnswerPresenter.cs" caret="139" fromTop="4" />
-    <File id="CF5F540A-46AB-45B2-8CA1-46C3CDD11C17/f:UserPresentation.cs" caret="180" fromTop="7" />
     <File id="CF5F540A-46AB-45B2-8CA1-46C3CDD11C17/f:MultipleMatchPresentation.cs" caret="62" fromTop="2" />
-    <File id="CF5F540A-46AB-45B2-8CA1-46C3CDD11C17/f:UserPresenter.cs" caret="182" fromTop="6" />
     <File id="328BD772-959C-42EB-8C16-CBC1FF074968/d:Services/f:FakeCurrentUser.cs" caret="62" fromTop="2" />
     <File id="328BD772-959C-42EB-8C16-CBC1FF074968/d:PresentationModel/f:UserPresenterFixture.cs" caret="86" fromTop="3" />
     <File id="E5C9F77D-AC81-4A90-937B-4F8BE8CA75DB/f:Comment.cs" caret="335" fromTop="14" />
-    <File id="E5C9F77D-AC81-4A90-937B-4F8BE8CA75DB/d:Services/f:UserService.cs" caret="192" fromTop="7" />
     <File id="E5C9F77D-AC81-4A90-937B-4F8BE8CA75DB/d:Services/f:VisitsService.cs" caret="1033" fromTop="0" />
     <File id="328BD772-959C-42EB-8C16-CBC1FF074968/f:QAFixture.cs" caret="318" fromTop="10" />
     <File id="328BD772-959C-42EB-8C16-CBC1FF074968/f:ViewDomainTest.cs" caret="238" fromTop="8" />
-    <File id="CF24D980-7914-4E9B-A601-1C57EE29020E/f:Global.asax.cs" caret="334" fromTop="12" />
+    <File id="CF24D980-7914-4E9B-A601-1C57EE29020E/f:Global.asax.cs" caret="1719" fromTop="44" />
+    <File id="E5C9F77D-AC81-4A90-937B-4F8BE8CA75DB/d:Services/f:UserService.cs" caret="7988" fromTop="30" />
+    <File id="CF24D980-7914-4E9B-A601-1C57EE29020E/d:UserControls/f:Contact.ascx.cs" caret="1072" fromTop="28" />
+    <File id="CF24D980-7914-4E9B-A601-1C57EE29020E/d:UserControls/f:Contact.ascx" caret="0" fromTop="0" />
+    <File id="CF5F540A-46AB-45B2-8CA1-46C3CDD11C17/f:UserPresenter.cs" caret="621" fromTop="19" />
+    <File id="CF5F540A-46AB-45B2-8CA1-46C3CDD11C17/f:UserPresentation.cs" caret="140" fromTop="6" />
+    <File id="CF24D980-7914-4E9B-A601-1C57EE29020E/d:UserControls/f:UserImage.ascx.cs" caret="688" fromTop="20" />
+    <File id="CF24D980-7914-4E9B-A601-1C57EE29020E/d:UserControls/f:Users.ascx" caret="556" fromTop="9" />
+    <File id="CF24D980-7914-4E9B-A601-1C57EE29020E/d:UserControls/f:Users.ascx.cs" caret="561" fromTop="17" />
   </RecentFiles>
   <RecentEdits>
-    <File id="E5C9F77D-AC81-4A90-937B-4F8BE8CA75DB/d:Services/f:UserService.cs" caret="543" fromTop="16" />
-    <File id="E5C9F77D-AC81-4A90-937B-4F8BE8CA75DB/d:Services/f:QAService.cs" caret="769" fromTop="15" />
-    <File id="E5C9F77D-AC81-4A90-937B-4F8BE8CA75DB/d:QA/f:CategoryFactory.cs" caret="62" fromTop="6" />
-    <File id="E5C9F77D-AC81-4A90-937B-4F8BE8CA75DB/d:QA/f:CategoryFactory.cs" caret="847" fromTop="16" />
-    <File id="328BD772-959C-42EB-8C16-CBC1FF074968/d:Category/f:CategoryShould.cs" caret="233" fromTop="9" />
-    <File id="328BD772-959C-42EB-8C16-CBC1FF074968/d:Category/f:CategoryShould.cs" caret="2344" fromTop="9" />
-    <File id="328BD772-959C-42EB-8C16-CBC1FF074968/d:Category/f:TestQARepository.cs" caret="658" fromTop="17" />
     <File id="328BD772-959C-42EB-8C16-CBC1FF074968/d:Category/f:CategoryShould.cs" caret="1540" fromTop="19" />
     <File id="E5C9F77D-AC81-4A90-937B-4F8BE8CA75DB/d:QA/f:CategoryType.cs" caret="616" fromTop="12" />
     <File id="E5C9F77D-AC81-4A90-937B-4F8BE8CA75DB/d:Users/f:NullUser.cs" caret="6631" fromTop="233" />
@@ -62,5 +55,12 @@
     <File id="328BD772-959C-42EB-8C16-CBC1FF074968/f:QAFixture.cs" caret="357" fromTop="11" />
     <File id="328BD772-959C-42EB-8C16-CBC1FF074968/f:ViewDomainTest.cs" caret="277" fromTop="9" />
     <File id="CF24D980-7914-4E9B-A601-1C57EE29020E/f:Global.asax.cs" caret="334" fromTop="12" />
+    <File id="CF5F540A-46AB-45B2-8CA1-46C3CDD11C17/f:UserPresenter.cs" caret="1215" fromTop="22" />
+    <File id="CF5F540A-46AB-45B2-8CA1-46C3CDD11C17/f:UserPresentation.cs" caret="438" fromTop="14" />
+    <File id="CF24D980-7914-4E9B-A601-1C57EE29020E/d:UserControls/f:UserImage.ascx.cs" caret="572" fromTop="19" />
+    <File id="CF24D980-7914-4E9B-A601-1C57EE29020E/d:UserControls/f:UserImage.ascx.cs" caret="1183" fromTop="33" />
+    <File id="CF24D980-7914-4E9B-A601-1C57EE29020E/d:UserControls/f:UserImage.ascx.cs" caret="347" fromTop="12" />
+    <File id="CF5F540A-46AB-45B2-8CA1-46C3CDD11C17/f:UserPresenter.cs" caret="1089" fromTop="33" />
+    <File id="CF5F540A-46AB-45B2-8CA1-46C3CDD11C17/f:UserPresentation.cs" caret="158" fromTop="7" />
   </RecentEdits>
 </RecentFiles>

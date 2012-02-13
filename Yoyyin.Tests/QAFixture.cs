@@ -3,6 +3,7 @@ using NUnit.Framework;
 using Yoyyin.Data;
 using Yoyyin.Domain;
 using Yoyyin.Domain.Extensions;
+using Yoyyin.Domain.Mappers;
 using Yoyyin.Domain.QA;
 using Yoyyin.Domain.Services;
 using Yoyyin.Tests.Repositories;
@@ -28,8 +29,7 @@ namespace Yoyyin.Tests
             _ownerUserId = new Guid("68830D44-9172-476C-8F6B-78CDFB8D5C2D");
             _answerOwnerUserId = new Guid("31C0A56E-7A70-4265-AD7D-61A29A04A9D7");
             _qaService = new QAService(new EntityQARepository(new YoyyinEntities1()),
-                                       new UserService(new TestUserRepository(), new FakeCurrentUser()),
-                                       new CategoryFactory());
+                                       new QAMapper(new UserMapper(new SniHeadMapper(), new SniItemMapper())));
 
             _question = new Question {Owner = new User {UserId = _ownerUserId}};
             _answer = new Answer {Question = _question, UserId = _answerOwnerUserId};

@@ -29,8 +29,9 @@ namespace Yoyyin.PresentationModel
                            DisplayName = user.GetDisplayName(),
                            Title = user.BusinessTitle,
                            ProfileUrl = "Member.aspx?UserID=" + user.UserId,
-                           UserID = user.UserId
-                           //User = user
+                           UserID = user.UserId,
+                           Image = user.Image,
+                           User = user // needed by userimage.ascx
                        };
         }
 

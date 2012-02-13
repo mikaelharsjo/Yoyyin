@@ -66,6 +66,14 @@
     </Compile>
     <Compile Include="QA\FriendlyCategory.cs" />
     <Compile Include="QA\ICategory.cs" />
+    <Compile Include="Mappers\IQAMapper.cs" />
+    <Compile Include="Mappers\ISniHeadMapper.cs" />
+    <Compile Include="Mappers\ISniItemMapper.cs" />
+    <Compile Include="Mappers\IUserMapper.cs" />
+    <Compile Include="Services\QAMapper.cs" />
+    <Compile Include="Mappers\SniHeadMapper.cs" />
+    <Compile Include="Mappers\SniItemMapper.cs" />
+    <Compile Include="Mappers\UserMapper.cs" />
     <Compile Include="Users\ICurrentUser.cs" />
     <Compile Include="Users\IUser.cs" />
     <Compile Include="Matching\IMultipleMatcher.cs" />

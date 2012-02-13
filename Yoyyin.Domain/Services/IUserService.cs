@@ -6,7 +6,6 @@ namespace Yoyyin.Domain.Services
 {
     public interface IUserService
     {
-        IUser CreateUser(Data.User user);
         IEnumerable<IUser> SearchAdvanced(string text, bool isEntrepreneur, bool isInnovator, bool isInvestor, string sniNo);
         IEnumerable<IUser> SearchQuick(string textToMatch);
         IEnumerable<User> GetLastActiveUsersWithImage();

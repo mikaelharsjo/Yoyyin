@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using NUnit.Framework;
+using Yoyyin.Data;
+using Yoyyin.Domain.Mappers;
 using Yoyyin.Domain.Services;
 using Yoyyin.Tests.Repositories;
 
@@ -16,7 +18,8 @@ namespace Yoyyin.Tests.Services
         [SetUp]
         public void SetUp()
         {
-            _userService = new UserService(new TestUserRepository(), new FakeCurrentUser());
+            _userService = new UserService(new TestUserRepository(), new FakeCurrentUser(),
+                                           new UserMapper(new SniHeadMapper(), new SniItemMapper()));
         }
 
         [Test]

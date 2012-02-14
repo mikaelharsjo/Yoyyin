@@ -5,6 +5,7 @@ using Autofac;
 using Autofac.Integration.Web;
 using Yoyyin.Data;
 using Yoyyin.Domain;
+using Yoyyin.Domain.Mappers;
 using Yoyyin.Domain.QA;
 using Yoyyin.Domain.Services;
 using Yoyyin.Domain.Users;
@@ -32,6 +33,12 @@ namespace Yoyyin.Web
 
             // site configuration
             builder.RegisterType<CurrentUser>().As<ICurrentUser>();
+
+            // mappers
+            builder.RegisterType<SniHeadMapper>().As<ISniHeadMapper>();
+            builder.RegisterType<SniItemMapper>().As<ISniItemMapper>();
+            builder.RegisterType<QAMapper>().As<IQAMapper>();
+            builder.RegisterType<UserMapper>().As<IUserMapper>();
 
             // services
             builder.RegisterType<UserService>().As<IUserService>();

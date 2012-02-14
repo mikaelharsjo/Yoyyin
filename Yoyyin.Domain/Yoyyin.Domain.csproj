@@ -70,7 +70,7 @@
     <Compile Include="Mappers\ISniHeadMapper.cs" />
     <Compile Include="Mappers\ISniItemMapper.cs" />
     <Compile Include="Mappers\IUserMapper.cs" />
-    <Compile Include="Services\QAMapper.cs" />
+    <Compile Include="Mappers\QAMapper.cs" />
     <Compile Include="Mappers\SniHeadMapper.cs" />
     <Compile Include="Mappers\SniItemMapper.cs" />
     <Compile Include="Mappers\UserMapper.cs" />

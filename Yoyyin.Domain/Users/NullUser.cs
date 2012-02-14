@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Yoyyin.Domain.Sni;
 
 namespace Yoyyin.Domain.Users
 {
@@ -53,15 +54,15 @@ namespace Yoyyin.Domain.Users
             set { throw new NotImplementedException(); }
         }
 
-        public SniHead SniHead
+        public ISniHead SniHead
         {
-            get { throw new NotImplementedException(); }
+            get { return new NoSniHeadSelected(); }
             set { throw new NotImplementedException(); }
         }
 
-        public SniItem SniItem
+        public ISniItem SniItem
         {
-            get { throw new NotImplementedException(); }
+            get { return new NoSniItemSelected(); }
             set { throw new NotImplementedException(); }
         }
 

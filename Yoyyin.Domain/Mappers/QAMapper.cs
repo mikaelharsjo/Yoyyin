@@ -1,7 +1,6 @@
-using Yoyyin.Domain.Mappers;
 using Yoyyin.Domain.QA;
 
-namespace Yoyyin.Domain.Services
+namespace Yoyyin.Domain.Mappers
 {
     public class QAMapper : IQAMapper
     {

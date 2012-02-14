@@ -1,4 +1,5 @@
 using System.Linq;
+using Yoyyin.Domain.Sni;
 using Yoyyin.Domain.Users;
 
 namespace Yoyyin.Domain.Mappers
@@ -33,8 +34,8 @@ namespace Yoyyin.Domain.Mappers
                            CVFileName = user.CVFileName,
                            Image = user.Image,
                            UserId = user.UserId,
-                           SniHead = _sniHeadMapper.MapSniHead(user.SniHead),
-                           SniItem = _sniItemMapper.MapSniItem(user.SniItem)
+                           SniHead = user.SniHead != null ? _sniHeadMapper.MapSniHead(user.SniHead) : new NoSniHeadSelected(),
+                           SniItem = user.SniItem != null ?  _sniItemMapper.MapSniItem(user.SniItem) : new NoSniItemSelected(),
 
                        }; // not done
         }

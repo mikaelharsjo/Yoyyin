@@ -1,3 +1,4 @@
+using Yoyyin.Domain.Sni;
 using Yoyyin.Domain.Users;
 
 namespace Yoyyin.Domain.Mappers

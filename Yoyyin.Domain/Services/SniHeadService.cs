@@ -2,6 +2,7 @@
 using System.Linq;
 using Yoyyin.Data;
 using Yoyyin.Domain.Mappers;
+using Yoyyin.Domain.Sni;
 
 namespace Yoyyin.Domain.Services
 {
@@ -18,7 +19,7 @@ namespace Yoyyin.Domain.Services
             _userMapper = userMapper;
         }
 
-        public IEnumerable<SniHead> GetAllSniHeadItems()
+        public IEnumerable<ISniHead> GetAllSniHeadItems()
         {
             return _repository.Find().Select(_sniHeadMapper.MapSniHead);
         }
@@ -28,14 +29,14 @@ namespace Yoyyin.Domain.Services
             return _repository.GetAllSniIncludingUsers().Select(_userMapper.MapSniHeadWithUser);
         }
 
-        public SniHead GetSniHead(string sniHeadId)
+        public ISniHead GetSniHead(string sniHeadId)
         {
             var sniHeadData = _repository.Find().First(x => x.SniHeadID == sniHeadId);
 
             return _sniHeadMapper.MapSniHead(sniHeadData);
         }
 
-        public IEnumerable<SniHead> GetAllSniHeads()
+        public IEnumerable<ISniHead> GetAllSniHeads()
         {
             return _repository
                         .Find()

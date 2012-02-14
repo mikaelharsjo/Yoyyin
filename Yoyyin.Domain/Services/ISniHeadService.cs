@@ -1,12 +1,13 @@
 using System.Collections.Generic;
+using Yoyyin.Domain.Sni;
 
 namespace Yoyyin.Domain.Services
 {
     public interface ISniHeadService
     {
-        IEnumerable<SniHead> GetAllSniHeadItems();
+        IEnumerable<ISniHead> GetAllSniHeadItems();
         IEnumerable<SniHeadWithUser> GetAllSniIncludingUsers();
-        SniHead GetSniHead(string sniHeadId);
-        IEnumerable<SniHead> GetAllSniHeads();
+        ISniHead GetSniHead(string sniHeadId);
+        IEnumerable<ISniHead> GetAllSniHeads();
     }
 }

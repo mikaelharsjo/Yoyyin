@@ -3,6 +3,7 @@
     ValidateRequest="false" %>
 <%@ Import Namespace="Yoyyin.Domain" %>
 <%@ Import Namespace="Yoyyin.Domain.EntityHelpers" %>
+<%@ Import Namespace="Yoyyin.Domain.Sni" %>
 <%@ Import Namespace="Yoyyin.Web" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="act" %>

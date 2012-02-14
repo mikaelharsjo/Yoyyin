@@ -1,9 +1,10 @@
 using System.Collections.Generic;
+using Yoyyin.Domain.Sni;
 
 namespace Yoyyin.Domain.Services
 {
     public interface ISniItemService
     {
-        IEnumerable<SniItem> GetSniItemsByHead(string sniHeadID);
+        IEnumerable<ISniItem> GetSniItemsByHead(string sniHeadID);
     }
 }

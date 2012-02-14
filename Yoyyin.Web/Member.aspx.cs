@@ -294,7 +294,7 @@ namespace Yoyyin.Web
 
         protected string GetCurrentSniHead()
         {
-            SniHead sniHead = SniHeadService.GetSniHead(CurrentUser.SniHeadID);
+            var sniHead = SniHeadService.GetSniHead(CurrentUser.SniHeadID);
             if (sniHead == null)
                 return "";
             

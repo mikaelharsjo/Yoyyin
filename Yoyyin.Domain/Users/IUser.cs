@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Yoyyin.Domain.Sni;
 
 namespace Yoyyin.Domain.Users
 {
@@ -13,8 +14,8 @@ namespace Yoyyin.Domain.Users
         string BusinessTitle { get; set; }
         string SniNo { get; set; }
         string SniHeadID { get; set; }
-        SniHead SniHead { get; set; }
-        SniItem SniItem { get; set; }
+        ISniHead SniHead { get; set; }
+        ISniItem SniItem { get; set; }
         string Street { get; set; }
         string ZipCode { get; set; }
         double? Latitude { get; set; }

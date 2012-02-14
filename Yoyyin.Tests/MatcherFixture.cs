@@ -3,6 +3,7 @@ using Yoyyin.Domain;
 using Yoyyin.Domain.Enumerations;
 using Yoyyin.Domain.Extensions;
 using Yoyyin.Domain.Matching;
+using Yoyyin.Domain.Sni;
 using Yoyyin.Domain.Users;
 
 namespace Yoyyin.Tests

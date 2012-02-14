@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Yoyyin.Data;
 using Yoyyin.Domain.Mappers;
+using Yoyyin.Domain.Sni;
 
 namespace Yoyyin.Domain.Services
 {
@@ -16,7 +17,7 @@ namespace Yoyyin.Domain.Services
             _mapper = mapper;
         }
 
-        public IEnumerable<SniItem> GetSniItemsByHead(string sniHeadID)
+        public IEnumerable<ISniItem> GetSniItemsByHead(string sniHeadID)
         {
             return _repository
                 .Find()

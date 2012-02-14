@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="Yoyyin.Web.Register" EnableEventValidation="false" %>
 <%@ Import Namespace="Yoyyin.Domain" %>
 <%@ Import Namespace="Yoyyin.Domain.EntityHelpers" %>
+<%@ Import Namespace="Yoyyin.Domain.Sni" %>
 <%@ Import Namespace="Yoyyin.Web.Helpers" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
 <%@ Register Src="~/UserControls/UserImage.ascx" TagPrefix="yoyyin" TagName="UserImage" %>

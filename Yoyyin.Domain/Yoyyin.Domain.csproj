@@ -74,6 +74,10 @@
     <Compile Include="Mappers\SniHeadMapper.cs" />
     <Compile Include="Mappers\SniItemMapper.cs" />
     <Compile Include="Mappers\UserMapper.cs" />
+    <Compile Include="Sni\ISniHead.cs" />
+    <Compile Include="Sni\ISniItem.cs" />
+    <Compile Include="Sni\NoSniHeadSelected.cs" />
+    <Compile Include="Sni\NoSniItemSelected.cs" />
     <Compile Include="Users\ICurrentUser.cs" />
     <Compile Include="Users\IUser.cs" />
     <Compile Include="Matching\IMultipleMatcher.cs" />
@@ -108,9 +112,9 @@
     <Compile Include="Services\UserService.cs" />
     <Compile Include="Visit.cs" />
     <Compile Include="Services\VisitsService.cs" />
-    <Compile Include="SniHead.cs" />
-    <Compile Include="SniHeadWithUser.cs" />
-    <Compile Include="SniItem.cs" />
+    <Compile Include="Sni\SniHead.cs" />
+    <Compile Include="Sni\SniHeadWithUser.cs" />
+    <Compile Include="Sni\SniItem.cs" />
     <Compile Include="ThirdParty\FacebookAuthentication.cs" />
     <Compile Include="ThirdParty\GeoResponse.cs" />
     <Compile Include="ThirdParty\GoogleHelper.cs" />

@@ -1,7 +1,9 @@
+using Yoyyin.Domain.Sni;
+
 namespace Yoyyin.Domain.Mappers
 {
     public interface ISniHeadMapper
     {
-        SniHead MapSniHead(Data.SniHead sniHeadData);
+        ISniHead MapSniHead(Data.SniHead sniHeadData);
     }
 }

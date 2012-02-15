@@ -16,6 +16,7 @@
     <meta name="DC.format" content="text/html; charset=utf-8" /> 
     <meta name="DC.format" content="38901 bytes" /> 
     <meta name="DC.identifier" scheme="DCTERMS.URI" content="http://yoyyin.com" />
+    <script src="Scripts/modernizr.custom.js" type="text/javascript"></script>
 
     <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/flick/jquery-ui.css" type="text/css" rel="Stylesheet" />
     <link href="~/Styles/Site.min.css" rel="stylesheet" type="text/css" />

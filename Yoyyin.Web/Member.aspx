@@ -116,9 +116,10 @@
                                     </LayoutTemplate>
                                     <ItemTemplate>
                                         <div>
-                                            <asp:Image runat="server" ImageUrl="<%# WebHelpers.GetOnlineImageUrl(Container.DataItem) %>" />&nbsp;<a
-                                                class="popLink" href='<%# "Member.aspx?UserID=" + Eval("ProviderUserKey") %>'
-                                                id='<%# Eval("ProviderUserKey") %>'><%# WebHelpers.GetDisplayName(Eval("ProviderUserKey").ToString()) %></a>
+                                            <asp:Image runat="server" ImageUrl='<%# Eval("OnlineImageUrl") %>' />&nbsp;
+                                            <a href='<%# Eval("ProviderUrl") %>'>
+                                                <%# Eval("DisplayName") %>
+                                            </a>
                                         </div>
                                     </ItemTemplate>
                                 </asp:ListView>
@@ -166,7 +167,7 @@
                         <div>
                             <div class="bold marginTopLarge">
                                 Skicka ett privat meddelande till
-                                <%= WebHelpers.GetDisplayName(CurrentUser.UserId.ToString())%>
+                                <%= CurrentUserPresentation.DisplayName %>
                             </div>
                             <div>
                                 <textarea rows="4" id="txtMessage" cols="500" style="width: 670px;"></textarea></div>
@@ -192,7 +193,7 @@
                             </div>
                         </div>
                         <div>
-                            <h3><%= WebHelpers.GetDisplayName(CurrentUser.UserId.ToString())%></h3>
+                            <h3><%= CurrentUserPresentation.DisplayName %></h3>
                         </div>
                         <div>
                             <div>
@@ -215,7 +216,7 @@
                     <div class="infoNotMember">                        
                             <p>
                                 Om du vill kontakta
-                                <%= WebHelpers.GetDisplayName(CurrentUser.UserId.ToString())%>
+                                <%= CurrentUserPresentation.DisplayName %> 
                                 måste du vara medlem.</p>
                             <p>
                                 Att bli medlem går snabbt och är gratis. Efter registreringen blir du också själv

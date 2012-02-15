@@ -22,7 +22,9 @@ namespace Yoyyin.Web
         const string Http = "http://";
         const string SegmentHtml = "<div class='span-24 last sni{2} segment marginBottom'><div class='span-6'><div class='paddingSmall'>{0}</div></div><div class='span-12'><div class='paddingSmall'>{3} affärsidéer inom {1}</div></div><div class='span-6 last textAlignRight'><div class='paddingSmall'><a href='Member.aspx?UserID={4}'>Nästa affärsidé &raquo;</a></div></div></div><br /><br /><br />";
         const string GenericKeywords = ",affärspartner,affärsidé,startup,affärskollega,entreprenör,företagare,partner,hitta,söker,sökes";
-        public static IUser CurrentUser { get; set; }
+        // TODO: remove CurrentUser for CurrentUserPresentation
+        public static IUser CurrentUser { get; set; } 
+        public UserPresentation CurrentUserPresentation { get; set; }
         public IUserService UserService { get; set; }
         public IVisitsService VisitsService { get; set; }
         public ISniHeadService SniHeadService { get; set; }
@@ -69,6 +71,8 @@ namespace Yoyyin.Web
             }
 
             CurrentUser = UserService.GetUser(UserIDOfUserBeingViewed);
+            CurrentUserPresentation = UserPresenter.Presentate(CurrentUser);
+
             if (!_selfVisit)
             {
                 if (WebHelpers.IsLoggedIn())

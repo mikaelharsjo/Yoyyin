@@ -34,6 +34,8 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -64,6 +66,8 @@
     <Compile Include="QuestionPresentation.cs" />
     <Compile Include="UserPresenter.cs" />
     <Compile Include="UserPresentation.cs" />
+    <Compile Include="VisitPresentation.cs" />
+    <Compile Include="VisitPresenter.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Yoyyin.Domain\Yoyyin.Domain.csproj">

@@ -63,6 +63,8 @@ namespace Yoyyin.Domain.Users
 
         public string UserTypeDescription { get; set; }
 
+        public string UserName { get; set; }
+
         public string GetDisplayName()
         {
             return string.IsNullOrEmpty(Alias) ? Name : Alias;            
@@ -71,6 +73,11 @@ namespace Yoyyin.Domain.Users
         public List<Comment> GetComments()
         {
             throw new NotImplementedException();
+        }
+
+        public string GetProfileUrl()
+        {
+            return "Member.aspx?UserID=" + UserId;
         }
     }
 }

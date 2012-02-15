@@ -91,8 +91,10 @@
                                         </LayoutTemplate>
                                         <ItemTemplate>
                                             <div>
-                                                <asp:Image runat="server" ImageUrl='<%# WebHelpers.GetOnlineImageUrl2(Eval("VisitingUserId")) %>' />&nbsp;<a
-                                                    class="popLink" href='<%# WebHelpers.GetUserUrl(Eval("VisitingUserId")) %>' id='<%# Eval("VisitingUserId") %>'><%# WebHelpers.GetDisplayName(Eval("VisitingUserId"))%></a>
+                                                <asp:Image runat="server" ImageUrl='<%# Eval("OnlineImageUrl") %>' />&nbsp;
+                                                <a class="popLink" href='<%# Eval("ProfileUrl") %>' id='<%# Eval("VisitingUser.UserId") %>'>
+                                                    <%# Eval("DisplayName")%>
+                                                </a>
                                             </div>
                                             <div class="small">
                                                 <%# WebHelpers.GetDate(Container.DataItem)%></div>

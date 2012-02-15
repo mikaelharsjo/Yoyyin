@@ -222,6 +222,8 @@ namespace Yoyyin.Domain.Users
             set { throw new NotImplementedException(); }
         }
 
+        public string UserName { get; set; }
+
         public string GetDisplayName()
         {
             throw new NotImplementedException();
@@ -230,6 +232,11 @@ namespace Yoyyin.Domain.Users
         public List<Comment> GetComments()
         {
             throw new NotImplementedException();
+        }
+
+        public string GetProfileUrl()
+        {
+            return "#";
         }
     }
 }

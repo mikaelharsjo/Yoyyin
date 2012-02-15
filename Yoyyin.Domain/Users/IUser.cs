@@ -42,7 +42,9 @@ namespace Yoyyin.Domain.Users
         bool ShowOnMap { get; set; }
         string Url { get; set; }
         string UserTypeDescription { get; set; }
+        string UserName  { get; set; }
         string GetDisplayName();
         List<Comment> GetComments();
+        string GetProfileUrl();
     }
 }

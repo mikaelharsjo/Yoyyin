@@ -45,9 +45,11 @@ namespace Yoyyin.Web
             //builder.Register<UserService>(c => c.Resolve<>()).As<IUserService>();
             builder.RegisterType<QAService>().As<IQAService>();
             builder.RegisterType<SniHeadService>().As<ISniHeadService>();
-                
+              
+            // presenters
             builder.RegisterType<UserPresenter>().As<IUserPresenter>();
             builder.RegisterType<PostPresenter>().As<IPostPresenter>();
+            builder.RegisterType<VisitPresenter>().As<IVisitPresenter>();
             
             // ... continue registering dependencies...
 

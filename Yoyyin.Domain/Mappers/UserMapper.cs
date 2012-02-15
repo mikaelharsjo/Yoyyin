@@ -22,6 +22,7 @@ namespace Yoyyin.Domain.Mappers
             return new User
                        {
                            BusinessDescription = user.BusinessDescription,
+                           UserName = user.aspnet_Users.UserName,
                            Latitude = user.Latitude,
                            Longitude = user.Longitude,
                            BusinessTitle = user.BusinessTitle,

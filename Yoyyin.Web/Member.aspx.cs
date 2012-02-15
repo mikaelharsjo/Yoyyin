@@ -11,6 +11,7 @@ using Yoyyin.Domain;
 using Yoyyin.Domain.Enumerations;
 using Yoyyin.Domain.Services;
 using Yoyyin.Domain.Users;
+using Yoyyin.PresentationModel;
 using Yoyyin.Web.Helpers;
 using Yoyyin.Web.UserControls;
 
@@ -25,7 +26,7 @@ namespace Yoyyin.Web
         public IUserService UserService { get; set; }
         public IVisitsService VisitsService { get; set; }
         public ISniHeadService SniHeadService { get; set; }
-        
+        public IUserPresenter UserPresenter { get; set; }
         
         public Guid UserIDOfUserBeingViewed = Guid.Empty;
         public Guid VisitingUserId { get; set; }
@@ -159,7 +160,14 @@ namespace Yoyyin.Web
             var lstVisits = (ListView)loginView.FindControl("lstVisits");
             if (lstVisits != null)
             {
-                lstVisits.DataSource = VisitsService.GetVisits(CurrentUser.UserId);
+                lstVisits.DataSource = from visit in VisitsService.GetVisits(CurrentUser.UserId)
+                                       select
+                                           new
+                                               {
+                                                   OnlineImageUrl = WebHelpers.GetOnlineImageUrl2(visit.VisitingUser.UserId),
+                                                   DisplayName = visit.VisitingUser.GetDisplayName(),
+                                                   ProfileUrl = visit.VisitingUser.GetProfileUrl()
+                                               };
                 lstVisits.DataBind();
             }
         }

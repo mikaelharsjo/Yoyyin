@@ -5,7 +5,6 @@
     <File id="CF5F540A-46AB-45B2-8CA1-46C3CDD11C17/f:UserPresentation.cs" caret="140" fromTop="6" />
     <File id="CF24D980-7914-4E9B-A601-1C57EE29020E/d:UserControls/f:UserImage.ascx.cs" caret="688" fromTop="20" />
     <File id="CF24D980-7914-4E9B-A601-1C57EE29020E/d:UserControls/f:Users.ascx" caret="556" fromTop="9" />
-    <File id="CF24D980-7914-4E9B-A601-1C57EE29020E/d:UserControls/f:Users.ascx.cs" caret="373" fromTop="13" />
     <File id="E5C9F77D-AC81-4A90-937B-4F8BE8CA75DB/d:Services/f:ISniItemService.cs" caret="184" fromTop="6" />
     <File id="E5C9F77D-AC81-4A90-937B-4F8BE8CA75DB/d:Services/f:ISniHeadService.cs" caret="329" fromTop="9" />
     <File id="E5C9F77D-AC81-4A90-937B-4F8BE8CA75DB/d:QA/f:CategoryFactory.cs" caret="530" fromTop="16" />
@@ -29,7 +28,8 @@
     <File id="E5C9F77D-AC81-4A90-937B-4F8BE8CA75DB/d:Mappers/f:SniItemMapper.cs" caret="0" fromTop="0" />
     <File id="E5C9F77D-AC81-4A90-937B-4F8BE8CA75DB/d:Mappers/f:IUserMapper.cs" caret="0" fromTop="0" />
     <File id="E5C9F77D-AC81-4A90-937B-4F8BE8CA75DB/d:Mappers/f:UserMapper.cs" caret="593" fromTop="20" />
-    <File id="E5C9F77D-AC81-4A90-937B-4F8BE8CA75DB/d:Mappers/f:IQAMapper.cs" caret="223" fromTop="9" />
+    <File id="CF24D980-7914-4E9B-A601-1C57EE29020E/d:UserControls/f:Users.ascx.cs" caret="373" fromTop="13" />
+    <File id="E5C9F77D-AC81-4A90-937B-4F8BE8CA75DB/d:Mappers/f:IQAMapper.cs" caret="220" fromTop="8" />
   </RecentFiles>
   <RecentEdits>
     <File id="E5C9F77D-AC81-4A90-937B-4F8BE8CA75DB/d:Services/f:UserService.cs" caret="721" fromTop="21" />

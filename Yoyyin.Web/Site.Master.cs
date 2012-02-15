@@ -18,6 +18,7 @@ namespace Yoyyin.Web
     {
         public IUserService UserService { get; set; }
         public IUserPresenter UserPresenter { get; set; }
+        public NewestMembersHelper NewestMembersHelper { get; set; }
 
         public Literal LitLoggedInInfo
         {
@@ -71,7 +72,7 @@ namespace Yoyyin.Web
             passwordRecovery.UserLookupError += passwordRecovery_UserLookupError;
             passwordRecovery.SendingMail += passwordRecovery_SendingMail;
 
-            var newMembers = GetNewestMembersFromCacheOrDb();
+            var newMembers = NewestMembersHelper.GetNewestMembersFromCacheOrDb();
             lstNewest.DataSource = UserPresenter.Presentate(newMembers.Select(memuser => new Guid(memuser.ProviderUserKey.ToString())));
             lstNewest.DataBind();
             
@@ -84,20 +85,6 @@ namespace Yoyyin.Web
         {
             if (Request.Url.LocalPath.ToLower().Contains("default.aspx"))
                 Response.Redirect("~/Home.aspx");
-        }
-
-        private static IEnumerable<MembershipUser> GetNewestMembersFromCacheOrDb()
-        {
-            IEnumerable<MembershipUser> newMembers;
-            if (HttpContext.Current.Cache["NewestMembers"] != null)
-                newMembers = HttpContext.Current.Cache["NewestMembers"] as IEnumerable<MembershipUser>;
-            else
-            {
-                var memUsers = from MembershipUser user in Membership.GetAllUsers() select user;
-                newMembers = memUsers.OrderByDescending(x => x.CreationDate).Take(5);
-                HttpContext.Current.Cache.Insert("NewestMembers", newMembers, null, DateTime.Now.AddHours(24), Cache.NoSlidingExpiration);
-            }
-            return newMembers;
         }
 
         void passwordRecovery_SendingMail(object sender, MailMessageEventArgs e)

@@ -27,6 +27,8 @@ namespace Yoyyin.Web
         public IVisitsService VisitsService { get; set; }
         public ISniHeadService SniHeadService { get; set; }
         public IUserPresenter UserPresenter { get; set; }
+        public IVisitPresenter VisitPresenter { get; set; }
+        public NewestMembersHelper NewestMembersHelper { get; set; }
         
         public Guid UserIDOfUserBeingViewed = Guid.Empty;
         public Guid VisitingUserId { get; set; }
@@ -160,34 +162,18 @@ namespace Yoyyin.Web
             var lstVisits = (ListView)loginView.FindControl("lstVisits");
             if (lstVisits != null)
             {
-                lstVisits.DataSource = from visit in VisitsService.GetVisits(CurrentUser.UserId)
-                                       select
-                                           new
-                                               {
-                                                   OnlineImageUrl = WebHelpers.GetOnlineImageUrl2(visit.VisitingUser.UserId),
-                                                   DisplayName = visit.VisitingUser.GetDisplayName(),
-                                                   ProfileUrl = visit.VisitingUser.GetProfileUrl()
-                                               };
+                lstVisits.DataSource = VisitPresenter.Presentate(VisitsService.GetVisits(CurrentUser.UserId));
                 lstVisits.DataBind();
             }
         }
 
         private void DataBindNewestMembers()
         {
-            IEnumerable<MembershipUser> newMembers;
-            if (HttpContext.Current.Cache["NewestMembers"] != null)
-                newMembers = HttpContext.Current.Cache["NewestMembers"] as IEnumerable<MembershipUser>;
-            else
-            {
-                var memUsers = from MembershipUser user in Membership.GetAllUsers() where user.ProviderUserKey.ToString() != UserIDOfUserBeingViewed.ToString() select user;
-                newMembers = memUsers.OrderByDescending(x => x.CreationDate).Take(5);
-                HttpContext.Current.Cache.Insert("NewestMembers", newMembers, null, DateTime.Now.AddHours(24), Cache.NoSlidingExpiration);
-            }
-
             var lstNewest = (ListView)loginView.FindControl("lstNewest");
             if (lstNewest != null)
             {
-                lstNewest.DataSource = newMembers;
+                var newMembers = NewestMembersHelper.GetNewestMembersFromCacheOrDb();
+                lstNewest.DataSource = UserPresenter.Presentate(newMembers.Select(memuser => new Guid(memuser.ProviderUserKey.ToString())));
                 lstNewest.DataBind();
             }
         }

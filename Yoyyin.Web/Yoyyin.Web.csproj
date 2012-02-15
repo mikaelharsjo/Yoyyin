@@ -248,6 +248,7 @@
     </Compile>
     <Compile Include="Helpers\AjaxRenderer.cs" />
     <Compile Include="Helpers\MailHelper.cs" />
+    <Compile Include="Helpers\NewestMembersHelper.cs" />
     <Compile Include="Question.aspx.cs">
       <DependentUpon>Question.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -31,9 +31,9 @@ namespace Yoyyin.Domain.Services
 
         public ISniHead GetSniHead(string sniHeadId)
         {
-            var sniHeadData = _repository.Find().First(x => x.SniHeadID == sniHeadId);
-
-            return _sniHeadMapper.MapSniHead(sniHeadData);
+            return sniHeadId != null
+                       ? _sniHeadMapper.MapSniHead(_repository.Find().First(x => x.SniHeadID == sniHeadId))
+                       : new NoSniHeadSelected();
         }
 
         public IEnumerable<ISniHead> GetAllSniHeads()

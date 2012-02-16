@@ -37,6 +37,7 @@ namespace Yoyyin.Domain.Mappers
                            UserId = user.UserId,
                            SniHead = user.SniHead != null ? _sniHeadMapper.MapSniHead(user.SniHead) : new NoSniHeadSelected(),
                            SniItem = user.SniItem != null ?  _sniItemMapper.MapSniItem(user.SniItem) : new NoSniItemSelected(),
+                           Url = user.Url
 
                        }; // not done
         }

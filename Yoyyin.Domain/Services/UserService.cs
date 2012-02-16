@@ -14,12 +14,6 @@ namespace Yoyyin.Domain.Services
         private readonly ICurrentUser _currentUser;
         private readonly IUserMapper _userMapper;
 
-        // avoid this, instead inject repository
-        //public UserService()
-        //{
-        //    _userRepository = new EntityUserRepository(new YoyyinEntities1());
-        //}
-
         public UserService(IUserRepository userRepository, ICurrentUser currentUser, IUserMapper userMapper)
         {
             _userRepository = userRepository;

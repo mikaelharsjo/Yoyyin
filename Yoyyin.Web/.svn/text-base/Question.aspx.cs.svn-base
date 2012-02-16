@@ -1,0 +1,36 @@
+﻿using System;
+using yoyyin.com.Lib;
+using yoyyin.com.Lib.Extensions;
+
+namespace yoyyin.com
+{
+    public partial class QuestionPage : System.Web.UI.Page
+    {
+        private EntityFactory _entityFactory;
+        private Question _question;
+        private Category _category;
+        public int QuestionID;
+        public const int MaxQuestionLength = 110;
+
+        protected override void OnInit(EventArgs e)
+        {
+            base.OnInit(e);
+            _entityFactory = new EntityFactory();
+            Int32.TryParse(Request["QuestionID"], out QuestionID);
+            if (QuestionID > 0)
+                _question = _entityFactory.GetQuestion(QuestionID);
+            _category = (Category)_question.Category;
+        }
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            lnkCategory.InnerText = _category.GetTitle();
+            lnkCategory.Attributes["href"] = "Category.aspx?Category=" + (int)_category;
+            litBreadCrumb.Text = WebHelpers.TruncateText(_question.Text, MaxQuestionLength);
+
+            btnAnswerDialog.Visible = WebHelpers.IsLoggedIn();
+            divAnswerWhenLoggedIn.Visible = WebHelpers.IsLoggedIn();
+            divAnswerWhenNotLoggedIn.Visible = !WebHelpers.IsLoggedIn();
+        }
+    }
+}

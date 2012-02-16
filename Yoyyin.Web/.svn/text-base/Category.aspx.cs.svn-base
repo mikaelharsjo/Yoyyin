@@ -1,0 +1,45 @@
+﻿using System;
+using yoyyin.com.Lib;
+using yoyyin.com.Lib.Extensions;
+
+namespace yoyyin.com
+{
+    public partial class CategoryPage : System.Web.UI.Page
+    {
+        public Category Category;
+        private int _category;
+        public const int MaxQuestionLength = 200;
+
+        protected override void OnInit(EventArgs e)
+        {
+            base.OnInit(e);
+            Int32.TryParse(Request["Category"], out _category);
+
+            Category = (Category)_category;
+        }
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            lnkCategory.Text = Category.GetDescription();
+            lstQuestions.DataSource = Category.GetQuestions();
+            lstQuestions.DataBind();
+            btnQuestion.Visible = WebHelpers.IsLoggedIn();
+
+            btnQuestion.Attributes.Add("data-category-id", _category.ToString());
+        }
+
+        protected string GetDate(object dataItem)
+        {
+            Question question = (Question) dataItem;
+
+            return question.Created.ToFormattedString();
+        }
+
+        protected string GetNumberOfAnswers(object dataItem)
+        {
+            var question = (Question) dataItem;
+
+            return question.GetNumberOfAnswers().ToString();
+        }
+    }
+}

@@ -1,0 +1,431 @@
+﻿using System;
+using System.Linq;
+using System.Text;
+using System.Web.Security;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using Newtonsoft.Json.Linq;
+using yoyyin.com.Lib;
+using yoyyin.com.Lib.Extensions;
+
+namespace yoyyin.com
+{
+    [System.Web.Script.Services.ScriptService]
+    public partial class Register : System.Web.UI.Page
+    {
+        const string Tip1Html = "<div class='marginBottom'><img src='Styles/Images/lightbulb.png' alt='Tips' class='marginRight' />Du måste fylla i ett namn men vill du vara lite privat så kan du hitta på ett användarnamn istället.</div><div class='marginBottom'><img src='Styles/Images/lightbulb.png' alt='Tips' class='marginRight' />Fält markerade med <img src='Styles/Images/magnifier.png' alt='Sökbart' /> efter blir sökbara.</div><div class='marginBottom'><img src='Styles/Images/lightbulb.png' alt='Tips' class='marginRight' />Om du fyller i adress korrekt så visas din profil på kartan vid sökning, det räcker att ange stad för grov placering.</div><div class='marginBottom'>Det kan vara din hemadress eller en adress som är knuten till din affärsidé.</div>";
+        const string Tip2Html = "<div class='marginBottom'>Välj den roll som du tycker passar bäst in på dig.</div>Den används för att matcha ihop dig med rätt affärspartner.";
+        const string Tip3Html = "<div class='marginBottom'>Välj dom alternativ som passar.</div>Dom används för att matcha ihop dig med rätt affärspartner.";
+        const string Tip4Html = "<div class='marginBottom'>Egenskaper/kompetenser används för att matcha ihop dig med andra affärspartners. Skriv generellt dvs 'restaurang' och inte 'kinarestaurangerfarenhet' för att få flera matchningar.</div>";
+        const string Tip5Html = "<div class='marginBottom'><img src='Styles/Images/lightbulb.png' alt='Tips' class='marginRight' />Har du hämtat uppgifter från Facebook kommer din profilbild att visas här på Yoyyin också.</div><div class='marginTop'>Vill du ha en annan bild här på Yoyyin så ladda upp den nu.</div>";
+        const string Tip6Html = "<div class='marginBottom'><img src='Styles/Images/lightbulb.png' alt='Tips' class='marginRight' />Beskriv din affärsidé kortfattat men utan att avslöja affärshemligheter, den blir sökbar av andra besökare.</div><div class='marginBottom'><img src='Styles/Images/lightbulb.png' alt='Tips' class='marginRight' />Du kan alltid färdigställa eller ändra i din profil på 'Min profil' under 'Redigera profil'.</div>";
+
+        const int WizStepStart = 0;
+        const int WizStepPersonalInfo = 1;
+        const int WizStepRole = 2;
+        const int WizStepRoleNeeded = 3;
+        const int WizStepSearchwords = 4;
+        const int WizStepFiles = 5;
+        const int WizStepIdea = 6;
+        
+        User _user;
+        EntityFactory _entityFactory;
+        UserHelper _userHelper;        
+
+        public string FbID { get; set; }
+        public string FbEmail { get; set; }        
+        public string FbLocationName { get; set; }
+        public string FbWebSite { get; set; }
+        public string FbName { get; set; }
+        public string FbCity
+        {
+            get
+            {
+                if (FbLocationName == null)
+                    return string.Empty;
+                string[] location = FbLocationName.Split(',');
+                if (location.Length > 0)
+                    return location[0];
+                else
+                    return string.Empty;
+            }
+        }
+
+        protected override void  OnInit(EventArgs e)
+        {
+ 	        base.OnInit(e);
+            _entityFactory = new EntityFactory();
+            _userHelper = new UserHelper();
+        }
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (Membership.GetUser() != null)
+            {
+                ImageButton btnFacebook = (ImageButton)GetControlFromWizardStep(0, "btnFacebook");
+                if (btnFacebook != null)
+                    btnFacebook.Visible = false;
+            }
+            Form.Attributes.Add("novalidate", "novalidate");
+            MetaDescription = "Bli medlem och sökbar för andra affärsparners, företagare och entreprenörer";
+
+            SetTipHtml();
+
+            if (Request["code"] != null)            
+                GetInfoFromFacebook();            
+        }
+
+        private Control GetControlFromWizardStep(int stepIndex, string controlID)
+        {
+            Control stepContent = ((TemplatedWizardStep)wizard.WizardSteps[stepIndex]).ContentTemplateContainer;
+            return stepContent.FindControl(controlID);
+        }
+
+        private string GetTextBoxTextFromWizardStep(int stepIndex, string controlID)
+        {
+            TextBox textBox = (TextBox)GetControlFromWizardStep(stepIndex, controlID);
+            return textBox.Text;
+        }
+
+        private void GetInfoFromFacebook()
+        {
+            try
+            {
+                string url = "";
+                FacebookAuthentication oAuth = new FacebookAuthentication();
+                //Get the access token and secret.
+                oAuth.AccessTokenGet(Request["code"]);
+
+                if (oAuth.Token.Length > 0)
+                {
+                    //We now have the credentials, so we can start making API calls
+                    url = "https://graph.facebook.com/me?access_token=" + oAuth.Token;
+                    string jsonText = oAuth.WebRequest(FacebookAuthentication.Method.Get, url, String.Empty);
+
+                    JObject json = JObject.Parse(jsonText);
+                    FbID = json["id"].ToString().Replace("\"", "");
+                    FbEmail = json["email"].ToString().Replace("\"", "");
+                    FbLocationName = json["location"]["name"].ToString().Replace("\"", "");
+                    FbWebSite = json["website"].ToString().Replace("\"", "");
+                    FbName = json["name"].ToString().Replace("\"", "");
+
+                    if (FbID != null)
+                        imgYoyyin.ImageUrl = string.Format(WebHelpers.FacebookImageurlLarge, FbID);
+
+                    if (!IsPostBack)
+                    {
+                        TextBox txtUserName = (TextBox)createUserWizardStep.ContentTemplateContainer.FindControl("UserName");
+                        txtUserName.Text = FbEmail;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                WebHelpers.SendErrorMail("Register.aspx: GetInfoFromFacebook" + ex.Message);
+            }
+        }
+
+        private void SetTipHtml()
+        {
+            switch (wizard.ActiveStepIndex)
+            {
+                case 1:
+                    divTips.InnerHtml = Tip1Html;
+                    break;
+                case 2:
+                    divTips.InnerHtml = Tip2Html;
+                    break;
+                case 3:
+                    divTips.InnerHtml = Tip3Html;
+                    break;
+                case 4:
+                    divTips.InnerHtml = Tip4Html;
+                    break;
+                case 5:
+                    divTips.InnerHtml = Tip5Html;
+                    break;
+                case 6:
+                    divTips.InnerHtml = Tip6Html;
+                    break;
+            }
+        }
+
+        protected void BtnFacebook_Click(object sender, EventArgs e)
+        {
+            FacebookAuthentication fb = new FacebookAuthentication();
+            Response.Redirect(fb.AuthorizationLinkGet());
+        }
+        
+        protected void OnCreatedUser(object sender, EventArgs e)
+        {            
+            TextBox txtUserName = (TextBox)createUserWizardStep.ContentTemplateContainer.FindControl("UserName");
+            TextBox txtPassword = (TextBox)createUserWizardStep.ContentTemplateContainer.FindControl("Password");
+
+            Current.UserName = txtUserName.Text;
+            MembershipUser mu = Membership.GetUser(Current.UserName);
+
+            mu.Email = Current.UserName;
+            Membership.UpdateUser(mu);
+            
+            Session.Add("currentPassword", txtPassword.Text);
+        }
+
+        protected void nextButtonClick(object sender, EventArgs e)
+        {            
+            litJS.Text = "";
+
+            switch (wizard.ActiveStepIndex)
+            {
+                case WizStepStart:
+                    SaveStartStep();
+
+                    break;
+
+                case WizStepPersonalInfo:
+                    SavePersonalInfoStep();
+
+                    break;
+
+                case WizStepRole:
+                    SaveRoleStep();
+
+                    break;
+
+                case WizStepRoleNeeded:
+                    SaveRoleNeededStep();
+
+                    break;
+
+                case WizStepSearchwords:
+                    SaveStepSearchWords();
+
+                    break;
+                case WizStepFiles:
+                    SaveStepFiles();
+
+                    break;
+            }
+        }
+
+        private void SaveStartStep()
+        {
+            // not logged in yet so get user via username
+            MembershipUser mu = Membership.GetUser(Current.UserName);
+            litEmail.Text = mu.Email;
+            string script = "$(document).ready(function () { $('#divWelcome').show(); $('#divWelcome').center(); $('#popBg').show(); $('#popBg').click(function () { $('#divWelcome').hide(); $('#popBg').hide(); });}); document.forms[0].action = 'Register.aspx';";
+            litJS.Text = script;
+            Master.LoginStatus.Visible = true;
+            Master.LitLoggedInInfo.Text = string.Format(SiteMaster.LoggedInInfo, mu.UserName, "");
+            Master.ShowToolbar();
+
+            _user = new User();
+            _user.UserId = new Guid(mu.ProviderUserKey.ToString());
+            _user.CompanyName = "";
+            _user.FacebookID = FbID;
+
+            /* default settings */
+            _user.Active = true;
+            _user.ShowAddress = true;
+            _user.ShowOnMap = true;
+            _user.ShowEmail = false;
+            _user.UserType = (int)UserTypes.Entrepreneur;
+            _user.Street = "";
+            _user.ZipCode = "";
+            _user.Phone = string.Empty;
+            _user.Url = "";
+
+            GetPropertiesFromFacebookIfAny();
+
+            if (Session["ForumUserID"] != null)
+                _user.ForumUserID = (int)Session["ForumUserID"];
+
+            _user.BusinessTitle = string.Empty;
+            _user.BusinessDescription = string.Empty;
+
+            _userHelper.CreateUserInDb(_user);
+        }
+
+        private void SaveStepFiles()
+        {
+            _user = _entityFactory.GetUser(Current.UserID);
+
+            FileUpload fileImage = (FileUpload)GetControlFromWizardStep(WizStepFiles, "fileImage");            
+
+            if (fileImage.FileBytes.Length > 0)
+            {
+                _user.Image = fileImage.FileBytes;
+                imgYoyyin.Visible = false;                
+                userImage.Visible = true;
+                userImage.UserID = Current.UserID;
+            }
+
+            FileUpload fileCV = (FileUpload)GetControlFromWizardStep(WizStepFiles, "fileCV");
+
+            if (fileCV.HasFile)
+            {
+                fileCV.SaveAs(Server.MapPath("~/Upload") + "\\" + fileCV.FileName);
+                _user.CVFileName = fileCV.FileName;
+            }
+
+            _user.Save();
+        }
+
+        private void SaveStepSearchWords()
+        {
+            _user = _entityFactory.GetUser(Current.UserID);
+
+            _user.SearchWords = GetTextBoxTextFromWizardStep(WizStepSearchwords, "txtSearchWords");
+            _user.SearchWordsCompetence = GetTextBoxTextFromWizardStep(WizStepSearchwords, "txtSearchWordsCompetence");
+            _user.SearchWordsCompetenceNeeded = GetTextBoxTextFromWizardStep(WizStepSearchwords, "txtSearchWordsCompetenceNeeded");
+
+            _user.Save();
+        }
+
+        private void SaveRoleNeededStep()
+        {
+            _user = _entityFactory.GetUser(Current.UserID);
+
+            StringBuilder sb = new StringBuilder();
+            Control step3Content = ((TemplatedWizardStep)wizard.WizardSteps[WizStepRoleNeeded]).ContentTemplateContainer;
+            CheckBox chkentrepreneur = (CheckBox)step3Content.FindControl("chkentrepreneur");
+            CheckBox chkinnovator = (CheckBox)step3Content.FindControl("chkinnovator");
+            CheckBox chkinvestor = (CheckBox)step3Content.FindControl("chkinvestor");
+            CheckBox chkfinancing = (CheckBox)step3Content.FindControl("chkfinancing");
+            CheckBox chkretiring = (CheckBox)step3Content.FindControl("chkretiring");
+            CheckBox chkbusinessman = (CheckBox)step3Content.FindControl("chkbusinessman");
+
+            if (chkentrepreneur.Checked)
+                sb.Append((int)UserTypes.Entrepreneur + ",");
+            if (chkinnovator.Checked)
+                sb.Append((int)UserTypes.Innovator + ",");
+            if (chkinvestor.Checked)
+                sb.Append((int)UserTypes.Investor + ",");
+            if (chkfinancing.Checked)
+                sb.Append((int)UserTypes.Financing + ",");
+            if (chkretiring.Checked)
+                sb.Append((int)UserTypes.Retiring + ",");
+            if (chkbusinessman.Checked)
+                sb.Append((int)UserTypes.Businessman + ",");
+
+            _user.UserTypesNeeded = sb.ToString().TrimEnd(new char[] { ',' });
+
+            _user.DescEntrepreneur = GetTextBoxTextFromWizardStep(WizStepRoleNeeded, "txtEntrepreneur");
+            _user.DescInnovator = GetTextBoxTextFromWizardStep(WizStepRoleNeeded, "txtInnovator");
+            _user.DescInvestor = GetTextBoxTextFromWizardStep(WizStepRoleNeeded, "txtInvestor");
+            _user.DescFinancing = GetTextBoxTextFromWizardStep(WizStepRoleNeeded, "txtFinancing");
+            _user.DescRetiring = GetTextBoxTextFromWizardStep(WizStepRoleNeeded, "txtRetiring");
+            _user.DescBusinessman = GetTextBoxTextFromWizardStep(WizStepRoleNeeded, "txtBusinessman");
+
+            _user.Save();
+        }
+
+        private void SaveRoleStep()
+        {
+            _user = _entityFactory.GetUser(Current.UserID);
+
+            _user.UserType = (int?)int.Parse(Request["radioRole"].ToString());
+            _user.UserTypeDescription = GetTextBoxTextFromWizardStep(WizStepRole, "txtUserTypeDescription");
+
+            _user.Save();
+        }
+
+        private void SavePersonalInfoStep()
+        {
+            _user = _entityFactory.GetUser(Current.UserID);
+
+            _user.CompanyName = GetTextBoxTextFromWizardStep(WizStepPersonalInfo, "companyName");
+            _user.Name = GetTextBoxTextFromWizardStep(WizStepPersonalInfo, "name");
+            _user.Alias = GetTextBoxTextFromWizardStep(WizStepPersonalInfo, "alias");
+            litName.Text = _user.Name;
+            _user.Street = GetTextBoxTextFromWizardStep(WizStepPersonalInfo, "street");
+            _user.ZipCode = GetTextBoxTextFromWizardStep(WizStepPersonalInfo, "zipCode");
+            _user.City = GetTextBoxTextFromWizardStep(WizStepPersonalInfo, "city");
+            _user.Phone = GetTextBoxTextFromWizardStep(WizStepPersonalInfo, "phone");
+            _user.Url = GetTextBoxTextFromWizardStep(WizStepPersonalInfo, "url");            
+
+            GoogleHelper gh = new GoogleHelper();
+            gh.UpdateUserCoordsFromGeocodingService(_user);
+
+            _user.Save();
+        }
+
+        protected void wizard_FinishButtonClick(object sender, WizardNavigationEventArgs e)
+        {
+            SaveStepIdea();
+
+            Session["currentUserID"] = null;
+
+            MembershipUser membershipUser = Membership.GetUser();
+
+            if (membershipUser == null)
+                membershipUser = Membership.GetUser(Current.UserID, true);
+
+            if (membershipUser == null)
+                LoginUser(membershipUser.UserName, Session["currentPassword"].ToString());
+            else
+                Response.Redirect("~/Member.aspx?FirstTime=1");
+        }
+
+        private void SaveStepIdea()
+        {
+            _user = Current.User;
+
+            Control step6Content = ((TemplatedWizardStep)wizard.WizardSteps[WizStepIdea]).ContentTemplateContainer;
+            if (step6Content != null)
+            {
+                _user.BusinessTitle = GetTextBoxTextFromWizardStep(WizStepIdea, "businessTitle");
+
+                string desc = GetTextBoxTextFromWizardStep(WizStepIdea, "businessDesc");
+                desc = desc.Replace("\n", "<br />").Replace("\r", "").Replace("\t", "");
+                _user.BusinessDescription = desc;
+
+                _user.SniHeadID = ((DropDownList)step6Content.FindControl("ddlSniHead")).SelectedValue;
+                _user.SniNo = ((DropDownList)step6Content.FindControl("ddlSniItem")).SelectedValue;
+
+                _user.Save();
+            }
+        }
+
+        private void GetPropertiesFromFacebookIfAny()
+        {
+            if (FbName != null)
+            {
+                _user.Name = FbName;
+                TextBox name = (TextBox)GetControlFromWizardStep(WizStepPersonalInfo, "name");
+                if (name != null)
+                    name.Text = FbName;
+                litName.Text = FbName;
+            }
+            else
+                _user.Name = string.Empty;
+
+            if (FbCity != string.Empty)
+            {
+                _user.City = FbCity;
+                TextBox city = (TextBox)GetControlFromWizardStep(WizStepPersonalInfo, "city");
+                city.Text = FbCity;
+            }
+            else
+                _user.City = string.Empty;
+
+            if (FbWebSite != null)
+            {
+                _user.Url = FbWebSite;
+                TextBox url = (TextBox)GetControlFromWizardStep(WizStepPersonalInfo, "url");
+                if (url != null)
+                    url.Text = FbWebSite;
+            }
+            else
+                _user.Url = string.Empty;
+        }
+
+        private void LoginUser(string userName, string password)
+        {
+            if (Membership.ValidateUser(userName, password))
+            {
+                FormsAuthentication.SetAuthCookie(userName, true);
+                FormsAuthentication.RedirectFromLoginPage(userName, true);
+            }
+        }
+    }
+}

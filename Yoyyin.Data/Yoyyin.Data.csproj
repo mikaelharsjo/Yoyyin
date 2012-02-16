@@ -60,6 +60,7 @@
     <Compile Include="IRepository.cs" />
     <Compile Include="ISniHeadRepository.cs" />
     <Compile Include="IUserRepository.cs" />
+    <Compile Include="IVisitsRepository.cs" />
     <Compile Include="MatchType.cs" />
     <Compile Include="Model.Designer.cs">
       <DependentUpon>Model.edmx</DependentUpon>

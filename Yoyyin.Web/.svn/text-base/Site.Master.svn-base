@@ -1,0 +1,269 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="yoyyin.com.SiteMaster" %>
+<%@ Import Namespace="yoyyin.com" %>
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head runat="server">    
+    <title>Hitta affärspartners, affärskollegor med Yoyyin</title>
+    <meta name="language" content="sv" />
+    <link rel="schema.DC" href="http://purl.org/dc/elements/1.1/" /> 
+    <link rel="schema.DCTERMS" href="http://purl.org/dc/terms/" /> 
+    <meta name="DC.title" content="Hitta affärspartners, affärskollegor med Yoyyin" /> 
+    <meta name="DC.subject" content="affärspartner; affärskollega; entreprenör; företagare; affärsidé; partner; hitta; söker; sökes; matchning" /> 
+    <meta name="DC.description" content="Yoyyin är en gratis mötesplats och matchningstjänst för dig som är (eller vill bli) företagare och entreprenör. Här kan du hitta andra att starta eller utveckla ditt företag tillsammans med" /> 
+    <meta name="DC.publisher" content="Join My Venture" /> 
+    <meta name="DC.type" scheme="DCTERMS.DCMIType" content="Text" /> 
+    <meta name="DC.format" content="text/html; charset=utf-8" /> 
+    <meta name="DC.format" content="38901 bytes" /> 
+    <meta name="DC.identifier" scheme="DCTERMS.URI" content="http://yoyyin.com" />
+    <link href="~/Styles/Site.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Styles/NonMinify.min.css" rel="stylesheet" type="text/css" />    
+    <link rel="Shortcut Icon" href="Styles/Images/favicon.png" />     
+</head>
+<body>  
+    <div id="fb-root"></div>
+
+    <div id="popBg" class="popBg"></div>
+    
+    <div id="dialog" class="dialog">
+        <div class="padding">
+            <div id="dialogInner"></div>
+        </div>
+    </div>
+    
+    <form runat="server" novalidate="novalidate">
+        <asp:HiddenField ID="hiddenLoggedIn" runat="server" ClientIDMode="Static" />
+        <asp:HiddenField ID="hiddenForumUserID" runat="server" ClientIDMode="Static" />
+        <div id="content">    
+            <div id="feedBack" class="feedBack fbButton"></div>
+
+            <div class="wrapper wrapperDimensions">            
+                <header>
+                    <a id="startLink" href="Mötesplatsen_för_affärspartners_Yoyyin" title="Mötesplatsen och matchningstjänsten för affärspartners som sammanför entreprenörer, innovatörer och företagare som vill starta eller utveckla företag tillsammans."></a>                    
+                    <div class="headerBubbleText"><strong>Det enkla sättet att hitta en affärspartner!</strong></div>
+                    <ul id="topMenu">
+                        <li><a href="Mötesplatsen_för_affärspartners_Yoyyin" title="Mötesplatsen och matchningstjänsten för affärspartners som sammanför entreprenörer, innovatörer och företagare som vill starta eller utveckla företag tillsammans." class="menuLink">Start</a>&nbsp;|&nbsp;</li>
+                        <li><a href="Hitta_en_affärspartner" title="Med Yoyyin kan du som är entreprenör, innovatör eller företagare hitta en affärspartner att starta eller utveckla företag tillsammans." class="menuLink">Om Yoyyin</a>&nbsp;|&nbsp;</li>
+                        <li id="spnRegister" runat="server"><a runat="server" rel="nofollow" title="Bli medlem och sökbar för andra affärsparners, företagare och entreprenörer" href="Register.aspx" class="menuLink">Bli medlem</a>&nbsp;|&nbsp;</li>
+                        <li id="spnLinks" runat="server"><a id="target" href="links_foretagare_entreprenorer" title="Intressanta länkar för entreprenörer, företagare och innovatörer." class="menuLink">Länkar</a>&nbsp;|&nbsp;</li>
+                        <li id="spnDocuments" runat="server"><a href="Dokument_och_mallar" title="Tips och checklistor för entreprenörer och företagare som vill förverkliga sin affärsidé." class="menuLink">Dokument</a>&nbsp;|&nbsp;</li>
+                        <li id="spnForum" runat="server"><a href="Forum" title="Yoyyins forum där entreprenörer och företagare svarar på frågor kring din affärsidé." class="menuLink">Diskutera</a></li>
+                        <li id="loginLink" runat="server"><a id="lnkLogin" class="lnkLoginTop" runat="server">Logga in</a></li>
+                        <li class="loggedInInfo"><asp:Literal ID="litLoggedInInfo" runat="server" /></li>
+                    </ul>
+                </header>   
+
+                    <div runat="server" id="divToolbar" class="toolBar" onkeypress='return disableEnterKey(event)'>
+                        <div class="left">
+                            <input type="text" ID="txtSearchTop" name="txtSearchTop" style="width: 215px;" class="marginRight" onkeypress="searchKeyPress(event);" value="Sök" class="disabled" onfocus="searchBoxFocus(this, 'Sök');" onblur="searchBoxBlur(this, 'Sök');" />
+                            <button id="btnSearchTop" type="button">SÖK</button>
+                        </div>
+                        <div class="toolBarItems">
+                            &nbsp;&nbsp;<a href="Home.aspx" class="bold">Hem</a>&nbsp;&nbsp;|&nbsp;<a href="Member.aspx">Min profil</a>&nbsp;|&nbsp;<a href="News.aspx">Nyheter</a>&nbsp;|&nbsp;<a href="Forum">Diskutera</a>&nbsp;|&nbsp;<a href="Tools.aspx">Dokument</a>&nbsp;|&nbsp;<a href="Links.aspx">Länkar</a>&nbsp;|&nbsp;<a id="lnkAdvancedSearch">Avancerad sök</a>&nbsp;|&nbsp;<asp:LoginStatus ID="loginStatus" runat="server" LogoutText="Logga ut" LogoutPageUrl="~/Default.aspx" LogoutAction="RedirectToLoginPage" LoginText="" />
+                        </div>
+                        <div class="extra"></div>
+                    </div>
+
+                     
+                <div class="container whiteBg minHeight">
+
+                    <div id="divAjaxContent" class="span-24 last marginBottom marginTop">&nbsp;</div>
+                    <div id="divAjaxContentBelow" style="display: none;" class="span-24 last marginBottom marginTop">&nbsp;</div>
+
+                    <div class="extra" id="divSeparator" runat="server"></div>
+
+                    <div class="span-24 last" id="mainDiv" runat="server">
+                        <asp:ContentPlaceHolder ID="MainContent" runat="server"/>  
+                    </div>
+                </div>            
+            </div>
+
+            <div class="wrapperDimensions">
+                <div style="padding-bottom: 200px;">
+                    <div class="paddingTop" style="float:left; width: 700px;">
+                        <!-- AddThis Button BEGIN -->
+                        <div class="addthis_toolbox addthis_default_style">
+                
+                        <a class="addthis_button_twitter"></a>
+                        <a class="addthis_button_linkedin"></a>
+                        <a class="addthis_button_facebook"></a>
+                        <a class="addthis_button_blogger"></a>                        
+                        <a class="addthis_button_email"></a>
+                        <a class="addthis_button_favorites"></a>
+                        <a class="addthis_button_print"></a>
+                        <span class="addthis_separator">|</span>
+                        <a href="http://addthis.com/bookmark.php?v=250&amp;username=hardmike" class="addthis_button_expanded">Flera</a>
+                        </div>
+                        <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=hardmike"></script>
+                        <!-- AddThis Button END -->
+                    </div>
+                    <div class="paddingTop right">
+                        <p>
+                            <a href="http://www.w3.org/html/logo/">
+                                <img src="http://www.w3.org/html/logo/badge/html5-badge-h-solo.png" width="35" height="36" alt="HTML5 Powered" title="HTML5 Powered" />
+                            </a>
+                        </p>
+                    </div>
+                    <div class="extra"></div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="footer">
+                <div class="container">
+                    <div class="paddingTop">
+                        <div class="span-12">
+                            <div class="span-12"><h3>Affärsidéer/medlemmar</h3></div>
+                            <div class="span-5">
+                                <strong>Populäraste</strong>
+                                <asp:ListView ID="lstPopular" runat="server" ItemPlaceholderID="divContent" EnableViewState="false">
+                                    <LayoutTemplate>
+                                        <div id="divContent" runat="server" />
+                                    </LayoutTemplate>
+                                    <ItemTemplate>
+                                        <div>
+                                            <a href='<%# "Member.aspx?UserID=" + Container.DataItem.ToString() %>' title="Klicka för att se entreprenörens affärsidé"><%# WebHelpers.GetUserName(Container.DataItem.ToString())%></a></div>
+                                    </ItemTemplate>
+                                </asp:ListView>
+                            </div>
+                            <div class="span-6 last">
+                                <strong>Nyaste</strong>
+                                <asp:ListView ID="lstNewest" runat="server" ItemPlaceholderID="divContent">
+                                    <LayoutTemplate>
+                                        <div id="divContent" runat="server" />
+                                    </LayoutTemplate>
+                                    <ItemTemplate>
+                                        <div>
+                                            <a href='<%# "Member.aspx?UserID=" + Eval("ProviderUserKey") %>' id='<%# Eval("ProviderUserKey") %>' title="Klicka för att se entreprenörens affärsidé"><%# WebHelpers.GetUserName(Eval("ProviderUserKey").ToString())%></a></div>
+                                    </ItemTemplate>
+                                </asp:ListView>
+                            </div>
+                        </div>
+                        <div class="span-6">
+                            <h3>Information</h3>
+                            <a href="partners_branscher">Alla affärsidéer branschgrupperat</a><br /><br /><br /><br /><br />
+                            <asp:Literal ID="litCount" runat="server" />
+                        </div>
+                       <div class="span-6 last">
+                            <h3>Kontakt</h3>
+                            <a class="feedBack">Tyck till om Yoyyin</a><br />
+                            <a id="lnkContactYoyyin">Kontakt med Yoyyin</a><br /><br /><br /><br />
+                            &copy; 2011 Yoyyin
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <div id="divLogin" runat="server" class="dialog" clientidmode="Static">
+            <div class="padding">
+                <asp:Login runat="server" ID="login" FailureText="Inloggningen misslyckades, var god kontrollera e-postadress och lösenord">
+                    <LayoutTemplate>  
+                        <div class="dialogHeader"><h2>Logga in</h2><img src="Styles/Images/fancy_close.png" alt="Stäng dialogen" class="dialogClose" /></div>                              
+                        <asp:Panel runat="server" DefaultButton="Login">
+                            <table style="width: 100%;" class="loginTable">
+                                <tr>
+                                    <td><asp:Label Text="E-post:" runat="server" AssociatedControlID="UserName" /></td>
+                                    <td><asp:TextBox id="UserName" runat="server" CssClass="userNameInLoginDialog" /></td>
+                                </tr>
+                                <tr>
+                                    <td><asp:Label runat="server" AssociatedControlID="Password" Text="Lösenord:" /></td>
+                                    <td><asp:TextBox id="Password" runat="server" textMode="Password" /></td>
+                                </tr>
+                                <tr>
+                                    <td><asp:Label runat="server" AssociatedControlID="RememberMe" Text="Behåll mig inloggad" /></td>
+                                    <td><asp:Checkbox id="RememberMe" runat="server" /><asp:button id="Login" CommandName="Login" runat="server" Text="Logga in" CssClass="right button green" ClientIDMode="Static" /></td>
+                                </tr>
+                            </table>                                
+                        </asp:Panel>
+                        <div><a class="passwordRecovery">Glömt lösenordet?</a></div>
+                        <span class="errorText"><asp:Literal id="FailureText" runat="server" /></span>
+                    </LayoutTemplate>
+                </asp:Login>
+            </div>
+        </div>
+
+        <div id="divPasswordRecovery" runat="server" class="dialog" clientidmode="Static">
+            <div class="padding">
+                <div class="dialogHeader"><h2>Glömt lösenordet</h2><img src="Styles/Images/fancy_close.png" alt="Stäng dialogen" class="dialogClose" /></div>
+                <asp:PasswordRecovery ID="passwordRecovery" runat="server" TitleTextStyle-CssClass="h2" SuccessText="Ditt lösenord har nu skickats till dig." UserNameFailureText="E-postadressen hittades inte. Försök igen." UserNameInstructionText="Skriv in din e-postadress (som du loggar in med här) så skickas dina inloggningsuppgifter via e-post." UserNameTitleText="" SubmitButtonText="Skicka lösenord" UserNameLabelText="E-post:" SubmitButtonStyle-CssClass="button green">
+                    <MailDefinition 
+                        From="no-response@zitac.net" 
+                        Subject="Inloggningsuppgifter från Yoyyin"
+                        BodyFileName="~/Files/passwordRecoveryMailBody.txt"
+                        IsBodyHtml="true" />   
+                </asp:PasswordRecovery>
+                <div class="extra">&nbsp;</div>
+            </div>
+        </div>
+
+        <script src="http://www.google.com/jsapi?key=ABQIAAAAS69ZDmH2tc5Dx_te2M9w3xRT-dy3FdYAhjzhlEDuoXdIoxvjchQR1L9TOvSV5BusDiOhfT70mGWfCA" type="text/javascript"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js" type="text/javascript"></script>
+        <script src="http://ajax.microsoft.com/ajax/jquery.validate/1.7/jquery.validate.min.js" type="text/javascript"></script>
+        <script src="Scripts/Combined.min.js" type="text/javascript"></script>
+        <script src="Scripts/yoyyin.min.js" type="text/javascript"></script> 
+        <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+        <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>            
+        <script type="text/javascript">
+            InitializeMasterPage();
+
+            $("#divToolbar a").each(function () {
+                var url = $(this).attr("href");
+                var location = window.location.href;
+                if (location.indexOf(url) != -1) {
+                    $(this).css("text-decoration", "underline");
+                    $(this).css("font-weight", "bold");
+                }
+            });
+
+            $("#topMenu a").each(function () {
+                var url = $(this).attr("href");
+                var location = window.location.href;
+                if (location.indexOf(url) != -1) {
+                    //$(this).css("text-decoration", "underline");
+                    $(this).css("font-weight", "bold");
+                }
+            });   
+
+        </script>
+
+        <%--content with obtrusive javascript--%>
+        <asp:ContentPlaceHolder ID="MainContentAfterJavaScriptIncluded" runat="server"></asp:ContentPlaceHolder>
+        </div>
+    </form>
+        
+    <div id="divFeedBack" class="dialog">
+        <div class="padding">
+            <div class="dialogHeader"><h2>Tyck till om Yoyyin!</h2><img src="Styles/Images/fancy_close.png" alt="Stäng dialogen" class="dialogClose" /></div>
+            <p>Här har du chans att ge feedback direkt till oss som utvecklar Yoyyin. Du kan skriva både beröm och rapportera problem eller komma med förslag på förbättringar.</p>
+            <div class="marginBottom">
+                <input id="txtFBSubject" name="subject" type="text" class="disabled" value="Skriv en kort rubrik/ämne" onfocus="searchBoxFocus(this, 'Skriv en kort rubrik/ämne');" onblur="searchBoxBlur(this, 'Skriv en kort rubrik/ämne');" />
+            </div>
+            <div class="marginBottom">
+                <textarea rows="3" id="txtFBBody" name="body" class="disabled" cols="3" onfocus="searchBoxFocus(this, 'Lämna din feedback. Du får gärna vara konstruktiv och ge gärna exempel.');" onblur="searchBoxBlur(this, 'Lämna din feedback. Du får gärna vara konstruktiv och ge gärna exempel.');">Lämna din feedback. Du får gärna vara konstruktiv och ge gärna exempel.</textarea>
+            </div>
+            <div class="marginBottom">
+                <input id="txtFBName" type="text" name="name" class="disabled" value="Skriv ditt namn" onfocus="searchBoxFocus(this, 'Skriv ditt namn');" onblur="searchBoxBlur(this, 'Skriv ditt namn');" />
+            </div>
+            <div class="marginBottom">
+                <input id="txtFBEmail" type="email" name="email" class="disabled email" value="Skriv din e-postadress" onfocus="searchBoxFocus(this, 'Skriv din e-postadress');" onblur="searchBoxBlur(this, 'Skriv din e-postadress');" />
+            </div>
+            <button id="btnFeedBack" type="button" name="btnFeedBack" onclick="return false">Tyck till</button><br />
+            <div id="feedBackText" class="marginTop greenText"></div>
+        </div>
+    </div>
+
+    <div id="divDialog" class="dialog padding">
+    </div>
+
+    <div id="dialogMail" class="dialog">
+        <div id="dialogMailInner"></div>
+    </div>
+
+    <div id="divGeneralDialog" style="border: solid 1px red; width: 400px;" class="dialog">
+        <div class="padding">                
+            <div id="divDialogGeneralContent"></div>
+        </div>
+    </div>
+</body>
+</html>

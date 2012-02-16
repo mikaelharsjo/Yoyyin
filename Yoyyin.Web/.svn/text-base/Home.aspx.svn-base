@@ -1,0 +1,240 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" EnableViewState="false"
+    CodeBehind="Home.aspx.cs" Inherits="yoyyin.com.Home" %>
+<%@ Import Namespace="Zitac.Trinity.Business.Extensions" %>
+<%@ Import Namespace="yoyyin.com" %>
+<%@ Register Src="~/UserControls/UserImage.ascx" TagPrefix="yoyyin" TagName="UserImage" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <!-- Reference the theme's stylesheet on the Google CDN -->
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/flick/jquery-ui.css"
+        type="text/css" rel="Stylesheet" />
+    <!-- Reference jQuery and jQuery UI from the CDN. Remember
+       that the order of these two elements is important -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>
+    <!-- Initialize the tabs when the document is ready -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // See the jQuery UI Tabs documentation for
+            //  more information about how this works.
+            $('#tabs').tabs();
+        });
+    </script>
+    <style>
+        input[type=text]
+        {
+            width: 100px;
+            height: 15px;
+        }
+    </style>
+    <div class="span-24 last">
+        <div class="span-6">
+            <div>
+                <div class="blueBox">
+                    <div class="marginTop marginBottom textAlignCenter">
+                        <yoyyin:UserImage runat="server" Width="185" />
+                    </div>
+                    <h3 class="h3">Dina kontakter</h3>
+                    <div>
+                        <div class="friendsContainer">
+                            <asp:ListView ID="lstBookmarks" runat="server" ItemPlaceholderID="divContent">
+                                <LayoutTemplate>
+                                    <table width="100%" cellpadding="0" cellspacing="1" style="border-collapse: collapse;">
+                                        <div id="divContent" runat="server" />
+                                    </table>
+                                </LayoutTemplate>
+                                <ItemTemplate>
+                                    <tr id='div<%# Eval("BookmarkedUserID")%>'>
+                                        <td valign="middle">
+                                            <yoyyin:UserImage runat="server" UserID='<%# Eval("BookmarkedUserID") %>' Width="40" />
+                                        </td>
+                                        <asp:Image runat="server" ImageUrl='<%# WebHelpers.GetOnlineImageUrl2(Eval("BookmarkedUserID")) %>'
+                                            Visible="false" />&nbsp;
+                                        <td valign="middle">
+                                            <div class="friendItem">
+                                                <a class="popLink" href='<%# WebHelpers.GetUserUrl(Eval("BookmarkedUserID")) %>' id='<%# Eval("BookmarkedUserID") %>'>
+                                                    <%# WebHelpers.GetUserName(Eval("BookmarkedUserID"))%></a>
+                                        </td>
+                                        <td valign="top" align="right">
+                                            <a class="lnkDeleteBookmark right" title="Ta bort kontakten" bookmarkeduserid='<%# Eval("BookmarkedUserID") %>'>
+                                                <img src="Styles/Images/cross.png" /></a>
+                                        </td>
+                                    </tr>
+                                </ItemTemplate>
+                                <EmptyDataTemplate>
+                                    <i>Inga kontakter.</i>
+                                </EmptyDataTemplate>
+                            </asp:ListView>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="span-12">
+            <div id="tabs">
+                <ul>
+                    <li><a href="#tab-1">Inkorg</a></li>
+                    <li><a href="#tab-2">Skickat</a></li>
+                    <li><a href="#tab-3">Ställ en fråga</a></li>
+                </ul>
+                <div id="tab-1">
+                    <div class="marginBottom">
+                        <div class="paddingBottomSmall">
+                            <asp:ListView ID="lstMessages" runat="server" ItemPlaceholderID="divContent">
+                                <LayoutTemplate>
+                                    <table id="tblMessages" width="100%" cellpadding="5px" class="tblMail">
+                                        <thead>
+                                            <tr class="padding blueBg">                                                
+                                                <th>
+                                                    Från:
+                                                </th>                                                
+                                                <th>
+                                                    Datum/Meddelande:
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <div id="divContent" runat="server" />
+                                    </table>
+                                </LayoutTemplate>
+                                <ItemTemplate>
+                                    <tr class="whiteBg" valign="top">
+                                        <td class="smallTD"><span style="display:none;"><%# WebHelpers.GetDate(Container.DataItem, true)%></span> 
+                                            <yoyyin:UserImage runat="server" UserID='<%# Eval("FromUserId") %>' Width="50" />
+                                        </td>
+                                        <td class="smallTD">
+                                            <strong><a onclick='PopMail(<%# Eval("UserMessagesID") %>, "<%# CurrentUser.UserId %>", "<%# Eval("FromUserId") %>")'>
+                                                <%# WebHelpers.GetUserName(Eval("FromUserId").ToString())%>
+                                            </a></strong>
+                                            <a onclick='PopMail(<%# Eval("UserMessagesID") %>, "<%# CurrentUser.UserId %>", "<%# Eval("FromUserId") %>")'>
+                                                <%# WebHelpers.GetDate(Container.DataItem, false)%></a><br />
+                                            <a onclick='PopMail(<%# Eval("UserMessagesID") %>, "<%# CurrentUser.UserId %>", "<%# Eval("FromUserId") %>")'>
+                                                <%# Eval("FromMessage").ToString().TruncateText(100) %>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </ItemTemplate>
+                            </asp:ListView>
+                        </div>
+                    </div>
+                </div>
+                <div id="tab-2">
+                    <div class="paddingBottomSmall">
+                        <asp:ListView ID="lstMessagesSent" runat="server" ItemPlaceholderID="divContent"
+                            class="tblMail">
+                            <LayoutTemplate>
+                                <table>
+                                    <tbody>
+                                        <th>
+                                            Till:
+                                        </th>
+                                        <th>
+                                            Datum:
+                                        </th>
+                                        <th>
+                                            Meddelande:
+                                        </th>                                    
+                                        <div id="divContent" runat="server" />
+                                    </tbody>
+                                </table>
+                            </LayoutTemplate>
+                            <ItemTemplate>
+                                <tr>
+                                    <td class="smallTD">
+                                        <%--<a onclick='PopMail(<%# Eval("UserMessagesID") %>, "<%# Eval("FromUserId") %>", "<%# CurrentUser.UserId %>")'>--%>
+                                        <%# WebHelpers.GetUserName(Eval("ToUserId").ToString())%>
+                                        <%--</a>--%>
+                                    </td>
+                                    <td class="smallTD">
+                                        <%--<a onclick='PopMail(<%# Eval("UserMessagesID") %>, "<%# Eval("FromUserId") %>", "<%# CurrentUser.UserId %>")'>--%>
+                                        <%# WebHelpers.GetDate(Container.DataItem, true)%>
+                                        <%--</a>--%>
+                                    </td>
+                                    <td class="smallTD">
+                                        <%--<a onclick='PopMail(<%# Eval("UserMessagesID") %>, "<%# Eval("FromUserId") %>", "<%# CurrentUser.UserId %>")'>--%>
+                                        <%# Eval("FromMessage").ToString().TruncateText(70) %>
+                                        <%--</a>--%>
+                                    </td>
+                                </tr>
+                            </ItemTemplate>
+                            <EmptyDataTemplate>
+                                <i>Inga meddelanden.</i>
+                            </EmptyDataTemplate>
+                        </asp:ListView>
+                    </div>
+                </div>
+                <div id="tab-3">
+                    <div class="paddingRight blueBox">
+                        <h3>
+                            Ställ en fråga eller testa en affärsidé.</h3>
+                        <table style="width: 100%;">
+                            <tr>
+                                <td style="width: 60px;" valign="top" id="tdForumImage" runat="server">
+                                    <yoyyin:UserImage runat="server" Width="50" />
+                                </td>
+                                <td valign="top">
+                                    <textarea id="txtForumQuestion" rows="3" cols="80" style="width: 100%;" onfocus="this.rows=6"></textarea>
+                                </td>
+                            </tr>
+                        </table>
+                        <button runat="server" id="btnPostQuestionToForum" runat="server" clientidmode="Static">
+                            Fråga</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="span-6 last">
+            <div class="blueBox marginBottom">
+                <h3>Bjud in en vän!</h3>
+                <i>Yoyyin är för närvarande i stängt betaläge. Du som betatestare har däremot möjligheten att bjuda in vänner som du tror är intresserade av tjänsten.</i>
+                <br />
+                <input id="emailInite" type="email" value="Din väns e-postadress" class="inviteTextBox disabled" onfocus="this.disabled = false; searchBoxFocus(this, 'Din väns e-postadress');" onblur="searchBoxBlur(this, 'Din väns e-postadress');" /><br />
+                <button id="btnSendInvite" class="marginTopSmall button green" onclick="return false;">Skicka inbjudan</button>
+                <p id="pInfo" class="greenText"></p>
+            </div>
+<%--            <div class="blueBox marginBottom">
+                <h3>
+                    Senaste matchningar</h3>
+                <div>
+                    <div>
+                        <i>Inga matchande medlemmar</i>
+                        <asp:ListView ID="lstMatches" runat="server" ItemPlaceholderID="divContent">
+                            <LayoutTemplate>
+                                <div id="divContent" runat="server" />
+                            </LayoutTemplate>
+                            <ItemTemplate>
+                                <div>
+                                    <a class="popLink" id='<%# Eval("UserId") %>'>
+                                        <%# Helpers.GetUserName(Eval("UserId").ToString()) %></a></div>
+                            </ItemTemplate>
+                            <EmptyItemTemplate>
+                                <i>Inga matchande medlemmar</i>
+                            </EmptyItemTemplate>
+                        </asp:ListView>
+                    </div>
+                </div>
+            </div>--%>
+            <div id="divLastQuestions" style="font-size: 0.9em; padding-left: 5px;"></div>
+        </div>
+    </div>
+    <br />
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContentAfterJavaScriptIncluded"
+    runat="server">
+    <script type="text/javascript">
+        $(document).ready(function () {
+            ExecuteAjax(["controlName", "LatestPosts"], "LoadControl", function (data) { $("#divLastQuestions").html(data.d); }, OnError);
+
+            $(".lnkDeleteBookmark").click(function () {                
+                var BookmarkedUserID = $(this).attr("BookmarkedUserID");
+                ExecuteAjax(["userID", '<%= CurrentUser.UserId %>', "bookmarkUserID", BookmarkedUserID], "DeleteBookmark", function () { alert("Kontakten är borttagen."); $("#div" + BookmarkedUserID).hide(); }, OnError);
+
+            });
+
+
+            $("#btnSendInvite").click(function () {
+                ExecuteAjax(["email", $("#emailInite").val(), "from", '<%= CurrentUser.Name %>', "fromEmail", '<%= CurrentEmail %>'], "SendInvite", function () { $("#pInfo").html("Din inbjudan har skickats"); }, function () { alert("Inbjudan kunde inte skickas, vänligen kontroller e-postadressen"); });
+                return false;
+            });
+        });
+    </script>
+</asp:Content>

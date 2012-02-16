@@ -27,6 +27,7 @@ namespace Yoyyin.Web
             builder.RegisterType<EntityQARepository>().As<IQARepository>();
             builder.RegisterType<EntitySniHeadRepository>().As<ISniHeadRepository>();
             builder.RegisterType<EntityUserRepository>().As<IUserRepository>();
+            builder.RegisterType<EntityUserVisitsRepository>().As<IVisitsRepository>();
 
             // factories
             builder.RegisterType<CategoryFactory>();
@@ -44,6 +45,7 @@ namespace Yoyyin.Web
             builder.RegisterType<UserService>().As<IUserService>();
             builder.RegisterType<QAService>().As<IQAService>();
             builder.RegisterType<SniHeadService>().As<ISniHeadService>();
+            builder.RegisterType<VisitsService>().As<IVisitsService>();
               
             // presenters
             builder.RegisterType<UserPresenter>().As<IUserPresenter>();

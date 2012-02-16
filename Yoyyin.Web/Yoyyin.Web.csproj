@@ -101,6 +101,7 @@
     <Content Include="News.aspx" />
     <Content Include="Scripts\Combined.js" />
     <Content Include="Scripts\Combined.min.js" />
+    <Content Include="Scripts\modernizr.custom.js" />
     <Content Include="Scripts\yoyyin.min.js" />
     <Content Include="Service.svc" />
     <Content Include="Default.aspx" />

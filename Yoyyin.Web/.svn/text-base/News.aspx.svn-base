@@ -1,0 +1,31 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="News.aspx.cs" Inherits="yoyyin.com.News" %>
+<%@ Register Assembly="Microsoft.Web.GeneratedImage" Namespace="Microsoft.Web" TagPrefix="cc1" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">        
+
+    <div class="span-24 last">
+        <div class="span-16 marginTopLarge">
+            <div class="paddingRight">
+                <div id="feedGadget">
+                    Laddar feed...</div>
+            </div>
+        </div>
+        <div class="span-8 marginTopLarge last">
+            <div class="paddingLeft">
+                <h3>
+                    Datum och event för företagare</h3>
+                <iframe src="https://www.google.com/calendar/embed?showTitle=0&amp;showNav=0&amp;showDate=0&amp;showPrint=0&amp;showCalendars=0&amp;showTz=0&amp;mode=AGENDA&amp;height=400&amp;wkst=1&amp;bgcolor=%23ffffff&amp;src=mikaelharsjo%40gmail.com&amp;color=%23182C57&amp;ctz=Europe%2FStockholm"
+                    style="border-width: 0" width="300" height="400" scrolling="no" class="calendarFrame">
+                </iframe>
+                <p>
+                    Här tipsar vi om viktiga datum för t ex skatteinbetalning och om event, seminarier
+                    mm för företagare och entreprenörer.</p>
+                <a href="Calendar.aspx">Läs mer här</a>.
+                <%--<iframe src="https://www.google.com/calendar/embed?showTitle=0&amp;showDate=0&amp;showPrint=0&amp;showCalendars=0&amp;showTz=0&amp;height=420&amp;wkst=2&amp;hl=sv&amp;bgcolor=%23FFFFFF&amp;src=mikaelharsjo%40gmail.com&amp;color=%23182C57&amp;ctz=Europe%2FLondon" style="border-width:0;" width="460" height="440" frameborder="0" scrolling="no"></iframe>--%>
+            </div>
+        </div>
+    </div>
+
+    <br />
+
+</asp:Content>

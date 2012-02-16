@@ -1,0 +1,200 @@
+﻿using System;
+using System.Text;
+using System.Web.Security;
+using System.Web.UI;
+using yoyyin.com.Lib;
+using yoyyin.com.Lib.Extensions;
+
+namespace yoyyin.com
+{
+    public partial class EditUser : Page
+    {
+        private MembershipUser _mu;
+        public Guid UserID;
+
+        protected override void OnInit(EventArgs e)
+        {
+            base.OnInit(e);
+            UserID = Current.UserID;
+            _mu = Membership.GetUser();
+        }
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            Form.Attributes.Add("novalidate", "novalidate");
+
+            if (!WebHelpers.IsLoggedIn()) return;
+
+            var user = Current.User;
+
+            if (!IsPostBack)
+            {
+                DataBindTextBoxes(user);
+
+                DataBindUserTypes(user);
+
+                ddlSniHeadID.SelectedValue = user.SniHeadID;
+                //ddlSniNo.SelectedValue = user.SniNo;
+
+                txtEmail.Text = _mu.Email;
+
+                if (user.UserType == (int) UserTypes.Entrepreneur)
+                    radioentrepreneurbusinessman.Checked = true;
+                if (user.UserType == (int) UserTypes.Innovator)
+                    radioinnovator.Checked = true;
+                if (user.UserType == (int) UserTypes.Investor)
+                    radioinvestor.Checked = true;
+            }
+
+            if (!string.IsNullOrEmpty(user.CVFileName))
+            {
+                lnkCV.NavigateUrl = "~/Upload/" + user.CVFileName;
+                lnkCV.Text = user.CVFileName;
+            }
+            else
+            {
+                lnkCV.Visible = false;
+                lnkRemoveCV.Visible = false;
+            }
+        }
+
+        private void DataBindUserTypes(User user)
+        {
+            const int businessman = (int) UserTypes.Businessman;
+            const int innovator = (int) UserTypes.Innovator;
+            const int entrepreneur = (int) UserTypes.Entrepreneur;
+            const int financing = (int) UserTypes.Financing;
+            const int retiring = (int) UserTypes.Retiring;
+            const int investor = (int) UserTypes.Investor;
+            if (user.UserTypesNeeded.Contains(businessman.ToString()))
+            {
+                divBusinessman.Attributes["style"] = "";
+                chkbusinessman.Checked = true;
+            }
+            if (user.UserTypesNeeded.Contains(entrepreneur.ToString()))
+            {
+                divEntrepreneur.Attributes["style"] = "";
+                divEntrepreneur.Visible = true;
+            }
+            if (user.UserTypesNeeded.Contains(financing.ToString()))
+            {
+                chkfinancing.Checked = true;
+                divFinancing.Attributes["style"] = "";
+            }
+            if (user.UserTypesNeeded.Contains(innovator.ToString()))
+            {
+                chkinnovator.Checked = true;
+                divInnovator.Attributes["style"] = "";
+            }
+            if (user.UserTypesNeeded.Contains(investor.ToString()))
+            {
+                chkinvestor.Checked = true;
+                divInvestor.Attributes["style"] = "";
+            }
+            if (user.UserTypesNeeded.Contains(retiring.ToString()))
+            {
+                chkretiring.Checked = true;
+                divRetiring.Attributes["style"] = "";
+            }
+        }
+
+        private void DataBindTextBoxes(User user)
+        {
+            txtCompanyName.Text = user.CompanyName;
+            txtName.Text = user.Name;
+            txtStreet.Text = user.Street;
+            txtZipCode.Text = user.ZipCode;
+            txtCity.Text = user.City;
+            txtPhone.Text = user.Phone;
+            txtUrl.Text = user.Url;
+            txtBusinessTitle.Text = user.BusinessTitle;
+            txtBusinessDescription.Text = user.BusinessDescription;
+            txtSearchWords.Text = user.SearchWords;
+            txtSearchWordsCompetence.Text = user.SearchWordsCompetence;
+        }
+
+        protected void btnSave_Click(object sender, EventArgs e)
+        {
+            var entityFactory = new EntityFactory();
+            var user = entityFactory.GetUser(Current.UserID);
+            if (txtEmail.Text != _mu.Email)
+            {
+                _mu.Email = txtEmail.Text;
+                divInfo.Visible = true;
+                litInfo.Text =
+                    "Din e-postadress är nu ändrad. Tänk på att du fortfarande loggar in med den e-postadress du först registrerade dig med. Den nya adressen används dock till alla meddelanden och funktioner på webbplatsen.";
+            }
+
+            Membership.UpdateUser(_mu);
+
+            SetUserProperitesFromTextBoxes(user);
+
+            user.UserTypesNeeded = GetUserTypesNeededAsCsvFromCheckBoxes(user);
+
+            if (radioentrepreneurbusinessman.Checked)
+                user.UserType = (int) UserTypes.Entrepreneur;
+            if (radioinnovator.Checked)
+                user.UserType = (int) UserTypes.Innovator;
+            if (radioinvestor.Checked)
+                user.UserType = (int) UserTypes.Investor;
+
+            if (fileCV.HasFile)
+            {
+                fileCV.SaveAs(Server.MapPath("~/Upload") + "\\" + fileCV.FileName);
+                user.CVFileName = fileCV.FileName;
+            }
+
+            if (fileImage.FileBytes.Length > 0)
+                user.Image = fileImage.FileBytes;
+
+            user.SniHeadID = ddlSniHeadID.SelectedValue;
+            if (user.SniHeadID == string.Empty)
+                user.SniHeadID = null;
+
+            user.SniNo = ddlSniNo.SelectedValue;
+            if (user.SniNo == string.Empty)
+                user.SniNo = null;
+
+            var gh = new GoogleHelper();
+            gh.UpdateUserCoordsFromGeocodingService(user);
+
+            user.Save();
+
+            Server.Transfer("~/Member.aspx");
+        }
+
+        private string GetUserTypesNeededAsCsvFromCheckBoxes(User user)
+        {
+            var sb = new StringBuilder();
+            if (chkentrepreneur.Checked)
+                sb.Append((int) UserTypes.Entrepreneur + ",");
+            if (chkinnovator.Checked)
+                sb.Append((int) UserTypes.Innovator + ",");
+            if (chkinvestor.Checked)
+                sb.Append((int) UserTypes.Investor + ",");
+            if (chkfinancing.Checked)
+                sb.Append((int) UserTypes.Financing + ",");
+            if (chkretiring.Checked)
+                sb.Append((int) UserTypes.Retiring + ",");
+            if (chkbusinessman.Checked)
+                sb.Append((int) UserTypes.Businessman + ",");
+
+            return sb.ToString().TrimEnd(new[] {','});
+        }
+
+        private void SetUserProperitesFromTextBoxes(User user)
+        {
+            user.CompanyName = txtCompanyName.Text;
+            user.Name = txtName.Text;
+            user.Street = txtStreet.Text;
+            user.ZipCode = txtZipCode.Text;
+            user.City = txtCity.Text;
+            user.Phone = txtPhone.Text;
+            user.Url = txtUrl.Text;
+            user.BusinessTitle = txtBusinessTitle.Text;
+            user.BusinessDescription = txtBusinessDescription.Text;
+            user.SearchWords = txtSearchWords.Text;
+            user.SearchWordsCompetence = txtSearchWordsCompetence.Text;
+        }
+    }
+}

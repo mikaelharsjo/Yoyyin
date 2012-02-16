@@ -1,0 +1,202 @@
+﻿<%@ Page Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" Title="Det enkla sättet att hitta en affärspartner - Yoyyin"
+    EnableEventValidation="false" CodeBehind="Default.aspx.cs" Inherits="yoyyin.com._Default"
+    MaintainScrollPositionOnPostback="true" %>
+
+<%@ Register Src="~/UserControls/LatestPosts.ascx" TagPrefix="yoyyin" TagName="LatestPosts" %>
+<%@ Register Src="~/UserControls/UserImage.ascx" TagPrefix="yoyyin" TagName="UserImage" %>
+<asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
+    
+    <div id="quickSearch" class="marginBottom marginTopMinus" onkeypress='return disableEnterKey(event); '>
+        <h1>
+            Hitta din affärspartner idag!</h1>
+        <p>
+            Det är många som har liknande tankar och idéer för deras framtida <strong>företagande</strong>.
+            Testa och gör en snabbsökning för att se om du hittar någon du vill samarbeta med!</p>
+        <div class="marginTopLarge">
+            <input type="text" id="txtSearch" name="txtSearch" onkeypress="searchKeyPress(event);"
+                value="Vad söker du?" class="txtSearch disabled width300" onfocus="this.disabled = false; searchBoxFocus(this, 'Vad söker du?');"
+                onblur="searchBoxBlur(this, 'Vad söker du?');" />
+            <button id="btnSearchDefault" type="button" onclick="return false;">
+                SÖK</button><br class="clear"/>
+            <p><i>Du kan t ex söka på ort, verksamhet, bransch mm</i></p>
+        </div>
+    </div>    
+    <div id="slideshow">
+        <div class="slide1 slide active">
+            <p>
+                <a class="slideLeft" href="Hitta_en_affärspartner">Har du en bra affärsidé men behöver
+                    stöd att förverkliga den?</a> <a href="Register.aspx" rel="nofollow" class="button green"
+                        style="padding: 10px;">Bli medlem</a>
+            </p>
+        </div>
+        <div class="slide2 slide">
+            <p>
+                <a class="slideLeft darkLink" href="Hitta_en_affärspartner">Söker du ett bollplank för
+                    din <strong>affärsidé</strong>? Eller kanske en <strong>mentor</strong>?</a>
+                <a href="Register.aspx" rel="nofollow" class="button green" style="padding: 10px;">Bli
+                    medlem</a>
+            </p>
+        </div>
+        <div class="slide3 slide">
+            <p>
+                <a class="slideLeft" href="Hitta_en_affärspartner">Här kan du hitta en <strong>affärspartner</strong>
+                    att genomföra din <strong>affärsidé</strong> med.</a> <a href="Register.aspx" rel="nofollow"
+                        class="button green" style="padding: 10px;">Bli medlem</a>
+            </p>
+        </div>
+        <div class="slide4 slide">
+            <p class="topLink">
+                <a class="slideLeft darkLink" href="Hitta_en_affärspartner"><strong>Företag</strong>
+                    som startas av flera personer har ofta ett försprång framför <strong>enmansföretag.</strong></a>
+                <a href="Register.aspx" rel="nofollow" class="button green" style="padding: 10px;">Bli
+                    medlem</a>
+            </p>
+        </div>
+        <div class="slide5 slide">
+            <p>
+                <a class="slideLeft" href="Hitta_en_affärspartner">Forskning visar att starta <strong>
+                    företag</strong> i team är ett framgångsrecept.</a> <a href="Register.aspx" rel="nofollow"
+                        class="button green" style="padding: 10px;">Bli medlem</a>
+            </p>
+        </div>
+    </div>
+    <br class="clear"/>
+    
+    <div id="startSecondRow">
+    <div id="loginStart" runat="server" class="hideWhenSearch" ClientIDMode="Static">
+        <h3>Redan medlem? Logga in här!</h3>
+        <asp:Login ID="Login1" runat="server" UserNameLabelText="E-post:" PasswordLabelText="Lösenord:"
+            TitleText="Redan medlem? Logga in här:" TitleTextStyle-CssClass="h2 textAlignLeft"
+            RememberMeText="Kom ihåg mig" LoginButtonText="Logga in" LoginButtonStyle-CssClass="right"
+            OnLoggedIn="LoggedIn" TextBoxStyle-CssClass="marginBottomSmall" FailureText="Inloggningen misslyckades, var god kontrollera e-postadress och lösenord"
+            FailureTextStyle-CssClass="errorText">
+            <LayoutTemplate>
+                <asp:Panel ID="Panel1" runat="server" DefaultButton="Login">
+                    <table style="width: 100%;">
+                        <tr>
+                            <td>
+                                <asp:Label ID="Label1" Text="E-post:" runat="server" AssociatedControlID="UserName" />
+                            </td>
+                            <td>
+                                <asp:TextBox ID="UserName" runat="server" ClientIDMode="Static" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <asp:Label ID="Label2" runat="server" AssociatedControlID="Password" Text="Lösenord:" />
+                            </td>
+                            <td>
+                                <asp:TextBox ID="Password" runat="server" TextMode="Password" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <asp:Label ID="Label3" runat="server" AssociatedControlID="RememberMe" Text="Behåll mig inloggad" />
+                            </td>
+                            <td>
+                                <asp:CheckBox ID="RememberMe" runat="server" /><asp:Button ID="Login" CommandName="Login"
+                                    runat="server" Text="Logga in" CssClass="right button green" />
+                            </td>
+                        </tr>
+                    </table>
+                </asp:Panel>
+                <span class="errorText">
+                    <asp:Literal ID="FailureText" runat="server" /></span>
+            </LayoutTemplate>
+        </asp:Login>
+        <div>
+            <a class="passwordRecovery">Glömt lösenordet?</a></div>
+    </div>
+    <div id="info">
+        <h3>Yoyyin sammanför människor med idéer</h3>
+        <p>
+            Yoyyin sammanför folk som vill finna <strong>partners</strong> för att starta upp
+            eller utveckla sin <strong>företagsidé</strong> eller sitt <strong>företag</strong>.
+            Det spelar ingen roll om du vill öppna en frisörsalong, restaurang eller starta
+            ett medicinteknikbolag - Yoyyin är till för alla som vill förverkliga sina idéer
+            och drömmar.</p>
+        <p>
+            <a href="~/Register.aspx" rel="nofollow" runat="server" id="lnkRegister">Skapa ett konto
+                och gör dig sökbar för andra idag!</a>
+        </p>
+    </div>
+    </div>
+
+    <div id="searchInfo" class="span-12 last marginTopMinus" style="display: none;">
+        <div class="greyBorder marginRight">
+            <div class="padding">
+                <span class="h2">Din sökning gav&nbsp;<span id="searchCount"></span>&nbsp;träffar</span>
+                <img src="Styles/Images/search.png" class="left" style="margin-left: -10px; margin-bottom: -10px;"
+                    alt="Kanske hittar du din nya affärspartner bland resultaten nedan" />
+                <div>
+                    <p>
+                        På kartan kan du se ungefär var dom finns och nedanför kan du se lite av deras profil/<strong>affärsidé</strong>.
+                    </p>
+                    <p>
+                        Du kan redan idag genom att <a href="Register.aspx" rel="nofollow">kostnadsfritt registrera
+                            dig</a>, få kontakt med Yoyyins medlemmar och kanske inleda ett affärssamarbete
+                        med någon av dem.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="questions">
+        <yoyyin:LatestPosts runat="server" />
+    </div>
+    <div id="users">
+        <h3>
+            Aktiva medlemmar/affärsidéer</h3>
+        <asp:ListView ID="lstNewest" runat="server" ItemPlaceholderID="divContent">
+            <LayoutTemplate>
+                <div id="divContent" runat="server" />
+            </LayoutTemplate>
+            <ItemTemplate>
+                <div class="pileImage">
+                    <a href='<%# "Member.aspx?UserID=" + Eval("UserID") %>' id='<%# Eval("UserID") %>'
+                        title="Klicka för att se entreprenörens affärsidé">
+                        <yoyyin:UserImage runat="server" Width="84" UserID='<%# Eval("UserID") %>' />
+                    </a>
+                </div>
+            </ItemTemplate>
+        </asp:ListView>
+    </div>
+    <br class="extra" />
+    <br />
+    <br />
+    <div id="divAjaxContentDefault" class="marginTopLarge">
+    </div>
+    <div class="span-24 last">
+        <div class="span-12">
+            <fb:like width="950" font="trebuchet ms">
+            </fb:like>
+        </div>
+        <div class="span-12 last">
+            <div class="paddingLeft">
+                <g:plusone></g:plusone>
+            </div>
+        </div>
+    </div>
+    <div class="extra">
+        &nbsp;</div>
+    <asp:HiddenField ID="hiddenLoggedIn" runat="server" ClientIDMode="Static" />
+</asp:Content>
+<asp:Content runat="server" ContentPlaceHolderID="MainContentAfterJavaScriptIncluded">
+    <script type="text/javascript">
+        // remove after beta
+        $(document).ready(function () {
+            var loggedIn = $("#hiddenLoggedIn").val();
+
+            if (loggedIn == "false") {
+                DisableBackground();
+                $("#dialogInner").html("<div class='dialogHeader'><h2>Yoyyin Beta</h2><img src='Styles/Images/fancy_close.png' alt='Stäng dialogen' class='dialogClose' /></div><h3>Testning pågår!</h3><p>Yoyyin är i betaläge. Är du inte inbjuden betatestare kan du ändå klicka runt på sajten men inte registrera dig som medlem just nu.</p>");
+                $("#dialog").show();
+                $("#dialog").center();
+
+                $(".dialogClose").click(function (e) {
+                    $(".dialog").hide();
+                    $("#popBg").hide();
+                });
+            }
+        });
+    </script>
+</asp:Content>

@@ -8,10 +8,10 @@ namespace Yoyyin.Domain.Services
 {
     public class VisitsService : IVisitsService
     {
-        private readonly EntityUserVisitsRepository _repository;
-        private IUserService _userService;
+        private readonly IVisitsRepository _repository;
+        private readonly IUserService _userService;
 
-        public VisitsService(EntityUserVisitsRepository repository, IUserService userService)
+        public VisitsService(IVisitsRepository repository, IUserService userService)
         {
             _repository = repository;
             _userService = userService;

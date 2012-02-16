@@ -1,0 +1,48 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Web.Security;
+using yoyyin.com.Lib;
+using yoyyin.com.Lib.Extensions;
+
+namespace yoyyin.com
+{
+    public partial class Home : System.Web.UI.Page
+    {
+        public User CurrentUser;
+        public Guid currentUserId = Guid.Empty;        
+        public string CurrentEmail { get; set; }
+
+        private MembershipUser _currentMembershipUser;
+
+        protected override void OnInit(EventArgs e)
+        {
+            base.OnInit(e);
+
+            if (WebHelpers.IsLoggedIn())
+            {
+                _currentMembershipUser = Membership.GetUser();
+                currentUserId = new Guid(_currentMembershipUser.ProviderUserKey.ToString());
+                CurrentUser = Current.User;
+                CurrentEmail = _currentMembershipUser.Email;
+            }
+            else
+                Server.Transfer("~/Default.aspx");
+        }
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            lstMessages.DataSource = CurrentUser.GetInBoxMessages();
+            lstMessages.DataBind();
+
+            lstMessagesSent.DataSource = CurrentUser.GetOutBoxMessages();
+            lstMessagesSent.DataBind();
+
+            lstBookmarks.DataSource = CurrentUser.GetBookmarks();
+            lstBookmarks.DataBind();
+        }
+    }
+}

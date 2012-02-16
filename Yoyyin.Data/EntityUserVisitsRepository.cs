@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace Yoyyin.Data
 {
-    public class EntityUserVisitsRepository : IRepository<UserVisits>
+    public class EntityUserVisitsRepository : IVisitsRepository
     {
         private readonly YoyyinEntities1 _entities;
 

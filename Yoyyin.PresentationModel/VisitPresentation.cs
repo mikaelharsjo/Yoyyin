@@ -5,5 +5,6 @@ namespace Yoyyin.PresentationModel
         public string OnlineImageUrl { get; set; }
         public string DisplayName { get; set; }
         public string ProfileUrl { get; set; }
+        public string VisitDate { get; set; }
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Web.Security;
 using Yoyyin.Domain;
+using Yoyyin.Domain.Extensions;
 
 namespace Yoyyin.PresentationModel
 {
@@ -50,7 +51,8 @@ namespace Yoyyin.PresentationModel
                        {
                            OnlineImageUrl = _onlineImageProvider.GetOnlineImageUrl(visit.VisitingUser.UserName),
                            DisplayName = visit.VisitingUser.GetDisplayName(),
-                           ProfileUrl = visit.VisitingUser.GetProfileUrl()
+                           ProfileUrl = visit.VisitingUser.GetProfileUrl(),
+                           VisitDate = visit.VisitDate.ToFormattedString()
                        };
         }
 

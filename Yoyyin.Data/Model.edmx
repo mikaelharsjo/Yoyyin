@@ -65,8 +65,8 @@
             <End Role="User" EntitySet="User" />
             <End Role="UserMessages" EntitySet="UserMessages" />
           </AssociationSet>
-          <AssociationSet Name="FK_UserVisits_aspnet_Users1" Association="YoyyinModel.Store.FK_UserVisits_aspnet_Users1">
-            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+          <AssociationSet Name="FK_UserVisits_User" Association="YoyyinModel.Store.FK_UserVisits_User">
+            <End Role="User" EntitySet="User" />
             <End Role="UserVisits" EntitySet="UserVisits" />
           </AssociationSet>
         </EntityContainer>
@@ -352,15 +352,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_UserVisits_aspnet_Users1">
-          <End Role="aspnet_Users" Type="YoyyinModel.Store.aspnet_Users" Multiplicity="0..1" />
+        <Association Name="FK_UserVisits_User">
+          <End Role="User" Type="YoyyinModel.Store.User" Multiplicity="1" />
           <End Role="UserVisits" Type="YoyyinModel.Store.UserVisits" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="aspnet_Users">
+            <Principal Role="User">
               <PropertyRef Name="UserId" />
             </Principal>
             <Dependent Role="UserVisits">
-              <PropertyRef Name="VisitingUserId" />
+              <PropertyRef Name="UserId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -459,6 +459,10 @@
           <AssociationSet Name="FK_UserMessages_User1" Association="YoyyinModel.FK_UserMessages_User1">
             <End Role="User" EntitySet="User" />
             <End Role="UserMessages" EntitySet="UserMessages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserVisits_User" Association="YoyyinModel.FK_UserVisits_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="UserVisits" EntitySet="UserVisits" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="SniHead">
@@ -562,7 +566,8 @@
           <NavigationProperty Name="Question" Relationship="YoyyinModel.FK_Question_User" FromRole="User" ToRole="Question" />
           <NavigationProperty Name="UserComments" Relationship="YoyyinModel.FK_UserComments_User" FromRole="User" ToRole="UserComments" />
           <NavigationProperty Name="UserMessages" Relationship="YoyyinModel.FK_UserMessages_User" FromRole="User" ToRole="UserMessages" />
-          <NavigationProperty Name="UserMessages1" Relationship="YoyyinModel.FK_UserMessages_User1" FromRole="User" ToRole="UserMessages" /></EntityType>
+          <NavigationProperty Name="UserMessages1" Relationship="YoyyinModel.FK_UserMessages_User1" FromRole="User" ToRole="UserMessages" />
+          <NavigationProperty Name="UserVisits" Relationship="YoyyinModel.FK_UserVisits_User" FromRole="User" ToRole="UserVisits" /></EntityType>
         <Association Name="FK_User_SniHead">
           <End Type="YoyyinModel.SniHead" Role="SniHead" Multiplicity="0..1" />
           <End Type="YoyyinModel.User" Role="User" Multiplicity="*" />
@@ -671,6 +676,7 @@
           <Property Type="DateTime" Name="TimeStamp" Nullable="false" />
           <Property Type="Int32" Name="UserVisitID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="aspnet_Users" Relationship="YoyyinModel.FK_UserVisits_aspnet_Users1" FromRole="UserVisits" ToRole="aspnet_Users" />
+          <NavigationProperty Name="User" Relationship="YoyyinModel.FK_UserVisits_User" FromRole="UserVisits" ToRole="User" />
         </EntityType>
         <Association Name="FK_UserVisits_aspnet_Users1">
           <End Type="YoyyinModel.aspnet_Users" Role="aspnet_Users" Multiplicity="0..1" />
@@ -832,6 +838,18 @@
             </Principal>
             <Dependent Role="UserMessages">
               <PropertyRef Name="ToUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserVisits_User">
+          <End Type="YoyyinModel.User" Role="User" Multiplicity="1" />
+          <End Type="YoyyinModel.UserVisits" Role="UserVisits" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="UserVisits">
+              <PropertyRef Name="UserId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1002,35 +1020,35 @@
           </AssociationConnector>
         <EntityTypeShape EntityType="YoyyinModel.User" Width="1.5" PointX="5.25" PointY="1.125" Height="6.8514208984375" />
         <AssociationConnector Association="YoyyinModel.FK_User_SniHead" >
-          <ConnectorPoint PointX="2.125" PointY="4.9519780045572919" />
-          <ConnectorPoint PointX="3.4166666666666665" PointY="4.951978004557291" />
-          <ConnectorPoint PointX="3.5833333333333335" PointY="4.9519780045572919" />
-          <ConnectorPoint PointX="3.8229191666666664" PointY="4.951978004557291" />
-          <ConnectorPoint PointX="3.9895858333333334" PointY="4.9519780045572919" />
-          <ConnectorPoint PointX="5.25" PointY="4.9519780045572919" />
+          <ConnectorPoint PointX="2.125" PointY="4.53125" />
+          <ConnectorPoint PointX="3.1500634635416667" PointY="4.5312499999999991" />
+          <ConnectorPoint PointX="3.3167301302083336" PointY="4.53125" />
+          <ConnectorPoint PointX="3.6896175651041667" PointY="4.5312499999999991" />
+          <ConnectorPoint PointX="3.8562842317708337" PointY="4.53125" />
+          <ConnectorPoint PointX="5.25" PointY="4.53125" />
           </AssociationConnector>
         <AssociationConnector Association="YoyyinModel.FK_User_SniItem" >
           <ConnectorPoint PointX="2" PointY="2.0526432291666667" />
-          <ConnectorPoint PointX="3.1627588541666665" PointY="2.0526432291666663" />
-          <ConnectorPoint PointX="3.3294255208333334" PointY="2.0526432291666667" />
-          <ConnectorPoint PointX="3.6959652604166666" PointY="2.0526432291666663" />
-          <ConnectorPoint PointX="3.8626319270833336" PointY="2.0526432291666667" />
+          <ConnectorPoint PointX="3.1500634635416667" PointY="2.0526432291666663" />
+          <ConnectorPoint PointX="3.3167301302083336" PointY="2.0526432291666667" />
+          <ConnectorPoint PointX="3.6896175651041667" PointY="2.0526432291666663" />
+          <ConnectorPoint PointX="3.8562842317708337" PointY="2.0526432291666667" />
           <ConnectorPoint PointX="5.25" PointY="2.0526432291666667" />
           </AssociationConnector>
         <EntityTypeShape EntityType="YoyyinModel.aspnet_Users" Width="1.5" PointX="7.375" PointY="0.5" Height="3.9033007812499996" />
         <AssociationConnector Association="YoyyinModel.FK_User_aspnet_Users" >
-          <ConnectorPoint PointX="7.375" PointY="2.7641503906250002" />
-          <ConnectorPoint PointX="6.75" PointY="2.7641503906250002" />
+          <ConnectorPoint PointX="7.375" PointY="2.7641503906249993" />
+          <ConnectorPoint PointX="6.75" PointY="2.7641503906249993" />
           </AssociationConnector>
         <AssociationConnector Association="YoyyinModel.FK_UserMessages_aspnet_Users" >
-          <ConnectorPoint PointX="7.375" PointY="0.6738265624999995" />
-          <ConnectorPoint PointX="3.2460921875" PointY="0.6738265624999995" />
-          <ConnectorPoint PointX="3.2460921875" PointY="5.125" />
+          <ConnectorPoint PointX="7.375" PointY="0.66845539062499948" />
+          <ConnectorPoint PointX="3.233396796875" PointY="0.66845539062499948" />
+          <ConnectorPoint PointX="3.233396796875" PointY="5.125" />
           </AssociationConnector>
         <AssociationConnector Association="YoyyinModel.FK_UserMessages_aspnet_Users1" >
-          <ConnectorPoint PointX="7.375" PointY="0.89941578125000055" />
-          <ConnectorPoint PointX="3.77929859375" PointY="0.89941578125000055" />
-          <ConnectorPoint PointX="3.77929859375" PointY="5.125" />
+          <ConnectorPoint PointX="7.375" PointY="0.89673019531250053" />
+          <ConnectorPoint PointX="3.7729508984375" PointY="0.89673019531250053" />
+          <ConnectorPoint PointX="3.7729508984375" PointY="5.125" />
           </AssociationConnector>
         <EntityTypeShape EntityType="YoyyinModel.UserComments" Width="1.5" PointX="10" PointY="2.5" Height="2.085348307291667" />
         <AssociationConnector Association="YoyyinModel.FK_UserComments_aspnet_Users" >
@@ -1043,19 +1061,19 @@
         </AssociationConnector>
         <EntityTypeShape EntityType="YoyyinModel.UserVisits" Width="1.5" PointX="12" PointY="1.5" Height="1.7566536458333317" />
         <AssociationConnector Association="YoyyinModel.FK_UserVisits_aspnet_Users1" >
-          <ConnectorPoint PointX="8.875" PointY="1.96875" />
-          <ConnectorPoint PointX="12" PointY="1.96875" />
+          <ConnectorPoint PointX="8.875" PointY="1.8125" />
+          <ConnectorPoint PointX="12" PointY="1.8125" />
         </AssociationConnector>
         <EntityTypeShape EntityType="YoyyinModel.UserBookmarks" Width="1.5" PointX="10" PointY="5.75" Height="1.7566536458333335" />
         <AssociationConnector Association="YoyyinModel.FK_UserBookmarks_aspnet_Users" >
           <ConnectorPoint PointX="7.40625" PointY="4.40330078125" />
-          <ConnectorPoint PointX="7.40625" PointY="6.7091557115669085" />
-          <ConnectorPoint PointX="10" PointY="6.7091557115669085" />
+          <ConnectorPoint PointX="7.40625" PointY="6.7932484474421635" />
+          <ConnectorPoint PointX="10" PointY="6.7932484474421635" />
         </AssociationConnector>
         <AssociationConnector Association="YoyyinModel.FK_UserBookmarks_aspnet_Users1" >
           <ConnectorPoint PointX="7.421875" PointY="4.40330078125" />
-          <ConnectorPoint PointX="7.421875" PointY="6.25856486602536" />
-          <ConnectorPoint PointX="10" PointY="6.25856486602536" />
+          <ConnectorPoint PointX="7.421875" PointY="6.3006112339629867" />
+          <ConnectorPoint PointX="10" PointY="6.3006112339629867" />
         </AssociationConnector>
         <AssociationConnector Association="YoyyinModel.FK_UserComments_UserComments" >
           <ConnectorPoint PointX="10.531923076923077" PointY="5.6340950520833326" />
@@ -1066,20 +1084,22 @@
         <EntityTypeShape EntityType="YoyyinModel.Answer" Width="1.5" PointX="12.75" PointY="5.25" Height="2.3648893229166674" />
         <EntityTypeShape EntityType="YoyyinModel.Question" Width="1.5" PointX="7.5" PointY="7.375" Height="2.3648893229166674" />
         <AssociationConnector Association="YoyyinModel.FK_Answer_Question" >
-          <ConnectorPoint PointX="9" PointY="8.766337890625" />
-          <ConnectorPoint PointX="13.010414166666665" PointY="8.766337890625" />
-          <ConnectorPoint PointX="13.177080833333333" PointY="8.766337890625" />
-          <ConnectorPoint PointX="13.5" PointY="8.766337890625" />
-          <ConnectorPoint PointX="13.5" PointY="7.6148893229166674" />
+          <ConnectorPoint PointX="9" PointY="8.8624886067708317" />
+          <ConnectorPoint PointX="12.260416666666666" PointY="8.8624886067708317" />
+          <ConnectorPoint PointX="12.427083333333334" PointY="8.8624886067708317" />
+          <ConnectorPoint PointX="13.111977291666667" PointY="8.8624886067708317" />
+          <ConnectorPoint PointX="13.278643958333335" PointY="8.8624886067708317" />
+          <ConnectorPoint PointX="13.70312625" PointY="8.8624886067708317" />
+          <ConnectorPoint PointX="13.70312625" PointY="7.6148893229166674" />
         </AssociationConnector>
         <AssociationConnector Association="YoyyinModel.FK_Answer_User" >
-          <ConnectorPoint PointX="6.75" PointY="10.107565104166666" />
-          <ConnectorPoint PointX="13.0937475" PointY="10.107565104166666" />
-          <ConnectorPoint PointX="13.0937475" PointY="7.6148893229166674" />
+          <ConnectorPoint PointX="6.75" PointY="10.299866536458334" />
+          <ConnectorPoint PointX="13.195310625000001" PointY="10.299866536458334" />
+          <ConnectorPoint PointX="13.195310625000001" PointY="7.6148893229166674" />
         </AssociationConnector>
         <AssociationConnector Association="YoyyinModel.FK_Question_User" >
-          <ConnectorPoint PointX="6.75" PointY="8.5574446614583337" />
-          <ConnectorPoint PointX="7.5" PointY="8.5574446614583337" />
+          <ConnectorPoint PointX="6.75" PointY="8.6535953776041659" />
+          <ConnectorPoint PointX="7.5" PointY="8.6535953776041659" />
         </AssociationConnector>
         <AssociationConnector Association="YoyyinModel.FK_UserComments_User" >
           <ConnectorPoint PointX="6.75" PointY="5.0499479166666656" />
@@ -1088,12 +1108,17 @@
           <ConnectorPoint PointX="10" PointY="5.0499479166666656" />
         </AssociationConnector>
         <AssociationConnector Association="YoyyinModel.FK_UserMessages_User" >
-          <ConnectorPoint PointX="5.25" PointY="6.5958968098958337" />
-          <ConnectorPoint PointX="4.25" PointY="6.5958968098958337" />
+          <ConnectorPoint PointX="5.25" PointY="7.14224138466715" />
+          <ConnectorPoint PointX="4.25" PointY="7.14224138466715" />
         </AssociationConnector>
         <AssociationConnector Association="YoyyinModel.FK_UserMessages_User1" >
-          <ConnectorPoint PointX="5.25" PointY="5.7979484049479169" />
-          <ConnectorPoint PointX="4.25" PointY="5.7979484049479169" />
+          <ConnectorPoint PointX="5.25" PointY="6.071120692333575" />
+          <ConnectorPoint PointX="4.25" PointY="6.071120692333575" />
+        </AssociationConnector>
+        <AssociationConnector Association="YoyyinModel.FK_UserVisits_User" >
+          <ConnectorPoint PointX="6.75" PointY="10.116026145833338" />
+          <ConnectorPoint PointX="12.34375" PointY="10.116026145833338" />
+          <ConnectorPoint PointX="12.34375" PointY="3.672587890625" />
         </AssociationConnector>
         </Diagram></Diagrams>
   </Designer>

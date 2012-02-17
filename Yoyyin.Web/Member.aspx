@@ -96,8 +96,7 @@
                                                     <%# Eval("DisplayName")%>
                                                 </a>
                                             </div>
-                                            <div class="small">
-                                                <%# WebHelpers.GetDate(Container.DataItem)%></div>
+                                            <div class="small"><%# Eval("VisitDate") %></div>
                                         </ItemTemplate>
                                         <EmptyDataTemplate>
                                             <i>Inga besökare.</i>

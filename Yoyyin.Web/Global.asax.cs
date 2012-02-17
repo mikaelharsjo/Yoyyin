@@ -40,6 +40,7 @@ namespace Yoyyin.Web
             builder.RegisterType<SniItemMapper>().As<ISniItemMapper>();
             builder.RegisterType<QAMapper>().As<IQAMapper>();
             builder.RegisterType<UserMapper>().As<IUserMapper>();
+            builder.RegisterType<VisitMapper>().As<IVisitMapper>();
 
             // services
             builder.RegisterType<UserService>().As<IUserService>();

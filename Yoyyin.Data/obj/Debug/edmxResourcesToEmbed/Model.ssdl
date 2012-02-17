@@ -60,8 +60,8 @@
       <End Role="User" EntitySet="User" />
       <End Role="UserMessages" EntitySet="UserMessages" />
     </AssociationSet>
-    <AssociationSet Name="FK_UserVisits_aspnet_Users1" Association="YoyyinModel.Store.FK_UserVisits_aspnet_Users1">
-      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+    <AssociationSet Name="FK_UserVisits_User" Association="YoyyinModel.Store.FK_UserVisits_User">
+      <End Role="User" EntitySet="User" />
       <End Role="UserVisits" EntitySet="UserVisits" />
     </AssociationSet>
   </EntityContainer>
@@ -347,15 +347,15 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_UserVisits_aspnet_Users1">
-    <End Role="aspnet_Users" Type="YoyyinModel.Store.aspnet_Users" Multiplicity="0..1" />
+  <Association Name="FK_UserVisits_User">
+    <End Role="User" Type="YoyyinModel.Store.User" Multiplicity="1" />
     <End Role="UserVisits" Type="YoyyinModel.Store.UserVisits" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="aspnet_Users">
+      <Principal Role="User">
         <PropertyRef Name="UserId" />
       </Principal>
       <Dependent Role="UserVisits">
-        <PropertyRef Name="VisitingUserId" />
+        <PropertyRef Name="UserId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

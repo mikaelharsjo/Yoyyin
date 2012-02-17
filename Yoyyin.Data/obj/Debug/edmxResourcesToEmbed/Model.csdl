@@ -91,6 +91,10 @@
       <End Role="User" EntitySet="User" />
       <End Role="UserMessages" EntitySet="UserMessages" />
     </AssociationSet>
+    <AssociationSet Name="FK_UserVisits_User" Association="YoyyinModel.FK_UserVisits_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="UserVisits" EntitySet="UserVisits" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="SniHead">
     <Key>
@@ -195,6 +199,7 @@
     <NavigationProperty Name="UserComments" Relationship="YoyyinModel.FK_UserComments_User" FromRole="User" ToRole="UserComments" />
     <NavigationProperty Name="UserMessages" Relationship="YoyyinModel.FK_UserMessages_User" FromRole="User" ToRole="UserMessages" />
     <NavigationProperty Name="UserMessages1" Relationship="YoyyinModel.FK_UserMessages_User1" FromRole="User" ToRole="UserMessages" />
+    <NavigationProperty Name="UserVisits" Relationship="YoyyinModel.FK_UserVisits_User" FromRole="User" ToRole="UserVisits" />
   </EntityType>
   <Association Name="FK_User_SniHead">
     <End Type="YoyyinModel.SniHead" Role="SniHead" Multiplicity="0..1" />
@@ -325,6 +330,7 @@
     <Property Type="DateTime" Name="TimeStamp" Nullable="false" />
     <Property Type="Int32" Name="UserVisitID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <NavigationProperty Name="aspnet_Users" Relationship="YoyyinModel.FK_UserVisits_aspnet_Users1" FromRole="UserVisits" ToRole="aspnet_Users" />
+    <NavigationProperty Name="User" Relationship="YoyyinModel.FK_UserVisits_User" FromRole="UserVisits" ToRole="User" />
   </EntityType>
   <Association Name="FK_UserVisits_aspnet_Users1">
     <End Type="YoyyinModel.aspnet_Users" Role="aspnet_Users" Multiplicity="0..1" />
@@ -486,6 +492,18 @@
       </Principal>
       <Dependent Role="UserMessages">
         <PropertyRef Name="ToUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserVisits_User">
+    <End Type="YoyyinModel.User" Role="User" Multiplicity="1" />
+    <End Type="YoyyinModel.UserVisits" Role="UserVisits" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="UserVisits">
+        <PropertyRef Name="UserId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

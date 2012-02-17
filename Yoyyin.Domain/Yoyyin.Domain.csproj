@@ -47,6 +47,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Mappers\IVisitMapper.cs" />
+    <Compile Include="Mappers\VisitMapper.cs" />
     <Compile Include="QA\AbstractCategory.cs" />
     <Compile Include="QA\Answer.cs" />
     <Compile Include="QA\BusinessIdeasCategory.cs" />

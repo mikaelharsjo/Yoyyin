@@ -30,7 +30,7 @@
                             <div>
                                 <div>
                                     <strong>
-                                        <%= GetCurrentSniHead()  %></strong></div>
+                                        <%= CurrentUserPresentation.SniHeadTitle %></strong></div>
                                 <div id="divStreet" runat="server">
                                     <%= CurrentUser.Street %></div>
                                 <div id="divZipCode" runat="server">
@@ -92,7 +92,7 @@
                                         <ItemTemplate>
                                             <div>
                                                 <asp:Image runat="server" ImageUrl='<%# Eval("OnlineImageUrl") %>' />&nbsp;
-                                                <a class="popLink" href='<%# Eval("ProfileUrl") %>' id='<%# Eval("VisitingUser.UserId") %>'>
+                                                <a href='<%# Eval("ProfileUrl") %>'>
                                                     <%# Eval("DisplayName")%>
                                                 </a>
                                             </div>
@@ -117,7 +117,7 @@
                                     <ItemTemplate>
                                         <div>
                                             <asp:Image runat="server" ImageUrl='<%# Eval("OnlineImageUrl") %>' />&nbsp;
-                                            <a href='<%# Eval("ProviderUrl") %>'>
+                                            <a href='<%# Eval("ProfileUrl") %>'>
                                                 <%# Eval("DisplayName") %>
                                             </a>
                                         </div>
@@ -198,10 +198,11 @@
                         <div>
                             <div>
                                 <strong>
-                                    <%= GetCurrentSniHead()  %></strong></div>
+                                    <%= CurrentUserPresentation.SniHeadTitle  %></strong></div>
                             <div id="divUrl" runat="server">
-                                <a href='http://<%= CurrentUser.Url.Replace("http://", "") %>' target="_blank" title='<%= CurrentUser.Url %>'>
-                                    <%= CurrentUser.Url %></a>
+                                <a href='<%= CurrentUserPresentation.ExternalUrlHref %>' target="_blank" title='<%= CurrentUserPresentation.ExternalUrlText %>'>
+                                    <%= CurrentUserPresentation.ExternalUrlText%>
+                                </a>
                             </div>
                         </div>
                     </div>

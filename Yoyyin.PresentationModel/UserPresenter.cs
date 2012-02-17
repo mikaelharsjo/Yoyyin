@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web;
 using Yoyyin.Domain;
 using Yoyyin.Domain.Extensions;
 using Yoyyin.Domain.Services;
@@ -11,14 +12,17 @@ namespace Yoyyin.PresentationModel
     public class UserPresenter : IUserPresenter
     {
         private readonly IUserService _userService;
-        public UserPresenter()
+        private readonly IOnlineImageProvider _onlineImageProvider;
+
+        public UserPresenter(IOnlineImageProvider onlineImageProvider)
         {
-            
+            _onlineImageProvider = onlineImageProvider;
         }
 
-        public UserPresenter(IUserService userService)
+        public UserPresenter(IUserService userService, IOnlineImageProvider onlineImageProvider)
         {
             _userService = userService;
+            _onlineImageProvider = onlineImageProvider;
         }
 
         public UserPresentation Presentate(IUser user)
@@ -31,7 +35,11 @@ namespace Yoyyin.PresentationModel
                            ProfileUrl = user.GetProfileUrl(),
                            UserID = user.UserId,
                            Image = user.Image,
-                           User = user // needed by userimage.ascx
+                           User = user,
+                           ExternalUrlText = HttpUtility.HtmlEncode(user.Url),
+                           ExternalUrlHref = HttpUtility.UrlPathEncode(string.Format("http://{0}", user.Url.Replace("http://", ""))),
+                           SniHeadTitle = user.SniHead.Title,
+                           OnlineImageUrl = _onlineImageProvider.GetOnlineImageUrl(user.UserName)
                        };
         }
 

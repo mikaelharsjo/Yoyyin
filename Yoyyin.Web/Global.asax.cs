@@ -54,6 +54,7 @@ namespace Yoyyin.Web
 
             // misc
             builder.RegisterType<NewestMembersHelper>();
+            builder.RegisterType<OnlineImageProvider>().As<IOnlineImageProvider>();
             
             // ... continue registering dependencies...
 

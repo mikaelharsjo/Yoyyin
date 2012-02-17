@@ -7,6 +7,27 @@ using Yoyyin.Domain;
 
 namespace Yoyyin.PresentationModel
 {
+    public interface IOnlineImageProvider
+    {
+        string GetOnlineImageUrl(string userName);
+    }
+
+    public class OnlineImageProvider : IOnlineImageProvider
+    {
+        private const string OfflineImage = "~/Styles/Images/icon_useroffline.png";
+        private const string OnlineImage = "~/Styles/Images/icon_useronline.png";
+
+        public string GetOnlineImageUrl(string userName)
+        {
+            if (userName == null) return OfflineImage;
+
+            var membershipUser = Membership.GetUser(userName);
+            return membershipUser != null && membershipUser.IsOnline
+                       ? OnlineImage
+                       : OfflineImage;
+        }
+    }
+
     public interface IVisitPresenter
     {
         IPresentation Presentate(Visit visit);
@@ -15,15 +36,19 @@ namespace Yoyyin.PresentationModel
 
     public class VisitPresenter : IVisitPresenter
     {
+        private readonly IOnlineImageProvider _onlineImageProvider;
+
+        public VisitPresenter(IOnlineImageProvider onlineImageProvider)
+        {
+            _onlineImageProvider = onlineImageProvider;
+        }
+
         public IPresentation Presentate(Visit visit)
         {
-            var membershipUser = Membership.GetUser(visit.VisitingUser.UserName);
+            
             return new VisitPresentation
                        {
-                           OnlineImageUrl =
-                               membershipUser != null && membershipUser.IsOnline
-                                   ? "~/Styles/Images/icon_useronline.png"
-                                   : "~/Styles/Images/icon_useroffline.png",
+                           OnlineImageUrl = _onlineImageProvider.GetOnlineImageUrl(visit.VisitingUser.UserName),
                            DisplayName = visit.VisitingUser.GetDisplayName(),
                            ProfileUrl = visit.VisitingUser.GetProfileUrl()
                        };

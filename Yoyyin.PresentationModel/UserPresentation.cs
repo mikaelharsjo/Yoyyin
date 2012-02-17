@@ -11,7 +11,10 @@ namespace Yoyyin.PresentationModel
         public string Description { get; set; }
         public Guid UserID { get; set; }
         public string DisplayName { get; set; }
-
         public byte[] Image { get; set; }
+        public string ExternalUrlText { get; set; }
+        public string ExternalUrlHref { get; set; }
+        public string SniHeadTitle { get; set; }
+        public string OnlineImageUrl { get; set; }
     }
 }

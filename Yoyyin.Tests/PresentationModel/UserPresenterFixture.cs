@@ -23,7 +23,8 @@ namespace Yoyyin.Tests.PresentationModel
         {
             _userPresenter =
                 new UserPresenter(new UserService(new TestUserRepository(), new FakeCurrentUser(),
-                                                  new UserMapper(new SniHeadMapper(), new SniItemMapper())));
+                                                  new UserMapper(new SniHeadMapper(), new SniItemMapper())),
+                                  new OnlineImageProvider());
         }
 
         [Test]

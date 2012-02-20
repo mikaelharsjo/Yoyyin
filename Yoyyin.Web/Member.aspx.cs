@@ -256,8 +256,8 @@ namespace Yoyyin.Web
         {
             if (Membership.GetUser() != null)
                 return "InitializeMemberPage('" + UserIDOfUserBeingViewed + "', '" + Current.UserID + "')";
-            else
-                return string.Empty;
+            
+            return string.Empty;
         }
 
         protected string GetHtmlForSniHeader()

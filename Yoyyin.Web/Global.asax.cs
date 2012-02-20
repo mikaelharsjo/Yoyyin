@@ -19,17 +19,19 @@ namespace Yoyyin.Web
     {
         void Application_Start(object sender, EventArgs e)
         {
+            // Inversion of Control - Container setup
             // Build up your application container and register your dependencies.
             var builder = new ContainerBuilder();
 
-            // repositories
+            // repositories (Repository Pattern)
             builder.RegisterType<YoyyinEntities1>();
             builder.RegisterType<EntityQARepository>().As<IQARepository>();
             builder.RegisterType<EntitySniHeadRepository>().As<ISniHeadRepository>();
             builder.RegisterType<EntityUserRepository>().As<IUserRepository>();
             builder.RegisterType<EntityUserVisitsRepository>().As<IVisitsRepository>();
+            builder.RegisterType <EntityCommentsRepository>().As<ICommentsRepository>();
 
-            // factories
+            // factories (Factory method pattern)
             builder.RegisterType<CategoryFactory>();
 
             // site configuration
@@ -41,14 +43,16 @@ namespace Yoyyin.Web
             builder.RegisterType<QAMapper>().As<IQAMapper>();
             builder.RegisterType<UserMapper>().As<IUserMapper>();
             builder.RegisterType<VisitMapper>().As<IVisitMapper>();
+            builder.RegisterType<CommentMapper>().As<ICommentMapper>();
 
             // services
             builder.RegisterType<UserService>().As<IUserService>();
             builder.RegisterType<QAService>().As<IQAService>();
             builder.RegisterType<SniHeadService>().As<ISniHeadService>();
             builder.RegisterType<VisitsService>().As<IVisitsService>();
+            builder.RegisterType<CommentsService>().As<ICommentsService>();
               
-            // presenters
+            // presenters (Pesentation Model)
             builder.RegisterType<UserPresenter>().As<IUserPresenter>();
             builder.RegisterType<PostPresenter>().As<IPostPresenter>();
             builder.RegisterType<VisitPresenter>().As<IVisitPresenter>();
@@ -57,10 +61,8 @@ namespace Yoyyin.Web
             builder.RegisterType<NewestMembersHelper>();
             builder.RegisterType<OnlineImageProvider>().As<IOnlineImageProvider>();
             
-            // ... continue registering dependencies...
-
-            // Once you're done registering things, set the container
-            // provider up with your registrations.
+            // Once you're done registering things, we set the container
+            // provider up with our registrations.
             var container = builder.Build();
             _containerProvider = new ContainerProvider(container);
 

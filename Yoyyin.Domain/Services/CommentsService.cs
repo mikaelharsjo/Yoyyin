@@ -3,23 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using Yoyyin.Data;
 using Yoyyin.Domain.Extensions;
+using Yoyyin.Domain.Mappers;
 
 namespace Yoyyin.Domain.Services
 {
     public class CommentsService : ICommentsService
     {
-        private IRepository<Data.UserComments> _repository;
+        private readonly ICommentsRepository _repository;
+        private readonly ICommentMapper _mapper;
 
-        public CommentsService(IRepository<Data.UserComments> repository)
+        public CommentsService(ICommentsRepository repository, ICommentMapper mapper)
         {
             _repository = repository;
+            _mapper = mapper;
         }
 
         public void DeleteComment(int commentID)
         {
             var childComments = _repository
                 .Find()
-                .Where(comment => comment.CommentCommentID == commentID);   //from x in _entities.UserComments where x.CommentCommentID == commentID select x;
+                .Where(comment => comment.CommentCommentID == commentID);
                 
             foreach (UserComments childComment in childComments)
             {
@@ -37,18 +40,16 @@ namespace Yoyyin.Domain.Services
 
         public IEnumerable<Comment> GetComments(Guid userID)
         {
-            return _repository.Find().Where(comment => comment.UserId == userID).Select(CreateComment);
-        }
-
-        private Comment CreateComment(Data.UserComments userComment)
-        {
-            return new Comment {Text = userComment.Text, Created = userComment.TimeStamp};
+            return _repository
+                        .Find()
+                        .Where(comment => comment.UserId == userID)
+                        .Select(_mapper.MapComment);
         }
 
         public Comment CreateAndSaveComment(Guid fromUserId, Guid toUserId, string text, int commentID)
         {
-            var comment = _repository.Create(); // _entities.CreateObject<UserComments>();
-            _repository.Add(comment); //_entities.UserComments.AddObject(comment));
+            var comment = _repository.Create();
+            _repository.Add(comment);
 
             comment.Text = text.Truncate(1000);
             comment.CommentUserId = fromUserId;
@@ -58,7 +59,8 @@ namespace Yoyyin.Domain.Services
                 comment.CommentCommentID = commentID;
 
             _repository.Save();
-            return CreateComment(comment);
+
+            return _mapper.MapComment(comment);
         }
     }
 }

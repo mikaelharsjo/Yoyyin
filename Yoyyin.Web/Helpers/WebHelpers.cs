@@ -96,12 +96,12 @@ namespace Yoyyin.Web.Helpers
 
         public static bool HasFacebook(object dataItem)
         {
-            User user = GetUserFromDataItem(dataItem);
+            var user = GetUserFromDataItem(dataItem);
 
             if (ShowFaceBookImage(user))
                 return false;
-            else
-                return true;
+            
+            return true;
         }
 
         public static string HideFaceBookImage(IUser user)
@@ -121,15 +121,12 @@ namespace Yoyyin.Web.Helpers
 
         public static string GetFbUrl(object dataItem)
         {        
-            User user = GetUserFromDataItem(dataItem);
+            var user = GetUserFromDataItem(dataItem);
 
-            if (ShowFaceBookImage(user))
-                return string.Format(FacebookImageurlSmall, user.FacebookID);
-            else
-                return string.Empty;
+            return ShowFaceBookImage(user) ? string.Format(FacebookImageurlSmall, user.FacebookID) : string.Empty;
         }
 
-        private static User GetUserFromDataItem(object dataItem)
+        private static IUser GetUserFromDataItem(object dataItem)
         {
             var user = new User();
 
@@ -138,7 +135,7 @@ namespace Yoyyin.Web.Helpers
             else if (dataItem is Comment)
             {
                 Comment comment = (Comment)dataItem;
-                user = comment.User; //entityFactory.GetUser(comment.CommentUserId);
+                user = (User) comment.User; //entityFactory.GetUser(comment.CommentUserId);
             }
 
             // TODO: fix

@@ -4,32 +4,32 @@ using System.Linq;
 using System.Web.Security;
 using Yoyyin.Domain;
 using Yoyyin.Domain.Services;
+using Yoyyin.Domain.Users;
 using Yoyyin.Web.Helpers;
 
 namespace Yoyyin.Web.UserControls
 {    
-    public partial class Comments : System.Web.UI.UserControl
+    public partial class Comments : UserControlWithDependenciesInjected
     {
         const string CommentsEmpty = "Bli först med att kommentera denna affärsidé/verksamhet";
         const string CommentsNotEmpty = "Det finns {0} kommentarer";
 
         public Guid UserId { get; set; }
-        public Guid CurrentUserID { get; set; }
         public int TextAreaWidth { get; set; }
 
         public ICommentsService CommentsService { get; set; }
-        public IUserService UserService { get; set; }   
+        public IUserService UserService { get; set; }
+        public ICurrentUser CurrentUser { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            var user = UserService.GetUser(UserId);
-            CurrentUserID = Current.UserID;
+            //var user = UserService.GetUser(UserId);
 
             if (!WebHelpers.IsLoggedIn())
                 divNewComment.Visible = false;
 
-            var comments = user.GetComments();
-            var commentsSorted = SortComments(comments);
+            var comments = CommentsService.GetComments(UserId);
+            var commentsSorted = SortComments(comments.ToList());
             int count = comments.Count();
             if (count > 0)
             {
@@ -46,7 +46,7 @@ namespace Yoyyin.Web.UserControls
             }
         }
 
-        private static List<Comment> SortComments(List<Comment> comments)
+        private static IList<Comment> SortComments(IList<Comment> comments)
         {
             var commentsSorted = new List<Comment>();
             foreach (var comment in comments)

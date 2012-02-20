@@ -3,7 +3,16 @@ using System.Linq;
 
 namespace Yoyyin.Data
 {
-    public class EntityCommentsRepository : IRepository<UserComments>
+    public interface ICommentsRepository
+    {
+        IQueryable<UserComments> Find();
+        void Save();
+        void Delete(UserComments comment);
+        void Add(UserComments entity);
+        UserComments Create();
+    }
+
+    public class EntityCommentsRepository : ICommentsRepository
     {
         private readonly YoyyinEntities1 _entities;
 
@@ -14,7 +23,7 @@ namespace Yoyyin.Data
 
         public IQueryable<UserComments> Find()
         {
-            throw new NotImplementedException();
+            return _entities.UserComments;
         }
 
         public void Save()

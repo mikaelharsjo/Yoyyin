@@ -32,7 +32,7 @@
         <div class="padding">
             <div id="dialogInner">
                 <div class='dialogHeader'><h3>Svara på denna kommentar</h3><img src='Styles/Images/fancy_close.png' alt='Stäng dialogen' class="dialogClose" onclick='$("#divDialogComment").hide();' /></div>
-                <strong>Ditt svar</strong><br /><textarea rows='3' id="txtComment2" /><button class='button green' onclick="SaveComment('<%= CurrentUserID %>', '<%= UserId %>', $('#txtComment2').val(), commentID); $('#popBg').hide(); return false;">Svara</button>
+                <strong>Ditt svar</strong><br /><textarea rows='3' id="txtComment2" /><button class='button green' onclick="SaveComment('<%= CurrentUser.UserId %>', '<%= UserId %>', $('#txtComment2').val(), commentID); $('#popBg').hide(); return false;">Svara</button>
             </div>
         </div>
     </div>
@@ -55,7 +55,7 @@
 <div id="divNewComment" runat="server">
     <textarea rows="4" id="txtComment"></textarea>
     <p class="marginTop">
-        <button type="button" onclick="SaveComment('<%= CurrentUserID %>', '<%= UserId %>', $('#txtComment').val())">Kommentera</button>
+        <button type="button" onclick="SaveComment('<%= CurrentUser.UserId %>', '<%= UserId %>', $('#txtComment').val())">Kommentera</button>
     </p>
 </div>
 <script type="text/javascript">

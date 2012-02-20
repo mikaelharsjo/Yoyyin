@@ -290,33 +290,6 @@ namespace Yoyyin.Web
             return string.Format(sendMailScript, Current.UserID, UserIDOfUserBeingViewed, "$('#txtMessage').val()");
         }
 
-        //protected string GetCurrentSniHead()
-        //{
-        //    var sniHead = SniHeadService.GetSniHead(CurrentUser.SniHeadID);
-        //    if (sniHead == null)
-        //        return "";
-            
-        //    return sniHead.Title;
-        //}
-
-        protected string GetCurrentUserUrl(bool withHttp)
-        {
-            if (string.IsNullOrEmpty(CurrentUser.Url))
-                return ""; 
-            
-            if (CurrentUser.Url.StartsWith(Http))
-            {
-                if (withHttp)
-                    return CurrentUser.Url;
-                
-                return CurrentUser.Url.Replace(Http, "");
-            }
-            if (withHttp)
-                return Http + CurrentUser.Url;
-            
-            return CurrentUser.Url;
-        }
-
         #endregion
     }
 }

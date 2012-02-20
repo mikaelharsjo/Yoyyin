@@ -40,8 +40,10 @@
                                 <div id="divEmail" runat="server">
                                     <%= WebHelpers.GetEmail(CurrentUser.UserId)%></div>
                                 <div id="divUrl2" runat="server">
-                                    <a href='<%= GetCurrentUserUrl(true) %>' target="_blank" title='<%= CurrentUser.Url %>'>
-                                        <%= GetCurrentUserUrl(false) %></a></div>
+                                    <a href='<%= CurrentUserPresentation.ExternalUrlHref %>' target="_blank">
+                                        <%= CurrentUserPresentation.ExternalUrlText %>
+                                    </a>
+                                </div>
                                 <div class="marginBottom">
                                     <asp:HyperLink ID="lnkCV" runat="server" Target="_blank">CV</asp:HyperLink>
                                 </div>

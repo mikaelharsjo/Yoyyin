@@ -16,5 +16,6 @@ namespace Yoyyin.PresentationModel
         public string ExternalUrlHref { get; set; }
         public string SniHeadTitle { get; set; }
         public string OnlineImageUrl { get; set; }
+        public string PublicProfileUrl { get; set; }
     }
 }

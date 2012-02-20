@@ -49,7 +49,7 @@
                                 <div id="divPublicLink" runat="server" visible="false">
                                     <div>
                                         Publik länk till din profil:</div>
-                                    <a target="_blank" href="http://yoyyin.com/<%= CurrentUser.Name %>">http://yoyyin.com/<%= CurrentUser.Name %></a>
+                                    <a target="_blank" href='<%= CurrentUserPresentation.PublicProfileUrl %>'>"><%= CurrentUserPresentation.PublicProfileUrl %>></a>
                                 </div>
                                 <div class="marginTop marginBottomLarge" runat="server" id="divEdit">
                                     <a href="EditUser.aspx">Redigera profil</a><br />

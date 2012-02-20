@@ -33,6 +33,7 @@ namespace Yoyyin.PresentationModel
                            DisplayName = user.GetDisplayName(),
                            Title = user.BusinessTitle,
                            ProfileUrl = user.GetProfileUrl(),
+                           PublicProfileUrl =  string.Format("http://yoyyin.com/{0}", user.GetDisplayName()),
                            UserID = user.UserId,
                            Image = user.Image,
                            User = user,

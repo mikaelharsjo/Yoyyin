@@ -5,6 +5,7 @@ using System.Web.Security;
 using Yoyyin.Domain;
 using Yoyyin.Domain.Services;
 using Yoyyin.Domain.Users;
+using Yoyyin.PresentationModel;
 using Yoyyin.Web.Helpers;
 
 namespace Yoyyin.Web.UserControls
@@ -20,6 +21,7 @@ namespace Yoyyin.Web.UserControls
         public ICommentsService CommentsService { get; set; }
         public IUserService UserService { get; set; }
         public ICurrentUser CurrentUser { get; set; }
+        public ICommentPresenter CommentPresenter { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -33,7 +35,7 @@ namespace Yoyyin.Web.UserControls
             int count = comments.Count();
             if (count > 0)
             {
-                lstComments.DataSource = from c in commentsSorted select new { GetMemberUrl = GetMemberUrl(c), CommentUserID = c.CommentID, UserName = c.User.GetDisplayName(), DeleteVisible = DeleteVisible(c) };
+                lstComments.DataSource = CommentPresenter.Presentate(comments); //from c in commentsSorted select new { GetMemberUrl = GetMemberUrl(c), CommentUserID = c.CommentID, UserName = c.User.GetDisplayName(), DeleteVisible = DeleteVisible(c) };
                 lstComments.DataBind();
 
                 litComments.Text = string.Format(CommentsNotEmpty, count.ToString());
@@ -61,29 +63,14 @@ namespace Yoyyin.Web.UserControls
 
         #region Data Bind
 
-        public string GetStyle(object item)
-        {   
-            var comment = (Comment)item;
-            if (comment.CommentCommentID != null)
-                return "padding-left: 20px;";
+        //public string GetStyle(object item)
+        //{   
+        //    var comment = (Comment)item;
+        //    if (comment.CommentCommentID != null)
+        //        return "padding-left: 20px;";
 
-            return string.Empty;
-        }
-
-        protected bool DeleteVisible(object item)
-        {
-            MembershipUser mu = Membership.GetUser();
-            if (mu == null)
-                return false;
-
-            var comment = (Comment)item;
-            
-            // delete allowed
-            if (comment.User.UserId == Current.UserID) // || comment == Current.UserID)
-                return true;
-
-            return false;
-        }
+        //    return string.Empty;
+        //}
 
         protected string GetMemberUrl(object item)
         {

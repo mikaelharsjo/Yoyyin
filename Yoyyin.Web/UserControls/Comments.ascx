@@ -11,15 +11,15 @@
     </LayoutTemplate>
     <ItemTemplate>
         <tr>
-            <td valign="top" style='width: 50px; <%# GetStyle(Container.DataItem) %>'>
+            <td valign="top" style='width: 50px; <%# Eval("CellStyle") %>'>
                 <a href='<%# Eval("MemberUrl") %>'>
-                    <uc:UserImage ID="UserImage1" UserID='<%# Eval("CommentUserId") %>' runat="server" Width="50" />
+                    <uc:UserImage ID="UserImage1" User='<%# Eval("User") %>' runat="server" Width="50" />
                 </a>
             </td>
-            <td valign="top" style='<%# GetStyle(Container.DataItem) %>'>
+            <td valign="top" style='<%# Eval("CellStyle") %>'>
                 <div class="whiteBox">
-                    <strong><a href='<%# Eval("MemberUrl") %>'><%# Eval("UserName") %></a></strong>&nbsp;&nbsp;<%# WebHelpers.GetDate(Container.DataItem)%>
-                    &nbsp;&nbsp;<a class="commentComment" data-commentid='<%# Eval("CommentID") %>'>Kommentera</a>
+                    <strong><a href='<%# Eval("MemberUrl") %>'><%# Eval("DisplayName") %></a></strong>&nbsp;&nbsp;<%# Eval("Created") %>
+                    &nbsp;&nbsp;<a class="commentComment" data-commentid='<%# Eval("CommentId") %>'>Kommentera</a>
                     <img class="right COMMENT_DELETE" src="../Styles/Images/cross.png" title="Ta bort kommentar" runat="server" visible='<%# Eval("DeleteVisible") %>' CommentID='<%# Eval("CommentID") %>' /><br />
                     <%# Eval("Text") %>
                 </div>

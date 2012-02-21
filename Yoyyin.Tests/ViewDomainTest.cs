@@ -53,13 +53,13 @@ namespace Yoyyin.Tests
         [Test]
         public void ConvertCommentToViewHeading()
         {
-            var commentConverter = new CommentConverter();
+            var commentConverter = new CommentPresenter(new FakeCurrentUser());
             var comment = new Comment()
                                        {
                                            Created = new DateTime(2011, 5, 8, 21, 40, 0),
                                            User = new User { Name = "Peter Hansson" }
                                        };
-            var convertedComment = commentConverter.Convert(comment);
+            var convertedComment = commentConverter.Presentate(comment);
             Assert.That(convertedComment.Heading, Is.EqualTo("Peter Hansson söndag 08 maj 2011 21:40"));
         }
 

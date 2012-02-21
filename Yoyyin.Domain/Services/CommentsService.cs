@@ -35,7 +35,8 @@ namespace Yoyyin.Domain.Services
 
         private void RemoveSingleComment(int commentID)
         {
-            _repository.Delete(_repository.Find().First(comment => comment.CommentID == commentID));
+            _repository
+                .Delete(_repository.Find().First(comment => comment.CommentID == commentID));
         }
 
         public IEnumerable<Comment> GetComments(Guid userID)

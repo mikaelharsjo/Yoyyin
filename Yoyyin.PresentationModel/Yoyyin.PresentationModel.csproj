@@ -45,10 +45,11 @@
   <ItemGroup>
     <Compile Include="AnswerPresenter.cs" />
     <Compile Include="AnswerPresentation.cs" />
-    <Compile Include="CommentConverter.cs" />
-    <Compile Include="CommentView.cs" />
+    <Compile Include="CommentPresenter.cs" />
+    <Compile Include="CommentPresentation.cs" />
     <Compile Include="GenericPresenter.cs" />
     <Compile Include="IAnswerPresenter.cs" />
+    <Compile Include="ICommentPresenter.cs" />
     <Compile Include="IPostPresenter.cs" />
     <Compile Include="IPresenter.cs" />
     <Compile Include="IQuestionAnswer.cs" />

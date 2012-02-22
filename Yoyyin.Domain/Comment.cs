@@ -7,11 +7,9 @@ namespace Yoyyin.Domain
     {
         public IUser User { get; set; }
         public string Text { get; set; }
-
         public DateTime Created { get; set; }
-
         public int? CommentCommentID { get; set; }
-
         public int CommentID { get; set; }
+        public IUser Commentator { get; set; }
     }
 }

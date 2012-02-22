@@ -95,6 +95,14 @@
       <End Role="User" EntitySet="User" />
       <End Role="UserVisits" EntitySet="UserVisits" />
     </AssociationSet>
+    <AssociationSet Name="FK_UserBookmarks_User" Association="YoyyinModel.FK_UserBookmarks_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="UserBookmarks" EntitySet="UserBookmarks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserComments_User2" Association="YoyyinModel.FK_UserComments_User2">
+      <End Role="User" EntitySet="User" />
+      <End Role="UserComments" EntitySet="UserComments" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="SniHead">
     <Key>
@@ -200,6 +208,8 @@
     <NavigationProperty Name="UserMessages" Relationship="YoyyinModel.FK_UserMessages_User" FromRole="User" ToRole="UserMessages" />
     <NavigationProperty Name="UserMessages1" Relationship="YoyyinModel.FK_UserMessages_User1" FromRole="User" ToRole="UserMessages" />
     <NavigationProperty Name="UserVisits" Relationship="YoyyinModel.FK_UserVisits_User" FromRole="User" ToRole="UserVisits" />
+    <NavigationProperty Name="UserBookmarks" Relationship="YoyyinModel.FK_UserBookmarks_User" FromRole="User" ToRole="UserBookmarks" />
+    <NavigationProperty Name="UserComments1" Relationship="YoyyinModel.FK_UserComments_User2" FromRole="User" ToRole="UserComments" />
   </EntityType>
   <Association Name="FK_User_SniHead">
     <End Type="YoyyinModel.SniHead" Role="SniHead" Multiplicity="0..1" />
@@ -296,6 +306,7 @@
     <NavigationProperty Name="UserComments1" Relationship="YoyyinModel.FK_UserComments_UserComments" FromRole="UserComments" ToRole="UserComments1" />
     <NavigationProperty Name="UserComments2" Relationship="YoyyinModel.FK_UserComments_UserComments" FromRole="UserComments1" ToRole="UserComments" />
     <NavigationProperty Name="User" Relationship="YoyyinModel.FK_UserComments_User" FromRole="UserComments" ToRole="User" />
+    <NavigationProperty Name="User1" Relationship="YoyyinModel.FK_UserComments_User2" FromRole="UserComments" ToRole="User" />
   </EntityType>
   <Association Name="FK_UserComments_aspnet_Users">
     <End Type="YoyyinModel.aspnet_Users" Role="aspnet_Users" Multiplicity="1" />
@@ -361,6 +372,7 @@
     <Property Type="DateTime" Name="TimeStamp" />
     <NavigationProperty Name="aspnet_Users" Relationship="YoyyinModel.FK_UserBookmarks_aspnet_Users" FromRole="UserBookmarks" ToRole="aspnet_Users" />
     <NavigationProperty Name="aspnet_Users1" Relationship="YoyyinModel.FK_UserBookmarks_aspnet_Users1" FromRole="UserBookmarks" ToRole="aspnet_Users" />
+    <NavigationProperty Name="User" Relationship="YoyyinModel.FK_UserBookmarks_User" FromRole="UserBookmarks" ToRole="User" />
   </EntityType>
   <Association Name="FK_UserBookmarks_aspnet_Users">
     <End Type="YoyyinModel.aspnet_Users" Role="aspnet_Users" Multiplicity="1" />
@@ -504,6 +516,30 @@
       </Principal>
       <Dependent Role="UserVisits">
         <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserBookmarks_User">
+    <End Type="YoyyinModel.User" Role="User" Multiplicity="1" />
+    <End Type="YoyyinModel.UserBookmarks" Role="UserBookmarks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="UserBookmarks">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserComments_User2">
+    <End Type="YoyyinModel.User" Role="User" Multiplicity="1" />
+    <End Type="YoyyinModel.UserComments" Role="UserComments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="UserComments">
+        <PropertyRef Name="CommentUserId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

@@ -40,15 +40,15 @@
       <End Role="SniItem" EntitySet="SniItem" />
       <End Role="User" EntitySet="User" />
     </AssociationSet>
-    <AssociationSet Name="FK_UserBookmarks_aspnet_Users" Association="YoyyinModel.Store.FK_UserBookmarks_aspnet_Users">
-      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+    <AssociationSet Name="FK_UserBookmarks_User" Association="YoyyinModel.Store.FK_UserBookmarks_User">
+      <End Role="User" EntitySet="User" />
       <End Role="UserBookmarks" EntitySet="UserBookmarks" />
     </AssociationSet>
-    <AssociationSet Name="FK_UserBookmarks_aspnet_Users1" Association="YoyyinModel.Store.FK_UserBookmarks_aspnet_Users1">
-      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
-      <End Role="UserBookmarks" EntitySet="UserBookmarks" />
+    <AssociationSet Name="FK_UserComments_User1" Association="YoyyinModel.Store.FK_UserComments_User1">
+      <End Role="User" EntitySet="User" />
+      <End Role="UserComments" EntitySet="UserComments" />
     </AssociationSet>
-    <AssociationSet Name="FK_UserComments_User" Association="YoyyinModel.Store.FK_UserComments_User">
+    <AssociationSet Name="FK_UserComments_User2" Association="YoyyinModel.Store.FK_UserComments_User2">
       <End Role="User" EntitySet="User" />
       <End Role="UserComments" EntitySet="UserComments" />
     </AssociationSet>
@@ -287,11 +287,11 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_UserBookmarks_aspnet_Users">
-    <End Role="aspnet_Users" Type="YoyyinModel.Store.aspnet_Users" Multiplicity="1" />
+  <Association Name="FK_UserBookmarks_User">
+    <End Role="User" Type="YoyyinModel.Store.User" Multiplicity="1" />
     <End Role="UserBookmarks" Type="YoyyinModel.Store.UserBookmarks" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="aspnet_Users">
+      <Principal Role="User">
         <PropertyRef Name="UserId" />
       </Principal>
       <Dependent Role="UserBookmarks">
@@ -299,19 +299,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_UserBookmarks_aspnet_Users1">
-    <End Role="aspnet_Users" Type="YoyyinModel.Store.aspnet_Users" Multiplicity="1" />
-    <End Role="UserBookmarks" Type="YoyyinModel.Store.UserBookmarks" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="aspnet_Users">
-        <PropertyRef Name="UserId" />
-      </Principal>
-      <Dependent Role="UserBookmarks">
-        <PropertyRef Name="BookmarkedUserID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_UserComments_User">
+  <Association Name="FK_UserComments_User1">
     <End Role="User" Type="YoyyinModel.Store.User" Multiplicity="1" />
     <End Role="UserComments" Type="YoyyinModel.Store.UserComments" Multiplicity="*" />
     <ReferentialConstraint>
@@ -320,6 +308,18 @@
       </Principal>
       <Dependent Role="UserComments">
         <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserComments_User2">
+    <End Role="User" Type="YoyyinModel.Store.User" Multiplicity="1" />
+    <End Role="UserComments" Type="YoyyinModel.Store.UserComments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="UserComments">
+        <PropertyRef Name="CommentUserId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

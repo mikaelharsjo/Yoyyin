@@ -3,7 +3,16 @@ using System.Linq;
 
 namespace Yoyyin.Data
 {
-    public class EntityUserBookmarksRepository : IRepository<UserBookmarks>
+    public interface IBookmarkRepository
+    {
+        IQueryable<UserBookmarks> Find();
+        void Save();
+        void Delete(UserBookmarks entity);
+        void Add(UserBookmarks entity);
+        UserBookmarks Create();
+    }
+
+    public class EntityUserBookmarksRepository : IBookmarkRepository
     {
         private readonly YoyyinEntities1 _entities;
 
@@ -29,7 +38,9 @@ namespace Yoyyin.Data
 
         public void Add(UserBookmarks entity)
         {
-            _entities.UserBookmarks.AddObject(entity);
+            _entities
+                .UserBookmarks
+                .AddObject(entity);
         }
 
         public UserBookmarks Create()

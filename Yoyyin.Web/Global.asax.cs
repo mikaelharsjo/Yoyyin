@@ -30,6 +30,7 @@ namespace Yoyyin.Web
             builder.RegisterType<EntityUserRepository>().As<IUserRepository>();
             builder.RegisterType<EntityUserVisitsRepository>().As<IVisitsRepository>();
             builder.RegisterType <EntityCommentsRepository>().As<ICommentsRepository>();
+            builder.RegisterType<EntityUserBookmarksRepository>().As<IBookmarkRepository>();
 
             // factories (Factory method pattern)
             builder.RegisterType<CategoryFactory>();
@@ -51,6 +52,7 @@ namespace Yoyyin.Web
             builder.RegisterType<SniHeadService>().As<ISniHeadService>();
             builder.RegisterType<VisitsService>().As<IVisitsService>();
             builder.RegisterType<CommentsService>().As<ICommentsService>();
+            builder.RegisterType<BookmarksService>().As<IBookmarksService>();
               
             // presenters (Pesentation Model)
             builder.RegisterType<UserPresenter>().As<IUserPresenter>();

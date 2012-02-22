@@ -12,7 +12,7 @@
     <ItemTemplate>
         <tr>
             <td valign="top" style='width: 50px; <%# Eval("CellStyle") %>'>
-                <a href='<%# Eval("MemberUrl") %>'>
+                <a href='<%# Eval("CommentatorUrl") %>'>
                     <uc:UserImage ID="UserImage1" User='<%# Eval("Commentator") %>' runat="server" Width="50" />
                 </a>
             </td>

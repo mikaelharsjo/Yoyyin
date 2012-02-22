@@ -190,12 +190,14 @@
             $('#tabs').tabs();
 
             ExecuteAjax(["controlName", "LatestPosts"], "LoadControl", function (data) { $("#divLastQuestions").html(data.d); }, OnError);
-            MakeAjaxCall("LoadControl", { controlName: "MultiMatcherControl" }, function (data) { $("#tab-1").html(data); }, OnError);
+            MakeAjaxCall("LoadControl", { controlName: "MultiMatcherControl" }, function(data) { $("#tab-1").html(data); }, OnError);
 
             $(".lnkDeleteBookmark").click(function () {
                 var BookmarkedUserID = $(this).attr("BookmarkedUserID");
-                ExecuteAjax(["userID", '<%= CurrentUser.UserId %>', "bookmarkUserID", BookmarkedUserID], "DeleteBookmark", function () { alert("Kontakten är borttagen."); $("#div" + BookmarkedUserID).hide(); }, OnError);
-
+                MakeAjaxCall("DeleteBookmark", { bookmarkUserID: BookmarkedUserID }, function () {
+                    alert("Kontakten är borttagen.");
+                    $("#div" + BookmarkedUserID).hide();
+                }, OnError);
             });
 
             $("#btnSendInvite").click(function () {

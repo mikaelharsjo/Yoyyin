@@ -18,24 +18,27 @@ namespace Yoyyin.Web
     {
         private const string UserBig = "<div><h2>{1}</h2><p>{2}</p></div>";
         private readonly IUserService _userService;
-        private IBookmarksService BookmarksService { get; set; }
+        private readonly IBookmarksService _bookmarksService;
         private readonly MailHelper _mailHelper;
         private readonly IQAService _qaService;
         private readonly ICommentsService _commentsService;
         private readonly ICurrentUser _currentUser;
         private readonly CategoryFactory _categoryFactory;
 
-        public Service(){}
-
         public Service(IUserService userService, IQAService qaService, ICurrentUser currentUser, IBookmarksService bookmarksService, ICommentsService commentsService, CategoryFactory categoryFactory)
         {
             _userService = userService;
             _qaService = qaService;
             _currentUser = currentUser;
-            BookmarksService = bookmarksService;
+            _bookmarksService = bookmarksService;
             _commentsService = commentsService;
             _categoryFactory = categoryFactory;
+            _bookmarksService = bookmarksService;
             _mailHelper = new MailHelper();
+        }
+
+        public Service()
+        {
         }
 
         [OperationContract]
@@ -152,17 +155,15 @@ namespace Yoyyin.Web
         }
 
         [OperationContract]
-        public void AddBookmark(Guid userID, Guid bookmarkUserID)
+        public void AddBookmark(Guid bookmarkUserID)
         {
-            BookmarksService.CreateAndSaveBookmark(userID, bookmarkUserID);
+            _bookmarksService.CreateAndSaveBookmark(bookmarkUserID);
         }
 
         [OperationContract]
-        [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest,
-            ResponseFormat = WebMessageFormat.Json)]
-        public void DeleteBookmark(Guid userID, Guid bookmarkUserID)
+        public void DeleteBookmark(Guid bookmarkUserID)
         {
-            BookmarksService.DeleteBookmark(userID, bookmarkUserID);
+            _bookmarksService.DeleteBookmark(bookmarkUserID);
         }
 
         [OperationContract]

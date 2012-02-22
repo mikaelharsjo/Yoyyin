@@ -605,6 +605,7 @@ function InitializeMasterPage() {
     } ());
 }
 
+// TODO: Remove visitingUserId, ICurrentUser should do
 function InitializeMemberPage(currentUserId, visitingUserId) {
     $(document).ready(function () {
         LoadComments(currentUserId, 500);
@@ -647,7 +648,7 @@ function InitializeMemberPage(currentUserId, visitingUserId) {
             if (visitingUserId == currentUserId)
                 alert("Du kan inte addera dig själv.");
             else
-                ExecuteAjax(["userID", visitingUserId, "bookmarkUserID", currentUserId], "AddBookmark", function () { ShowDialogTemporarily("Kontakten är sparad"); }, OnError);
+                ExecuteAjax(["bookmarkUserID", currentUserId], "AddBookmark", function () { ShowDialogTemporarily("Kontakten är sparad"); }, OnError);
         });
     });
 }

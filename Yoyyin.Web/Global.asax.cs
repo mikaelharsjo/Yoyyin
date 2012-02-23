@@ -59,6 +59,7 @@ namespace Yoyyin.Web
             builder.RegisterType<PostPresenter>().As<IPostPresenter>();
             builder.RegisterType<VisitPresenter>().As<IVisitPresenter>();
             builder.RegisterType<CommentPresenter>().As<ICommentPresenter>();
+            builder.RegisterType<BookmarkPresenter>().As<IBookmarkPresenter>();
 
             // misc
             builder.RegisterType<NewestMembersHelper>();

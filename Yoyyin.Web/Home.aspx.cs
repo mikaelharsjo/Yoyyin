@@ -17,6 +17,7 @@ namespace Yoyyin.Web
         public IBookmarksService BookmarksService { get; set; }
         public ICurrentUser Current { get; set; }
         public IUserService UserService { get; set; }
+        public IBookmarkPresenter BookmarkPresenter { get; set; }
 
         private MembershipUser _currentMembershipUser;
 
@@ -44,7 +45,7 @@ namespace Yoyyin.Web
             lstMessagesSent.DataSource = messageConverter.Convert(MessagesService.GetOutBoxMessages(Current.UserId));
             lstMessagesSent.DataBind();
 
-            lstBookmarks.DataSource = BookmarksService.GetBookmarks(Current.UserId);
+            lstBookmarks.DataSource = BookmarkPresenter.Presentate(BookmarksService.GetBookmarks(Current.UserId));
             lstBookmarks.DataBind();
         }
     }

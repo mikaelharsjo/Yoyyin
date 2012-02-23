@@ -30,17 +30,18 @@
                                 <ItemTemplate>
                                     <tr id='div<%# Eval("BookmarkedUserID")%>'>
                                         <td valign="middle">
-                                            <yoyyin:UserImage runat="server" UserID='<%# Eval("BookmarkedUserID") %>' Width="40" />
+                                            <yoyyin:UserImage runat="server" User='<%# Eval("BookmarkedUser") %>' Width="40" />
                                         </td>
-                                        <asp:Image runat="server" ImageUrl='<%# WebHelpers.GetOnlineImageUrl2(Eval("BookmarkedUserID")) %>'
+                                        <asp:Image runat="server" ImageUrl='<%# Eval("OnlineImageUrl") %>'
                                             Visible="false" />&nbsp;
                                         <td valign="middle">
                                             <div class="friendItem">
-                                                <a class="popLink" href='<%# WebHelpers.GetUserUrl(Eval("BookmarkedUserID")) %>' id='<%# Eval("BookmarkedUserID") %>'>
-                                                    <%# WebHelpers.GetDisplayName(Eval("BookmarkedUserID"))%></a>
+                                                <a href='<%# Eval("ProfileUrl") %>'>
+                                                    <%# Eval("DisplayName") %>    
+                                                </a>
                                         </td>
                                         <td valign="top" align="right">
-                                            <a class="lnkDeleteBookmark right" title="Ta bort kontakten" bookmarkeduserid='<%# Eval("BookmarkedUserID") %>'>
+                                            <a class="lnkDeleteBookmark right" title="Ta bort kontakten" bookmarkeduserid='<%# Eval("BookmarkedUser.UserId") %>'>
                                                 <img src="Styles/Images/cross.png" /></a>
                                         </td>
                                     </tr>

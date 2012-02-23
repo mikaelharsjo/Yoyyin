@@ -68,7 +68,7 @@ namespace Yoyyin.Tests
         {
             var message = new Message()
                               {
-                                  User = new User() {Name = "Kalle"},
+                                  ToUser = new User() {Name = "Kalle"},
                                   FromMessage = "Hej på dig",
                                   Created = new DateTime(2000, 11, 11, 16, 40, 0)
                               };

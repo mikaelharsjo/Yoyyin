@@ -46,6 +46,7 @@ namespace Yoyyin.Web
             builder.RegisterType<UserMapper>().As<IUserMapper>();
             builder.RegisterType<VisitMapper>().As<IVisitMapper>();
             builder.RegisterType<CommentMapper>().As<ICommentMapper>();
+            builder.RegisterType<MessageMapper>().As<IMessageMapper>();
 
             // services
             builder.RegisterType<UserService>().As<IUserService>();

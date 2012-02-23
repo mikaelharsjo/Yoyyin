@@ -50,6 +50,7 @@
     <Compile Include="GenericPresenter.cs" />
     <Compile Include="IAnswerPresenter.cs" />
     <Compile Include="ICommentPresenter.cs" />
+    <Compile Include="IMessagePresenter.cs" />
     <Compile Include="IOnlineImageProvider.cs" />
     <Compile Include="IPostPresenter.cs" />
     <Compile Include="IPresenter.cs" />
@@ -57,8 +58,8 @@
     <Compile Include="IPresentation.cs" />
     <Compile Include="IQuestionPresenter.cs" />
     <Compile Include="IUserPresenter.cs" />
-    <Compile Include="MessageConverter.cs" />
-    <Compile Include="MessageView.cs" />
+    <Compile Include="MessagePresenter.cs" />
+    <Compile Include="MessagePresentation.cs" />
     <Compile Include="MultipleMatchPresentation.cs" />
     <Compile Include="MultipleMatchPresenter.cs" />
     <Compile Include="OnlineImageProvider.cs" />

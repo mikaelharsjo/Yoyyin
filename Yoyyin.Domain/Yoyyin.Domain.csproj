@@ -48,7 +48,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Mappers\CommentMapper.cs" />
+    <Compile Include="Mappers\IMessagemapper.cs" />
     <Compile Include="Mappers\IVisitMapper.cs" />
+    <Compile Include="Mappers\Messagemapper.cs" />
     <Compile Include="Mappers\VisitMapper.cs" />
     <Compile Include="QA\AbstractCategory.cs" />
     <Compile Include="QA\Answer.cs" />

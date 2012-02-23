@@ -3,30 +3,28 @@ using System.Collections.Generic;
 using System.Linq;
 using Yoyyin.Data;
 using Yoyyin.Domain.Extensions;
+using Yoyyin.Domain.Mappers;
 
 namespace Yoyyin.Domain.Services
 {
     public class MessagesService : IMessagesService
     {
         private readonly IUserMessagesRepository _repository;
+        private IMessageMapper _messageMapper;
 
-        public MessagesService(IUserMessagesRepository repository)
+        public MessagesService(IUserMessagesRepository repository, IMessageMapper messageMapper)
         {
             _repository = repository;
+            _messageMapper = messageMapper;
         }
 
         public Message GetById(int userMessagesId)
         {
-            var messageData = _repository
-                                .Find()
-                                .First(x => x.UserMessagesID == userMessagesId);
-
-            return CreateMessage(messageData);
-        }
-
-        private static Message CreateMessage(UserMessages messageData)
-        {
-            return new Message {Text = messageData.FromMessage, Created = (DateTime)messageData.TimeStamp, FromMessage = messageData.FromMessage };
+            return _repository
+                        .Find()
+                        .Where(x => x.UserMessagesID == userMessagesId)
+                        .Select(_messageMapper.MapMessage)
+                        .First();
         }
 
         public IEnumerable<Message> GetOutBoxMessages(Guid userID)
@@ -34,7 +32,7 @@ namespace Yoyyin.Domain.Services
             return _repository
                         .Find()
                         .Where(message => message.FromUserId == userID)
-                        .Select(CreateMessage)
+                        .Select(_messageMapper.MapMessage)
                         .OrderBy(message => message.Created);   //.Include("User") 
         }
 
@@ -44,7 +42,7 @@ namespace Yoyyin.Domain.Services
                 .Find()
                 .Where(message => message.ToUserId == userId)
                 .OrderByDescending(message => message.TimeStamp)
-                .Select(CreateMessage);
+                .Select(_messageMapper.MapMessage);
         }
 
         public void CreateAndSaveUserMessage(Guid fromUserId, Guid toUserId, string message)

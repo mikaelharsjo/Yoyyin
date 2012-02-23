@@ -11,9 +11,9 @@ namespace Yoyyin.Domain
         public DateTime Created { get; set; }
         public string Text { get; set; }
         public string FromMessage { get; set; }
-        public User FromUser { get; set; }
-        public User ToUser { get; set; }
+        public IUser FromUser { get; set; }
+        public IUser ToUser { get; set; }
         public int UserMessagesID { get; set; }
-        public User User { get; set; }
+        //public User User { get; set; }
     }
 }

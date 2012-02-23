@@ -5,11 +5,11 @@ using Yoyyin.Domain.Extensions;
 
 namespace Yoyyin.PresentationModel
 {
-    public class MessageConverter
+    public class MessagePresenter : IMessagePresenter
     {
-        public MessageView Convert(Message message)
+        public MessagePresentation Presentate(Message message)
         {
-            return new MessageView()
+            return new MessagePresentation
                        {
                            Date = message.Created.ToFormattedString(),
                            Message = message.FromMessage,
@@ -21,9 +21,9 @@ namespace Yoyyin.PresentationModel
                        };
         }
 
-        public IEnumerable<MessageView> Convert(IEnumerable<Message> userMessages)
+        public IEnumerable<MessagePresentation> Presentate(IEnumerable<Message> userMessages)
         {
-            return userMessages.Select(Convert);
+            return userMessages.Select(Presentate);
         }
     }
 }

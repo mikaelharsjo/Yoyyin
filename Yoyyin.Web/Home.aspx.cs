@@ -14,10 +14,12 @@ namespace Yoyyin.Web
         public IUser CurrentUser;
         public string CurrentEmail { get; set; }
         public IMessagesService MessagesService { get; set; }
+        public IMessagePresenter MessagePresenter { get; set; }
         public IBookmarksService BookmarksService { get; set; }
+        public IBookmarkPresenter BookmarkPresenter { get; set; }
         public ICurrentUser Current { get; set; }
         public IUserService UserService { get; set; }
-        public IBookmarkPresenter BookmarkPresenter { get; set; }
+        
 
         private MembershipUser _currentMembershipUser;
 
@@ -38,11 +40,10 @@ namespace Yoyyin.Web
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            var messageConverter = new MessageConverter();
-            lstMessages.DataSource = messageConverter.Convert(MessagesService.GetInBoxMessages(Current.UserId));
+            lstMessages.DataSource = MessagePresenter.Presentate(MessagesService.GetInBoxMessages(Current.UserId));
             lstMessages.DataBind();
 
-            lstMessagesSent.DataSource = messageConverter.Convert(MessagesService.GetOutBoxMessages(Current.UserId));
+            lstMessagesSent.DataSource = MessagePresenter.Presentate(MessagesService.GetOutBoxMessages(Current.UserId));
             lstMessagesSent.DataBind();
 
             lstBookmarks.DataSource = BookmarkPresenter.Presentate(BookmarksService.GetBookmarks(Current.UserId));

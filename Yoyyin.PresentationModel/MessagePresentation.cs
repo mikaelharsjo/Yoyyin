@@ -2,7 +2,7 @@
 
 namespace Yoyyin.PresentationModel
 {
-    public class MessageView
+    public class MessagePresentation
     {
         public string DisplayName { get; set; }
         public string ToDisplayName { get; set; }

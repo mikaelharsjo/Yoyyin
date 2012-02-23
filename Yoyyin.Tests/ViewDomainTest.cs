@@ -72,11 +72,11 @@ namespace Yoyyin.Tests
                                   FromMessage = "Hej på dig",
                                   Created = new DateTime(2000, 11, 11, 16, 40, 0)
                               };
-            var messageConverter = new MessageConverter();
-            MessageView messageView = messageConverter.Convert(message);
-            Assert.That(messageView.Date, Is.EqualTo("lördag 11 november 2000 16:40"));
-            Assert.That(messageView.Message, Is.EqualTo("Hej på dig"));
-            Assert.That(messageView.DisplayName, Is.EqualTo("Kalle"));
+            var messageConverter = new MessagePresenter();
+            MessagePresentation messagePresentation = messageConverter.Presentate(message);
+            Assert.That(messagePresentation.Date, Is.EqualTo("lördag 11 november 2000 16:40"));
+            Assert.That(messagePresentation.Message, Is.EqualTo("Hej på dig"));
+            Assert.That(messagePresentation.DisplayName, Is.EqualTo("Kalle"));
         }
     }
 

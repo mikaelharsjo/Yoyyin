@@ -3,7 +3,16 @@ using System.Linq;
 
 namespace Yoyyin.Data
 {
-    public class EntityUserMessagesRepository : IRepository<UserMessages>
+    public interface IUserMessagesRepository
+    {
+        IQueryable<UserMessages> Find();
+        void Save();
+        void Delete(UserMessages entity);
+        UserMessages Create();
+        void Add(UserMessages message);
+    }
+
+    public class EntityUserMessagesRepository : IUserMessagesRepository
     {
         private readonly YoyyinEntities1 _entities;
 

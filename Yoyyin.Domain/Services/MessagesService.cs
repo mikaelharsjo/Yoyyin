@@ -8,9 +8,9 @@ namespace Yoyyin.Domain.Services
 {
     public class MessagesService : IMessagesService
     {
-        private readonly EntityUserMessagesRepository _repository;
+        private readonly IUserMessagesRepository _repository;
 
-        public MessagesService(EntityUserMessagesRepository repository)
+        public MessagesService(IUserMessagesRepository repository)
         {
             _repository = repository;
         }

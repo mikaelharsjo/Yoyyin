@@ -6,6 +6,7 @@ using Autofac.Integration.Web;
 using Yoyyin.Data;
 using Yoyyin.Domain;
 using Yoyyin.Domain.Mappers;
+using Yoyyin.Domain.Matching;
 using Yoyyin.Domain.QA;
 using Yoyyin.Domain.Services;
 using Yoyyin.Domain.Users;
@@ -48,8 +49,6 @@ namespace Yoyyin.Web
             builder.RegisterType<CommentMapper>().As<ICommentMapper>();
             builder.RegisterType<MessageMapper>().As<IMessageMapper>();
 
-
-
             // services
             builder.RegisterType<UserService>().As<IUserService>();
             builder.RegisterType<QAService>().As<IQAService>();
@@ -70,6 +69,7 @@ namespace Yoyyin.Web
             // misc
             builder.RegisterType<NewestMembersHelper>();
             builder.RegisterType<OnlineImageProvider>().As<IOnlineImageProvider>();
+            builder.RegisterType<MultipleMatcher>().As<IMultipleMatcher>();
             
             // Once you're done registering things, we set the container
             // provider up with our registrations.

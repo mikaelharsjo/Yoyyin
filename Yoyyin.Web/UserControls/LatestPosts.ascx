@@ -8,7 +8,7 @@
         </LayoutTemplate>
         <ItemTemplate>
             <li>
-                <a class="lnkQuestion" href='<%# "Question.aspx?QuestionId=" + Eval("ID") %>'><%# Eval("ShortText") %></a> av <%# Eval("DisplayName") %><br/>
+                <a class="lnkQuestion" href='<%# Eval("QuestionUrl") %>'><%# Eval("ShortText") %></a> av <%# Eval("DisplayName") %><br/>
                 <%# Eval("Date") %>
             </li>
         </ItemTemplate>

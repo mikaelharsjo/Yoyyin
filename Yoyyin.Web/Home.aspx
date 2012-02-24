@@ -28,7 +28,7 @@
                                     </table>
                                 </LayoutTemplate>
                                 <ItemTemplate>
-                                    <tr id='div<%# Eval("BookmarkedUserID")%>'>
+                                    <tr id='div<%# Eval("BookmarkedUser.UserId")%>'>
                                         <td valign="middle">
                                             <yoyyin:UserImage runat="server" User='<%# Eval("BookmarkedUser") %>' Width="40" />
                                         </td>

@@ -29,7 +29,7 @@ namespace Yoyyin.Web
             builder.RegisterType<EntitySniHeadRepository>().As<ISniHeadRepository>();
             builder.RegisterType<EntityUserRepository>().As<IUserRepository>();
             builder.RegisterType<EntityUserVisitsRepository>().As<IVisitsRepository>();
-            builder.RegisterType <EntityCommentsRepository>().As<ICommentsRepository>();
+            builder.RegisterType<EntityCommentsRepository>().As<ICommentsRepository>();
             builder.RegisterType<EntityUserBookmarksRepository>().As<IBookmarkRepository>();
             builder.RegisterType<EntityUserMessagesRepository>().As<IUserMessagesRepository>();
 
@@ -47,6 +47,8 @@ namespace Yoyyin.Web
             builder.RegisterType<VisitMapper>().As<IVisitMapper>();
             builder.RegisterType<CommentMapper>().As<ICommentMapper>();
             builder.RegisterType<MessageMapper>().As<IMessageMapper>();
+
+
 
             // services
             builder.RegisterType<UserService>().As<IUserService>();

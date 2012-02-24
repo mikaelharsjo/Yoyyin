@@ -9,7 +9,7 @@ using Yoyyin.PresentationModel;
 
 namespace Yoyyin.Web.UserControls
 {
-    public partial class MultiMatcherControl : UserControl
+    public partial class MultiMatcherControl : UserControlWithDependenciesInjected
     {
         public IUserService UserService { get; set; }
         public IMultipleMatcher MultipleMatcher { get; set; }

@@ -69,7 +69,7 @@ namespace Yoyyin.Web
             // misc
             builder.RegisterType<NewestMembersHelper>();
             builder.RegisterType<OnlineImageProvider>().As<IOnlineImageProvider>();
-            builder.RegisterType<MultipleMatcher>().As<IMultipleMatcher>();
+            //builder.RegisterType<MultipleMatcher>().As<IMultipleMatcher>();
             
             // Once you're done registering things, we set the container
             // provider up with our registrations.

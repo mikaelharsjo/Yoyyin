@@ -4,7 +4,7 @@ using Yoyyin.PresentationModel;
 
 namespace Yoyyin.Web.UserControls
 {
-    public partial class LatestPosts : System.Web.UI.UserControl
+    public partial class LatestPosts : UserControlWithDependenciesInjected
     {
         public IQAService IqaService { get; set; }
         public IPostPresenter PostPresenter { get; set; }

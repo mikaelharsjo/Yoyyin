@@ -17,7 +17,8 @@ namespace Yoyyin.PresentationModel
                 UserId = post.UserId,
                 ShortText = post.Text.Truncate(100),
                 Date = post.Created.ToFormattedString(),
-                Id = post.QuestionId
+                Id = post.QuestionId,
+                QuestionUrl = string.Format("Question.aspx?QuestionId={0}", post.QuestionId)
             };
         }
 

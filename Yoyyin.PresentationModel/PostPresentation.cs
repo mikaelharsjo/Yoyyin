@@ -10,5 +10,6 @@ namespace Yoyyin.PresentationModel
         public Guid UserId { get; set; }
         public int Id { get; set; }
         public string Date { get; set; }
+        public string QuestionUrl { get; set; }
     }
 }

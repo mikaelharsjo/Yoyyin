@@ -15,6 +15,7 @@ namespace Yoyyin.Domain.Mappers
         {
             return new QA.Question
                        {
+                           QuestionId = questionData.QuestionID,
                            Created = questionData.Created,
                            //Category = _categoryFactory.CreateCategory((CategoryType)questionData.Category, this), // TODO fix later, strange dependency
                            Owner = _userMapper.MapUser(questionData.User),

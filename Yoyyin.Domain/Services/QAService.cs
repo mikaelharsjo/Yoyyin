@@ -192,7 +192,7 @@ namespace Yoyyin.Domain.Services
                         Created = answer.Created,
                         Text = answer.Text,
                         UserId = answer.UserId,
-                        QuestionId = answer.QuestionID,
+                        QuestionId = answer.Question.QuestionId,
                         OwnerUserId = answer.Question.Owner.UserId
                     }).ToList();
             posts.AddRange(

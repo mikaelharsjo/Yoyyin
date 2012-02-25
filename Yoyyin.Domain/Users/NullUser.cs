@@ -8,7 +8,7 @@ namespace Yoyyin.Domain.Users
     {
         public Guid UserId
         {
-            get { throw new NotImplementedException(); }
+            get { return Guid.Empty; }
             set { throw new NotImplementedException(); }
         }
 

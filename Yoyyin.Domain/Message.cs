@@ -8,6 +8,12 @@ namespace Yoyyin.Domain
 {
     public class Message
     {
+        public Message()
+        {
+            FromUser = new NullUser();
+            ToUser = new NullUser();
+        }
+
         public DateTime Created { get; set; }
         public string Text { get; set; }
         public string FromMessage { get; set; }

@@ -226,7 +226,7 @@ namespace Yoyyin.Domain.Users
 
         public string GetDisplayName()
         {
-            throw new NotImplementedException();
+            return "Ingen riktig användare";
         }
 
         public List<Comment> GetComments()
@@ -236,7 +236,7 @@ namespace Yoyyin.Domain.Users
 
         public string GetProfileUrl()
         {
-            return "#";
+            return "Ingen riktig användare";
         }
     }
 }

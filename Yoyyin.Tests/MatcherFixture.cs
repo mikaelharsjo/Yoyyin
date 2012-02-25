@@ -152,8 +152,8 @@ namespace Yoyyin.Tests
         [Test]
         public void SuccesFullMatchUserTypes()
         {
-            var user = new User() { UserType = (int)UserTypes.Businessman, UserTypesNeeded = "1,5" };
-            var user2 = new User() {UserType = (int)UserTypes.Retiring};
+            var user = new User { UserType = (int)UserTypes.Businessman, UserTypesNeeded = "1,4" };
+            var user2 = new User {UserType = (int)UserTypes.Retiring};
 
             var matchResult = new Matcher(user, user2);
 

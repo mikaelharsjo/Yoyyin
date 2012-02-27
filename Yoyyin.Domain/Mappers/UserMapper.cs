@@ -1,4 +1,5 @@
 using System.Linq;
+using Yoyyin.Domain.Enumerations;
 using Yoyyin.Domain.Sni;
 using Yoyyin.Domain.Users;
 
@@ -30,16 +31,25 @@ namespace Yoyyin.Domain.Mappers
                            Street = user.Street,
                            SniNo = user.SniNo,
                            Alias = user.Alias,
-                           Active = user.Active != null && (bool)user.Active,
+                           Active = user.Active != null && (bool) user.Active,
                            Name = user.Name,
                            CVFileName = user.CVFileName,
                            Image = user.Image,
                            UserId = user.UserId,
-                           SniHead = user.SniHead != null ? _sniHeadMapper.MapSniHead(user.SniHead) : new NoSniHeadSelected(),
-                           SniItem = user.SniItem != null ?  _sniItemMapper.MapSniItem(user.SniItem) : new NoSniItemSelected(),
-                           Url = user.Url
-
-                       }; // not done
+                           SniHead =
+                               user.SniHead != null ? _sniHeadMapper.MapSniHead(user.SniHead) : new NoSniHeadSelected(),
+                           SniItem =
+                               user.SniItem != null ? _sniItemMapper.MapSniItem(user.SniItem) : new NoSniItemSelected(),
+                           Url = user.Url,
+                           //used in matching
+                           SniHeadID = user.SniHeadID,
+                           SearchWords = user.SearchWords,
+                           SearchWordsCompetence = user.SearchWordsCompetence,
+                           SearchWordsCompetenceNeeded = user.SearchWordsCompetenceNeeded,
+                           UserType = user.UserType == null ? (int)UserTypes.Entrepreneur : (int) user.UserType,
+                           UserTypeDescription = user.UserTypeDescription,
+                           UserTypesNeeded = user.UserTypesNeeded
+                       };
         }
 
         public SniHeadWithUser MapSniHeadWithUser(Data.SniHead sniHeadData)

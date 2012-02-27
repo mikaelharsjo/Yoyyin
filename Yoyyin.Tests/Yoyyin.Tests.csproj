@@ -56,7 +56,8 @@
     <Compile Include="Category\TestQARepository.cs" />
     <Compile Include="Category\TestQAService.cs" />
     <Compile Include="FakeWordsProvider.cs" />
-    <Compile Include="MatcherFixture.cs" />
+    <Compile Include="Matching\MatcherFixture.cs" />
+    <Compile Include="Matching\Matcher_GetResultsAsHtmlTableShould.cs" />
     <Compile Include="MultipleMatcherFixture.cs" />
     <Compile Include="PresentationModel\UserPresenterFixture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -86,9 +87,7 @@
       <Name>Yoyyin.PresentationModel</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="NewFolder1\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

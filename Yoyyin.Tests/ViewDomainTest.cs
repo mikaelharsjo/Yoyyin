@@ -25,10 +25,10 @@ namespace Yoyyin.Tests
         [Test]
         public void ConvertAnswersToView()
         {
-            var answers = new List<Answer>()
+            var answers = new List<Answer>
                               {
                                   {
-                                      new Answer()
+                                      new Answer
                                           {
                                               Text = "apa",
                                               Created = new DateTime(2010, 12, 31),
@@ -36,7 +36,7 @@ namespace Yoyyin.Tests
                                           }
                                       },
                                   {
-                                      new Answer()
+                                      new Answer
                                           {
                                               Text = "kossa",
                                               Created = new DateTime(1999, 01, 01),
@@ -45,17 +45,16 @@ namespace Yoyyin.Tests
                                       }
                               };
             var questionAnswers = _answerConverter.Presentate(answers);
-
             Assert.That(questionAnswers.Count(), Is.EqualTo(answers.Count));
-            //Assert.That(questionAnswers.First()., Is.EqualTo("Hemliga Arne fredag 31 december 2010 00:00 <a data-id='0'>Ta bort</a>"));
+            
         }
 
         [Test]
         public void ConvertCommentToViewHeading()
         {
             var commentConverter = new CommentPresenter(new FakeCurrentUser());
-            var comment = new Comment()
-                                       {
+            var comment = new Comment
+                              {
                                            Created = new DateTime(2011, 5, 8, 21, 40, 0),
                                            User = new User { Name = "Peter Hansson" }
                                        };
@@ -66,7 +65,7 @@ namespace Yoyyin.Tests
         [Test]
         public void ConvertMessageToView()
         {
-            var message = new Message()
+            var message = new Message
                               {
                                   ToUser = new User() {Name = "Kalle"},
                                   FromMessage = "Hej på dig",

@@ -6,7 +6,7 @@ using Yoyyin.Domain.Users;
 
 namespace Yoyyin.Web.UserControls
 {
-    public partial class MatcherControl : System.Web.UI.UserControl
+    public partial class MatcherControl : UserControlWithDependenciesInjected
     {
         public string FirstUserId { get; set; }
         public string SecondUserId { get; set; }

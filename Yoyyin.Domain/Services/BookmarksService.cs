@@ -8,14 +8,15 @@ namespace Yoyyin.Domain.Services
 {
     public class BookmarksService : IBookmarksService
     {
-        private IBookmarkRepository _repository;
-        private IUserService _userService;
-        private ICurrentUser _currentUser;
+        private readonly IBookmarkRepository _repository;
+        private readonly IUserService _userService;
+        private readonly ICurrentUser _currentUser;
 
-        public BookmarksService(IBookmarkRepository repository, IUserService userService)
+        public BookmarksService(IBookmarkRepository repository, IUserService userService, ICurrentUser currentUser)
         {
             _repository = repository;
             _userService = userService;
+            _currentUser = currentUser;
         }
 
         public IEnumerable<Bookmark> GetBookmarks(Guid userID)

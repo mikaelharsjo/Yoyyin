@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using System.ServiceModel;
 using System.ServiceModel.Activation;
 using System.ServiceModel.Web;
+using Yoyyin.Data;
 using Yoyyin.Domain;
 using Yoyyin.Domain.Extensions;
 using Yoyyin.Domain.QA;
 using Yoyyin.Domain.Services;
 using Yoyyin.Domain.Users;
 using Yoyyin.Web.Helpers;
+using Answer = Yoyyin.Domain.QA.Answer;
+using Question = Yoyyin.Domain.QA.Question;
 
 namespace Yoyyin.Web
 {
@@ -35,10 +38,6 @@ namespace Yoyyin.Web
             _categoryFactory = categoryFactory;
             _bookmarksService = bookmarksService;
             _mailHelper = new MailHelper();
-        }
-
-        public Service()
-        {
         }
 
         [OperationContract]

@@ -39,6 +39,7 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("YoyyinModel", "FK_UserVisits_User", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Yoyyin.Data.User), "UserVisits", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Yoyyin.Data.UserVisits), true)]
 [assembly: EdmRelationshipAttribute("YoyyinModel", "FK_UserBookmarks_User", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Yoyyin.Data.User), "UserBookmarks", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Yoyyin.Data.UserBookmarks), true)]
 [assembly: EdmRelationshipAttribute("YoyyinModel", "FK_UserComments_User2", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Yoyyin.Data.User), "UserComments", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Yoyyin.Data.UserComments), true)]
+[assembly: EdmRelationshipAttribute("YoyyinModel", "FK_UserVisits_User1", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Yoyyin.Data.User), "UserVisits", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Yoyyin.Data.UserVisits), true)]
 
 #endregion
 
@@ -2934,6 +2935,28 @@ namespace Yoyyin.Data
                 }
             }
         }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("YoyyinModel", "FK_UserVisits_User1", "UserVisits")]
+        public EntityCollection<UserVisits> UserVisits1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<UserVisits>("YoyyinModel.FK_UserVisits_User1", "UserVisits");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<UserVisits>("YoyyinModel.FK_UserVisits_User1", "UserVisits", value);
+                }
+            }
+        }
 
         #endregion
     }
@@ -4098,6 +4121,44 @@ namespace Yoyyin.Data
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<User>("YoyyinModel.FK_UserVisits_User", "User", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("YoyyinModel", "FK_UserVisits_User1", "User")]
+        public User User1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("YoyyinModel.FK_UserVisits_User1", "User").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("YoyyinModel.FK_UserVisits_User1", "User").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<User> User1Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("YoyyinModel.FK_UserVisits_User1", "User");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<User>("YoyyinModel.FK_UserVisits_User1", "User", value);
                 }
             }
         }

@@ -19,7 +19,8 @@ namespace Yoyyin.Domain.Mappers
             return new Visit
                        {
                            VisitingUser =
-                               visit.VisitingUserId != null ? _userMapper.MapUser(visit.User) : new AnonymousUser()
+                               visit.VisitingUserId != null ? _userMapper.MapUser(visit.User1) : new AnonymousUser(),
+                            VisitDate = visit.TimeStamp
                        };
         }
     }

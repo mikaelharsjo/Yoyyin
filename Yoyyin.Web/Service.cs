@@ -29,6 +29,8 @@ namespace Yoyyin.Web
         private readonly ICurrentUser _currentUser;
         private readonly CategoryFactory _categoryFactory;
 
+        public Service() {}
+
         public Service(IUserService userService, IQAService qaService, ICurrentUser currentUser, IBookmarksService bookmarksService, ICommentsService commentsService, CategoryFactory categoryFactory)
         {
             _userService = userService;

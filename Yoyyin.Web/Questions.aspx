@@ -35,16 +35,28 @@
 <br />
 <br />
 
+<div id="newQuestion" style="display: none;">
+    <h2>Fråga på!</h2>
+    <label for="txtTitle">Rubrik:</label><br/><input id="txtTitle" type="text" class="dialogInput" /><br/><br/>
+    <label for="txtQuestionDialog">Fråga:</label><br/>
+    <textarea id="txtQuestionDialog" rows="3" cols="2" class="dialogInput">
+    </textarea>
+    <div class="marginTop">
+        <button type="button" id="btnSaveQuestion">Spara</button> 
+    </div>
+</div>
+
+
 </asp:Content>
 <asp:Content ContentPlaceHolderID="MainContentAfterJavaScriptIncluded" runat="server">
 <script type="text/javascript">
     $(document).ready(function () {
         $(".btnQuestion").click(function () {
-            var category = $(this).attr("data-category-id");
-            var dictionary = new Array();
-            dictionary[0] = AddJSONItem("Category", category);
-
-            MakeAjaxCall("LoadControlWithParams", { controlName: "NewQuestion", dictionary: dictionary }, function (data) { ShowQuestionDialog(data); });
+            //var category = $(this).attr("data-category-id");
+            //var dictionary = new Array();
+            //dictionary[0] = AddJSONItem("Category", category);
+            //MakeAjaxCall("LoadControlWithParams", { controlName: "NewQuestion", dictionary: dictionary }, function (data) { ShowQuestionDialog(data); });
+            $("#newQuestion").show();
         });
     });    
 </script>

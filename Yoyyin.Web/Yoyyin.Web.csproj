@@ -51,6 +51,9 @@
     <Reference Include="Autofac.Integration.Web">
       <HintPath>..\packages\Autofac.Web.2.5.2.830\lib\NET40\Autofac.Integration.Web.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.4.1.10715.0\lib\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Web.GeneratedImage, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -244,6 +247,7 @@
     <Compile Include="Configuration\CurrentUser.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\QuestionController.cs" />
     <Compile Include="Handlers\CompetencesAutoCompleteHandler.ashx.cs">
       <DependentUpon>CompetencesAutoCompleteHandler.ashx</DependentUpon>
     </Compile>
@@ -268,6 +272,7 @@
     <Compile Include="Helpers\MailHelper.cs" />
     <Compile Include="Helpers\NewestMembersHelper.cs" />
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\YoyyinWebContext.cs" />
     <Compile Include="Question.aspx.cs">
       <DependentUpon>Question.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

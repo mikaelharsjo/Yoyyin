@@ -7,7 +7,7 @@
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{CF24D980-7914-4E9B-A601-1C57EE29020E}</ProjectGuid>
-    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <ProjectTypeGuids>{E53F8FEA-EAE0-44A6-8774-FFD645390401};{349C5851-65DF-11DA-9384-00065B846F21};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Yoyyin.Web</RootNamespace>
@@ -51,14 +51,18 @@
     <Reference Include="Autofac.Integration.Web">
       <HintPath>..\packages\Autofac.Web.2.5.2.830\lib\NET40\Autofac.Integration.Web.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Web.GeneratedImage, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\bin\Microsoft.Web.GeneratedImage.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0" />
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\..\..\..\..\..\..\Projects\bin\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
@@ -67,13 +71,35 @@
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0" />
+    <Reference Include="System.Web.Razor, Version=1.0.0.0" />
+    <Reference Include="System.Web.Routing" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.WebPages, Version=1.0.0.0" />
+    <Reference Include="WebActivator">
+      <HintPath>..\packages\WebActivator.1.3.2\lib\NETFramework40\WebActivator.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="Calendar.aspx" />
     <Content Include="Category.aspx" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
     <Content Include="Question.aspx" />
     <Content Include="Questions.aspx" />
     <Content Include="Error500.aspx" />
@@ -87,6 +113,8 @@
     <Content Include="News.aspx" />
     <Content Include="Scripts\Combined.js" />
     <Content Include="Scripts\Combined.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\modernizr.custom.js" />
     <Content Include="Scripts\yoyyin.min.js" />
     <Content Include="Service.svc" />
@@ -212,7 +240,10 @@
     <Compile Include="About.aspx.designer.cs">
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
+    <Compile Include="App_Start\RegisterMvc3Routes.cs" />
     <Compile Include="Configuration\CurrentUser.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Handlers\CompetencesAutoCompleteHandler.ashx.cs">
       <DependentUpon>CompetencesAutoCompleteHandler.ashx</DependentUpon>
     </Compile>
@@ -236,6 +267,7 @@
     <Compile Include="Helpers\AjaxRenderer.cs" />
     <Compile Include="Helpers\MailHelper.cs" />
     <Compile Include="Helpers\NewestMembersHelper.cs" />
+    <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Question.aspx.cs">
       <DependentUpon>Question.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -499,6 +531,16 @@
     <None Include="Styles\MuseoSans_500-webfont.eot" />
     <None Include="Styles\MuseoSans_500-webfont.ttf" />
     <None Include="Styles\MuseoSans_500-webfont.woff" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_LogOnPartial.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\LogOn.cshtml" />
+    <Content Include="Views\Account\ChangePasswordSuccess.cshtml" />
+    <Content Include="Views\Account\ChangePassword.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Yoyyin.Data\Yoyyin.Data.csproj">
@@ -518,7 +560,7 @@
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
   <ProjectExtensions>
     <VisualStudio>
-      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+      <FlavorProperties GUID="{349C5851-65DF-11DA-9384-00065B846F21}">
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>

@@ -36,7 +36,6 @@
 <br />
 
 <div id="newQuestion" style="display: none;">
-    <h2>Fråga på!</h2>
     <label for="txtTitle">Rubrik:</label><br/><input id="txtTitle" type="text" class="dialogInput" /><br/><br/>
     <label for="txtQuestionDialog">Fråga:</label><br/>
     <textarea id="txtQuestionDialog" rows="3" cols="2" class="dialogInput">
@@ -56,7 +55,20 @@
             //var dictionary = new Array();
             //dictionary[0] = AddJSONItem("Category", category);
             //MakeAjaxCall("LoadControlWithParams", { controlName: "NewQuestion", dictionary: dictionary }, function (data) { ShowQuestionDialog(data); });
-            $("#newQuestion").show();
+            $("#newQuestion").dialog({ title: "Fråga på" });
+        });
+
+        $("#btnSaveQuestion").click(function () {
+            $.ajax({
+                url: '/Question/Add',
+                type: 'POST',
+                cache: false,
+                data: { Title: $("#txtTitle").val(), Text: $("#txtQuestionDialog").val() },
+                success: function (data) {
+                    alert(data);
+                }
+            });
+
         });
     });    
 </script>

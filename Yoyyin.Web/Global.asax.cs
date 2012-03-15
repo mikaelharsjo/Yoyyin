@@ -13,71 +13,43 @@ using Yoyyin.Domain.Users;
 using Yoyyin.PresentationModel;
 using Yoyyin.Web.Configuration;
 using Yoyyin.Web.Helpers;
+using Autofac.Integration.Mvc;
 
 namespace Yoyyin.Web
 {
     public class Global : HttpApplication, IContainerProviderAccessor
     {
+
+        // Provider that holds the application container.
+        static IContainerProvider _containerProvider;
+
+        // Instance property that will be used by Autofac HttpModules
+        // to resolve and inject dependencies.
+        public IContainerProvider ContainerProvider
+        {
+            get { return _containerProvider; }
+        }
+
         void Application_Start(object sender, EventArgs e)
         {
+            _containerProvider = new ContainerProvider(Configuration.Configuration.Container);
+
             // Inversion of Control - Container setup
             // Build up your application container and register your dependencies.
-            var builder = new ContainerBuilder();
+            //var builder = new ContainerBuilder();
 
-            // repositories (Repository Pattern)
-            builder.RegisterType<YoyyinEntities1>();
-            builder.RegisterType<EntityQARepository>().As<IQARepository>();
-            builder.RegisterType<EntitySniHeadRepository>().As<ISniHeadRepository>();
-            builder.RegisterType<EntityUserRepository>().As<IUserRepository>();
-            builder.RegisterType<EntityUserVisitsRepository>().As<IVisitsRepository>();
-            builder.RegisterType<EntityCommentsRepository>().As<ICommentsRepository>();
-            builder.RegisterType<EntityUserBookmarksRepository>().As<IBookmarkRepository>();
-            builder.RegisterType<EntityUserMessagesRepository>().As<IUserMessagesRepository>();
+            //builder.RegisterModule<YoyyinModule>();
 
-            // factories (Factory method pattern)
-            builder.RegisterType<CategoryFactory>();
 
-            // site configuration
-            builder.RegisterType<CurrentUser>().As<ICurrentUser>();
-
-            // mappers
-            builder.RegisterType<SniHeadMapper>().As<ISniHeadMapper>();
-            builder.RegisterType<SniItemMapper>().As<ISniItemMapper>();
-            builder.RegisterType<QAMapper>().As<IQAMapper>();
-            builder.RegisterType<UserMapper>().As<IUserMapper>();
-            builder.RegisterType<VisitMapper>().As<IVisitMapper>();
-            builder.RegisterType<CommentMapper>().As<ICommentMapper>();
-            builder.RegisterType<MessageMapper>().As<IMessageMapper>();
-
-            // services
-            builder.RegisterType<UserService>().As<IUserService>();
-            builder.RegisterType<QAService>().As<IQAService>();
-            builder.RegisterType<SniHeadService>().As<ISniHeadService>();
-            builder.RegisterType<VisitsService>().As<IVisitsService>();
-            builder.RegisterType<CommentsService>().As<ICommentsService>();
-            builder.RegisterType<BookmarksService>().As<IBookmarksService>();
-            builder.RegisterType<MessagesService>().As<IMessagesService>();
-              
-            // presenters (Pesentation Model)
-            builder.RegisterType<UserPresenter>().As<IUserPresenter>();
-            builder.RegisterType<PostPresenter>().As<IPostPresenter>();
-            builder.RegisterType<VisitPresenter>().As<IVisitPresenter>();
-            builder.RegisterType<CommentPresenter>().As<ICommentPresenter>();
-            builder.RegisterType<BookmarkPresenter>().As<IBookmarkPresenter>();
-            builder.RegisterType<MessagePresenter>().As<IMessagePresenter>();
-
-            // misc
-            builder.RegisterType<NewestMembersHelper>();
-            builder.RegisterType<OnlineImageProvider>().As<IOnlineImageProvider>();
             //builder.RegisterType<MultipleMatcher>().As<IMultipleMatcher>();
             
             // Once you're done registering things, we set the container
             // provider up with our registrations.
-            var container = builder.Build();
-            _containerProvider = new ContainerProvider(container);
+            //var container = builder.Build();
+            //_containerProvider = new ContainerProvider(container);
 
             var routeHelper = new RouteHelper(new CachedItemProvider<IEnumerable<IUser>>(),
-                                              container.Resolve<IUserService>());
+                                              Configuration.Configuration.Container.Resolve<IUserService>());
             routeHelper.AddRoutes();
         }
 
@@ -116,16 +88,6 @@ namespace Yoyyin.Web
             // is set to InProc in the Web.config file. If session mode is set to StateServer 
             // or SQLServer, the event is not raised.
 
-        }
-
-        // Provider that holds the application container.
-        static IContainerProvider _containerProvider;
-
-        // Instance property that will be used by Autofac HttpModules
-        // to resolve and inject dependencies.
-        public IContainerProvider ContainerProvider
-        {
-            get { return _containerProvider; }
         }
     }
 }

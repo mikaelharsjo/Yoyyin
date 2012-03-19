@@ -9,9 +9,10 @@ namespace Yoyyin.Domain.Matching
 {
     public class MultipleMatcher : IMultipleMatcher
     {
-        private readonly CachedItemProvider<IEnumerable<IUser>> _cachedUsersProvider;
+        //private readonly CachedItemProvider<IEnumerable<IUser>> _cachedUsersProvider;
         private readonly IUser _user;
-        private readonly IUserService _userService;
+        //private readonly IUserService _userService;
+        private readonly IRepository<Data.User> _userRepository;
 
         private readonly IEnumerable<IUser> _users;
         private IEnumerable<Matcher> _matchers;
@@ -19,20 +20,19 @@ namespace Yoyyin.Domain.Matching
 
         private const string CacheKey = "AllUsersKey";
 
-        public MultipleMatcher(IUser user, CachedItemProvider<IEnumerable<IUser>> cachedUsersProvider, IUserService userService)
+        public MultipleMatcher(IUser user, IUserRepository userRepository)
         {
             _user = user;
-            _userService = userService;
-            _cachedUsersProvider = cachedUsersProvider;
+            _userRepository = userRepository;
 
-            _users = _cachedUsersProvider.GetItem(CacheKey, new Func<IEnumerable<IUser>>(_userService.GetAllUsers));
+            _users = _userRepository.FindAll();
         }
 
-        public MultipleMatcher(IUser user, IEnumerable<IUser> users, IUserService userService)
+        public MultipleMatcher(IUser user, IEnumerable<IUser> users, IUserService userService, IUserRepository userRepository)
         {
             _user = user;
             _users = users;
-            _userService = userService;
+            _userRepository = userRepository;
         }
 
         public IEnumerable<Matcher> MatchAll()

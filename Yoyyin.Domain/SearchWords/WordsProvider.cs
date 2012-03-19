@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Yoyyin.Data;
+using Yoyyin.Data.EntityFramework;
 
 namespace Yoyyin.Domain.SearchWords
 {
@@ -10,7 +11,7 @@ namespace Yoyyin.Domain.SearchWords
         // do not use, inject repository instead
         public WordsProvider()
         {
-            _repository = new EntitySearchWordsRepository(new YoyyinEntities1());
+            _repository = new EFSearchWordsRepository(new YoyyinEntities1());
         }
 
         public WordsProvider(IEntityWordsRepository repository)

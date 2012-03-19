@@ -17,7 +17,7 @@ namespace Yoyyin.Domain.Services
         private readonly IQAMapper _mapper;
 
         //// Poor mans Ioc Container
-        //public QAService() : this(new EntityQARepository(new YoyyinEntities1()), new UserService(new EntityUserRepository()), new CategoryFactory() ){
+        //public QAService() : this(new EFQARepository(new YoyyinEntities1()), new UserService(new EntityUserRepository()), new CategoryFactory() ){
         //}
 
         // Dependency Injection enabled constructor

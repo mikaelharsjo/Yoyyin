@@ -77,14 +77,14 @@ namespace Yoyyin.Domain.Extensions
 
         //public static List<Question> GetQuestions(this Category category)
         //{
-        //    var service = new QAService(new EntityQARepository(new YoyyinEntities1()));
+        //    var service = new QAService(new EFQARepository(new YoyyinEntities1()));
 
         //    return (List<Question>)service.GetQuestionsByCategory(category);
         //}
 
         //public static Question GetLatestQuestion(this Category category)
         //{
-        //    var service = new QAService(new EntityQARepository(new YoyyinEntities1()));
+        //    var service = new QAService(new EFQARepository(new YoyyinEntities1()));
 
         //    return service.GetLatestQuestionByCategory((int)category);
         //}

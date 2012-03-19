@@ -11,6 +11,7 @@ namespace Yoyyin.Data
         void Add(T entity);
         void Delete(T entity);
         IQueryable<T> Find(Expression<Func<T, bool>> predicate);
-        //T Create();
+        IQueryable<T> FindAll();
+        //T FindById(int id);
     }
 }

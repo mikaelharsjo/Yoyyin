@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Yoyyin.Data;
+using Yoyyin.Data.EntityFramework;
 using Yoyyin.Domain.Extensions;
 using Yoyyin.Domain.Mappers;
 

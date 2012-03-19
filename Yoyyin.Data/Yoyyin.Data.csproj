@@ -40,15 +40,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants.cs" />
-    <Compile Include="EntityCommentsRepository.cs" />
-    <Compile Include="EntitySearchWordsRepository.cs" />
-    <Compile Include="EntitySniHeadRepository.cs" />
-    <Compile Include="EntitySniItemRepository.cs" />
-    <Compile Include="EntityUserBookmarksRepository.cs" />
-    <Compile Include="EntityUserMessagesRepository.cs" />
-    <Compile Include="EntityUserRepository.cs" />
-    <Compile Include="EntityUserVisitsRepository.cs" />
-    <Compile Include="EntityProfileWordsRepository.cs" />
+    <Compile Include="IUserMessagesRepository.cs" />
+    <Compile Include="IBookmarkRepository.cs" />
+    <Compile Include="ICommentsRepository.cs" />
     <Compile Include="IEntityQARepository.cs" />
     <Compile Include="IEntitySniHeadRepository.cs" />
     <Compile Include="IEntityWordsRepository.cs" />
@@ -64,7 +58,8 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="EntityQARepository.cs" />
+    <Compile Include="SqlRepository.cs" />
+    <Compile Include="UnitOfWork\SqlUnitOfWork.cs" />
     <Compile Include="UserTypes.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -75,6 +70,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="EntityFramework\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

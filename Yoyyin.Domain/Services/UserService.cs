@@ -21,32 +21,30 @@ namespace Yoyyin.Domain.Services
             _userMapper = userMapper;
         }
 
-        public IEnumerable<IUser> SearchAdvanced(string text, bool isEntrepreneur, bool isInnovator, bool isInvestor, string sniNo)
-        {
-            return _userRepository.Find().Select(_userMapper.MapUser);
-            //if (isEntrepreneur)
-            //    users = users.FindAll(x => x.UserType != null && (int)x.UserType == (int)UserTypes.Entrepreneur).ToList();
-            //if (isInnovator)
-            //    users = useu.FindAll(x => x.UserType != null && (int)x.UserType == (int)UserTypes.Innovator).ToList();
-            //if (isInvestor)
-            //    users = users.FindAll(x => x.UserType != null && (int)x.UserType == (int)UserTypes.Investor).ToList();
+        //public IEnumerable<IUser> SearchAdvanced(string text, bool isEntrepreneur, bool isInnovator, bool isInvestor, string sniNo)
+        //{
+        //    return _userRepository.Find().Select(_userMapper.MapUser);
+        //    //if (isEntrepreneur)
+        //    //    users = users.FindAll(x => x.UserType != null && (int)x.UserType == (int)UserTypes.Entrepreneur).ToList();
+        //    //if (isInnovator)
+        //    //    users = useu.FindAll(x => x.UserType != null && (int)x.UserType == (int)UserTypes.Innovator).ToList();
+        //    //if (isInvestor)
+        //    //    users = users.FindAll(x => x.UserType != null && (int)x.UserType == (int)UserTypes.Investor).ToList();
 
-            //if (sniNo != "0")
-            //    users = users.FindAll(x => x.SniHeadID == sniNo);
+        //    //if (sniNo != "0")
+        //    //    users = users.FindAll(x => x.SniHeadID == sniNo);
 
-            //if (!String.IsNullOrEmpty(text))
-            //    users = users.FindAll(x => (x.Name.Contains(text) || x.BusinessDescription.Contains(text)));
+        //    //if (!String.IsNullOrEmpty(text))
+        //    //    users = users.FindAll(x => (x.Name.Contains(text) || x.BusinessDescription.Contains(text)));
 
 
-        }
+        //}
 
         public IEnumerable<IUser> SearchQuick(string textToMatch)
         {
             return
                 _userRepository
-                        .Find()
-                        .Where(
-                            user =>
+                        .Find(user =>
                             user.SearchWordsCompetence.Contains(textToMatch) || user.BusinessDescription.Contains(textToMatch) ||
                             user.City.Contains(textToMatch) || user.Street.Contains(textToMatch) ||
                             user.ZipCode.Contains(textToMatch) || user.BusinessTitle.Contains(textToMatch) ||
@@ -85,8 +83,7 @@ namespace Yoyyin.Domain.Services
         public IEnumerable<IUser> GetUsersBySni(string sniHeadID)
         {
             return _userRepository
-                        .Find()
-                        .Where(user => user.SniHeadID == sniHeadID)
+                        .Find(user => user.SniHeadID == sniHeadID)
                         .Select(_userMapper.MapUser);
         }
 
@@ -140,33 +137,32 @@ namespace Yoyyin.Domain.Services
             //}
         }
 
-        public void CreateUserInDb(IUser user)
-        {
-            _userRepository.Add(new Data.User() {Active = user.Active}); // TODO all properties must be set
-            _userRepository.Save();
-        }
+        //public void CreateUserInDb(IUser user)
+        //{
+        //    _userRepository.Add(new Data.User() {Active = user.Active}); // TODO all properties must be set
+        //    _userRepository.Save();
+        //}
 
-        public IEnumerable<IUser> GetAllUsers()
-        {
-            // we wan´t to enumerate here so we can dispose the ObjectContext instance
-            return _userRepository
-                        .Find()
-                        .Select(_userMapper.MapUser); // User.Include("SniHead").Include("SniItem");
-        }
+        //public IEnumerable<IUser> GetAllUsers()
+        //{
+        //    // we wan´t to enumerate here so we can dispose the ObjectContext instance
+        //    return _userRepository
+        //                .Find()
+        //                .Select(_userMapper.MapUser); // User.Include("SniHead").Include("SniItem");
+        //}
 
-        public IEnumerable<IUser> GetUsersWithSniHeadOf(string sniHead)
-        {
-            return _userRepository
-                        .Find()
-                        .Where(user => user.SniHeadID == sniHead)
-                        .Select(_userMapper.MapUser);
-        }
+        //public IEnumerable<IUser> GetUsersWithSniHeadOf(string sniHead)
+        //{
+        //    return _userRepository
+        //                .Find()
+        //                .Where(user => user.SniHeadID == sniHead)
+        //                .Select(_userMapper.MapUser);
+        //}
 
         public IUser GetUser(Guid userId)
         {
             return _userRepository
-                .Find()
-                .Where(u => u.UserId == userId)
+                .Find(u => u.UserId == userId)
                 .Select(_userMapper.MapUser)
                 .First();
         }

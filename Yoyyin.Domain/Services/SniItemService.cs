@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Yoyyin.Data;
+using Yoyyin.Data.EntityFramework;
 using Yoyyin.Domain.Mappers;
 using Yoyyin.Domain.Sni;
 
@@ -8,10 +9,10 @@ namespace Yoyyin.Domain.Services
 {
     public class SniItemService : ISniItemService
     {
-        private readonly EntitySniItemRepository _repository;
+        private readonly EFSniItemRepository _repository;
         private readonly ISniItemMapper _mapper;
 
-        public SniItemService(EntitySniItemRepository repository, ISniItemMapper mapper)
+        public SniItemService(EFSniItemRepository repository, ISniItemMapper mapper)
         {
             _repository = repository;
             _mapper = mapper;
@@ -20,8 +21,8 @@ namespace Yoyyin.Domain.Services
         public IEnumerable<ISniItem> GetSniItemsByHead(string sniHeadID)
         {
             return _repository
-                .Find()
-                .Where(sniItem => sniItem.SniHeadID == sniHeadID)
+                .Find(sniItem => sniItem.SniHeadID == sniHeadID)
+                //.Where(sniItem => sniItem.SniHeadID == sniHeadID)
                 .Select(_mapper.MapSniItem);
         }
     }

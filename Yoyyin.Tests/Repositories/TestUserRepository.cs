@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using Yoyyin.Data;
 
 namespace Yoyyin.Tests.Repositories
@@ -82,6 +83,11 @@ namespace Yoyyin.Tests.Repositories
         public void Delete(User entity)
         {
             throw new NotImplementedException();
+        }
+
+        public IQueryable<User> Find(Expression<Func<User, bool>> predicate)
+        {
+            return _users.AsQueryable();
         }
 
         public void Add(User entity)

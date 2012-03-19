@@ -1,15 +1,16 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 
 namespace Yoyyin.Data
 {
     public interface IRepository<T>
-    {
-        IQueryable<T> Find();
-        void Save();
-        void Delete(T entity);
+    {   
         void Add(T entity);
-        T Create();
+        void Delete(T entity);
+        IQueryable<T> Find(Expression<Func<T, bool>> predicate);
+        //T Create();
     }
 }

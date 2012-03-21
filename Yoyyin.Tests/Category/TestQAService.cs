@@ -15,16 +15,16 @@ namespace Yoyyin.Tests.Category
 {
     public class TestQAService : IQAService
     {
-        private IQARepository _repository;
+        private IQuestionRepository _repository;
         private QAService _inner;
         private IQAMapper _qaMapper;
 
         public TestQAService(IQAMapper qaMapper)
         {
             _qaMapper = qaMapper;
-            _repository = new TestQARepository();
+            _repository = new TestQuestionRepository();
             // for keeping it, DRY, no need for extra CreateQuestion in Test for example
-            _inner = new QAService(new TestQARepository(),
+            _inner = new QAService(new TestQuestionRepository(),
                                    new QAMapper(new UserMapper(new SniHeadMapper(), new SniItemMapper())));
         }
 

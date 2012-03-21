@@ -47,13 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Mappers\CommentMapper.cs" />
-    <Compile Include="Mappers\IMessagemapper.cs" />
-    <Compile Include="Mappers\IVisitMapper.cs" />
-    <Compile Include="Mappers\Messagemapper.cs" />
-    <Compile Include="Mappers\VisitMapper.cs" />
     <Compile Include="QA\AbstractCategory.cs" />
-    <Compile Include="QA\Answer.cs" />
     <Compile Include="QA\BusinessIdeasCategory.cs" />
     <Compile Include="CachedItemProvider.cs" />
     <Compile Include="QA\CategoryFactory.cs" />
@@ -71,27 +65,21 @@
     </Compile>
     <Compile Include="QA\FriendlyCategory.cs" />
     <Compile Include="QA\ICategory.cs" />
-    <Compile Include="Mappers\IQAMapper.cs" />
-    <Compile Include="Mappers\ISniHeadMapper.cs" />
-    <Compile Include="Mappers\ISniItemMapper.cs" />
-    <Compile Include="Mappers\IUserMapper.cs" />
-    <Compile Include="Mappers\QAMapper.cs" />
-    <Compile Include="Mappers\SniHeadMapper.cs" />
-    <Compile Include="Mappers\SniItemMapper.cs" />
-    <Compile Include="Mappers\UserMapper.cs" />
-    <Compile Include="Sni\ISniHead.cs" />
-    <Compile Include="Sni\ISniItem.cs" />
+    <Compile Include="Services\IUserService.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Services\UserService.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Sni\NoSniHeadSelected.cs" />
     <Compile Include="Sni\NoSniItemSelected.cs" />
     <Compile Include="Users\ICurrentUser.cs" />
-    <Compile Include="Users\IUser.cs" />
     <Compile Include="Matching\IMultipleMatcher.cs" />
     <Compile Include="Matching\MultipleMatcher.cs" />
     <Compile Include="Matching\MultipleMatcherStats.cs" />
     <Compile Include="Message.cs" />
     <Compile Include="QA\MiscCategory.cs" />
     <Compile Include="Users\NullUser.cs" />
-    <Compile Include="QA\Question.cs" />
     <Compile Include="SearchWords\CompetencesSearchWordsProvider.cs" />
     <Compile Include="EnumHelper.cs" />
     <Compile Include="SearchWords\ISearchWordsProvider.cs" />
@@ -108,18 +96,14 @@
     <Compile Include="Services\IQAService.cs" />
     <Compile Include="Services\ISniHeadService.cs" />
     <Compile Include="Services\ISniItemService.cs" />
-    <Compile Include="Services\IUserService.cs" />
     <Compile Include="Services\IVisitsService.cs" />
     <Compile Include="Services\MessagesService.cs" />
     <Compile Include="Services\QAService.cs" />
     <Compile Include="Services\SniHeadService.cs" />
     <Compile Include="Services\SniItemService.cs" />
-    <Compile Include="Services\UserService.cs" />
     <Compile Include="Visit.cs" />
     <Compile Include="Services\VisitsService.cs" />
-    <Compile Include="Sni\SniHead.cs" />
     <Compile Include="Sni\SniHeadWithUser.cs" />
-    <Compile Include="Sni\SniItem.cs" />
     <Compile Include="ThirdParty\FacebookAuthentication.cs" />
     <Compile Include="ThirdParty\GeoResponse.cs" />
     <Compile Include="ThirdParty\GoogleHelper.cs" />
@@ -128,7 +112,6 @@
     <Compile Include="QA\Post.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SearchWords\SearchWordsOrganizer.cs" />
-    <Compile Include="Users\User.cs" />
     <Compile Include="Comment.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -145,6 +128,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="EntityHelpers\" />
+    <Folder Include="Mappers\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

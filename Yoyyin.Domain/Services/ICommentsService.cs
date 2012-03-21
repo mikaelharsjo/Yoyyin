@@ -8,6 +8,6 @@ namespace Yoyyin.Domain.Services
     {
         void DeleteComment(int commentID);
         IEnumerable<Comment> GetComments(Guid userID);
-        Comment CreateAndSaveComment(Guid fromUserId, Guid toUserId, string text, int commentID);
+        //Comment CreateAndSaveComment(Guid fromUserId, Guid toUserId, string text, int commentID);
     }
 }

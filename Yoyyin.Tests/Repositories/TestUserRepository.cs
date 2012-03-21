@@ -90,6 +90,11 @@ namespace Yoyyin.Tests.Repositories
             return _users.AsQueryable();
         }
 
+        public IQueryable<User> FindAll()
+        {
+            throw new NotImplementedException();
+        }
+
         public void Add(User entity)
         {
             throw new NotImplementedException();

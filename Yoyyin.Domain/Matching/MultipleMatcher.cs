@@ -12,7 +12,7 @@ namespace Yoyyin.Domain.Matching
         //private readonly CachedItemProvider<IEnumerable<IUser>> _cachedUsersProvider;
         private readonly IUser _user;
         //private readonly IUserService _userService;
-        private readonly IRepository<Data.User> _userRepository;
+        private readonly IUserRepository _userRepository;
 
         private readonly IEnumerable<IUser> _users;
         private IEnumerable<Matcher> _matchers;
@@ -28,7 +28,7 @@ namespace Yoyyin.Domain.Matching
             _users = _userRepository.FindAll();
         }
 
-        public MultipleMatcher(IUser user, IEnumerable<IUser> users, IUserService userService, IUserRepository userRepository)
+        public MultipleMatcher(IUser user, IEnumerable<IUser> users, IUserRepository userRepository)
         {
             _user = user;
             _users = users;

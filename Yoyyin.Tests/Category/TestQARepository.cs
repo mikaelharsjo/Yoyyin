@@ -6,11 +6,11 @@ using Yoyyin.Domain.QA;
 
 namespace Yoyyin.Tests.Category
 {
-    public class TestQARepository : IQARepository
+    public class TestQuestionRepository : IQuestionRepository
     {
         private readonly List<Data.Question> _questions;
 
-        public TestQARepository()
+        public TestQuestionRepository()
         {
             _questions = new List<Data.Question>
                              {

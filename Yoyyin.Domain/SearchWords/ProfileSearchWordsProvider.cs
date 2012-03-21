@@ -13,14 +13,14 @@ namespace Yoyyin.Domain.SearchWords
     {
         private readonly CachedItemProvider<IList<string>> _cachedItemProvider;
         private const string CacheKey = "ProfileSearchWordsProviderCacheKey";
-        private readonly IEntityWordsRepository _repository;
+        private readonly IWordsRepository _repository;
 
         public ProfileSearchWordsProvider(CachedItemProvider<IList<string>> cachedWords)
         {
             _cachedItemProvider = cachedWords;
         }
 
-        public ProfileSearchWordsProvider(CachedItemProvider<IList<string>> cachedWords, IEntityWordsRepository repository)
+        public ProfileSearchWordsProvider(CachedItemProvider<IList<string>> cachedWords, IWordsRepository repository)
         {
             _cachedItemProvider = cachedWords;
             _repository = repository;

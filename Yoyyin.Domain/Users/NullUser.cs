@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Yoyyin.Data;
 using Yoyyin.Domain.Sni;
 
 namespace Yoyyin.Domain.Users
@@ -229,7 +230,7 @@ namespace Yoyyin.Domain.Users
             return "Ingen riktig användare";
         }
 
-        public List<Comment> GetComments()
+        public List<UserComments> GetComments()
         {
             throw new NotImplementedException();
         }

@@ -29,7 +29,7 @@ namespace Yoyyin.Tests
         {
             _ownerUserId = new Guid("68830D44-9172-476C-8F6B-78CDFB8D5C2D");
             _answerOwnerUserId = new Guid("31C0A56E-7A70-4265-AD7D-61A29A04A9D7");
-            _qaService = new QAService(new EFQARepository(new YoyyinEntities1()),
+            _qaService = new QAService(new EFQuestionRepository(new YoyyinEntities1()),
                                        new QAMapper(new UserMapper(new SniHeadMapper(), new SniItemMapper())));
 
             _question = new Question {Owner = new User {UserId = _ownerUserId}};

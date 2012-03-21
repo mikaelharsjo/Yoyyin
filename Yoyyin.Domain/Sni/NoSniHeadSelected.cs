@@ -1,3 +1,5 @@
+using Yoyyin.Data;
+
 namespace Yoyyin.Domain.Sni
 {
     public class NoSniHeadSelected : ISniHead

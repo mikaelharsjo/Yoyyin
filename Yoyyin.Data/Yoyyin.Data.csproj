@@ -40,13 +40,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants.cs" />
+    <Compile Include="EntityFramework\EFAnswerRepository.cs" />
+    <Compile Include="EntityFramework\EFQuestionRepository.cs" />
+    <Compile Include="EntityFramework\EFUserRepository.cs" />
+    <Compile Include="ISniHead.cs" />
+    <Compile Include="ISniItem.cs" />
+    <Compile Include="IUser.cs" />
     <Compile Include="IUserMessagesRepository.cs" />
     <Compile Include="IBookmarkRepository.cs" />
     <Compile Include="ICommentsRepository.cs" />
-    <Compile Include="IEntityQARepository.cs" />
+    <Compile Include="IEntityQuestionRepository.cs" />
     <Compile Include="IEntitySniHeadRepository.cs" />
-    <Compile Include="IEntityWordsRepository.cs" />
-    <Compile Include="IQARepository.cs" />
+    <Compile Include="IWordsRepository.cs" />
+    <Compile Include="IQuestionRepository.cs" />
     <Compile Include="IRepository.cs" />
     <Compile Include="ISniHeadRepository.cs" />
     <Compile Include="IUserRepository.cs" />
@@ -71,9 +77,7 @@
   <ItemGroup>
     <None Include="App.Config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="EntityFramework\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

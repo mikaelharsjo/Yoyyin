@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Yoyyin.Data;
 using Yoyyin.Domain.Extensions;
 using Yoyyin.Domain.Services;
 

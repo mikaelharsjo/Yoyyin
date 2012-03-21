@@ -1,3 +1,5 @@
+using Yoyyin.Data;
+
 namespace Yoyyin.Domain.Sni
 {
     public class NoSniItemSelected : ISniItem
@@ -9,6 +11,12 @@ namespace Yoyyin.Domain.Sni
         }
 
         public int SniItemId
+        {
+            get { throw new System.NotImplementedException(); }
+            set { throw new System.NotImplementedException(); }
+        }
+
+        public SniHead SniHead
         {
             get { throw new System.NotImplementedException(); }
             set { throw new System.NotImplementedException(); }

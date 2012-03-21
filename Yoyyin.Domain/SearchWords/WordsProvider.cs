@@ -6,15 +6,9 @@ namespace Yoyyin.Domain.SearchWords
 {
     public class WordsProvider : IWordsProvider
     {
-        private readonly IEntityWordsRepository _repository;
+        private readonly IWordsRepository _repository;
 
-        // do not use, inject repository instead
-        public WordsProvider()
-        {
-            _repository = new EFSearchWordsRepository(new YoyyinEntities1());
-        }
-
-        public WordsProvider(IEntityWordsRepository repository)
+        public WordsProvider(IWordsRepository repository)
         {
             _repository = repository;
         }

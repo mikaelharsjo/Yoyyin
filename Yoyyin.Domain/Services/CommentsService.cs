@@ -3,19 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using Yoyyin.Data;
 using Yoyyin.Domain.Extensions;
-using Yoyyin.Domain.Mappers;
 
 namespace Yoyyin.Domain.Services
 {
     public class CommentsService : ICommentsService
     {
         private readonly ICommentsRepository _repository;
-        private readonly ICommentMapper _mapper;
 
-        public CommentsService(ICommentsRepository repository, ICommentMapper mapper)
+        public CommentsService(ICommentsRepository repository)
         {
             _repository = repository;
-            _mapper = mapper;
         }
 
         public void DeleteComment(int commentID)
@@ -42,26 +39,25 @@ namespace Yoyyin.Domain.Services
         public IEnumerable<Comment> GetComments(Guid userID)
         {
             return _repository
-                        .Find()
-                        .Where(comment => comment.UserId == userID)
-                        .Select(_mapper.MapComment);
+                .Find()
+                .Where(comment => comment.UserId == userID);
         }
 
-        public Comment CreateAndSaveComment(Guid fromUserId, Guid toUserId, string text, int commentID)
-        {
-            var comment = _repository.Create();
-            _repository.Add(comment);
+        //public Comment CreateAndSaveComment(Guid fromUserId, Guid toUserId, string text, int commentID)
+        //{
+        //    var comment = _repository.Create();
+        //    _repository.Add(comment);
 
-            comment.Text = text.Truncate(1000);
-            comment.CommentUserId = fromUserId;
-            comment.UserId = toUserId;
-            comment.TimeStamp = DateTime.Now;
-            if (commentID > 0)
-                comment.CommentCommentID = commentID;
+        //    comment.Text = text.Truncate(1000);
+        //    comment.CommentUserId = fromUserId;
+        //    comment.UserId = toUserId;
+        //    comment.TimeStamp = DateTime.Now;
+        //    if (commentID > 0)
+        //        comment.CommentCommentID = commentID;
 
-            _repository.Save();
+        //    _repository.Save();
 
-            return _mapper.MapComment(comment);
-        }
+        //    return _mapper.MapComment(comment);
+        //}
     }
 }

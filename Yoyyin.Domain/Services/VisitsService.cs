@@ -2,19 +2,16 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Yoyyin.Data;
-using Yoyyin.Domain.Mappers;
 
 namespace Yoyyin.Domain.Services
 {
     public class VisitsService : IVisitsService
     {
         private readonly IVisitsRepository _repository;
-        private readonly IVisitMapper _mapper;
 
-        public VisitsService(IVisitsRepository repository, IVisitMapper mapper)
+        public VisitsService(IVisitsRepository repository)
         {
             _repository = repository;
-            _mapper = mapper;
         }
 
         public IEnumerable<Visit> GetVisits(Guid userID)
@@ -22,8 +19,7 @@ namespace Yoyyin.Domain.Services
             return _repository
                 .Find()
                 .Where(visit => visit.UserId == userID)
-                .OrderByDescending(visit => visit.TimeStamp)
-                .Select(_mapper.MapVisit);
+                .OrderByDescending(visit => visit.TimeStamp);
         }
 
         public void LogMemberVisit(Guid visitingUserID, Guid userID)

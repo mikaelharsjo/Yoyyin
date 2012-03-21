@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Yoyyin.Data;
 
 namespace Yoyyin.Domain.QA
 {

@@ -1,3 +1,4 @@
+using Yoyyin.Data;
 using Yoyyin.Domain.Users;
 
 namespace Yoyyin.Domain.Sni
@@ -12,10 +13,10 @@ namespace Yoyyin.Domain.Sni
             get { return SniHead.SniItem; }
         }
 
-        public int SniHeadID
+        public string SniHeadID
         {
-            get { return SniItem.SniItemId; }
-            set { SniItem.SniItemId = value; }
+            get { return SniItem.SniHeadID; }
+            set { SniItem.SniHeadID = value; }
         }
 
         public string Title

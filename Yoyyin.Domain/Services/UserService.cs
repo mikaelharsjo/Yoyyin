@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Yoyyin.Data;
-using Yoyyin.Domain.Mappers;
 using Yoyyin.Domain.Users;
-using User = Yoyyin.Domain.Users.User;
 
 namespace Yoyyin.Domain.Services
 {
@@ -12,13 +10,11 @@ namespace Yoyyin.Domain.Services
     {
         private readonly IUserRepository _userRepository;
         private readonly ICurrentUser _currentUser;
-        private readonly IUserMapper _userMapper;
 
-        public UserService(IUserRepository userRepository, ICurrentUser currentUser, IUserMapper userMapper)
+        public UserService(IUserRepository userRepository, ICurrentUser currentUser)
         {
             _userRepository = userRepository;
             _currentUser = currentUser;
-            _userMapper = userMapper;
         }
 
         //public IEnumerable<IUser> SearchAdvanced(string text, bool isEntrepreneur, bool isInnovator, bool isInvestor, string sniNo)
@@ -44,14 +40,14 @@ namespace Yoyyin.Domain.Services
         {
             return
                 _userRepository
-                        .Find(user =>
-                            user.SearchWordsCompetence.Contains(textToMatch) || user.BusinessDescription.Contains(textToMatch) ||
-                            user.City.Contains(textToMatch) || user.Street.Contains(textToMatch) ||
-                            user.ZipCode.Contains(textToMatch) || user.BusinessTitle.Contains(textToMatch) ||
-                            user.Name.Contains(textToMatch) || user.SearchWords.Contains(textToMatch) ||
-                            user.SniHead.Title.Contains(textToMatch) ||
-                            user.SniItem.Title.Contains(textToMatch) && user.Active == true)
-                        .Select(_userMapper.MapUser);
+                    .Find(user =>
+                          user.SearchWordsCompetence.Contains(textToMatch) ||
+                          user.BusinessDescription.Contains(textToMatch) ||
+                          user.City.Contains(textToMatch) || user.Street.Contains(textToMatch) ||
+                          user.ZipCode.Contains(textToMatch) || user.BusinessTitle.Contains(textToMatch) ||
+                          user.Name.Contains(textToMatch) || user.SearchWords.Contains(textToMatch) ||
+                          user.SniHead.Title.Contains(textToMatch) ||
+                          user.SniItem.Title.Contains(textToMatch) && user.Active);
         }
 
 
@@ -62,35 +58,35 @@ namespace Yoyyin.Domain.Services
             //return _userRepository.Find().Where(user =>    ).OrderBy(User => User. orderby x.aspnet_Users.LastActivityDate descending where x.Image != null select x);
         }
 
-        public IEnumerable<IUser> GetAllUsersIncludingSni()
-        {
-            return _userRepository
-                        .GetAllUsersIncludingSni()
-                        .Select(_userMapper.MapUser)
-                        .AsEnumerable();
-        }
+        //public IEnumerable<IUser> GetAllUsersIncludingSni()
+        //{
+        //    return _userRepository.FindAll();
+        //                //.GetAllUsersIncludingSni()
+        //                //.Select(_userMapper.MapUser)
+        //                //.AsEnumerable();
+        //}
 
-        public IEnumerable<Guid> GetUserIDsWithMostVisits()
-        {
-            return _userRepository.GetUserIDsWithMostVisits();
-        }
+        //public IEnumerable<Guid> GetUserIDsWithMostVisits()
+        //{
+        //    return _user
+        //}
 
         public int GetNumberOfUsers()
         {
-            return _userRepository.GetNumberOfUsers();
+            return _userRepository.FindAll().Count();
         }
 
         public IEnumerable<IUser> GetUsersBySni(string sniHeadID)
         {
             return _userRepository
-                        .Find(user => user.SniHeadID == sniHeadID)
-                        .Select(_userMapper.MapUser);
+                .Find(user => user.SniHeadID == sniHeadID);
+
         }
 
-        public void DeleteUser(Guid userId)
-        {
-            _userRepository.Delete(new Data.User() {UserId = userId});
-        }
+        //public void DeleteUser(Guid userId)
+        //{
+        //    _userRepository.Delete(new Data.User() {UserId = userId});
+        //}
 
         public void Save(IUser user)
         {

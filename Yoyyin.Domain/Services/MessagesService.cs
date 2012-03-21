@@ -4,19 +4,17 @@ using System.Linq;
 using Yoyyin.Data;
 using Yoyyin.Data.EntityFramework;
 using Yoyyin.Domain.Extensions;
-using Yoyyin.Domain.Mappers;
+
 
 namespace Yoyyin.Domain.Services
 {
     public class MessagesService : IMessagesService
     {
         private readonly IUserMessagesRepository _repository;
-        private IMessageMapper _messageMapper;
 
-        public MessagesService(IUserMessagesRepository repository, IMessageMapper messageMapper)
+        public MessagesService(IUserMessagesRepository repository)
         {
             _repository = repository;
-            _messageMapper = messageMapper;
         }
 
         public Message GetById(int userMessagesId)
@@ -24,7 +22,6 @@ namespace Yoyyin.Domain.Services
             return _repository
                         .Find()
                         .Where(x => x.UserMessagesID == userMessagesId)
-                        .Select(_messageMapper.MapMessage)
                         .First();
         }
 
@@ -33,8 +30,7 @@ namespace Yoyyin.Domain.Services
             return _repository
                         .Find()
                         .Where(message => message.FromUserId == userID)
-                        .Select(_messageMapper.MapMessage)
-                        .OrderBy(message => message.Created);   //.Include("User") 
+                        .OrderBy(message => message.TimeStamp);   //.Include("User") 
         }
 
         public IEnumerable<Message> GetInBoxMessages(Guid userId)
@@ -42,8 +38,7 @@ namespace Yoyyin.Domain.Services
             return _repository
                 .Find()
                 .Where(message => message.ToUserId == userId)
-                .OrderByDescending(message => message.TimeStamp)
-                .Select(_messageMapper.MapMessage);
+                .OrderByDescending(message => message.TimeStamp);
         }
 
         public void CreateAndSaveUserMessage(Guid fromUserId, Guid toUserId, string message)

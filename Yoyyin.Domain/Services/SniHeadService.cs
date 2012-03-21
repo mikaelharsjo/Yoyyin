@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Yoyyin.Data;
-using Yoyyin.Domain.Mappers;
+
 using Yoyyin.Domain.Sni;
 
 namespace Yoyyin.Domain.Services
@@ -9,30 +9,26 @@ namespace Yoyyin.Domain.Services
     public class SniHeadService : ISniHeadService
     {
         private readonly ISniHeadRepository _repository;
-        private readonly ISniHeadMapper _sniHeadMapper;
-        private readonly IUserMapper _userMapper;
 
-        public SniHeadService(ISniHeadRepository repository, ISniHeadMapper sniHeadMapper, IUserMapper userMapper)
+        public SniHeadService(ISniHeadRepository repository)
         {
             _repository = repository;
-            _sniHeadMapper = sniHeadMapper;
-            _userMapper = userMapper;
         }
 
         public IEnumerable<ISniHead> GetAllSniHeadItems()
         {
-            return _repository.Find().Select(_sniHeadMapper.MapSniHead);
+            throw new System.NotImplementedException();
         }
 
         public IEnumerable<SniHeadWithUser> GetAllSniIncludingUsers()
         {
-            return _repository.GetAllSniIncludingUsers().Select(_userMapper.MapSniHeadWithUser);
+            return _repository.GetAllSniIncludingUsers();
         }
 
         public ISniHead GetSniHead(string sniHeadId)
         {
             return sniHeadId != null
-                       ? _sniHeadMapper.MapSniHead(_repository.Find().First(x => x.SniHeadID == sniHeadId))
+                       ? _repository.Find().First(x => x.SniHeadID == sniHeadId)
                        : new NoSniHeadSelected();
         }
 

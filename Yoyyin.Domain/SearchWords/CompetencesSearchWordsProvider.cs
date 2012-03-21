@@ -9,7 +9,7 @@ namespace Yoyyin.Domain.SearchWords
     {
         private readonly CachedItemProvider<IList<string>> _cachedItemProvider;
         private const string CacheKey = "CompetencesSearchWordsProviderCacheKey";
-        private readonly IEntityWordsRepository _repository;
+        private readonly IWordsRepository _repository;
         private readonly IWordsProvider _wordsProvider;
 
         public CompetencesSearchWordsProvider(CachedItemProvider<IList<string>> cachedWords, IWordsProvider wordsProvider)

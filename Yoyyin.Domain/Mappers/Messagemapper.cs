@@ -5,8 +5,6 @@ namespace Yoyyin.Domain.Mappers
 {
     public class MessageMapper : IMessageMapper
     {
-        private readonly IUserMapper _userMapper;
-
         public MessageMapper(IUserMapper userMapper)
         {
             _userMapper = userMapper;

@@ -4,7 +4,7 @@ namespace Yoyyin.Data
 {
     public interface ISniHeadRepository : IRepository<ISniHead>
     {
-        IQueryable<SniHead> Find();
-        IQueryable<SniHead> GetAllSniIncludingUsers();
+        IQueryable<ISniHead> Find();
+        IQueryable<ISniHead> GetAllSniIncludingUsers();
     }
 }

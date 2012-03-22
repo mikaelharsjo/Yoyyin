@@ -155,11 +155,10 @@ namespace Yoyyin.Domain.Services
         //                .Select(_userMapper.MapUser);
         //}
 
-        public IUser GetUser(Guid userId)
+        private IUser GetUser(Guid userId)
         {
             return _userRepository
                 .Find(u => u.UserId == userId)
-                .Select(_userMapper.MapUser)
                 .First();
         }
 

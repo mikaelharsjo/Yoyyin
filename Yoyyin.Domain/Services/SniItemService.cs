@@ -14,10 +14,10 @@ namespace Yoyyin.Domain.Services
             _repository = repository;
         }
 
-        public IEnumerable<ISniItem> GetSniItemsByHead(string sniHeadID)
-        {
-            return _repository
-                .Find(sniItem => sniItem.SniHead.SniHeadID == sniHeadID);
-        }
+        //public IEnumerable<ISniItem> GetSniItemsByHead(string sniHeadID)
+        //{
+        //    return _repository
+        //        .Find(sniItem => sniItem.SniHead.SniHeadID == sniHeadID);
+        //}
     }
 }

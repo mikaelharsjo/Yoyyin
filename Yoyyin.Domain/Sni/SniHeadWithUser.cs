@@ -3,26 +3,21 @@ using Yoyyin.Domain.Users;
 
 namespace Yoyyin.Domain.Sni
 {
-    public class SniHeadWithUser
+    public class SniHeadWithUser : ISniHead
     {
         public IUser User { get; set; }
         public ISniHead SniHead { get; set; }
 
-        public SniItem SniItem
+        public string Title
         {
-            get { return SniHead.SniItem; }
+            get { throw new System.NotImplementedException(); }
+            set { throw new System.NotImplementedException(); }
         }
 
         public string SniHeadID
         {
-            get { return SniItem.SniHeadID; }
-            set { SniItem.SniHeadID = value; }
-        }
-
-        public string Title
-        {
-            get { return SniItem.Title; }
-            set { SniItem.Title = value; }
+            get { throw new System.NotImplementedException(); }
+            set { throw new System.NotImplementedException(); }
         }
     }
 }

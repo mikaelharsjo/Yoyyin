@@ -17,15 +17,7 @@ namespace Yoyyin.Domain.Services
             _repository = repository;
         }
 
-        public Message GetById(int userMessagesId)
-        {
-            return _repository
-                        .Find()
-                        .Where(x => x.UserMessagesID == userMessagesId)
-                        .First();
-        }
-
-        public IEnumerable<Message> GetOutBoxMessages(Guid userID)
+        public IEnumerable<UserMessages> GetOutBoxMessages(Guid userID)
         {
             return _repository
                         .Find()
@@ -33,26 +25,12 @@ namespace Yoyyin.Domain.Services
                         .OrderBy(message => message.TimeStamp);   //.Include("User") 
         }
 
-        public IEnumerable<Message> GetInBoxMessages(Guid userId)
+        public IEnumerable<UserMessages> GetInBoxMessages(Guid userId)
         {
             return _repository
                 .Find()
                 .Where(message => message.ToUserId == userId)
                 .OrderByDescending(message => message.TimeStamp);
-        }
-
-        public void CreateAndSaveUserMessage(Guid fromUserId, Guid toUserId, string message)
-        {
-            var userMessage = _repository.Create();
-
-            _repository.Add(userMessage);
-
-            userMessage.FromMessage = message.Truncate(400);
-            userMessage.FromUserId = fromUserId;
-            userMessage.ToUserId = toUserId;
-            userMessage.TimeStamp = DateTime.Now;
-
-            _repository.Save();
         }
     }
 }

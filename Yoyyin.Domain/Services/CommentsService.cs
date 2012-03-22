@@ -36,7 +36,7 @@ namespace Yoyyin.Domain.Services
                 .Delete(_repository.Find().First(comment => comment.CommentID == commentID));
         }
 
-        public IEnumerable<Comment> GetComments(Guid userID)
+        public IEnumerable<UserComments> GetComments(Guid userID)
         {
             return _repository
                 .Find()

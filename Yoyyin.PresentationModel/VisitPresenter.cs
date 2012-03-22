@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Yoyyin.Data;
 using Yoyyin.Domain;
 using Yoyyin.Domain.Extensions;
 
@@ -9,8 +10,8 @@ namespace Yoyyin.PresentationModel
 {
     public interface IVisitPresenter
     {
-        IPresentation Presentate(Visit visit);
-        IEnumerable<IPresentation> Presentate(IEnumerable<Visit> visits);
+        IPresentation Presentate(UserVisits visit);
+        IEnumerable<IPresentation> Presentate(IEnumerable<UserVisits> visits);
     }
 
     public class VisitPresenter : IVisitPresenter
@@ -22,19 +23,19 @@ namespace Yoyyin.PresentationModel
             _onlineImageProvider = onlineImageProvider;
         }
 
-        public IPresentation Presentate(Visit visit)
+        public IPresentation Presentate(UserVisits visit)
         {
             
             return new VisitPresentation
                        {
-                           OnlineImageUrl = _onlineImageProvider.GetOnlineImageUrl(visit.VisitingUser.UserName),
+                           OnlineImageUrl = _onlineImageProvider.GetOnlineImageUrl(visit.User.UserName),
                            DisplayName = visit.VisitingUser.GetDisplayName(),
                            ProfileUrl = visit.VisitingUser.GetProfileUrl(),
                            VisitDate = visit.VisitDate.ToFormattedString()
                        };
         }
 
-        public IEnumerable<IPresentation> Presentate(IEnumerable<Visit> visits)
+        public IEnumerable<IPresentation> Presentate(IEnumerable<UserVisits> visits)
         {
             return visits.Select(Presentate);
         }

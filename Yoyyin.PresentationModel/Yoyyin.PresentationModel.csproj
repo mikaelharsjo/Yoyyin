@@ -68,6 +68,10 @@
     <Compile Include="VisitPresenter.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Yoyyin.Data\Yoyyin.Data.csproj">
+      <Project>{CA00E16D-2B05-4B84-837B-32DFC2A3FF94}</Project>
+      <Name>Yoyyin.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Yoyyin.Domain\Yoyyin.Domain.csproj">
       <Project>{E5C9F77D-AC81-4A90-937B-4F8BE8CA75DB}</Project>
       <Name>Yoyyin.Domain</Name>

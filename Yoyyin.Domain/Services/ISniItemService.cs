@@ -6,6 +6,6 @@ namespace Yoyyin.Domain.Services
 {
     public interface ISniItemService
     {
-        IEnumerable<ISniItem> GetSniItemsByHead(string sniHeadID);
+        //IEnumerable<ISniItem> GetSniItemsByHead(string sniHeadID);
     }
 }

@@ -10,32 +10,20 @@ namespace Yoyyin.Domain.Services
     public class BookmarksService : IBookmarksService
     {
         private readonly IBookmarkRepository _repository;
-        private readonly IUserService _userService;
         private readonly ICurrentUser _currentUser;
 
-        public BookmarksService(IBookmarkRepository repository, IUserService userService, ICurrentUser currentUser)
+        public BookmarksService(IBookmarkRepository repository, ICurrentUser currentUser)
         {
             _repository = repository;
-            _userService = userService;
             _currentUser = currentUser;
         }
 
-        public IEnumerable<Bookmark> GetBookmarks(Guid userID)
+        public IEnumerable<UserBookmarks> GetBookmarks(Guid userID)
         {
             return _repository
-                .Find()
-                .Where(bookmark => bookmark.UserId == userID)
-                .OrderByDescending(bookmark => bookmark.TimeStamp)
-                .Select(CreateBookmark);
-        }
-
-        public Bookmark CreateBookmark(Data.UserBookmarks dataBookmark)
-        {
-            return new Bookmark
-                       {
-                           BookmarkedUser = _userService.GetUser(dataBookmark.BookmarkedUserID),
-                           Owner = _userService.GetUser(dataBookmark.UserId)
-                       };
+                        .Find()
+                        .Where(bookmark => bookmark.UserId == userID)
+                        .OrderByDescending(bookmark => bookmark.TimeStamp);
         }
 
         public void CreateAndSaveBookmark(Guid bookmarkUserID)

@@ -1314,7 +1314,7 @@ namespace Yoyyin.Data
     [EdmEntityTypeAttribute(NamespaceName="YoyyinModel", Name="SniHead")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class SniHead : EntityObject
+    public partial class SniHead : EntityObject, ISniHead
     {
         #region Factory Method
     
@@ -1440,7 +1440,7 @@ namespace Yoyyin.Data
     [EdmEntityTypeAttribute(NamespaceName="YoyyinModel", Name="SniItem")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class SniItem : EntityObject
+    public partial class SniItem : EntityObject, ISniItem
     {
         #region Factory Method
     

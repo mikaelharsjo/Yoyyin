@@ -10,15 +10,9 @@ namespace Yoyyin.Domain.Sni
             set { throw new System.NotImplementedException(); }
         }
 
-        public int SniItemId
+        public string SniNo
         {
-            get { throw new System.NotImplementedException(); }
-            set { throw new System.NotImplementedException(); }
-        }
-
-        public SniHead SniHead
-        {
-            get { throw new System.NotImplementedException(); }
+            get { return string.Empty; }
             set { throw new System.NotImplementedException(); }
         }
     }

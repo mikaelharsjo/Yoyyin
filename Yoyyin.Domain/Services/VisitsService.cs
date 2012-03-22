@@ -14,7 +14,7 @@ namespace Yoyyin.Domain.Services
             _repository = repository;
         }
 
-        public IEnumerable<Visit> GetVisits(Guid userID)
+        public IEnumerable<UserVisits> GetVisits(Guid userID)
         {
             return _repository
                 .Find()

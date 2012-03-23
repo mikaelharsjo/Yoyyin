@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Security;
+using Yoyyin.Data;
 using Yoyyin.Domain;
 using Yoyyin.Domain.Services;
 using Yoyyin.Domain.Users;
@@ -48,9 +49,9 @@ namespace Yoyyin.Web.UserControls
             }
         }
 
-        private static IList<Comment> SortComments(IList<Comment> comments)
+        private static IList<UserComments> SortComments(IList<UserComments> comments)
         {
-            var commentsSorted = new List<Comment>();
+            var commentsSorted = new List<UserComments>();
             foreach (var comment in comments)
             {
                 if (comment.CommentCommentID != null)
@@ -74,7 +75,7 @@ namespace Yoyyin.Web.UserControls
 
         protected string GetMemberUrl(object item)
         {
-            var comment = (Comment)item;
+            var comment = (UserComments)item;
             string urlStart = "Member.aspx";
 
             if (comment.User.UserId == Current.UserID)

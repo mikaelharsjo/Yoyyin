@@ -12,7 +12,7 @@ namespace Yoyyin.Domain.QA
         public Guid UserId { get; set; }
         public int QuestionId { get; set; }
         public Guid OwnerUserId { get; set; }
-        //public string DisplayName { get; set; }
+        public string DisplayName { get; set; }
 
         public string GetQuestionUrl()
         {

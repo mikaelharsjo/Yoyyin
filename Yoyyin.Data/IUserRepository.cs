@@ -1,6 +1,5 @@
 using System;
 using System.Linq;
-using Yoyyin.Domain.Users;
 
 namespace Yoyyin.Data
 {

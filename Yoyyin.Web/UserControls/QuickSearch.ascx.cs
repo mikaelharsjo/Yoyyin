@@ -5,6 +5,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Text;
 using System.Web.UI.HtmlControls;
+using Yoyyin.Data;
 using Yoyyin.Domain.Extensions;
 using Yoyyin.Domain.Services;
 using Yoyyin.Domain.Users;

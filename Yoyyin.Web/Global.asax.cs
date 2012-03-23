@@ -5,15 +5,8 @@ using Autofac;
 using Autofac.Integration.Web;
 using Yoyyin.Data;
 using Yoyyin.Domain;
-using Yoyyin.Domain.Mappers;
-using Yoyyin.Domain.Matching;
-using Yoyyin.Domain.QA;
 using Yoyyin.Domain.Services;
-using Yoyyin.Domain.Users;
-using Yoyyin.PresentationModel;
-using Yoyyin.Web.Configuration;
 using Yoyyin.Web.Helpers;
-using Autofac.Integration.Mvc;
 
 namespace Yoyyin.Web
 {

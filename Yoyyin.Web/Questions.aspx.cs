@@ -1,4 +1,5 @@
 ﻿using System;
+using Yoyyin.Data;
 using Yoyyin.Domain;
 using Yoyyin.Domain.Extensions;
 using Yoyyin.Domain.QA;
@@ -36,8 +37,8 @@ namespace Yoyyin.Web
 
             return string.Format(Lastmessage, question.Text.Truncate(CharsInQuestion),
                                  question.Created.ToFormattedString(),
-                                 question.Owner .GetDisplayName(),
-                                 question.QuestionId);
+                                 question.User.GetDisplayName(),
+                                 question.QuestionID);
         }
     }
 }

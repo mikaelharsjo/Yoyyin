@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Web.Security;
+using Yoyyin.Data;
 using Yoyyin.Domain.Users;
 
 namespace Yoyyin.Web

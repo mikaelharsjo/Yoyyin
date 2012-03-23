@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using Yoyyin.Data;
 using Yoyyin.Domain;
 using Yoyyin.Domain.Extensions;
 using Yoyyin.Domain.QA;
@@ -9,7 +11,7 @@ namespace Yoyyin.Web
 {
     public partial class QuestionPage : System.Web.UI.Page
     {
-        private IQAService _qaService;
+        private IQuestionRepository _questionRepository;
         private Question _question;
         private ICategory _categoryType;
         public int QuestionID;
@@ -22,7 +24,9 @@ namespace Yoyyin.Web
             
             if (QuestionID <= 0) return;
 
-            _question = _qaService.GetQuestion(QuestionID);
+            _question = _questionRepository
+                                .Find(question => question.QuestionID == QuestionID)
+                                .First();
             _categoryType = _question.Category;
         }
 

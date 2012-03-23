@@ -25,13 +25,12 @@ namespace Yoyyin.PresentationModel
 
         public IPresentation Presentate(UserVisits visit)
         {
-            
             return new VisitPresentation
                        {
-                           OnlineImageUrl = _onlineImageProvider.GetOnlineImageUrl(visit.User.UserName),
-                           DisplayName = visit.VisitingUser.GetDisplayName(),
-                           ProfileUrl = visit.VisitingUser.GetProfileUrl(),
-                           VisitDate = visit.VisitDate.ToFormattedString()
+                           //OnlineImageUrl = _onlineImageProvider.GetOnlineImageUrl(visit.User.UserName),
+                           DisplayName = visit.User.GetDisplayName(),
+                           ProfileUrl = visit.User.GetProfileUrl(),
+                           VisitDate = visit.TimeStamp.ToFormattedString()
                        };
         }
 
@@ -43,8 +42,8 @@ namespace Yoyyin.PresentationModel
 
     public interface IBookmarkPresenter
     {
-        IPresentation Presentate(Bookmark bookmark);
-        IEnumerable<IPresentation> Presentate(IEnumerable<Bookmark> bookmarks);
+        IPresentation Presentate(UserBookmarks bookmark);
+        IEnumerable<IPresentation> Presentate(IEnumerable<UserBookmarks> bookmarks);
     }
 
     public class BookmarkPresenter : IBookmarkPresenter
@@ -56,19 +55,19 @@ namespace Yoyyin.PresentationModel
             _onlineImageProvider = onlineImageProvider;
         }
 
-        public IPresentation Presentate(Bookmark bookmark)
+        public IPresentation Presentate(UserBookmarks bookmark)
         {
 
             return new BookmarkPresentation
             {
-                OnlineImageUrl = _onlineImageProvider.GetOnlineImageUrl(bookmark.BookmarkedUser.UserName),
-                DisplayName = bookmark.BookmarkedUser.GetDisplayName(),
-                ProfileUrl = bookmark.BookmarkedUser.GetProfileUrl(),
-                BookmarkedUser = bookmark.BookmarkedUser
+                //OnlineImageUrl = _onlineImageProvider.GetOnlineImageUrl(bookmark.User.UserName),
+                DisplayName = bookmark.User.GetDisplayName(),
+                ProfileUrl = bookmark.User.GetProfileUrl(),
+                BookmarkedUser = (IUser)bookmark.User
             };
         }
 
-        public IEnumerable<IPresentation> Presentate(IEnumerable<Bookmark> bookmarks)
+        public IEnumerable<IPresentation> Presentate(IEnumerable<UserBookmarks> bookmarks)
         {
             return bookmarks.Select(Presentate);
         }

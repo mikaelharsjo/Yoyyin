@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Yoyyin.Data;
 using Yoyyin.Domain;
 using Yoyyin.Domain.Extensions;
 using Yoyyin.Domain.QA;
@@ -21,13 +22,13 @@ namespace Yoyyin.PresentationModel
         {
             return new QuestionPresentation
                        {
-                           DisplayName = question.Owner != null ? question.Owner.GetDisplayName() : string.Empty,
-                           UserId = question.Owner != null ? question.Owner.UserId : Guid.Empty,
+                           DisplayName = question.User != null ? question.User.GetDisplayName() : string.Empty,
+                           UserId = question.User != null ? question.User.UserId : Guid.Empty,
                            Date = question.Created.ToFormattedString(),
                            Text = question.Text,
                            ShortText = question.Text.Truncate(100),
-                           NumberOfAnswers = _qaService.GetNumberOfAnswersByQuestion(question.QuestionId).ToString(),
-                           QuestionId = question.QuestionId,
+                           //NumberOfAnswers = _qaService.GetNumberOfAnswersByQuestion(question.QuestionId).ToString(),
+                           QuestionId = question.QuestionID,
                            Title = question.Title
                        };
         }

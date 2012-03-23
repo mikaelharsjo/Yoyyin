@@ -1,8 +1,6 @@
 ﻿using System.Linq;
 using System.Text;
 using NUnit.Framework;
-using Yoyyin.Domain;
-using Yoyyin.Domain.Mappers;
 using Yoyyin.Domain.QA;
 using Yoyyin.Domain.Services;
 

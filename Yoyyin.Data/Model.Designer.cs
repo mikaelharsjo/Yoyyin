@@ -3512,15 +3512,15 @@ namespace Yoyyin.Data
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("YoyyinModel", "FK_UserComments_User", "User")]
-        public User User
+        public IUser User
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("YoyyinModel.FK_UserComments_User", "User").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<IUser>("YoyyinModel.FK_UserComments_User", "User").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("YoyyinModel.FK_UserComments_User", "User").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<IUser>("YoyyinModel.FK_UserComments_User", "User").Value = value;
             }
         }
         /// <summary>
@@ -3550,15 +3550,15 @@ namespace Yoyyin.Data
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("YoyyinModel", "FK_UserComments_User2", "User")]
-        public User User1
+        public IUser User1
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("YoyyinModel.FK_UserComments_User2", "User").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<IUser>("YoyyinModel.FK_UserComments_User2", "User").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("YoyyinModel.FK_UserComments_User2", "User").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<IUser>("YoyyinModel.FK_UserComments_User2", "User").Value = value;
             }
         }
         /// <summary>

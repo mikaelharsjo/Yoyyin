@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using Yoyyin.Data;
 using Yoyyin.Domain;
 using Yoyyin.Domain.Extensions;
 using Yoyyin.Domain.QA;
@@ -47,7 +48,8 @@ namespace Yoyyin.Web
         protected string GetNumberOfAnswers(object dataItem)
         {
             var question = (Question) dataItem;
-            return QAService.GetNumberOfAnswersByQuestion(question.QuestionId).ToString(CultureInfo.InvariantCulture);
+            return "";
+            //return QAService.GetNumberOfAnswersByQuestion(question.QuestionId).ToString(CultureInfo.InvariantCulture);
         }
     }
 }

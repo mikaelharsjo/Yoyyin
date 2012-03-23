@@ -1,11 +1,12 @@
 using System.Collections.Generic;
+using Yoyyin.Data;
 using Yoyyin.Domain;
 
 namespace Yoyyin.PresentationModel
 {
     public interface ICommentPresenter
     {
-        CommentPresentation Presentate(Comment comment);
-        IEnumerable<CommentPresentation> Presentate(IEnumerable<Comment> comments);
+        CommentPresentation Presentate(UserComments comment);
+        IEnumerable<CommentPresentation> Presentate(IEnumerable<UserComments> comments);
     }
 }

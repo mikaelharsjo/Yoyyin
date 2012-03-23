@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Yoyyin.Data;
 using Yoyyin.Domain;
 using Yoyyin.Domain.Extensions;
 using Yoyyin.Domain.Services;
@@ -11,18 +12,14 @@ namespace Yoyyin.PresentationModel
 {
     public class UserPresenter : IUserPresenter
     {
-        private readonly IUserService _userService;
+        //private readonly IUserService _userService;
+        private readonly IUserRepository _userRepository;
         private readonly IOnlineImageProvider _onlineImageProvider;
 
-        public UserPresenter(IOnlineImageProvider onlineImageProvider)
+        public UserPresenter(IOnlineImageProvider onlineImageProvider, IUserRepository userRepository)
         {
             _onlineImageProvider = onlineImageProvider;
-        }
-
-        public UserPresenter(IUserService userService, IOnlineImageProvider onlineImageProvider)
-        {
-            _userService = userService;
-            _onlineImageProvider = onlineImageProvider;
+            _userRepository = userRepository;
         }
 
         public UserPresentation Presentate(IUser user)
@@ -51,8 +48,8 @@ namespace Yoyyin.PresentationModel
 
         public IEnumerable<UserPresentation> Presentate(IEnumerable<Guid> userGuids)
         {
-            return userGuids.Select(userGuid => Presentate(_userService.GetUser(userGuid)));
+            return
+                userGuids.Select(userGuid => Presentate(_userRepository.Find(user => user.UserId == userGuid).First()));
         }
     }
-
 }

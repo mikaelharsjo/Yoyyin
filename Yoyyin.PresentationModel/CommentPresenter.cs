@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Security;
+using Yoyyin.Data;
 using Yoyyin.Domain;
 using Yoyyin.Domain.Extensions;
 using Yoyyin.Domain.Users;
@@ -16,29 +17,29 @@ namespace Yoyyin.PresentationModel
             _currentUser = currentUser;
         }
 
-        public CommentPresentation Presentate(Comment comment)
+        public CommentPresentation Presentate(UserComments comment)
         {
             return new CommentPresentation
                        {
                            Heading = comment.User.GetDisplayName(),
                            Text = comment.Text,
                            CellStyle = comment.CommentCommentID != null ? "padding-left: 20px;" : string.Empty,
-                           CommentatorUrl = comment.Commentator.GetProfileUrl(),
+                           CommentatorUrl = comment.User1.GetProfileUrl(),
                            User = comment.User,
-                           Commentator = comment.Commentator,
-                           CommentatorDisplayName = comment.Commentator.GetDisplayName(),
-                           Created = comment.Created.ToFormattedString(),
+                           Commentator = comment.User1,
+                           CommentatorDisplayName = comment.User1.GetDisplayName(),
+                           Created = comment.TimeStamp.ToFormattedString(),
                            CommentId = comment.CommentID,
                            DeleteVisible = DeleteVisible(comment)
                        };
         }
 
-        public IEnumerable<CommentPresentation> Presentate(IEnumerable<Comment> comments)
+        public IEnumerable<CommentPresentation> Presentate(IEnumerable<UserComments> comments)
         {
             return comments.Select(Presentate);
         }
 
-        private bool DeleteVisible(Comment comment)
+        private bool DeleteVisible(UserComments comment)
         {
             var mu = Membership.GetUser();
             if (mu == null)

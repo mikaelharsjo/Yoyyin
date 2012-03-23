@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extensions\UserExtensions.cs" />
     <Compile Include="QA\AbstractCategory.cs" />
     <Compile Include="QA\BusinessIdeasCategory.cs" />
     <Compile Include="CachedItemProvider.cs" />

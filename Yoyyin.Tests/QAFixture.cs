@@ -2,16 +2,7 @@
 using NUnit.Framework;
 using Yoyyin.Data;
 using Yoyyin.Data.EntityFramework;
-using Yoyyin.Domain;
-using Yoyyin.Domain.Extensions;
-using Yoyyin.Domain.Mappers;
-using Yoyyin.Domain.QA;
 using Yoyyin.Domain.Services;
-using Yoyyin.Tests.Repositories;
-using Yoyyin.Tests.Services;
-using Answer = Yoyyin.Domain.QA.Answer;
-using Question = Yoyyin.Domain.QA.Question;
-using User = Yoyyin.Domain.Users.User;
 
 namespace Yoyyin.Tests
 {

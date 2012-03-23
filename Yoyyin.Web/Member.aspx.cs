@@ -7,13 +7,14 @@ using System.Web.Security;
 using System.Web.Caching;
 using System.Web.UI.HtmlControls;
 using System.Text;
+using Yoyyin.Data;
 using Yoyyin.Domain;
-using Yoyyin.Domain.Enumerations;
 using Yoyyin.Domain.Services;
 using Yoyyin.Domain.Users;
 using Yoyyin.PresentationModel;
 using Yoyyin.Web.Helpers;
 using Yoyyin.Web.UserControls;
+using UserTypes = Yoyyin.Domain.Enumerations.UserTypes;
 
 namespace Yoyyin.Web
 {

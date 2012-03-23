@@ -1,4 +1,5 @@
 ﻿using System;
+using Yoyyin.Data;
 using Yoyyin.Domain;
 using Microsoft.Web;
 using Yoyyin.Domain.Services;

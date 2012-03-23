@@ -6,11 +6,12 @@ using System.Reflection;
 using System.Text;
 using System.Web.Security;
 using System.Web.UI.WebControls;
+using Yoyyin.Data;
 using Yoyyin.Domain;
-using Yoyyin.Domain.Enumerations;
 using Yoyyin.Domain.Extensions;
 using Yoyyin.Domain.Services;
 using Yoyyin.Domain.Users;
+using UserTypes = Yoyyin.Domain.Enumerations.UserTypes;
 
 namespace Yoyyin.Web.Helpers
 {
@@ -94,15 +95,15 @@ namespace Yoyyin.Web.Helpers
             Membership.DeleteUser(userName, true);
         }
 
-        public static bool HasFacebook(object dataItem)
-        {
-            var user = GetUserFromDataItem(dataItem);
+        //public static bool HasFacebook(object dataItem)
+        //{
+        //    var user = GetUserFromDataItem(dataItem);
 
-            if (ShowFaceBookImage(user))
-                return false;
+        //    if (ShowFaceBookImage(user))
+        //        return false;
             
-            return true;
-        }
+        //    return true;
+        //}
 
         public static string HideFaceBookImage(IUser user)
         {
@@ -119,30 +120,30 @@ namespace Yoyyin.Web.Helpers
             return hasFacebook && !hasYoyyinImage;
         }
 
-        public static string GetFbUrl(object dataItem)
-        {        
-            var user = GetUserFromDataItem(dataItem);
+        //public static string GetFbUrl(object dataItem)
+        //{        
+        //    var user = GetUserFromDataItem(dataItem);
 
-            return ShowFaceBookImage(user) ? string.Format(FacebookImageurlSmall, user.FacebookID) : string.Empty;
-        }
+        //    return ShowFaceBookImage(user) ? string.Format(FacebookImageurlSmall, user.FacebookID) : string.Empty;
+        //}
 
-        private static IUser GetUserFromDataItem(object dataItem)
-        {
-            var user = new User();
+        //private static IUser GetUserFromDataItem(object dataItem)
+        //{
+        //    var user = new User();
 
-            if (dataItem is User)
-                user = (User)dataItem;
-            else if (dataItem is Comment)
-            {
-                Comment comment = (Comment)dataItem;
-                user = (User) comment.User; //entityFactory.GetUser(comment.CommentUserId);
-            }
+        //    if (dataItem is User)
+        //        user = (User)dataItem;
+        //    else if (dataItem is UserComments)
+        //    {
+        //        UserComments comment = (UserComments)dataItem;
+        //        user = (User) comment.User; //entityFactory.GetUser(comment.CommentUserId);
+        //    }
 
-            // TODO: fix
-            //else if (dataItem is Guid)
-            //    user = UserService.GetUser(dataItem)
-            return user;
-        }
+        //    // TODO: fix
+        //    //else if (dataItem is Guid)
+        //    //    user = UserService.GetUser(dataItem)
+        //    return user;
+        //}
 
         public static string InaccesibleIfNotLoggedIn()
         {

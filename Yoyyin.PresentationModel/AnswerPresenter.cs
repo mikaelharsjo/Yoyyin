@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Yoyyin.Data;
 using Yoyyin.Domain.Extensions;
 using Yoyyin.Domain.QA;
 using Yoyyin.Domain.Users;
@@ -24,7 +25,7 @@ namespace Yoyyin.PresentationModel
                             UserId = answer.UserId,
                             Date = answer.Created.ToFormattedString(),
                             AnswerId = answer.AnswerID,
-                            DeleteAllowed = answer.DeleteAllowed(_currentUser.UserId)
+                            //DeleteAllowed = answer.DeleteAllowed(_currentUser.UserId)
                         };
         }
 

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using Yoyyin.Data;
 using Yoyyin.Domain;
 using Yoyyin.Domain.QA;
 using Yoyyin.Domain.Services;
@@ -13,7 +15,8 @@ namespace Yoyyin.Web.UserControls
     {
         public int QuestionId { get; set; }
         private Question _question;
-        public IQAService QAService;
+        public IQuestionRepository QuestionRepository { get; set; }
+        //public IQAService QAService;
         public IQuestionPresenter QuestionPresenter { get; set; }
         public IAnswerPresenter AnswerConverter { get; set; }
         public ICurrentUser CurrentUser { get; set; }
@@ -21,19 +24,22 @@ namespace Yoyyin.Web.UserControls
         protected override void OnInit(EventArgs e)
         {
             base.OnInit(e);
-            _question = QAService.GetQuestion(QuestionId);
+            _question = QuestionRepository
+                            .Find(q => q.QuestionID == QuestionId)
+                            .First();
         }
         protected void Page_Load(object sender, EventArgs e)
         {
             litQuestion.Text = _question.Text;
-            imageQuestion.UserID = _question.Owner.UserId;
+            imageQuestion.UserID = _question.User.UserId;
             deleteLinkQuestion.Visible = QAService.DeleteAllowed(_question, Current.UserID);
 
             var questionView = (QuestionPresentation)QuestionPresenter.Presentate((IEnumerable<Question>) _question);
             litOwner.Text = WebHelpers.FormatHeading(questionView.DisplayName, questionView.Date);
             
-            lstAnswers.DataSource = AnswerConverter.Presentate(QAService.GetAnswersByQuestion(_question.QuestionId));
-            lstAnswers.DataBind();
+            // TODO:
+            //lstAnswers.DataSource = AnswerConverter.Presentate(QAService.GetAnswersByQuestion(_question.QuestionId));
+            //lstAnswers.DataBind();
         }
     }
 }

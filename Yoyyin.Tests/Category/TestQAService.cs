@@ -2,14 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Yoyyin.Data;
-using Yoyyin.Domain;
-using Yoyyin.Domain.Mappers;
 using Yoyyin.Domain.QA;
 using Yoyyin.Domain.Services;
-using Yoyyin.Tests.Repositories;
-using Yoyyin.Tests.Services;
-using Answer = Yoyyin.Domain.QA.Answer;
-using Question = Yoyyin.Domain.QA.Question;
 
 namespace Yoyyin.Tests.Category
 {
@@ -17,16 +11,6 @@ namespace Yoyyin.Tests.Category
     {
         private IQuestionRepository _repository;
         private QAService _inner;
-        private IQAMapper _qaMapper;
-
-        public TestQAService(IQAMapper qaMapper)
-        {
-            _qaMapper = qaMapper;
-            _repository = new TestQuestionRepository();
-            // for keeping it, DRY, no need for extra CreateQuestion in Test for example
-            _inner = new QAService(new TestQuestionRepository(),
-                                   new QAMapper(new UserMapper(new SniHeadMapper(), new SniItemMapper())));
-        }
 
         public void CreateQuestionInDb(Question question)
         {
@@ -40,7 +24,7 @@ namespace Yoyyin.Tests.Category
 
         public IEnumerable<Question> GetQuestionsByCategory(ICategory category)
         {
-            return _repository.GetQuestionsByCategory(category.CategoryId).Select(_qaMapper.MapQuestion);
+            return _repository.GetQuestionsByCategory(category.CategoryId);
         }
 
         public IList<Question> GetQuestionsByUser(Guid userID)
@@ -50,7 +34,7 @@ namespace Yoyyin.Tests.Category
 
         public Question GetLatestQuestionByCategory(ICategory category)
         {
-            return _qaMapper.MapQuestion(_repository.GetLatestQuestionByCategory(category.CategoryId));
+            return _repository.GetLatestQuestionByCategory(category.CategoryId);
         }
 
         public IList<Answer> GetAnswersByUser(Guid userID)

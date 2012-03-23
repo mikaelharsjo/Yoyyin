@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Web;
 using Autofac;
 using Autofac.Integration.Web;
+using Yoyyin.Data;
 using Yoyyin.Domain;
 using Yoyyin.Domain.Users;
 using Yoyyin.PresentationModel;

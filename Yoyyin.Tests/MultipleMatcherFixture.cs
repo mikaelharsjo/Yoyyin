@@ -1,13 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
-using Yoyyin.Domain.Enumerations;
-using Yoyyin.Domain.Mappers;
+using Yoyyin.Data;
 using Yoyyin.Domain.Matching;
 using Yoyyin.Domain.Services;
 using Yoyyin.Domain.Users;
 using Yoyyin.Tests.Repositories;
 using Yoyyin.Tests.Services;
+using UserTypes = Yoyyin.Domain.Enumerations.UserTypes;
 
 namespace Yoyyin.Tests
 {
@@ -20,9 +20,8 @@ namespace Yoyyin.Tests
         {
             var multipleMatcher = new MultipleMatcher(new User {SniNo = "A"},
                                                       new List<User> {new User {SniNo = "A"}},
-                                                      new UserService(new TestUserRepository(), new FakeCurrentUser(),
-                                                                      new UserMapper(new SniHeadMapper(),
-                                                                                     new SniItemMapper())));
+                                                      new UserService(new TestUserRepository(), new FakeCurrentUser()));
+                                                                      
 
             var matchers = multipleMatcher.MatchAll();
             Assert.That(matchers.First().SniNoMatch.IsMatch(), Is.EqualTo(true));
@@ -48,15 +47,34 @@ namespace Yoyyin.Tests
 
         private static MultipleMatcher MultipleMatcherTestSetup()
         {
-            var multipleMatcher = new MultipleMatcher(new User {SniNo = "A", UserTypesNeeded = UserTypes.Entrepreneur.ToString()},
-                                                      new List<User>
-                                                          {
-                                                              new User {Name = "MatchesSniNo", SniNo = "A", UserType = (int)UserTypes.Businessman},
-                                                              new User {Name = "MatchesSniNo", SniNo = "A", UserType = (int)UserTypes.Retiring},
-                                                              new User {Name = "MatchesSniNoAndUserType", SniNo = "A", UserType = (int)UserTypes.Entrepreneur},
-                                                              new User {Name = "NoMatch", SniNo = "B"}
-                                                          },
-                                                      new UserService(new TestUserRepository(), new FakeCurrentUser(), new UserMapper(new SniHeadMapper(), new SniItemMapper())));
+            var multipleMatcher =
+                new MultipleMatcher((IUser) new User {SniNo = "A", UserTypesNeeded = UserTypes.Entrepreneur.ToString()},
+                                    new List<IUser>
+                                        {
+                                            (IUser)
+                                            new User
+                                                {
+                                                    Name = "MatchesSniNo",
+                                                    SniNo = "A",
+                                                    UserType = (int) UserTypes.Businessman
+                                                },
+                                            (IUser)
+                                            new User
+                                                {
+                                                    Name = "MatchesSniNo",
+                                                    SniNo = "A",
+                                                    UserType = (int) UserTypes.Retiring
+                                                },
+                                            (IUser)
+                                            new User
+                                                {
+                                                    Name = "MatchesSniNoAndUserType",
+                                                    SniNo = "A",
+                                                    UserType = (int) UserTypes.Entrepreneur
+                                                },
+                                            (IUser) new User {Name = "NoMatch", SniNo = "B"}
+                                        },
+                                    new UserService(new TestUserRepository(), new FakeCurrentUser()));
             return multipleMatcher;
         }
 

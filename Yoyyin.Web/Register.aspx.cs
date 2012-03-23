@@ -5,12 +5,13 @@ using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Newtonsoft.Json.Linq;
+using Yoyyin.Data;
 using Yoyyin.Domain;
-using Yoyyin.Domain.Enumerations;
 using Yoyyin.Domain.Services;
 using Yoyyin.Domain.ThirdParty;
 using Yoyyin.Domain.Users;
 using Yoyyin.Web.Helpers;
+using UserTypes = Yoyyin.Domain.Enumerations.UserTypes;
 
 namespace Yoyyin.Web
 {
@@ -249,7 +250,7 @@ namespace Yoyyin.Web
             Master.LitLoggedInInfo.Text = string.Format(SiteMaster.LoggedInInfo, mu.UserName, "");
             Master.ShowToolbar();
 
-            _user = new User
+            _user = (IUser)new User
                         {
                             UserId = new Guid(mu.ProviderUserKey.ToString()),
                             CompanyName = "",

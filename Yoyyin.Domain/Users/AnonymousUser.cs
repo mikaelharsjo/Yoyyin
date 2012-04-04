@@ -25,8 +25,8 @@ namespace Yoyyin.Domain.Users
         public string SearchWordsCompetenceNeeded { get; set; }
         public string SearchWordsCompetence { get; set; }
         public string UserTypesNeeded { get; set; }
-        public int UserType { get; set; }
-        public bool Active { get; set; }
+        public int? UserType { get; set; }
+        public bool? Active { get; set; }
         public string CompanyName { get; set; }
         public string CVFileName { get; set; }
         public string DescBusinessman { get; set; }

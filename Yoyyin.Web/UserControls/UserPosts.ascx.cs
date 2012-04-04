@@ -9,7 +9,8 @@ namespace Yoyyin.Web.UserControls
         public Guid UserId { get; set; }
         protected const int MaxQuestionLength = 120;
         public IQAService QaService { get; set; }
-       
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (UserId == Guid.Empty) return;

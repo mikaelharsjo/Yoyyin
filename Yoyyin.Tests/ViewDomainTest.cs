@@ -51,9 +51,9 @@ namespace Yoyyin.Tests
         public void ConvertCommentToViewHeading()
         {
             var commentConverter = new CommentPresenter(new FakeCurrentUser());
-            var comment = new Comment
+            var comment = new UserComments
                               {
-                                           Created = new DateTime(2011, 5, 8, 21, 40, 0),
+                                           TimeStamp = new DateTime(2011, 5, 8, 21, 40, 0),
                                            User = new User { Name = "Peter Hansson" }
                                        };
             var convertedComment = commentConverter.Presentate(comment);
@@ -63,11 +63,11 @@ namespace Yoyyin.Tests
         [Test]
         public void ConvertMessageToView()
         {
-            var message = new Message
+            var message = new UserMessages
                               {
-                                  ToUser = new User() {Name = "Kalle"},
+                                  User = new User() {Name = "Kalle"},
                                   FromMessage = "Hej på dig",
-                                  Created = new DateTime(2000, 11, 11, 16, 40, 0)
+                                  TimeStamp = new DateTime(2000, 11, 11, 16, 40, 0)
                               };
             var messageConverter = new MessagePresenter();
             MessagePresentation messagePresentation = messageConverter.Presentate(message);

@@ -15,7 +15,7 @@ namespace Yoyyin.Tests.Category
         [SetUp]
         public void Setup()
         {
-            _qaService = new TestQAService(new QAMapper(new UserMapper(new SniHeadMapper(), new SniItemMapper())));
+            _qaService = new TestQAService();
         }
 
         [Test]

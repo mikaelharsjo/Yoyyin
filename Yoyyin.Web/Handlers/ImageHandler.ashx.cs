@@ -3,13 +3,14 @@ using System.Collections.Specialized;
 using System.Drawing;
 using System.Web;
 using Microsoft.Web;
+using Yoyyin.Data;
 using Yoyyin.Domain.Services;
 
 namespace Yoyyin.Web.Handlers
 {
     public class ImageHandler : Microsoft.Web.ImageHandler
     {
-        public IUserService UserService { get; set; }
+        public IUserRepository UserRepository { get; set; }
 
         public ImageHandler()
         {
@@ -41,7 +42,7 @@ namespace Yoyyin.Web.Handlers
             }
 
             Guid userId = new Guid(parameters["userId"]);
-            Byte[] image = UserService.GetUser(userId).Image;
+            Byte[] image = UserRepository.GetUser(userId).Image;
 
             return image != null && image.Length > 0 
                 ? new ImageInfo(image) 

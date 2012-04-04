@@ -26,12 +26,13 @@ namespace Yoyyin.Web
         // TODO: remove CurrentUser for CurrentUserPresentation
         public static IUser CurrentUser { get; set; } 
         public UserPresentation CurrentUserPresentation { get; set; }
-        public IUserService UserService { get; set; }
+        public IUserRepository UserRepository { get; set; }
         public IVisitsService VisitsService { get; set; }
         public ISniHeadService SniHeadService { get; set; }
         public IUserPresenter UserPresenter { get; set; }
         public IVisitPresenter VisitPresenter { get; set; }
         public NewestMembersHelper NewestMembersHelper { get; set; }
+        public IRepository<SniHead> SniHeadRepository { get; set; } 
         
         public Guid UserIDOfUserBeingViewed = Guid.Empty;
         public Guid VisitingUserId { get; set; }
@@ -71,7 +72,7 @@ namespace Yoyyin.Web
                 HideControlInLoginView("divEdit");
             }
 
-            CurrentUser = UserService.GetUser(UserIDOfUserBeingViewed);
+            CurrentUser = UserRepository.GetUser(UserIDOfUserBeingViewed);
             CurrentUserPresentation = UserPresenter.Presentate(CurrentUser);
 
             if (!_selfVisit)
@@ -266,8 +267,8 @@ namespace Yoyyin.Web
             string sniHeadID = CurrentUser.SniHeadID;
             if (sniHeadID != null)
             {
-                var sniHead = SniHeadService.GetSniHead(sniHeadID);
-                var usersInSegment = UserService.GetUsersBySni(sniHeadID);
+                var sniHead = SniHeadRepository.Find(s => s.SniHeadID == sniHeadID).First();
+                var usersInSegment = UserRepository.Find(user => user.SniHeadID == sniHeadID);
              
                 if (WebHelpers.IsLoggedIn())
                     usersInSegment = (from x in usersInSegment where x.UserId != Current.UserID select x);

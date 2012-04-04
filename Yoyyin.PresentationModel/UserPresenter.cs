@@ -37,7 +37,7 @@ namespace Yoyyin.PresentationModel
                            ExternalUrlText = HttpUtility.HtmlEncode(user.Url),
                            ExternalUrlHref = HttpUtility.UrlPathEncode(string.Format("http://{0}", user.Url.Replace("http://", ""))),
                            SniHeadTitle = user.SniHead.Title,
-                           OnlineImageUrl = _onlineImageProvider.GetOnlineImageUrl(user.UserName)
+                           OnlineImageUrl = _onlineImageProvider.GetOnlineImageUrl(user.GetUserName())
                        };
         }
 

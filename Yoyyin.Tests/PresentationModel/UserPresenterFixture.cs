@@ -21,9 +21,7 @@ namespace Yoyyin.Tests.PresentationModel
         public void Setup()
         {
             _userPresenter =
-                new UserPresenter(new UserService(new TestUserRepository(), new FakeCurrentUser(),
-                                                  new UserMapper(new SniHeadMapper(), new SniItemMapper())),
-                                  new OnlineImageProvider());
+                new UserPresenter(new OnlineImageProvider(), new TestUserRepository());
         }
 
         [Test]
@@ -41,7 +39,7 @@ namespace Yoyyin.Tests.PresentationModel
 
             Assert.That(userToConvert.Image, !Is.Null);
             
-            var actualUserView = _userPresenter.Presentate(userToConvert);
+            var actualUserView = _userPresenter.Presentate((IUser)userToConvert);
             Assert.That(actualUserView.User.Image, Is.EqualTo(userToConvert.Image));
         }
 

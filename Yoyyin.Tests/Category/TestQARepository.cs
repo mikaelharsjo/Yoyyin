@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using Yoyyin.Data;
 using Yoyyin.Domain.QA;
 
@@ -19,69 +20,38 @@ namespace Yoyyin.Tests.Category
                              };
         }
 
-        public void CreateQuestionInDb(Data.Question question)
+
+        public void Add(Question entity)
         {
             throw new NotImplementedException();
         }
 
-        public void CreateAnswerInDb(Data.Answer answer)
+        public void Delete(Question entity)
         {
             throw new NotImplementedException();
         }
 
-        public IQueryable<Data.Question> GetQuestionsByCategory(int category)
-        {
-            return _questions
-                .Where(question => question.Category == category)
-                .AsQueryable();
-        }
-
-        public IQueryable<Data.Question> GetQuestionsByUser(Guid userID)
+        public IQueryable<Question> Find(Expression<Func<Question, bool>> predicate)
         {
             throw new NotImplementedException();
         }
 
-        public Data.Question GetLatestQuestionByCategory(int category)
-        {
-            return _questions.Last();
-        }
-
-        public IQueryable<Data.Answer> GetAnswersByUser(Guid userID)
+        public IQueryable<Question> FindAll()
         {
             throw new NotImplementedException();
         }
 
-        public IQueryable<Data.Answer> GetAnswersByQuestion(int questionId)
+        public IQueryable<Question> GetQuestionsByCategory(int category)
         {
             throw new NotImplementedException();
         }
 
-        public int GetNumberOfAnswersByQuestion(int questionId)
+        public IQueryable<Question> GetQuestionsByUser(Guid userID)
         {
             throw new NotImplementedException();
         }
 
-        public void DeleteQuestion(int questionId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void DeleteAnswer(int answerId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IQueryable<Data.Question> GetLatestQuestions(int maxCount)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IQueryable<Data.Answer> GetLatestAnswers(int maxCount)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Data.Question GetQuestion(int questionID)
+        public Question GetLatestQuestionByCategory(int category)
         {
             throw new NotImplementedException();
         }

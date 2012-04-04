@@ -1761,7 +1761,7 @@ namespace Yoyyin.Data
     [EdmEntityTypeAttribute(NamespaceName="YoyyinModel", Name="User")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class User : EntityObject
+    public partial class User : EntityObject, IUser
     {
         #region Factory Method
     
@@ -2653,15 +2653,15 @@ namespace Yoyyin.Data
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("YoyyinModel", "FK_User_SniHead", "SniHead")]
-        public SniHead SniHead
+        public ISniHead SniHead
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SniHead>("YoyyinModel.FK_User_SniHead", "SniHead").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ISniHead>("YoyyinModel.FK_User_SniHead", "SniHead").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SniHead>("YoyyinModel.FK_User_SniHead", "SniHead").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ISniHead>("YoyyinModel.FK_User_SniHead", "SniHead").Value = value;
             }
         }
         /// <summary>
@@ -2691,15 +2691,15 @@ namespace Yoyyin.Data
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("YoyyinModel", "FK_User_SniItem", "SniItem")]
-        public SniItem SniItem
+        public ISniItem SniItem
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SniItem>("YoyyinModel.FK_User_SniItem", "SniItem").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ISniItem>("YoyyinModel.FK_User_SniItem", "SniItem").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SniItem>("YoyyinModel.FK_User_SniItem", "SniItem").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ISniItem>("YoyyinModel.FK_User_SniItem", "SniItem").Value = value;
             }
         }
         /// <summary>

@@ -172,7 +172,7 @@ namespace Yoyyin.Web
             var gh = new GoogleHelper();
             gh.UpdateUserCoordsFromGeocodingService(user);
 
-            UserService.Save(user);
+            //UserService.Save(user);
 
             Server.Transfer("~/Member.aspx");
         }

@@ -41,8 +41,7 @@ namespace Yoyyin.Web
             //var container = builder.Build();
             //_containerProvider = new ContainerProvider(container);
 
-            var routeHelper = new RouteHelper(new CachedItemProvider<IEnumerable<IUser>>(),
-                                              Configuration.Configuration.Container.Resolve<IUserService>());
+            var routeHelper = new RouteHelper(Configuration.Configuration.Container.Resolve<IUserRepository>());
             routeHelper.AddRoutes();
         }
 

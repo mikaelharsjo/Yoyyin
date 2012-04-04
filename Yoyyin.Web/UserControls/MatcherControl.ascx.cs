@@ -1,6 +1,7 @@
 ﻿using System;
 using Yoyyin.Data;
 using Yoyyin.Domain;
+using Yoyyin.Domain.Extensions;
 using Yoyyin.Domain.Matching;
 using Yoyyin.Domain.Services;
 using Yoyyin.Domain.Users;
@@ -16,15 +17,15 @@ namespace Yoyyin.Web.UserControls
         private IUser _secondUser;
 
         private Matcher _matcher;
-        public IUserService UserService { get; set; }
+        public IUserRepository UserRepository { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (FirstUserId == string.Empty || SecondUserId == string.Empty)
                 return;
             
-            _firstUser = UserService.GetUser(new Guid(FirstUserId));
-            _secondUser = UserService.GetUser(new Guid(SecondUserId));
+            _firstUser = UserRepository.GetUser(new Guid(FirstUserId));
+            _secondUser = UserRepository.GetUser(new Guid(SecondUserId));
 
             firstUserImage.User = _firstUser;
             secondUserImage.User = _secondUser;

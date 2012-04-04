@@ -7,9 +7,9 @@ namespace Yoyyin.Domain.Services
 {
     public class SniItemService : ISniItemService
     {
-        private readonly SqlRepository<ISniItem> _repository;
+        private readonly EFRepository<ISniItem> _repository;
 
-        public SniItemService(SqlRepository<ISniItem> repository)
+        public SniItemService(EFRepository<ISniItem> repository)
         {
             _repository = repository;
         }

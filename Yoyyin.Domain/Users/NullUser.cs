@@ -115,13 +115,13 @@ namespace Yoyyin.Domain.Users
             set { throw new NotImplementedException(); }
         }
 
-        public int UserType
+        public int? UserType
         {
             get { throw new NotImplementedException(); }
             set { throw new NotImplementedException(); }
         }
 
-        public bool Active
+        public bool? Active
         {
             get { throw new NotImplementedException(); }
             set { throw new NotImplementedException(); }

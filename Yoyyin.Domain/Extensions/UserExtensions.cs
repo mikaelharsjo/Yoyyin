@@ -89,14 +89,20 @@ namespace Yoyyin.Domain.Extensions
         //    return userService.GetPostsByUser(user.UserId);
         //}
 
-        public static string GetDisplayName(this User user)
+        public static string GetDisplayName(this IUser user)
         {
             return string.IsNullOrEmpty(user.Alias) ? user.Name : user.Alias;
         }
 
-        public static string GetProfileUrl(this User user)
+        public static string GetProfileUrl(this IUser user)
         {
             return "Member.aspx?UserID=" + user.UserId;
+        }
+
+        public static string GetUserName(this IUser user)
+        {
+            return string.Empty;
+
         }
     }
 }

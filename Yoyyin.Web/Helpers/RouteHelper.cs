@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Web.Routing;
 using Yoyyin.Data;
 using Yoyyin.Domain;
+using Yoyyin.Domain.Extensions;
 using Yoyyin.Domain.Services;
 using Yoyyin.Domain.Users;
 
@@ -10,21 +11,18 @@ namespace Yoyyin.Web.Helpers
 {
     public class RouteHelper
     {
-        private readonly CachedItemProvider<IEnumerable<IUser>> _cachedItemProvider;
-        private readonly IUserService _userService;
-        private const string CacheKey = "AllUsersKey";
+        private IUserRepository _userRepository;
 
-        public RouteHelper(CachedItemProvider<IEnumerable<IUser>> cachedUsers, IUserService userService)
+        public RouteHelper(IUserRepository userRepository)
         {
-            _cachedItemProvider = cachedUsers;
-            _userService = userService;
+            _userRepository = userRepository;
         }
 
         public void AddRoutes()
         {
             AddStaticRoutes();
-            var users = _cachedItemProvider.GetItem(CacheKey, new Func<IEnumerable<IUser>>(_userService.GetAllUsers));
-            foreach (var user in users)
+            
+            foreach (var user in _userRepository.FindAll())
             {
                 if (string.IsNullOrEmpty(user.GetDisplayName())) continue;
 

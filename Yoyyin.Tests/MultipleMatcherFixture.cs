@@ -18,10 +18,9 @@ namespace Yoyyin.Tests
         [Test]
         public void MatchAll_TwoUsers_ShouldMatchOnSni()
         {
-            var multipleMatcher = new MultipleMatcher(new User {SniNo = "A"},
-                                                      new List<User> {new User {SniNo = "A"}},
-                                                      new UserService(new TestUserRepository(), new FakeCurrentUser()));
-                                                                      
+            var multipleMatcher = new MultipleMatcher(new User {SniNo = "A"} as IUser,
+                                                      new List<IUser> {new User {SniNo = "A"} as IUser},
+                                                      new TestUserRepository());
 
             var matchers = multipleMatcher.MatchAll();
             Assert.That(matchers.First().SniNoMatch.IsMatch(), Is.EqualTo(true));
@@ -74,7 +73,7 @@ namespace Yoyyin.Tests
                                                 },
                                             (IUser) new User {Name = "NoMatch", SniNo = "B"}
                                         },
-                                    new UserService(new TestUserRepository(), new FakeCurrentUser()));
+                                    new TestUserRepository());
             return multipleMatcher;
         }
 

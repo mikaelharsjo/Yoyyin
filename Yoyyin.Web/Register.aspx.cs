@@ -6,7 +6,9 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Newtonsoft.Json.Linq;
 using Yoyyin.Data;
+using Yoyyin.Data.UnitOfWork;
 using Yoyyin.Domain;
+using Yoyyin.Domain.Extensions;
 using Yoyyin.Domain.Services;
 using Yoyyin.Domain.ThirdParty;
 using Yoyyin.Domain.Users;
@@ -20,7 +22,9 @@ namespace Yoyyin.Web
     {
         private Dictionary<WizStep, string> _stepTipHtml;
         private IUser _user;
+        public IUserRepository UserRepository { get; set; }
         public IUserService UserService { get; set; }
+        public IUnitOfWork UnitOfWork { get; set; }
 
         public string FbID { get; set; }
         public string FbEmail { get; set; }
@@ -273,12 +277,12 @@ namespace Yoyyin.Web
             _user.BusinessTitle = string.Empty;
             _user.BusinessDescription = string.Empty;
 
-            UserService.CreateUserInDb(_user);
+            //UserService.CreateUserInDb(_user);
         }
 
         private void SaveStepFiles()
         {
-            _user = UserService.GetUser(Current.UserID);
+            _user = UserRepository.GetUser(Current.UserID);
 
             var fileImage = (FileUpload) GetControlFromWizardStep(WizStep.Files, "fileImage");
 
@@ -298,23 +302,24 @@ namespace Yoyyin.Web
                 _user.CVFileName = fileCV.FileName;
             }
 
-            UserService.Save(_user);
+            //UserService.Save(_user);
+            UnitOfWork.Commit();
         }
 
         private void SaveStepSearchWords()
         {
-            _user = UserService.GetUser(Current.UserID);
+            _user = UserRepository.GetUser(Current.UserID);
 
             _user.SearchWords = GetTextBoxTextFromWizardStep(WizStep.Searchwords, "txtSearchWords");
             _user.SearchWordsCompetence = GetTextBoxTextFromWizardStep(WizStep.Searchwords, "txtSearchWordsCompetence");
             _user.SearchWordsCompetenceNeeded = GetTextBoxTextFromWizardStep(WizStep.Searchwords,
                                                                              "txtSearchWordsCompetenceNeeded");
-            UserService.Save(_user);
+            //UserService.Save(_user);
         }
 
         private void SaveRoleNeededStep()
         {
-            _user = UserService.GetUser(Current.UserID);
+            _user = UserRepository.GetUser(Current.UserID);
 
             _user.UserTypesNeeded = WebHelpers.GetUserTypesNeededAsCsvAndSetDescriptionsFromRepeater(_user,
                                                                                                      (Repeater)
@@ -322,54 +327,22 @@ namespace Yoyyin.Web
                                                                                                          (WizStep.
                                                                                                               RoleNeeded,
                                                                                                           "repUserTypes"));
-
-            //var sb = new StringBuilder();
-            //var step3Content = ((TemplatedWizardStep)wizard.WizardSteps[(int)WizStep.RoleNeeded]).ContentTemplateContainer;
-            //var chkentrepreneur = (CheckBox)step3Content.FindControl("chkentrepreneur");
-            //var chkinnovator = (CheckBox)step3Content.FindControl("chkinnovator");
-            //var chkinvestor = (CheckBox)step3Content.FindControl("chkinvestor");
-            //var chkfinancing = (CheckBox)step3Content.FindControl("chkfinancing");
-            //var chkretiring = (CheckBox)step3Content.FindControl("chkretiring");
-            //var chkbusinessman = (CheckBox)step3Content.FindControl("chkbusinessman");
-
-            //if (chkentrepreneur.Checked)
-            //    sb.Append((int)UserTypes.Entrepreneur + ",");
-            //if (chkinnovator.Checked)
-            //    sb.Append((int)UserTypes.Innovator + ",");
-            //if (chkinvestor.Checked)
-            //    sb.Append((int)UserTypes.Investor + ",");
-            //if (chkfinancing.Checked)
-            //    sb.Append((int)UserTypes.Financing + ",");
-            //if (chkretiring.Checked)
-            //    sb.Append((int)UserTypes.Retiring + ",");
-            //if (chkbusinessman.Checked)
-            //    sb.Append((int)UserTypes.Businessman + ",");
-
-            //_user.UserTypesNeeded = sb.ToString().TrimEnd(new char[] { ',' });
-
-            //_user.DescEntrepreneur = GetTextBoxTextFromWizardStep(WizStep.RoleNeeded, "txtEntrepreneur");
-            //_user.DescInnovator = GetTextBoxTextFromWizardStep(WizStep.RoleNeeded, "txtInnovator");
-            //_user.DescInvestor = GetTextBoxTextFromWizardStep(WizStep.RoleNeeded, "txtInvestor");
-            //_user.DescFinancing = GetTextBoxTextFromWizardStep(WizStep.RoleNeeded, "txtFinancing");
-            //_user.DescRetiring = GetTextBoxTextFromWizardStep(WizStep.RoleNeeded, "txtRetiring");
-            //_user.DescBusinessman = GetTextBoxTextFromWizardStep(WizStep.RoleNeeded, "txtBusinessman");
-            
-            UserService.Save(_user);
         }
 
         private void SaveRoleStep()
         {
-            _user = UserService.GetUser(Current.UserID);
+            _user = UserRepository.GetUser(Current.UserID);
 
             _user.UserType = int.Parse(Request["radioRole"]);
             _user.UserTypeDescription = GetTextBoxTextFromWizardStep(WizStep.Role, "txtUserTypeDescription");
 
-            UserService.Save(_user);
+            //UserService.Save(_user);
+            UnitOfWork.Commit();
         }
 
         private void SavePersonalInfoStep()
         {
-            _user = UserService.GetUser(Current.UserID);
+            _user = UserRepository.GetUser(Current.UserID);
 
             _user.CompanyName = GetTextBoxTextFromWizardStep(WizStep.PersonalInfo, "companyName");
             _user.Name = GetTextBoxTextFromWizardStep(WizStep.PersonalInfo, "name");
@@ -384,7 +357,8 @@ namespace Yoyyin.Web
             var gh = new GoogleHelper();
             gh.UpdateUserCoordsFromGeocodingService(_user);
             
-            UserService.Save(_user);
+            //UserService.Save(_user);
+            UnitOfWork.Commit();
         }
 
         protected void wizard_FinishButtonClick(object sender, WizardNavigationEventArgs e)
@@ -425,7 +399,8 @@ namespace Yoyyin.Web
                 _user.SniHeadID = ((DropDownList) step6Content.FindControl("ddlSniHead")).SelectedValue;
                 _user.SniNo = ((DropDownList) step6Content.FindControl("ddlSniItem")).SelectedValue;
 
-                UserService.Save(_user);
+                //UserService.Save(_user);
+                UnitOfWork.Commit();
             }
         }
 

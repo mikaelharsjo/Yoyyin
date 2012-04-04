@@ -17,24 +17,22 @@ namespace Yoyyin.Domain.Services
             _currentUser = currentUser;
         }
 
-        //public IEnumerable<IUser> SearchAdvanced(string text, bool isEntrepreneur, bool isInnovator, bool isInvestor, string sniNo)
-        //{
-        //    return _userRepository.Find().Select(_userMapper.MapUser);
-        //    //if (isEntrepreneur)
-        //    //    users = users.FindAll(x => x.UserType != null && (int)x.UserType == (int)UserTypes.Entrepreneur).ToList();
-        //    //if (isInnovator)
-        //    //    users = useu.FindAll(x => x.UserType != null && (int)x.UserType == (int)UserTypes.Innovator).ToList();
-        //    //if (isInvestor)
-        //    //    users = users.FindAll(x => x.UserType != null && (int)x.UserType == (int)UserTypes.Investor).ToList();
+        public IEnumerable<IUser> SearchAdvanced(string text, bool isEntrepreneur, bool isInnovator, bool isInvestor, string sniNo)
+        {
+            return _userRepository.FindAll();
+            //if (isEntrepreneur)
+            //    users = users.FindAll(x => x.UserType != null && (int)x.UserType == (int)UserTypes.Entrepreneur).ToList();
+            //if (isInnovator)
+            //    users = useu.FindAll(x => x.UserType != null && (int)x.UserType == (int)UserTypes.Innovator).ToList();
+            //if (isInvestor)
+            //    users = users.FindAll(x => x.UserType != null && (int)x.UserType == (int)UserTypes.Investor).ToList();
 
-        //    //if (sniNo != "0")
-        //    //    users = users.FindAll(x => x.SniHeadID == sniNo);
+            //if (sniNo != "0")
+            //    users = users.FindAll(x => x.SniHeadID == sniNo);
 
-        //    //if (!String.IsNullOrEmpty(text))
-        //    //    users = users.FindAll(x => (x.Name.Contains(text) || x.BusinessDescription.Contains(text)));
-
-
-        //}
+            //if (!String.IsNullOrEmpty(text))
+            //    users = users.FindAll(x => (x.Name.Contains(text) || x.BusinessDescription.Contains(text)));
+        }
 
         public IEnumerable<IUser> SearchQuick(string textToMatch)
         {
@@ -47,7 +45,7 @@ namespace Yoyyin.Domain.Services
                           user.ZipCode.Contains(textToMatch) || user.BusinessTitle.Contains(textToMatch) ||
                           user.Name.Contains(textToMatch) || user.SearchWords.Contains(textToMatch) ||
                           user.SniHead.Title.Contains(textToMatch) ||
-                          user.SniItem.Title.Contains(textToMatch) && user.Active);
+                          user.SniItem.Title.Contains(textToMatch) && (bool)user.Active);
         }
 
 

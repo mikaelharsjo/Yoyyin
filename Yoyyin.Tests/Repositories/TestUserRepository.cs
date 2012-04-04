@@ -35,6 +35,11 @@ namespace Yoyyin.Tests.Repositories
             throw new NotImplementedException();
         }
 
+        public IUser GetUser(Guid userId)
+        {
+            throw new NotImplementedException();
+        }
+
         public IQueryable<Guid> GetUserIDsWithMostVisits()
         {
             throw new NotImplementedException();

@@ -12,6 +12,7 @@ namespace Yoyyin.Web.UserControls
     {
         public Guid UserID { get; set; }
         public IUser User { get; set; }
+        public IUserRepository UserRepository { get; set; }
         public IUserService UserService { get; set; }
         public ICurrentUser CurrentUser { get; set; }
         public int Width { get; set; }
@@ -20,7 +21,7 @@ namespace Yoyyin.Web.UserControls
         {
             bool onlyUserIDSet = User == null && UserID != Guid.Empty;
             if (onlyUserIDSet)            
-                User = UserService.GetUser(UserID);
+                User = UserRepository.GetUser(UserID);
 
             bool neitherIDorUserSet = User == null && UserID == Guid.Empty;
             if (neitherIDorUserSet)

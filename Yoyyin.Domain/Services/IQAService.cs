@@ -17,9 +17,9 @@ namespace Yoyyin.Domain.Services
         //int GetNumberOfAnswersByQuestion(int questionId);
         //void DeleteQuestion(int questionId);
         //void DeleteAnswer(int answerId);
-        //bool DeleteAllowed(Question question, Guid userId);
-        //IEnumerable<Post> GetLatestPosts(int maxPosts);
+        bool DeleteAllowed(Question question, Guid userId);
+        IEnumerable<Post> GetLatestPosts(int maxPosts);
         ////Question GetQuestion(int questionID);
-        //IEnumerable<Post> GetPostsByUser(Guid userId);
+        IEnumerable<Post> GetPostsByUser(Guid userId);
     }
 }

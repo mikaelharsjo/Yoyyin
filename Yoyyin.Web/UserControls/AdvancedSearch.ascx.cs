@@ -1,17 +1,20 @@
 ﻿using System;
-using Yoyyin.Domain.Enumerations;
+using Yoyyin.Data;
 using Yoyyin.Domain.Services;
+using UserTypes = Yoyyin.Domain.Enumerations.UserTypes;
 
 namespace Yoyyin.Web.UserControls
 {
     public partial class AdvancedSearch : System.Web.UI.UserControl
     {
+        public IUserRepository UserRepository { get; set; }
         public IUserService UserService { get; set; }
         public ISniHeadService SniHeadService { get; set; }
+        public IRepository<SniHead> SniHeadRepository { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            var user = UserService.GetUser(Current.UserID);
+            var user = UserRepository.GetUser(Current.UserID);
 
             if (user.UserTypesNeeded != null)
             {
@@ -27,7 +30,7 @@ namespace Yoyyin.Web.UserControls
                     chkinvestor.Checked = true;
             }
 
-            ddlSniHead.DataSource = SniHeadService.GetAllSniHeadItems();
+            ddlSniHead.DataSource = SniHeadRepository.FindAll();
             ddlSniHead.DataBind();
         }
     }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Yoyyin.Data;
 using Yoyyin.Data.EntityFramework;
+using Yoyyin.Domain.Extensions;
 using Yoyyin.Domain.QA;
 using CategoryFactory = Yoyyin.Domain.QA.CategoryFactory;
 using CategoryType = Yoyyin.Domain.QA.CategoryType;
@@ -55,13 +56,19 @@ namespace Yoyyin.Domain.Services
             return _questionRepository.GetLatestQuestionByCategory(category.CategoryId);
         }
 
-        //public IEnumerable<Post> GetLatestPosts(int maxCount)
-        //{
-        //    var latestQuestions = (from x in Entities.Question orderby x.Created select x);
-        //    var latestAnswers = (from x in Entities.Answer orderby x.Created select x);
+        public IEnumerable<Post> GetLatestPosts(int maxCount)
+        {
+            var latestQuestions = _questionRepository
+                .FindAll()
+                .OrderBy(q => q.Created);
 
-        //    return MergeToPosts(latestQuestions, latestAnswers).Take(maxCount);
-        //}
+            var latestAnswers = _answerRepository
+                .FindAll()
+                .OrderBy(a => a.Created);
+
+            return MergeToPosts(latestQuestions, latestAnswers)
+                .Take(maxCount);
+        }
 
         //public IList<Answer> GetAnswersByUser(Guid userID)
         //{
@@ -84,49 +91,13 @@ namespace Yoyyin.Domain.Services
         //    return _questionRepository.GetNumberOfAnswersByQuestion(questionId);
         //}
 
-        //public IEnumerable<Post> GetPostsByUser(Guid userId)
-        //{
-        //    var questions = _questionRepository.GetQuestionsByUser(userId);
-        //    var answers = _questionRepository.GetAnswersByUser(userId);
+        public IEnumerable<Post> GetPostsByUser(Guid userId)
+        {
+            var questions = _questionRepository.GetQuestionsByUser(userId);
+            var answers = _answerRepository.Find(a => a.UserId == userId);
 
-        //    return MergeToPosts(questions.Select(_mapper.MapQuestion), answers.Select(_mapper.MapAnswer));
-        //}
-
-        ///// <summary>
-        ///// Merges answers and questions into one list and returns sorted
-        ///// </summary>
-        ///// <param name="questions"></param>
-        ///// <param name="answers"></param>
-        ///// <returns></returns>
-        //private static IEnumerable<Post> MergeToPosts(IEnumerable<Question> questions, IEnumerable<Answer> answers)
-        //{
-        //    var posts =
-        //        answers.Select(
-        //            answer =>
-        //            new Post()
-        //            {
-        //                DisplayName = answer.User.GetDisplayName(),
-        //                Created = answer.Created,
-        //                Text = answer.Text,
-        //                UserId = answer.UserId,
-        //                QuestionId = answer.QuestionID,
-        //                OwnerUserId = answer.Question.OwnerUserId
-        //            }).ToList();
-        //    posts.AddRange(
-        //        questions.Select(
-        //            question =>
-        //            new Post()
-        //            {
-        //                DisplayName = question.User.GetDisplayName(),
-        //                Created = question.Created,
-        //                Text = question.Text,
-        //                UserId = question.OwnerUserId,
-        //                QuestionId = question.QuestionID,
-        //                OwnerUserId = question.OwnerUserId
-        //            }));
-
-        //    return (from x in posts orderby x.Created descending select x).ToList();
-        //}
+            return MergeToPosts(questions, answers);
+        }
 
         //public void DeleteQuestion(int questionId)
         //{
@@ -149,21 +120,6 @@ namespace Yoyyin.Domain.Services
             deleteAllowed = question.OwnerUserId == userId;
 
             return deleteAllowed;
-        }
-
-        public IEnumerable<Post> GetLatestPosts(int maxPosts)
-        {
-            var latestQuestions = _questionRepository
-                                            .FindAll()
-                                            .OrderBy(a => a.Created)
-                                            .Take(maxPosts);
-
-            var latestAnswers = _answerRepository
-                                            .FindAll()
-                                            .OrderBy(a => a.Created)
-                                            .Take(maxPosts);
-
-            return MergeToPosts(latestQuestions.AsEnumerable(), latestAnswers).Take(maxPosts);
         }
 
         //public Question GetQuestion(int questionID)

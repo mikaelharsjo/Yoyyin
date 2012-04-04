@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using Yoyyin.Data;
 using Yoyyin.Domain.Services;
 
 namespace Yoyyin.Web.UserControls
@@ -6,6 +8,12 @@ namespace Yoyyin.Web.UserControls
     public partial class MailPop : System.Web.UI.UserControl
     {
         private IMessagesService _messagesService;
+        private IRepository<UserMessages> _messageRepository;
+
+        public MailPop(IRepository<UserMessages> userRepository)
+        {
+            _messageRepository = userRepository;
+        }
 
         public int UserMessagesID {get; set;}
         public Guid FromUserId { get; set; }
@@ -14,7 +22,9 @@ namespace Yoyyin.Web.UserControls
         {
             if (UserMessagesID > 0)
             {
-                litMessage.Text = _messagesService.GetById(UserMessagesID).FromMessage;
+                litMessage.Text = _messageRepository
+                    .Find(m => m.UserMessagesID == UserMessagesID)
+                    .First().FromMessage;
             }
             else
             {

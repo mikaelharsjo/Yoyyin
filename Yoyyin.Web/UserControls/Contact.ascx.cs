@@ -14,7 +14,7 @@ namespace Yoyyin.Web.UserControls
         const string UserIDAnders = "62bb6821-dc9a-4375-ae4b-a09cc255d08f";
         const string UserIDPeter = "db29e60a-2648-4f4f-a8d8-dfb3d7dba544";
 
-        public IUserService UserService { get; set; }
+        public IUserRepository UserRepository { get; set; }
         
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -23,9 +23,9 @@ namespace Yoyyin.Web.UserControls
             var guidAnders = new Guid(UserIDAnders);
             var guidPeter = new Guid(UserIDPeter);
 
-            YoyyinOwners.Add(UserService.GetUser(guidAnders));
-            YoyyinOwners.Add(UserService.GetUser(guidPeter));
-            YoyyinOwners.Add(UserService.GetUser(guidMicke));
+            YoyyinOwners.Add(UserRepository.GetUser(guidAnders));
+            YoyyinOwners.Add(UserRepository.GetUser(guidPeter));
+            YoyyinOwners.Add(UserRepository.GetUser(guidMicke));
 
             DataBind();
             //usersControl.SrcUsers = YoyyinOwners;

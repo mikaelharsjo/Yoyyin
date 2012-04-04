@@ -8,6 +8,7 @@ using System.Web.UI.WebControls;
 using System.Web.Security;
 using Autofac;
 using Autofac.Integration.Web;
+using Yoyyin.Data;
 using Yoyyin.Domain.Services;
 using Yoyyin.PresentationModel;
 using Yoyyin.Web.Helpers;
@@ -16,6 +17,7 @@ namespace Yoyyin.Web
 {
     public partial class SiteMaster : MasterPage
     {
+        public IUserRepository UserRepository { get; set; }
         public IUserService UserService { get; set; }
         public IUserPresenter UserPresenter { get; set; }
         public NewestMembersHelper NewestMembersHelper { get; set; }
@@ -76,7 +78,7 @@ namespace Yoyyin.Web
             lstNewest.DataSource = UserPresenter.Presentate(newMembers.Select(memuser => new Guid(memuser.ProviderUserKey.ToString())));
             lstNewest.DataBind();
             
-            lstPopular.DataSource = UserPresenter.Presentate(UserService.GetUserIDsWithMostVisits());
+            lstPopular.DataSource = UserPresenter.Presentate(UserRepository.GetUserIDsWithMostVisits());
             lstPopular.DataBind();
             litCount.Text = string.Format(CountTxt, UserService.GetNumberOfUsers());
         }

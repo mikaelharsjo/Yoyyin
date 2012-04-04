@@ -7,7 +7,7 @@ namespace Yoyyin.Domain.Services
 {
     public interface IUserService
     {
-        //IEnumerable<IUser> SearchAdvanced(string text, bool isEntrepreneur, bool isInnovator, bool isInvestor, string sniNo);
+        IEnumerable<IUser> SearchAdvanced(string text, bool isEntrepreneur, bool isInnovator, bool isInvestor, string sniNo);
         IEnumerable<IUser> SearchQuick(string textToMatch);
         IEnumerable<User> GetLastActiveUsersWithImage();
         //IEnumerable<IUser> GetAllUsersIncludingSni();

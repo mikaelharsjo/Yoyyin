@@ -16,7 +16,7 @@ namespace Yoyyin.Web.UserControls
         public int QuestionId { get; set; }
         private Question _question;
         public IQuestionRepository QuestionRepository { get; set; }
-        //public IQAService QAService;
+        public IQAService QAService { get; set; }
         public IQuestionPresenter QuestionPresenter { get; set; }
         public IAnswerPresenter AnswerConverter { get; set; }
         public ICurrentUser CurrentUser { get; set; }
@@ -32,6 +32,7 @@ namespace Yoyyin.Web.UserControls
         {
             litQuestion.Text = _question.Text;
             imageQuestion.UserID = _question.User.UserId;
+
             deleteLinkQuestion.Visible = QAService.DeleteAllowed(_question, Current.UserID);
 
             var questionView = (QuestionPresentation)QuestionPresenter.Presentate((IEnumerable<Question>) _question);

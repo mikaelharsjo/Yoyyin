@@ -4,6 +4,7 @@ using System.Globalization;
 using Yoyyin.Data;
 using Yoyyin.Domain;
 using Yoyyin.Domain.Extensions;
+using Yoyyin.Domain.Factories;
 using Yoyyin.Domain.QA;
 using Yoyyin.Domain.Services;
 using Yoyyin.PresentationModel;
@@ -25,7 +26,7 @@ namespace Yoyyin.Web
             base.OnInit(e);
             Int32.TryParse(Request["Category"], out categoryType);
 
-            _category = CategoryFactory.CreateCategory(categoryType, QAService);
+            _category = CategoryFactory.CreateCategory(categoryType);
         }
 
         protected void Page_Load(object sender, EventArgs e)

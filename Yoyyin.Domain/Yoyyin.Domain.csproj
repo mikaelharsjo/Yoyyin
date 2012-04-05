@@ -51,7 +51,7 @@
     <Compile Include="QA\AbstractCategory.cs" />
     <Compile Include="QA\BusinessIdeasCategory.cs" />
     <Compile Include="CachedItemProvider.cs" />
-    <Compile Include="QA\CategoryFactory.cs" />
+    <Compile Include="Factories\CategoryFactory.cs" />
     <Compile Include="QA\CategoryType.cs" />
     <Compile Include="Enumerations\MatchType.cs" />
     <Compile Include="Enumerations\UserTypes.cs" />

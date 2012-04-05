@@ -9,6 +9,9 @@ using System.Collections.Generic;
 using Yoyyin.Domain;
 using Yoyyin.Domain.SearchWords;
 
+
+// TODO: Redo with MVC instead
+
 namespace Yoyyin.Web.Handlers
 {
     [WebService(Namespace = "yoyyin.com")]
@@ -20,13 +23,14 @@ namespace Yoyyin.Web.Handlers
             context.Response.ContentType = "application/json";
             context.Response.ContentEncoding = Encoding.UTF8;
       
-            var competencesSearchWordsProvider = new CompetencesSearchWordsProvider(new CachedItemProvider<IList<string>>(), new WordsProvider());
-            var organizer = new SearchWordsOrganizer(competencesSearchWordsProvider);
-            var searchWordsByRequest = FilterSearchWordsByRequest(context, organizer.GetAllSearchWords());
+            // TODO: Fix later
+            //var competencesSearchWordsProvider = new CompetencesSearchWordsProvider(new CachedItemProvider<IList<string>>(), new WordsProvider());
+            //var organizer = new SearchWordsOrganizer(competencesSearchWordsProvider);
+            //var searchWordsByRequest = FilterSearchWordsByRequest(context, organizer.GetAllSearchWords());
 
-            var jsSerializer = new JavaScriptSerializer();
-            if (searchWordsByRequest != null)
-                context.Response.Write(jsSerializer.Serialize(searchWordsByRequest));
+            //var jsSerializer = new JavaScriptSerializer();
+            //if (searchWordsByRequest != null)
+            //    context.Response.Write(jsSerializer.Serialize(searchWordsByRequest));
         }
 
         private static List<string> FilterSearchWordsByRequest(HttpContext context, IEnumerable<string> searchWords)

@@ -5,7 +5,7 @@ using Yoyyin.Data;
 using Yoyyin.Data.EntityFramework;
 using Yoyyin.Domain.Extensions;
 using Yoyyin.Domain.QA;
-using CategoryFactory = Yoyyin.Domain.QA.CategoryFactory;
+using CategoryFactory = Yoyyin.Domain.Factories.CategoryFactory;
 using CategoryType = Yoyyin.Domain.QA.CategoryType;
 
 namespace Yoyyin.Domain.Services

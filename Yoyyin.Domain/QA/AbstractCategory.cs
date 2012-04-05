@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Yoyyin.Data;
 using Yoyyin.Domain.Extensions;
 using Yoyyin.Domain.Services;
@@ -8,12 +9,12 @@ namespace Yoyyin.Domain.QA
     public abstract class AbstractCategory : ICategory
     {
         private readonly CategoryType _categoryType;
-        private readonly IQAService _service;
+        private readonly IQuestionRepository _questionRepository;
 
-        protected AbstractCategory(CategoryType categoryType, IQAService service)
+        protected AbstractCategory(CategoryType categoryType, IQuestionRepository questionRepository)
         {
             _categoryType = categoryType;
-            _service = service;
+            _questionRepository = questionRepository;
         }
 
         public string Title
@@ -46,12 +47,16 @@ namespace Yoyyin.Domain.QA
 
         public Question GetLatestQuestion()
         {
-            return _service.GetLatestQuestionByCategory(this);
+            return _questionRepository
+                        .Find(q => q.Category == (int) _categoryType)
+                        .OrderByDescending(q => q.Created)
+                        .First();
         }
 
         public IEnumerable<Question> GetQuestions()
         {
-            return _service.GetQuestionsByCategory(this);
+            return _questionRepository.Find(q => q.Category == (int) _categoryType);
+
         }
     }
 }

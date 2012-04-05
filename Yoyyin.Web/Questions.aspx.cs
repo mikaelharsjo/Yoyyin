@@ -2,6 +2,7 @@
 using Yoyyin.Data;
 using Yoyyin.Domain;
 using Yoyyin.Domain.Extensions;
+using Yoyyin.Domain.Factories;
 using Yoyyin.Domain.QA;
 using Yoyyin.Domain.Services;
 using Yoyyin.Web.Helpers;
@@ -25,9 +26,9 @@ namespace Yoyyin.Web
                 btn3.Visible = false;
             }
 
-            litLastQuestionIdea.Text = FormatQuestionTeaser(CategoryFactory.CreateCategory(CategoryType.BusinessIdeas, QAService).GetLatestQuestion());
-            litLastQuestionFriendly.Text = FormatQuestionTeaser(CategoryFactory.CreateCategory(CategoryType.Friendly, QAService).GetLatestQuestion());
-            litLastQuestionBusiness.Text = FormatQuestionTeaser(CategoryFactory.CreateCategory(CategoryType.BusinessIdeas, QAService).GetLatestQuestion());
+            litLastQuestionIdea.Text = FormatQuestionTeaser(CategoryFactory.CreateCategory(CategoryType.BusinessIdeas).GetLatestQuestion());
+            litLastQuestionFriendly.Text = FormatQuestionTeaser(CategoryFactory.CreateCategory(CategoryType.Friendly).GetLatestQuestion());
+            litLastQuestionBusiness.Text = FormatQuestionTeaser(CategoryFactory.CreateCategory(CategoryType.BusinessIdeas).GetLatestQuestion());
         }
 
         private static string FormatQuestionTeaser(Question question)

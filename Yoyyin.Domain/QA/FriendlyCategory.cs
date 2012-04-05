@@ -1,10 +1,11 @@
+using Yoyyin.Data;
 using Yoyyin.Domain.Services;
 
 namespace Yoyyin.Domain.QA
 {
     public class FriendlyCategory : AbstractCategory
     {
-        public FriendlyCategory(IQAService service) : base(CategoryType.Friendly, service)
+        public FriendlyCategory(IQuestionRepository repository) : base(CategoryType.Friendly, repository)
         {
         }
     }

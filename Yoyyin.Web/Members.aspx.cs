@@ -1,4 +1,5 @@
 ﻿using System;
+using Yoyyin.Data;
 using Yoyyin.Domain.Services;
 using Yoyyin.Web.Helpers;
 using System.Linq;
@@ -7,19 +8,19 @@ namespace Yoyyin.Web
 {
     public partial class Members : System.Web.UI.Page
     {
-        public ISniHeadService SniHeadService;
+        public ISniHeadRepository SniHeadRepository;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            var sniHeads = from g in SniHeadService.GetAllSniIncludingUsers()
-                               .GroupBy(sniHead => sniHead.SniItem)
+            var sniHeads = from g in SniHeadRepository.GetAllSniIncludingUsers()
+                               .GroupBy(sniHead => sniHead.SniHeadID)
                            let firstSniHead = g.First()
                            select
-
                                new
                                    {
-                                       firstSniHead.Title, firstSniHead.SniHeadID, 
-                                       firstSniHead.User,
+                                       firstSniHead.Title, 
+                                       firstSniHead.SniHeadID, 
+                                       //firstSniHead.User,
                                        SniItemTitle = "TODO:" //firstSniHead.SniItem.Last().Title
                                    };
 

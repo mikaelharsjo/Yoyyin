@@ -1,10 +1,11 @@
+using Yoyyin.Data;
 using Yoyyin.Domain.Services;
 
 namespace Yoyyin.Domain.QA
 {
     public class BusinessIdeasCategory : AbstractCategory
     {
-        public BusinessIdeasCategory(IQAService service) : base(CategoryType.BusinessIdeas, service)
+        public BusinessIdeasCategory(IQuestionRepository repository) : base(CategoryType.BusinessIdeas, repository)
         {
         }
     }

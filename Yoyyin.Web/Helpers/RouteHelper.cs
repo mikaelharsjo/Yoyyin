@@ -21,7 +21,7 @@ namespace Yoyyin.Web.Helpers
         public void AddRoutes()
         {
             AddStaticRoutes();
-            
+
             foreach (var user in _userRepository.FindAll())
             {
                 if (string.IsNullOrEmpty(user.GetDisplayName())) continue;
@@ -29,7 +29,7 @@ namespace Yoyyin.Web.Helpers
                 try
                 {
                     RouteTable.Routes.MapPageRoute(user.Name, user.Name, "~/Member.aspx", false,
-                                                   new RouteValueDictionary {{"UserID", user.UserId.ToString()}});
+                                                   new RouteValueDictionary { { "UserID", user.UserId.ToString() } });
                 }
                 catch
                 {

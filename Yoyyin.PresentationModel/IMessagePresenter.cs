@@ -6,7 +6,7 @@ namespace Yoyyin.PresentationModel
 {
     public interface IMessagePresenter
     {
-        MessagePresentation Presentate(UserMessages message);
-        IEnumerable<MessagePresentation> Presentate(IEnumerable<UserMessages> userMessages);
+        MessagePresentation Presentate(Message message);
+        IEnumerable<MessagePresentation> Presentate(IEnumerable<Message> userMessages);
     }
 }

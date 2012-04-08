@@ -94,7 +94,17 @@ namespace Yoyyin.Domain.Extensions
             return string.IsNullOrEmpty(user.Alias) ? user.Name : user.Alias;
         }
 
+        public static string GetDisplayName(this User user)
+        {
+            return string.IsNullOrEmpty(user.Alias) ? user.Name : user.Alias;
+        }
+
         public static string GetProfileUrl(this IUser user)
+        {
+            return "Member.aspx?UserID=" + user.UserId;
+        }
+
+        public static string GetProfileUrl(this User user)
         {
             return "Member.aspx?UserID=" + user.UserId;
         }

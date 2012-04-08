@@ -10,27 +10,27 @@ namespace Yoyyin.Domain.Services
 {
     public class MessagesService : IMessagesService
     {
-        private readonly IUserMessagesRepository _repository;
+        private readonly IMessageRepository _repository;
 
-        public MessagesService(IUserMessagesRepository repository)
+        public MessagesService(IMessageRepository repository)
         {
             _repository = repository;
         }
 
-        public IEnumerable<UserMessages> GetOutBoxMessages(Guid userID)
+        public IEnumerable<Message> GetOutBoxMessages(Guid userID)
         {
             return _repository
                         .Find()
                         .Where(message => message.FromUserId == userID)
-                        .OrderBy(message => message.TimeStamp);   //.Include("User") 
+                        .OrderBy(message => message.Created);   //.Include("User") 
         }
 
-        public IEnumerable<UserMessages> GetInBoxMessages(Guid userId)
+        public IEnumerable<Message> GetInBoxMessages(Guid userId)
         {
             return _repository
                 .Find()
                 .Where(message => message.ToUserId == userId)
-                .OrderByDescending(message => message.TimeStamp);
+                .OrderByDescending(message => message.Created);
         }
     }
 }

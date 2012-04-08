@@ -8,9 +8,9 @@ namespace Yoyyin.Web.UserControls
     public partial class MailPop : System.Web.UI.UserControl
     {
         private IMessagesService _messagesService;
-        private IRepository<UserMessages> _messageRepository;
+        private IRepository<Message> _messageRepository;
 
-        public MailPop(IRepository<UserMessages> userRepository)
+        public MailPop(IRepository<Message> userRepository)
         {
             _messageRepository = userRepository;
         }
@@ -23,7 +23,7 @@ namespace Yoyyin.Web.UserControls
             if (UserMessagesID > 0)
             {
                 litMessage.Text = _messageRepository
-                    .Find(m => m.UserMessagesID == UserMessagesID)
+                    .Find(m => m.MessageID == UserMessagesID)
                     .First().FromMessage;
             }
             else

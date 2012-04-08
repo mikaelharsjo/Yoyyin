@@ -22,8 +22,6 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("YoyyinModel", "FK_User_SniHead", "SniHead", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Yoyyin.Data.SniHead), "User", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Yoyyin.Data.User), true)]
 [assembly: EdmRelationshipAttribute("YoyyinModel", "FK_User_SniItem", "SniItem", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Yoyyin.Data.SniItem), "User", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Yoyyin.Data.User), true)]
 [assembly: EdmRelationshipAttribute("YoyyinModel", "FK_User_aspnet_Users", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Yoyyin.Data.aspnet_Users), "User", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Yoyyin.Data.User), true)]
-[assembly: EdmRelationshipAttribute("YoyyinModel", "FK_UserMessages_aspnet_Users", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Yoyyin.Data.aspnet_Users), "UserMessages", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Yoyyin.Data.UserMessages), true)]
-[assembly: EdmRelationshipAttribute("YoyyinModel", "FK_UserMessages_aspnet_Users1", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Yoyyin.Data.aspnet_Users), "UserMessages", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Yoyyin.Data.UserMessages), true)]
 [assembly: EdmRelationshipAttribute("YoyyinModel", "FK_UserComments_aspnet_Users", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Yoyyin.Data.aspnet_Users), "UserComments", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Yoyyin.Data.UserComments), true)]
 [assembly: EdmRelationshipAttribute("YoyyinModel", "FK_UserComments_aspnet_Users1", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Yoyyin.Data.aspnet_Users), "UserComments", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Yoyyin.Data.UserComments), true)]
 [assembly: EdmRelationshipAttribute("YoyyinModel", "FK_UserVisits_aspnet_Users1", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Yoyyin.Data.aspnet_Users), "UserVisits", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Yoyyin.Data.UserVisits), true)]
@@ -34,12 +32,12 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("YoyyinModel", "FK_Answer_User", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Yoyyin.Data.User), "Answer", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Yoyyin.Data.Answer), true)]
 [assembly: EdmRelationshipAttribute("YoyyinModel", "FK_Question_User", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Yoyyin.Data.User), "Question", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Yoyyin.Data.Question), true)]
 [assembly: EdmRelationshipAttribute("YoyyinModel", "FK_UserComments_User", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Yoyyin.Data.User), "UserComments", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Yoyyin.Data.UserComments), true)]
-[assembly: EdmRelationshipAttribute("YoyyinModel", "FK_UserMessages_User", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Yoyyin.Data.User), "UserMessages", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Yoyyin.Data.UserMessages), true)]
-[assembly: EdmRelationshipAttribute("YoyyinModel", "FK_UserMessages_User1", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Yoyyin.Data.User), "UserMessages", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Yoyyin.Data.UserMessages), true)]
 [assembly: EdmRelationshipAttribute("YoyyinModel", "FK_UserVisits_User", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Yoyyin.Data.User), "UserVisits", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Yoyyin.Data.UserVisits), true)]
 [assembly: EdmRelationshipAttribute("YoyyinModel", "FK_UserBookmarks_User", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Yoyyin.Data.User), "UserBookmarks", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Yoyyin.Data.UserBookmarks), true)]
 [assembly: EdmRelationshipAttribute("YoyyinModel", "FK_UserComments_User2", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Yoyyin.Data.User), "UserComments", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Yoyyin.Data.UserComments), true)]
 [assembly: EdmRelationshipAttribute("YoyyinModel", "FK_UserVisits_User1", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Yoyyin.Data.User), "UserVisits", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Yoyyin.Data.UserVisits), true)]
+[assembly: EdmRelationshipAttribute("YoyyinModel", "FK_UserMessages_User2", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Yoyyin.Data.User), "Message", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Yoyyin.Data.Message), true)]
+[assembly: EdmRelationshipAttribute("YoyyinModel", "FK_UserMessages_User11", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Yoyyin.Data.User), "Message", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Yoyyin.Data.Message), true)]
 
 #endregion
 
@@ -138,22 +136,6 @@ namespace Yoyyin.Data
             }
         }
         private ObjectSet<sysdiagrams> _sysdiagrams;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<UserMessages> UserMessages
-        {
-            get
-            {
-                if ((_UserMessages == null))
-                {
-                    _UserMessages = base.CreateObjectSet<UserMessages>("UserMessages");
-                }
-                return _UserMessages;
-            }
-        }
-        private ObjectSet<UserMessages> _UserMessages;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -266,6 +248,22 @@ namespace Yoyyin.Data
             }
         }
         private ObjectSet<Question> _Question;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Message> Message
+        {
+            get
+            {
+                if ((_Message == null))
+                {
+                    _Message = base.CreateObjectSet<Message>("Message");
+                }
+                return _Message;
+            }
+        }
+        private ObjectSet<Message> _Message;
 
         #endregion
         #region AddTo Methods
@@ -292,14 +290,6 @@ namespace Yoyyin.Data
         public void AddTosysdiagrams(sysdiagrams sysdiagrams)
         {
             base.AddObject("sysdiagrams", sysdiagrams);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the UserMessages EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToUserMessages(UserMessages userMessages)
-        {
-            base.AddObject("UserMessages", userMessages);
         }
     
         /// <summary>
@@ -356,6 +346,14 @@ namespace Yoyyin.Data
         public void AddToQuestion(Question question)
         {
             base.AddObject("Question", question);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Message EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToMessage(Message message)
+        {
+            base.AddObject("Message", message);
         }
 
         #endregion
@@ -911,50 +909,6 @@ namespace Yoyyin.Data
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("YoyyinModel", "FK_UserMessages_aspnet_Users", "UserMessages")]
-        public EntityCollection<UserMessages> UserMessages
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<UserMessages>("YoyyinModel.FK_UserMessages_aspnet_Users", "UserMessages");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<UserMessages>("YoyyinModel.FK_UserMessages_aspnet_Users", "UserMessages", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("YoyyinModel", "FK_UserMessages_aspnet_Users1", "UserMessages")]
-        public EntityCollection<UserMessages> UserMessages1
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<UserMessages>("YoyyinModel.FK_UserMessages_aspnet_Users1", "UserMessages");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<UserMessages>("YoyyinModel.FK_UserMessages_aspnet_Users1", "UserMessages", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("YoyyinModel", "FK_UserComments_aspnet_Users", "UserComments")]
         public EntityCollection<UserComments> UserComments
         {
@@ -1055,6 +1009,264 @@ namespace Yoyyin.Data
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<UserBookmarks>("YoyyinModel.FK_UserBookmarks_aspnet_Users1", "UserBookmarks", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="YoyyinModel", Name="Message")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Message : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Message object.
+        /// </summary>
+        /// <param name="fromUserId">Initial value of the FromUserId property.</param>
+        /// <param name="toUserId">Initial value of the ToUserId property.</param>
+        /// <param name="messageID">Initial value of the MessageID property.</param>
+        public static Message CreateMessage(global::System.Guid fromUserId, global::System.Guid toUserId, global::System.Int32 messageID)
+        {
+            Message message = new Message();
+            message.FromUserId = fromUserId;
+            message.ToUserId = toUserId;
+            message.MessageID = messageID;
+            return message;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid FromUserId
+        {
+            get
+            {
+                return _FromUserId;
+            }
+            set
+            {
+                OnFromUserIdChanging(value);
+                ReportPropertyChanging("FromUserId");
+                _FromUserId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("FromUserId");
+                OnFromUserIdChanged();
+            }
+        }
+        private global::System.Guid _FromUserId;
+        partial void OnFromUserIdChanging(global::System.Guid value);
+        partial void OnFromUserIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid ToUserId
+        {
+            get
+            {
+                return _ToUserId;
+            }
+            set
+            {
+                OnToUserIdChanging(value);
+                ReportPropertyChanging("ToUserId");
+                _ToUserId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ToUserId");
+                OnToUserIdChanged();
+            }
+        }
+        private global::System.Guid _ToUserId;
+        partial void OnToUserIdChanging(global::System.Guid value);
+        partial void OnToUserIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String FromMessage
+        {
+            get
+            {
+                return _FromMessage;
+            }
+            set
+            {
+                OnFromMessageChanging(value);
+                ReportPropertyChanging("FromMessage");
+                _FromMessage = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("FromMessage");
+                OnFromMessageChanged();
+            }
+        }
+        private global::System.String _FromMessage;
+        partial void OnFromMessageChanging(global::System.String value);
+        partial void OnFromMessageChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> Created
+        {
+            get
+            {
+                return _Created;
+            }
+            set
+            {
+                OnCreatedChanging(value);
+                ReportPropertyChanging("Created");
+                _Created = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Created");
+                OnCreatedChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _Created;
+        partial void OnCreatedChanging(Nullable<global::System.DateTime> value);
+        partial void OnCreatedChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Subject
+        {
+            get
+            {
+                return _Subject;
+            }
+            set
+            {
+                OnSubjectChanging(value);
+                ReportPropertyChanging("Subject");
+                _Subject = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Subject");
+                OnSubjectChanged();
+            }
+        }
+        private global::System.String _Subject;
+        partial void OnSubjectChanging(global::System.String value);
+        partial void OnSubjectChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 MessageID
+        {
+            get
+            {
+                return _MessageID;
+            }
+            set
+            {
+                if (_MessageID != value)
+                {
+                    OnMessageIDChanging(value);
+                    ReportPropertyChanging("MessageID");
+                    _MessageID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("MessageID");
+                    OnMessageIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _MessageID;
+        partial void OnMessageIDChanging(global::System.Int32 value);
+        partial void OnMessageIDChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("YoyyinModel", "FK_UserMessages_User2", "User")]
+        public User User
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("YoyyinModel.FK_UserMessages_User2", "User").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("YoyyinModel.FK_UserMessages_User2", "User").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<User> UserReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("YoyyinModel.FK_UserMessages_User2", "User");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<User>("YoyyinModel.FK_UserMessages_User2", "User", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("YoyyinModel", "FK_UserMessages_User11", "User")]
+        public User User1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("YoyyinModel.FK_UserMessages_User11", "User").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("YoyyinModel.FK_UserMessages_User11", "User").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<User> User1Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("YoyyinModel.FK_UserMessages_User11", "User");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<User>("YoyyinModel.FK_UserMessages_User11", "User", value);
                 }
             }
         }
@@ -1314,7 +1526,7 @@ namespace Yoyyin.Data
     [EdmEntityTypeAttribute(NamespaceName="YoyyinModel", Name="SniHead")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class SniHead : EntityObject, ISniHead
+    public partial class SniHead : EntityObject
     {
         #region Factory Method
     
@@ -1440,7 +1652,7 @@ namespace Yoyyin.Data
     [EdmEntityTypeAttribute(NamespaceName="YoyyinModel", Name="SniItem")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class SniItem : EntityObject, ISniItem
+    public partial class SniItem : EntityObject
     {
         #region Factory Method
     
@@ -1761,7 +1973,7 @@ namespace Yoyyin.Data
     [EdmEntityTypeAttribute(NamespaceName="YoyyinModel", Name="User")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class User : EntityObject, IUser
+    public partial class User : EntityObject
     {
         #region Factory Method
     
@@ -2653,15 +2865,15 @@ namespace Yoyyin.Data
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("YoyyinModel", "FK_User_SniHead", "SniHead")]
-        public ISniHead SniHead
+        public SniHead SniHead
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ISniHead>("YoyyinModel.FK_User_SniHead", "SniHead").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SniHead>("YoyyinModel.FK_User_SniHead", "SniHead").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ISniHead>("YoyyinModel.FK_User_SniHead", "SniHead").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SniHead>("YoyyinModel.FK_User_SniHead", "SniHead").Value = value;
             }
         }
         /// <summary>
@@ -2691,15 +2903,15 @@ namespace Yoyyin.Data
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("YoyyinModel", "FK_User_SniItem", "SniItem")]
-        public ISniItem SniItem
+        public SniItem SniItem
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ISniItem>("YoyyinModel.FK_User_SniItem", "SniItem").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SniItem>("YoyyinModel.FK_User_SniItem", "SniItem").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ISniItem>("YoyyinModel.FK_User_SniItem", "SniItem").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SniItem>("YoyyinModel.FK_User_SniItem", "SniItem").Value = value;
             }
         }
         /// <summary>
@@ -2832,50 +3044,6 @@ namespace Yoyyin.Data
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("YoyyinModel", "FK_UserMessages_User", "UserMessages")]
-        public EntityCollection<UserMessages> UserMessages
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<UserMessages>("YoyyinModel.FK_UserMessages_User", "UserMessages");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<UserMessages>("YoyyinModel.FK_UserMessages_User", "UserMessages", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("YoyyinModel", "FK_UserMessages_User1", "UserMessages")]
-        public EntityCollection<UserMessages> UserMessages1
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<UserMessages>("YoyyinModel.FK_UserMessages_User1", "UserMessages");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<UserMessages>("YoyyinModel.FK_UserMessages_User1", "UserMessages", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("YoyyinModel", "FK_UserVisits_User", "UserVisits")]
         public EntityCollection<UserVisits> UserVisits
         {
@@ -2954,6 +3122,50 @@ namespace Yoyyin.Data
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<UserVisits>("YoyyinModel.FK_UserVisits_User1", "UserVisits", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("YoyyinModel", "FK_UserMessages_User2", "Message")]
+        public EntityCollection<Message> Message
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Message>("YoyyinModel.FK_UserMessages_User2", "Message");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Message>("YoyyinModel.FK_UserMessages_User2", "Message", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("YoyyinModel", "FK_UserMessages_User11", "Message")]
+        public EntityCollection<Message> Message1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Message>("YoyyinModel.FK_UserMessages_User11", "Message");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Message>("YoyyinModel.FK_UserMessages_User11", "Message", value);
                 }
             }
         }
@@ -3512,15 +3724,15 @@ namespace Yoyyin.Data
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("YoyyinModel", "FK_UserComments_User", "User")]
-        public IUser User
+        public User User
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<IUser>("YoyyinModel.FK_UserComments_User", "User").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("YoyyinModel.FK_UserComments_User", "User").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<IUser>("YoyyinModel.FK_UserComments_User", "User").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("YoyyinModel.FK_UserComments_User", "User").Value = value;
             }
         }
         /// <summary>
@@ -3550,15 +3762,15 @@ namespace Yoyyin.Data
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("YoyyinModel", "FK_UserComments_User2", "User")]
-        public IUser User1
+        public User User1
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<IUser>("YoyyinModel.FK_UserComments_User2", "User").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("YoyyinModel.FK_UserComments_User2", "User").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<IUser>("YoyyinModel.FK_UserComments_User2", "User").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("YoyyinModel.FK_UserComments_User2", "User").Value = value;
             }
         }
         /// <summary>
@@ -3577,340 +3789,6 @@ namespace Yoyyin.Data
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<User>("YoyyinModel.FK_UserComments_User2", "User", value);
-                }
-            }
-        }
-
-        #endregion
-    }
-    
-    /// <summary>
-    /// No Metadata Documentation available.
-    /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="YoyyinModel", Name="UserMessages")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class UserMessages : EntityObject
-    {
-        #region Factory Method
-    
-        /// <summary>
-        /// Create a new UserMessages object.
-        /// </summary>
-        /// <param name="fromUserId">Initial value of the FromUserId property.</param>
-        /// <param name="toUserId">Initial value of the ToUserId property.</param>
-        /// <param name="userMessagesID">Initial value of the UserMessagesID property.</param>
-        public static UserMessages CreateUserMessages(global::System.Guid fromUserId, global::System.Guid toUserId, global::System.Int32 userMessagesID)
-        {
-            UserMessages userMessages = new UserMessages();
-            userMessages.FromUserId = fromUserId;
-            userMessages.ToUserId = toUserId;
-            userMessages.UserMessagesID = userMessagesID;
-            return userMessages;
-        }
-
-        #endregion
-        #region Primitive Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Guid FromUserId
-        {
-            get
-            {
-                return _FromUserId;
-            }
-            set
-            {
-                OnFromUserIdChanging(value);
-                ReportPropertyChanging("FromUserId");
-                _FromUserId = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("FromUserId");
-                OnFromUserIdChanged();
-            }
-        }
-        private global::System.Guid _FromUserId;
-        partial void OnFromUserIdChanging(global::System.Guid value);
-        partial void OnFromUserIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Guid ToUserId
-        {
-            get
-            {
-                return _ToUserId;
-            }
-            set
-            {
-                OnToUserIdChanging(value);
-                ReportPropertyChanging("ToUserId");
-                _ToUserId = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("ToUserId");
-                OnToUserIdChanged();
-            }
-        }
-        private global::System.Guid _ToUserId;
-        partial void OnToUserIdChanging(global::System.Guid value);
-        partial void OnToUserIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String FromMessage
-        {
-            get
-            {
-                return _FromMessage;
-            }
-            set
-            {
-                OnFromMessageChanging(value);
-                ReportPropertyChanging("FromMessage");
-                _FromMessage = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("FromMessage");
-                OnFromMessageChanged();
-            }
-        }
-        private global::System.String _FromMessage;
-        partial void OnFromMessageChanging(global::System.String value);
-        partial void OnFromMessageChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> TimeStamp
-        {
-            get
-            {
-                return _TimeStamp;
-            }
-            set
-            {
-                OnTimeStampChanging(value);
-                ReportPropertyChanging("TimeStamp");
-                _TimeStamp = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("TimeStamp");
-                OnTimeStampChanged();
-            }
-        }
-        private Nullable<global::System.DateTime> _TimeStamp;
-        partial void OnTimeStampChanging(Nullable<global::System.DateTime> value);
-        partial void OnTimeStampChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String Subject
-        {
-            get
-            {
-                return _Subject;
-            }
-            set
-            {
-                OnSubjectChanging(value);
-                ReportPropertyChanging("Subject");
-                _Subject = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("Subject");
-                OnSubjectChanged();
-            }
-        }
-        private global::System.String _Subject;
-        partial void OnSubjectChanging(global::System.String value);
-        partial void OnSubjectChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 UserMessagesID
-        {
-            get
-            {
-                return _UserMessagesID;
-            }
-            set
-            {
-                if (_UserMessagesID != value)
-                {
-                    OnUserMessagesIDChanging(value);
-                    ReportPropertyChanging("UserMessagesID");
-                    _UserMessagesID = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("UserMessagesID");
-                    OnUserMessagesIDChanged();
-                }
-            }
-        }
-        private global::System.Int32 _UserMessagesID;
-        partial void OnUserMessagesIDChanging(global::System.Int32 value);
-        partial void OnUserMessagesIDChanged();
-
-        #endregion
-    
-        #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("YoyyinModel", "FK_UserMessages_aspnet_Users", "aspnet_Users")]
-        public aspnet_Users aspnet_Users
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("YoyyinModel.FK_UserMessages_aspnet_Users", "aspnet_Users").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("YoyyinModel.FK_UserMessages_aspnet_Users", "aspnet_Users").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<aspnet_Users> aspnet_UsersReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("YoyyinModel.FK_UserMessages_aspnet_Users", "aspnet_Users");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Users>("YoyyinModel.FK_UserMessages_aspnet_Users", "aspnet_Users", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("YoyyinModel", "FK_UserMessages_aspnet_Users1", "aspnet_Users")]
-        public aspnet_Users aspnet_Users1
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("YoyyinModel.FK_UserMessages_aspnet_Users1", "aspnet_Users").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("YoyyinModel.FK_UserMessages_aspnet_Users1", "aspnet_Users").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<aspnet_Users> aspnet_Users1Reference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("YoyyinModel.FK_UserMessages_aspnet_Users1", "aspnet_Users");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Users>("YoyyinModel.FK_UserMessages_aspnet_Users1", "aspnet_Users", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("YoyyinModel", "FK_UserMessages_User", "User")]
-        public User User
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("YoyyinModel.FK_UserMessages_User", "User").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("YoyyinModel.FK_UserMessages_User", "User").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<User> UserReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("YoyyinModel.FK_UserMessages_User", "User");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<User>("YoyyinModel.FK_UserMessages_User", "User", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("YoyyinModel", "FK_UserMessages_User1", "User")]
-        public User User1
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("YoyyinModel.FK_UserMessages_User1", "User").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("YoyyinModel.FK_UserMessages_User1", "User").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<User> User1Reference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("YoyyinModel.FK_UserMessages_User1", "User");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<User>("YoyyinModel.FK_UserMessages_User1", "User", value);
                 }
             }
         }

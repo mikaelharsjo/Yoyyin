@@ -13,7 +13,7 @@ namespace Yoyyin.Web.Helpers
     {
         private IUnitOfWork _unitOfWork;
         private IUserRepository _userRepository;
-        private EFRepository<UserMessages> _messagesRepository;
+        private EFRepository<Message> _messagesRepository;
         //private IMessagesService _messagesService;
         const string MailSubject = "Meddelande via Yoyyin från {0}";
         private const string MailStyles = "<style type='text/css'>body {font-family: Trebuchet, Calibri, Arial, Sans-Serif; font-size: 20px; line-height: 25px; color: #444444;}</style>";
@@ -21,7 +21,7 @@ namespace Yoyyin.Web.Helpers
 
         public void SendYoyyinMail(Guid fromUserId, Guid toUserId, string message)
         {
-            var userMessage = new UserMessages
+            var userMessage = new Message
                                        {FromUserId = fromUserId, ToUserId = toUserId, FromMessage = message};
             
             _messagesRepository.Add(userMessage);

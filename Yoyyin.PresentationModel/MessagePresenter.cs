@@ -8,21 +8,21 @@ namespace Yoyyin.PresentationModel
 {
     public class MessagePresenter : IMessagePresenter
     {
-        public MessagePresentation Presentate(UserMessages message)
+        public MessagePresentation Presentate(Message message)
         {
             return new MessagePresentation
                        {
-                           Date = message.TimeStamp.ToFormattedString(),
+                           Date = message.Created.ToFormattedString(),
                            Message = message.FromMessage,
                            DisplayName = message.User.GetDisplayName(),
                            ToDisplayName = message.User1.GetDisplayName(),
                            MessageShort = message.FromMessage.Truncate(100),
-                           UserMessagesID = message.UserMessagesID,
+                           UserMessagesID = message.MessageID,
                            FromUserId = message.User1.UserId
                        };
         }
 
-        public IEnumerable<MessagePresentation> Presentate(IEnumerable<UserMessages> userMessages)
+        public IEnumerable<MessagePresentation> Presentate(IEnumerable<Message> userMessages)
         {
             return userMessages.Select(Presentate);
         }

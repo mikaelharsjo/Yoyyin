@@ -7,8 +7,8 @@ namespace Yoyyin.Domain.Services
     public interface IMessagesService
     {
         //UserMessages GetById(int userMessagesId);
-        IEnumerable<UserMessages> GetOutBoxMessages(Guid userID);
-        IEnumerable<UserMessages> GetInBoxMessages(Guid userId);
+        IEnumerable<Message> GetOutBoxMessages(Guid userID);
+        IEnumerable<Message> GetInBoxMessages(Guid userId);
         //void CreateAndSaveUserMessage(Guid fromUserId, Guid toUserId, string message);
     }
 }

@@ -39,34 +39,75 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Answer.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Bookmark.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Comment.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Constants.cs" />
-    <Compile Include="EntityFramework\EFAnswerRepository.cs" />
-    <Compile Include="EntityFramework\EFQuestionRepository.cs" />
-    <Compile Include="EntityFramework\EFUserRepository.cs" />
-    <Compile Include="ISniHead.cs" />
-    <Compile Include="ISniItem.cs" />
-    <Compile Include="IUser.cs" />
-    <Compile Include="IUserMessagesRepository.cs" />
-    <Compile Include="IBookmarkRepository.cs" />
-    <Compile Include="ICommentsRepository.cs" />
-    <Compile Include="IEntityQuestionRepository.cs" />
-    <Compile Include="IEntitySniHeadRepository.cs" />
-    <Compile Include="IWordsRepository.cs" />
-    <Compile Include="IQuestionRepository.cs" />
-    <Compile Include="IRepository.cs" />
-    <Compile Include="ISniHeadRepository.cs" />
-    <Compile Include="IUserRepository.cs" />
-    <Compile Include="IVisitsRepository.cs" />
+    <Compile Include="Core\IAnswer.cs" />
+    <Compile Include="Core\IBookmark.cs" />
+    <Compile Include="Core\IComment.cs" />
+    <Compile Include="Core\IMessage.cs" />
+    <Compile Include="Core\IQuestion.cs" />
+    <Compile Include="Core\IVisit.cs" />
+    <Compile Include="EntityFramework\Repositories\EFQuestionRepository.cs" />
+    <Compile Include="EntityFramework\Repositories\EFUserRepository.cs" />
+    <Compile Include="Core\ISniHead.cs" />
+    <Compile Include="Core\ISniItem.cs" />
+    <Compile Include="Core\IUser.cs" />
+    <Compile Include="Core\IMessageRepository.cs" />
+    <Compile Include="Core\IWordsRepository.cs" />
+    <Compile Include="Core\IQuestionRepository.cs" />
+    <Compile Include="Core\IRepository.cs" />
+    <Compile Include="Core\ISniHeadRepository.cs" />
+    <Compile Include="Core\IUserRepository.cs" />
     <Compile Include="MatchType.cs" />
+    <Compile Include="Message.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model.Designer.cs">
       <DependentUpon>Model.edmx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="EntityFramework\EFRepository.cs" />
+    <Compile Include="EntityFramework\Repositories\EFRepository.cs" />
+    <Compile Include="Question.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SniHead.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SniItem.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="UnitOfWork\EFUnitOfWork.cs" />
+    <Compile Include="UnitOfWork\IUnitOfWork.cs" />
+    <Compile Include="User.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="UserTypes.cs" />
+    <Compile Include="usp_YAF_GetCategoriesAndForums_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Visit.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="Model.edmx">
@@ -76,8 +117,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
+    <None Include="Model.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Model.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Model.cs</LastGenOutput>
+    </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

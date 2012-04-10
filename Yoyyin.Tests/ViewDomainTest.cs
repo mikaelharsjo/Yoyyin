@@ -63,11 +63,11 @@ namespace Yoyyin.Tests
         [Test]
         public void ConvertMessageToView()
         {
-            var message = new UserMessages
+            var message = new Message
                               {
                                   User = new User() {Name = "Kalle"},
                                   FromMessage = "Hej på dig",
-                                  TimeStamp = new DateTime(2000, 11, 11, 16, 40, 0)
+                                  Created = new DateTime(2000, 11, 11, 16, 40, 0)
                               };
             var messageConverter = new MessagePresenter();
             MessagePresentation messagePresentation = messageConverter.Presentate(message);

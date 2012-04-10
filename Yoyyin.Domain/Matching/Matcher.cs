@@ -11,8 +11,8 @@ namespace Yoyyin.Domain.Matching
 {
     public class Matcher
     {
-        private readonly IUser _firstUser;
-        private readonly IUser _secondUser;
+        private IUser _firstUser;
+        private IUser _secondUser;
 
         public IUser GetMatchingUser()
         {
@@ -40,14 +40,27 @@ namespace Yoyyin.Domain.Matching
             get { return _matchResults[MatchType.UserType]; }
         }
         
-        private readonly Dictionary<MatchType, MatchResult> _matchResults;
+        private Dictionary<MatchType, MatchResult> _matchResults;
         private const int NumberOfMatchTypes = 5;
+
+        public Matcher(User firstUser, User secondUser)
+        {
+            _secondUser = secondUser as IUser;
+            _firstUser = firstUser as IUser;
+
+            PeformMatch();
+        }
 
         public Matcher(IUser firstUser, IUser secondUser)
         {
             _secondUser = secondUser;
             _firstUser = firstUser;
 
+            PeformMatch();
+        }
+
+        private void PeformMatch()
+        {
             _matchResults = new Dictionary<MatchType, MatchResult>
                                 {
                                     {MatchType.SniHead, CheckSniHead()},

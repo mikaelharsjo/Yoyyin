@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Yoyyin.Data;
+using Yoyyin.Data.Core.Entities;
+using Yoyyin.Data.Core.Repositories;
 using Yoyyin.Domain;
 using Yoyyin.Domain.Extensions;
 using Yoyyin.Domain.Services;

@@ -6,7 +6,7 @@ namespace Yoyyin.Domain.Services
 {
     public interface IBookmarksService
     {
-        IEnumerable<UserBookmarks> GetBookmarks(Guid userID);
+        IEnumerable<Bookmark> GetBookmarks(Guid userID);
         void CreateAndSaveBookmark(Guid bookmarkUserID);
         void DeleteBookmark(Guid bookmarkUserID);
     }

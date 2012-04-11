@@ -4,6 +4,7 @@ using System.Web;
 using Autofac;
 using Autofac.Integration.Web;
 using Yoyyin.Data;
+using Yoyyin.Data.Core.Entities;
 using Yoyyin.Domain;
 using Yoyyin.Domain.Users;
 using Yoyyin.PresentationModel;

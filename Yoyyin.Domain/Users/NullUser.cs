@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Yoyyin.Data;
+using Yoyyin.Data.Core.Entities;
 using Yoyyin.Domain.Sni;
 
 namespace Yoyyin.Domain.Users
@@ -61,6 +62,72 @@ namespace Yoyyin.Domain.Users
             set { throw new NotImplementedException(); }
         }
 
+        SniItem IUser.SniItem
+        {
+            get { throw new NotImplementedException(); }
+            set { throw new NotImplementedException(); }
+        }
+
+        public ICollection<Answer> Answer
+        {
+            get { throw new NotImplementedException(); }
+            set { throw new NotImplementedException(); }
+        }
+
+        public ICollection<Question> Question
+        {
+            get { throw new NotImplementedException(); }
+            set { throw new NotImplementedException(); }
+        }
+
+        public ICollection<Message> Message
+        {
+            get { throw new NotImplementedException(); }
+            set { throw new NotImplementedException(); }
+        }
+
+        public ICollection<Message> Message1
+        {
+            get { throw new NotImplementedException(); }
+            set { throw new NotImplementedException(); }
+        }
+
+        public ICollection<Bookmark> Bookmark
+        {
+            get { throw new NotImplementedException(); }
+            set { throw new NotImplementedException(); }
+        }
+
+        public ICollection<Comment> Comment
+        {
+            get { throw new NotImplementedException(); }
+            set { throw new NotImplementedException(); }
+        }
+
+        public ICollection<Comment> Comment1
+        {
+            get { throw new NotImplementedException(); }
+            set { throw new NotImplementedException(); }
+        }
+
+        public ICollection<Visit> Visit
+        {
+            get { throw new NotImplementedException(); }
+            set { throw new NotImplementedException(); }
+        }
+
+        public ICollection<Visit> Visit1
+        {
+            get { throw new NotImplementedException(); }
+            set { throw new NotImplementedException(); }
+        }
+
+        SniHead IUser.SniHead
+        {
+            get { throw new NotImplementedException(); }
+            set { throw new NotImplementedException(); }
+        }
+
         public ISniItem SniItem
         {
             get { return new NoSniItemSelected(); }
@@ -98,6 +165,12 @@ namespace Yoyyin.Domain.Users
         }
 
         public string SearchWordsCompetenceNeeded
+        {
+            get { throw new NotImplementedException(); }
+            set { throw new NotImplementedException(); }
+        }
+
+        public int? ForumUserID
         {
             get { throw new NotImplementedException(); }
             set { throw new NotImplementedException(); }
@@ -230,7 +303,7 @@ namespace Yoyyin.Domain.Users
             return "Ingen riktig användare";
         }
 
-        public List<UserComments> GetComments()
+        public List<Comment> GetComments()
         {
             throw new NotImplementedException();
         }

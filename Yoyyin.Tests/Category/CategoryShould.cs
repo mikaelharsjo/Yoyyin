@@ -2,6 +2,7 @@
 using System.Text;
 using NUnit.Framework;
 using Yoyyin.Data;
+using Yoyyin.Data.Core.Repositories;
 using Yoyyin.Domain.QA;
 using Yoyyin.Domain.Services;
 

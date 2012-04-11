@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using NUnit.Framework;
 using Yoyyin.Data;
+using Yoyyin.Data.Core.Repositories;
 
 namespace Yoyyin.Tests.Repositories
 {

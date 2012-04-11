@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Yoyyin.Data;
-using Yoyyin.Data.EntityFramework;
 using Yoyyin.Domain.Users;
 
 namespace Yoyyin.Domain.Services
@@ -18,7 +17,7 @@ namespace Yoyyin.Domain.Services
             _currentUser = currentUser;
         }
 
-        public IEnumerable<UserBookmarks> GetBookmarks(Guid userID)
+        public IEnumerable<Bookmark> GetBookmarks(Guid userID)
         {
             return _repository
                         .Find()
@@ -28,7 +27,7 @@ namespace Yoyyin.Domain.Services
 
         public void CreateAndSaveBookmark(Guid bookmarkUserID)
         {
-            var bookmark = new UserBookmarks { BookmarkedUserID = bookmarkUserID, UserId = _currentUser.UserId, TimeStamp = DateTime.Now };
+            var bookmark = new Bookmark { BookmarkedUserID = bookmarkUserID, UserId = _currentUser.UserId, TimeStamp = DateTime.Now };
             _repository.Add(bookmark);
 
             try
@@ -43,7 +42,7 @@ namespace Yoyyin.Domain.Services
 
         public void DeleteBookmark(Guid bookmarkUserID)
         {
-            UserBookmarks bookmark = _repository
+            Bookmark bookmark = _repository
                                         .Find()
                                         .First(userBookmark => userBookmark.UserId == _currentUser.UserId && userBookmark.BookmarkedUserID == bookmarkUserID);
             

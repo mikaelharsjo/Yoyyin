@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Web.Security;
 using Yoyyin.Data;
+using Yoyyin.Data.Core.Entities;
+using Yoyyin.Data.Core.Repositories;
 using Yoyyin.Domain;
 using Yoyyin.Domain.Extensions;
 using Yoyyin.Domain.Services;
@@ -16,7 +18,7 @@ namespace Yoyyin.Web
         public string CurrentEmail { get; set; }
         public IMessagesService MessagesService { get; set; }
         public IMessagePresenter MessagePresenter { get; set; }
-        public IBookmarksService BookmarksService { get; set; }
+        public IRepository<Bookmark> BookmarkRepository { get; set; }
         public IBookmarkPresenter BookmarkPresenter { get; set; }
         public ICurrentUser Current { get; set; }
         public IUserService UserService { get; set; }
@@ -47,7 +49,8 @@ namespace Yoyyin.Web
             lstMessagesSent.DataSource = MessagePresenter.Presentate(MessagesService.GetOutBoxMessages(Current.UserId));
             lstMessagesSent.DataBind();
 
-            lstBookmarks.DataSource = BookmarkPresenter.Presentate(BookmarksService.GetBookmarks(Current.UserId));
+            lstBookmarks.DataSource =
+                BookmarkPresenter.Presentate(BookmarkRepository.Find(b => b.UserId == CurrentUser.UserId));
             lstBookmarks.DataBind();
         }
     }

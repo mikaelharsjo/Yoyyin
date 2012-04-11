@@ -7,7 +7,7 @@ namespace Yoyyin.Domain.Services
     public interface ICommentsService
     {
         void DeleteComment(int commentID);
-        IEnumerable<UserComments> GetComments(Guid userID);
+        IEnumerable<Comment> GetComments(Guid userID);
         //Comment CreateAndSaveComment(Guid fromUserId, Guid toUserId, string text, int commentID);
     }
 }

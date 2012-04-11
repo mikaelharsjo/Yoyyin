@@ -4,6 +4,7 @@ using System.Web;
 using Autofac;
 using Autofac.Integration.Web;
 using Yoyyin.Data;
+using Yoyyin.Data.Core.Repositories;
 using Yoyyin.Domain;
 using Yoyyin.Domain.Services;
 using Yoyyin.Web.Helpers;

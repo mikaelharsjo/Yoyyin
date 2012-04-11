@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using Yoyyin.Data;
-using Yoyyin.Data.EntityFramework;
+using Yoyyin.Data.Core.Repositories;
 
 namespace Yoyyin.Domain.SearchWords
 {

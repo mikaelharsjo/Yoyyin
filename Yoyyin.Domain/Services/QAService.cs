@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using Yoyyin.Data;
-using Yoyyin.Data.EntityFramework;
+using Yoyyin.Data.Core.Entities;
+using Yoyyin.Data.Core.Repositories;
 using Yoyyin.Domain.Extensions;
 using Yoyyin.Domain.QA;
 using CategoryFactory = Yoyyin.Domain.Factories.CategoryFactory;
@@ -94,7 +95,7 @@ namespace Yoyyin.Domain.Services
         public IEnumerable<Post> GetPostsByUser(Guid userId)
         {
             var questions = _questionRepository.GetQuestionsByUser(userId);
-            var answers = _answerRepository.Find(a => a.UserId == userId);
+            var answers = _answerRepository.Find(a => a.User.UserId == userId);
 
             return MergeToPosts(questions, answers);
         }
@@ -138,17 +139,17 @@ namespace Yoyyin.Domain.Services
         /// <param name="questions"></param>
         /// <param name="answers"></param>
         /// <returns></returns>
-        private static IEnumerable<Post> MergeToPosts(IEnumerable<Data.Question> questions, IEnumerable<Answer> answers)
+        private static IEnumerable<Post> MergeToPosts(IEnumerable<Data.Question> questions, IEnumerable<IAnswer> answers)
         {
             var posts =
                 answers.Select(
                     answer =>
                     new Post
                         {
-                        //DisplayName = answer.User.GetDisplayName(),
+                        DisplayName = answer.User.GetDisplayName(),
                         Created = answer.Created,
                         Text = answer.Text,
-                        UserId = answer.UserId,
+                        UserId = answer.User.UserId,
                         QuestionId = answer.Question.QuestionID,
                         OwnerUserId = answer.Question.OwnerUserId
                     }).ToList();
@@ -157,7 +158,7 @@ namespace Yoyyin.Domain.Services
                     question =>
                     new Post
                         {
-                        //DisplayName = question.Owner.GetDisplayName(),
+                        DisplayName = question.User.GetDisplayName(),
                         Created = question.Created,
                         Text = question.Text,
                         UserId = question.User.UserId,

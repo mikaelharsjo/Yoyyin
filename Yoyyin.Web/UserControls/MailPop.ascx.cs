@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using Yoyyin.Data;
+using Yoyyin.Data.Core.Repositories;
 using Yoyyin.Domain.Services;
 
 namespace Yoyyin.Web.UserControls

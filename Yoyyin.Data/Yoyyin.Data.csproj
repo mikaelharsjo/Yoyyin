@@ -49,23 +49,24 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Constants.cs" />
-    <Compile Include="Core\IAnswer.cs" />
-    <Compile Include="Core\IBookmark.cs" />
-    <Compile Include="Core\IComment.cs" />
-    <Compile Include="Core\IMessage.cs" />
-    <Compile Include="Core\IQuestion.cs" />
-    <Compile Include="Core\IVisit.cs" />
+    <Compile Include="Core\Entities\IAnswer.cs" />
+    <Compile Include="Core\Entities\IBookmark.cs" />
+    <Compile Include="Core\Entities\IComment.cs" />
+    <Compile Include="Core\Entities\IMessage.cs" />
+    <Compile Include="Core\Entities\IQuestion.cs" />
+    <Compile Include="Core\Entities\IVisit.cs" />
+    <Compile Include="Core\Repositories\IAnswerRepository.cs" />
     <Compile Include="EntityFramework\Repositories\EFQuestionRepository.cs" />
     <Compile Include="EntityFramework\Repositories\EFUserRepository.cs" />
-    <Compile Include="Core\ISniHead.cs" />
-    <Compile Include="Core\ISniItem.cs" />
-    <Compile Include="Core\IUser.cs" />
-    <Compile Include="Core\IMessageRepository.cs" />
-    <Compile Include="Core\IWordsRepository.cs" />
-    <Compile Include="Core\IQuestionRepository.cs" />
-    <Compile Include="Core\IRepository.cs" />
-    <Compile Include="Core\ISniHeadRepository.cs" />
-    <Compile Include="Core\IUserRepository.cs" />
+    <Compile Include="Core\Entities\ISniHead.cs" />
+    <Compile Include="Core\Entities\ISniItem.cs" />
+    <Compile Include="Core\Entities\IUser.cs" />
+    <Compile Include="Core\Repositories\IMessageRepository.cs" />
+    <Compile Include="Core\Repositories\IWordsRepository.cs" />
+    <Compile Include="Core\Repositories\IQuestionRepository.cs" />
+    <Compile Include="Core\Repositories\IRepository.cs" />
+    <Compile Include="Core\Repositories\ISniHeadRepository.cs" />
+    <Compile Include="Core\Repositories\IUserRepository.cs" />
     <Compile Include="MatchType.cs" />
     <Compile Include="Message.cs">
       <DependentUpon>Model.tt</DependentUpon>

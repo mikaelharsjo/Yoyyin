@@ -3,6 +3,7 @@ using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Yoyyin.Data;
+using Yoyyin.Data.Core.Entities;
 using Yoyyin.Domain;
 using Yoyyin.Domain.Services;
 using Yoyyin.Domain.ThirdParty;

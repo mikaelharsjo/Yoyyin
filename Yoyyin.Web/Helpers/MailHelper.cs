@@ -2,6 +2,8 @@
 using System.Net.Mail;
 using System.Web.Security;
 using Yoyyin.Data;
+using Yoyyin.Data.Core.Repositories;
+using Yoyyin.Data.EntityFramework.Repositories;
 using Yoyyin.Data.UnitOfWork;
 using Yoyyin.Domain;
 using Yoyyin.Domain.Services;

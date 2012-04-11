@@ -93,7 +93,7 @@ namespace Yoyyin.Web
         //[OperationContract]
         //public void SaveComment(Guid fromUserId, Guid toUserId, string text, int commentID)
         //{
-        //    UserComments comment = _commentsService.CreateAndSaveComment(fromUserId, toUserId, text, commentID);
+        //    Comment comment = _commentsService.CreateAndSaveComment(fromUserId, toUserId, text, commentID);
 
         //    if (fromUserId != toUserId)
         //    {

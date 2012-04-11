@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Yoyyin.Data;
-using Yoyyin.Data.EntityFramework;
+using Yoyyin.Data.Core.Repositories;
 using Yoyyin.Domain.Extensions;
 
 

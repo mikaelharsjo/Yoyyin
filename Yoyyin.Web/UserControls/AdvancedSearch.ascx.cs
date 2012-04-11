@@ -1,5 +1,6 @@
 ﻿using System;
 using Yoyyin.Data;
+using Yoyyin.Data.Core.Repositories;
 using Yoyyin.Domain.Services;
 using UserTypes = Yoyyin.Domain.Enumerations.UserTypes;
 

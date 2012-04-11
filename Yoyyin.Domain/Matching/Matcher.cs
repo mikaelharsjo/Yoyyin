@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Yoyyin.Data;
+using Yoyyin.Data.Core.Entities;
 using Yoyyin.Domain.Extensions;
 using Yoyyin.Domain.Users;
 using MatchType = Yoyyin.Domain.Enumerations.MatchType;

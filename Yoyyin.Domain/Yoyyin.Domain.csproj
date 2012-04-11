@@ -87,10 +87,6 @@
     <Compile Include="SearchWords\ProfileSearchWordsProvider.cs" />
     <Compile Include="SearchWords\WordsProvider.cs" />
     <Compile Include="Users\AnonymousUser.cs" />
-    <Compile Include="Services\BookmarksService.cs" />
-    <Compile Include="Services\CommentsService.cs" />
-    <Compile Include="Services\IBookmarksService.cs" />
-    <Compile Include="Services\ICommentsService.cs" />
     <Compile Include="Services\IMessagesService.cs" />
     <Compile Include="Services\IQAService.cs" />
     <Compile Include="Services\ISniHeadService.cs" />

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Yoyyin.Data;
+using Yoyyin.Data.Core.Entities;
 using Yoyyin.Domain.Sni;
 
 namespace Yoyyin.Domain.Users
@@ -16,6 +17,73 @@ namespace Yoyyin.Domain.Users
         public string SniNo { get; set; }
         public string SniHeadID { get; set; }
         public ISniHead SniHead { get; set; }
+
+        SniItem IUser.SniItem
+        {
+            get { throw new NotImplementedException(); }
+            set { throw new NotImplementedException(); }
+        }
+
+        public ICollection<Answer> Answer
+        {
+            get { throw new NotImplementedException(); }
+            set { throw new NotImplementedException(); }
+        }
+
+        public ICollection<Question> Question
+        {
+            get { throw new NotImplementedException(); }
+            set { throw new NotImplementedException(); }
+        }
+
+        public ICollection<Message> Message
+        {
+            get { throw new NotImplementedException(); }
+            set { throw new NotImplementedException(); }
+        }
+
+        public ICollection<Message> Message1
+        {
+            get { throw new NotImplementedException(); }
+            set { throw new NotImplementedException(); }
+        }
+
+        public ICollection<Bookmark> Bookmark
+        {
+            get { throw new NotImplementedException(); }
+            set { throw new NotImplementedException(); }
+        }
+
+        public ICollection<Comment> Comment
+        {
+            get { throw new NotImplementedException(); }
+            set { throw new NotImplementedException(); }
+        }
+
+        public ICollection<Comment> Comment1
+        {
+            get { throw new NotImplementedException(); }
+            set { throw new NotImplementedException(); }
+        }
+
+        public ICollection<Visit> Visit
+        {
+            get { throw new NotImplementedException(); }
+            set { throw new NotImplementedException(); }
+        }
+
+        public ICollection<Visit> Visit1
+        {
+            get { throw new NotImplementedException(); }
+            set { throw new NotImplementedException(); }
+        }
+
+        SniHead IUser.SniHead
+        {
+            get { throw new NotImplementedException(); }
+            set { throw new NotImplementedException(); }
+        }
+
         public ISniItem SniItem { get; set; }
         public string Street { get; set; }
         public string ZipCode { get; set; }
@@ -23,6 +91,13 @@ namespace Yoyyin.Domain.Users
         public double? Longitude { get; set; }
         public string SearchWords { get; set; }
         public string SearchWordsCompetenceNeeded { get; set; }
+
+        public int? ForumUserID
+        {
+            get { throw new NotImplementedException(); }
+            set { throw new NotImplementedException(); }
+        }
+
         public string SearchWordsCompetence { get; set; }
         public string UserTypesNeeded { get; set; }
         public int? UserType { get; set; }
@@ -49,7 +124,7 @@ namespace Yoyyin.Domain.Users
             return "Gäst";
         }
 
-        public List<UserComments> GetComments()
+        public List<Comment> GetComments()
         {
             throw new NotImplementedException();
         }

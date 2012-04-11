@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Web;
 using Microsoft.Web;
 using Yoyyin.Data;
+using Yoyyin.Data.Core.Repositories;
 using Yoyyin.Domain.Services;
 
 namespace Yoyyin.Web.Handlers

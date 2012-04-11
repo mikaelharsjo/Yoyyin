@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Security;
 using Yoyyin.Data;
+using Yoyyin.Data.Core.Entities;
 using Yoyyin.Domain;
 using Yoyyin.Domain.Extensions;
 using Yoyyin.Domain.Users;
@@ -17,7 +18,7 @@ namespace Yoyyin.PresentationModel
             _currentUser = currentUser;
         }
 
-        public CommentPresentation Presentate(UserComments comment)
+        public CommentPresentation Presentate(Comment comment)
         {
             return new CommentPresentation
                        {
@@ -28,18 +29,18 @@ namespace Yoyyin.PresentationModel
                            User = comment.User as IUser,
                            Commentator = comment.User1 as IUser,
                            CommentatorDisplayName = comment.User1.GetDisplayName(),
-                           Created = comment.TimeStamp.ToFormattedString(),
+                           Created = comment.Created.ToFormattedString(),
                            CommentId = comment.CommentID,
                            DeleteVisible = DeleteVisible(comment)
                        };
         }
 
-        public IEnumerable<CommentPresentation> Presentate(IEnumerable<UserComments> comments)
+        public IEnumerable<CommentPresentation> Presentate(IEnumerable<Comment> comments)
         {
             return comments.Select(Presentate);
         }
 
-        private bool DeleteVisible(UserComments comment)
+        private bool DeleteVisible(Comment comment)
         {
             var mu = Membership.GetUser();
             if (mu == null)

@@ -40,10 +40,13 @@
   <ItemGroup>
     <Compile Include="AnswerPresenter.cs" />
     <Compile Include="AnswerPresentation.cs" />
+    <Compile Include="BookmarkPresentation.cs" />
+    <Compile Include="BookmarkPresenter.cs" />
     <Compile Include="CommentPresenter.cs" />
     <Compile Include="CommentPresentation.cs" />
     <Compile Include="GenericPresenter.cs" />
     <Compile Include="IAnswerPresenter.cs" />
+    <Compile Include="IBookmarkPresenter.cs" />
     <Compile Include="ICommentPresenter.cs" />
     <Compile Include="IMessagePresenter.cs" />
     <Compile Include="IOnlineImageProvider.cs" />
@@ -53,6 +56,7 @@
     <Compile Include="IPresentation.cs" />
     <Compile Include="IQuestionPresenter.cs" />
     <Compile Include="IUserPresenter.cs" />
+    <Compile Include="IVisitPresenter.cs" />
     <Compile Include="MessagePresenter.cs" />
     <Compile Include="MessagePresentation.cs" />
     <Compile Include="MultipleMatchPresentation.cs" />

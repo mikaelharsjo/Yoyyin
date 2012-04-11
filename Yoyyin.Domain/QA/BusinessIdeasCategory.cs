@@ -1,4 +1,5 @@
 using Yoyyin.Data;
+using Yoyyin.Data.Core.Repositories;
 using Yoyyin.Domain.Services;
 
 namespace Yoyyin.Domain.QA

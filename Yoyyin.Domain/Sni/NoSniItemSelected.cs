@@ -1,4 +1,5 @@
 using Yoyyin.Data;
+using Yoyyin.Data.Core.Entities;
 
 namespace Yoyyin.Domain.Sni
 {

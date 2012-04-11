@@ -1,4 +1,6 @@
 ﻿using Yoyyin.Data;
+using Yoyyin.Data.Core;
+using Yoyyin.Data.Core.Entities;
 using Yoyyin.Domain.Users;
 
 
@@ -26,12 +28,12 @@ namespace Yoyyin.Domain.Extensions
         //    return userService.GetInBoxMessages(user.UserId);
         //}
 
-        //public static List<UserBookmarks> GetBookmarks(this User user, IUserService userService)
+        //public static List<Bookmark> GetBookmarks(this User user, IUserService userService)
         //{
         //    return userService.GetBookmarks(user.UserId);
         //}
 
-        //public static List<UserVisits> GetVisits(this User user, IUserService userService)
+        //public static List<Visit> GetVisits(this User user, IUserService userService)
         //{
         //    return userService.GetVisits(user.UserId);           
         //}
@@ -51,7 +53,7 @@ namespace Yoyyin.Domain.Extensions
         //    return "display: none;";
         //}
 
-        //public static IList<UserComments> GetComments(this User user, IUserService userService)
+        //public static IList<Comment> GetComments(this User user, IUserService userService)
         //{
         //    return userService.GetComments(user.UserId); 
         //}
@@ -94,20 +96,20 @@ namespace Yoyyin.Domain.Extensions
             return string.IsNullOrEmpty(user.Alias) ? user.Name : user.Alias;
         }
 
-        public static string GetDisplayName(this User user)
-        {
-            return string.IsNullOrEmpty(user.Alias) ? user.Name : user.Alias;
-        }
+        //public static string GetDisplayName(this User user)
+        //{
+        //    return string.IsNullOrEmpty(user.Alias) ? user.Name : user.Alias;
+        //}
 
         public static string GetProfileUrl(this IUser user)
         {
             return "Member.aspx?UserID=" + user.UserId;
         }
 
-        public static string GetProfileUrl(this User user)
-        {
-            return "Member.aspx?UserID=" + user.UserId;
-        }
+        //public static string GetProfileUrl(this User user)
+        //{
+        //    return "Member.aspx?UserID=" + user.UserId;
+        //}
 
         public static string GetUserName(this IUser user)
         {

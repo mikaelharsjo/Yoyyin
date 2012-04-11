@@ -9,6 +9,7 @@ using System.Web.Security;
 using Autofac;
 using Autofac.Integration.Web;
 using Yoyyin.Data;
+using Yoyyin.Data.Core.Repositories;
 using Yoyyin.Domain.Services;
 using Yoyyin.PresentationModel;
 using Yoyyin.Web.Helpers;

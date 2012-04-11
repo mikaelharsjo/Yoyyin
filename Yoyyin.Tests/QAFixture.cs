@@ -1,7 +1,6 @@
 ﻿using System;
 using NUnit.Framework;
 using Yoyyin.Data;
-using Yoyyin.Data.EntityFramework;
 using Yoyyin.Domain.Services;
 
 namespace Yoyyin.Tests

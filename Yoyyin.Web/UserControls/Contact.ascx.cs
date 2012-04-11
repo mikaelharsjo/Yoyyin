@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using Yoyyin.Data;
+using Yoyyin.Data.Core.Entities;
+using Yoyyin.Data.Core.Repositories;
 using Yoyyin.Domain;
 using Yoyyin.Domain.Services;
 using Yoyyin.Domain.Users;

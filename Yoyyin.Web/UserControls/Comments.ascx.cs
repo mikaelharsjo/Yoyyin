@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Security;
 using Yoyyin.Data;
+using Yoyyin.Data.Core.Repositories;
 using Yoyyin.Domain;
 using Yoyyin.Domain.Services;
 using Yoyyin.Domain.Users;
@@ -19,7 +20,7 @@ namespace Yoyyin.Web.UserControls
         public Guid UserId { get; set; }
         public int TextAreaWidth { get; set; }
 
-        public ICommentsService CommentsService { get; set; }
+        public IRepository<Comment> CommentRepository { get; set; }
         public IUserService UserService { get; set; }
         public ICurrentUser CurrentUser { get; set; }
         public ICommentPresenter CommentPresenter { get; set; }
@@ -31,7 +32,7 @@ namespace Yoyyin.Web.UserControls
             if (!WebHelpers.IsLoggedIn())
                 divNewComment.Visible = false;
 
-            var comments = CommentsService.GetComments(UserId);
+            var comments = CommentRepository.Find(c => c.User.UserId == UserId);
             var commentsSorted = SortComments(comments.ToList());
             int count = comments.Count();
             if (count > 0)
@@ -49,9 +50,9 @@ namespace Yoyyin.Web.UserControls
             }
         }
 
-        private static IList<UserComments> SortComments(IList<UserComments> comments)
+        private static IList<Comment> SortComments(IList<Comment> comments)
         {
-            var commentsSorted = new List<UserComments>();
+            var commentsSorted = new List<Comment>();
             foreach (var comment in comments)
             {
                 if (comment.CommentCommentID != null)
@@ -75,7 +76,7 @@ namespace Yoyyin.Web.UserControls
 
         protected string GetMemberUrl(object item)
         {
-            var comment = (UserComments)item;
+            var comment = (Comment)item;
             string urlStart = "Member.aspx";
 
             if (comment.User.UserId == Current.UserID)

@@ -21,7 +21,7 @@ namespace Yoyyin.Domain.Services
                 .Find()
                 .Where(comment => comment.CommentCommentID == commentID);
                 
-            foreach (UserComments childComment in childComments)
+            foreach (Comment childComment in childComments)
             {
                 RemoveSingleComment(childComment.CommentID);
             }
@@ -36,7 +36,7 @@ namespace Yoyyin.Domain.Services
                 .Delete(_repository.Find().First(comment => comment.CommentID == commentID));
         }
 
-        public IEnumerable<UserComments> GetComments(Guid userID)
+        public IEnumerable<Comment> GetComments(Guid userID)
         {
             return _repository
                 .Find()

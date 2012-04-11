@@ -6,6 +6,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Newtonsoft.Json.Linq;
 using Yoyyin.Data;
+using Yoyyin.Data.Core.Entities;
+using Yoyyin.Data.Core.Repositories;
 using Yoyyin.Data.UnitOfWork;
 using Yoyyin.Domain;
 using Yoyyin.Domain.Extensions;

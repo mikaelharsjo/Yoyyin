@@ -7,6 +7,7 @@ using System.Text;
 using System.Web.Security;
 using System.Web.UI.WebControls;
 using Yoyyin.Data;
+using Yoyyin.Data.Core.Entities;
 using Yoyyin.Domain;
 using Yoyyin.Domain.Extensions;
 using Yoyyin.Domain.Services;
@@ -133,9 +134,9 @@ namespace Yoyyin.Web.Helpers
 
         //    if (dataItem is User)
         //        user = (User)dataItem;
-        //    else if (dataItem is UserComments)
+        //    else if (dataItem is Comment)
         //    {
-        //        UserComments comment = (UserComments)dataItem;
+        //        Comment comment = (Comment)dataItem;
         //        user = (User) comment.User; //entityFactory.GetUser(comment.CommentUserId);
         //    }
 

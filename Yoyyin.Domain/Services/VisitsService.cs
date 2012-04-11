@@ -2,24 +2,25 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Yoyyin.Data;
+using Yoyyin.Data.Core.Entities;
+using Yoyyin.Data.Core.Repositories;
 
 namespace Yoyyin.Domain.Services
 {
     public class VisitsService : IVisitsService
     {
-        private readonly IVisitsRepository _repository;
+        private readonly IRepository<IVisit> _repository;
 
-        public VisitsService(IVisitsRepository repository)
+        public VisitsService(IRepository<IVisit> repository)
         {
             _repository = repository;
         }
 
-        public IEnumerable<UserVisits> GetVisits(Guid userID)
+        public IEnumerable<IVisit> GetVisits(Guid userID)
         {
             return _repository
-                .Find()
-                .Where(visit => visit.UserId == userID)
-                .OrderByDescending(visit => visit.TimeStamp);
+                .Find(visit => visit.UserId == userID)
+                .OrderByDescending(visit => visit.Created);
         }
 
         public void LogMemberVisit(Guid visitingUserID, Guid userID)
@@ -28,34 +29,34 @@ namespace Yoyyin.Domain.Services
                 return;
 
             var visit = _repository
-                .Find()
+                .FindAll()
                 .FirstOrDefault(x => x.VisitingUserId == visitingUserID && x.UserId == userID);
 
             if (visit == null) // first time
             {
-                visit = new UserVisits { UserId = userID, VisitingUserId = visitingUserID };
+                visit = new Visit { UserId = userID, VisitingUserId = visitingUserID };
                 _repository.Add(visit);
             }
 
-            visit.TimeStamp = DateTime.Now;
-            _repository.Save();
+            visit.Created = DateTime.Now;
+            //_repository.Save();
         }
 
         public void LogAnonymousVisit(Guid userID)
         {
-            UserVisits visit = _repository
-                .Find()
-                .FirstOrDefault(x => x.VisitingUserId == null && x.UserId == userID);
+            var visit = _repository
+                .Find(x => x.VisitingUserId == null && x.UserId == userID)
+                .FirstOrDefault();
             if (visit == null)
             {
-                visit = new UserVisits();
+                visit = new Visit();
                 _repository.Add(visit);
             }
             visit.VisitingUserId = null;
             visit.UserId = userID;
 
-            visit.TimeStamp = DateTime.Now;
-            _repository.Save();
+            visit.Created = DateTime.Now;
+            //_repository.Save();
         }
     }
 }

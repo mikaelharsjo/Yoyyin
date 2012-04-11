@@ -1,5 +1,7 @@
 ﻿using System;
 using Yoyyin.Data;
+using Yoyyin.Data.Core.Entities;
+using Yoyyin.Data.Core.Repositories;
 using Yoyyin.Domain;
 using Microsoft.Web;
 using Yoyyin.Domain.Services;

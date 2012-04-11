@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Objects;
 using Yoyyin.Data;
+using Yoyyin.Data.Core.Repositories;
 
 namespace Yoyyin.Domain.SearchWords
 {

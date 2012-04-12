@@ -22,8 +22,6 @@ namespace Yoyyin.Web.Helpers
     public class WebHelpers
     {
         const string MemberUrl = "Member.aspx?UserID={0}";
-        public const string FacebookImageurlSmall = "https://graph.facebook.com/{0}/picture";
-        public const string FacebookImageurlLarge = "https://graph.facebook.com/{0}/picture?type=large";
         public const string MailFooter2 = "<br/><br/>Hälsningar Anders, Peter & Mikael på Yoyyin";
         public IUserService UserService { get; set; }
 
@@ -106,20 +104,13 @@ namespace Yoyyin.Web.Helpers
         //    return true;
         //}
 
-        public static string HideFaceBookImage(IUser user)
-        {
-            if (!ShowFaceBookImage(user))
-                return "display: none";
-            else
-                return string.Empty;
-        }
-
-        public static bool ShowFaceBookImage(IUser user)
-        {
-            bool hasFacebook = !string.IsNullOrEmpty(user.FacebookID);
-            bool hasYoyyinImage = user.Image != null;
-            return hasFacebook && !hasYoyyinImage;
-        }
+        //public static string HideFaceBookImage(IUser user)
+        //{
+        //    if (!ShowFaceBookImage(user))
+        //        return "display: none";
+        //    else
+        //        return string.Empty;
+        //}
 
         //public static string GetFbUrl(object dataItem)
         //{        

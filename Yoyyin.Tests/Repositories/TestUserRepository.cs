@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using Yoyyin.Data;
+using Yoyyin.Data.Core.Entities;
 using Yoyyin.Data.Core.Repositories;
 
 namespace Yoyyin.Tests.Repositories
@@ -27,6 +28,26 @@ namespace Yoyyin.Tests.Repositories
         }
 
         public IQueryable<IUser> Find(Expression<Func<IUser, bool>> predicate)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Add(User entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Delete(User entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IQueryable<User> Find(Expression<Func<User, bool>> predicate)
+        {
+            throw new NotImplementedException();
+        }
+
+        IQueryable<User> IRepository<User>.FindAll()
         {
             throw new NotImplementedException();
         }

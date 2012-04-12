@@ -54,6 +54,7 @@
     <Compile Include="Matching\MatcherFixture.cs" />
     <Compile Include="Matching\Matcher_GetResultsAsHtmlTableShould.cs" />
     <Compile Include="MultipleMatcherFixture.cs" />
+    <Compile Include="PresentationModel\FacebookImageMarkupProviderShould.cs" />
     <Compile Include="PresentationModel\UserPresenterFixture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QAFixture.cs" />

@@ -49,7 +49,8 @@
     <Compile Include="IBookmarkPresenter.cs" />
     <Compile Include="ICommentPresenter.cs" />
     <Compile Include="IMessagePresenter.cs" />
-    <Compile Include="IOnlineImageProvider.cs" />
+    <Compile Include="MarkupProviders\FacebookImageMarkupProvider.cs" />
+    <Compile Include="MarkupProviders\IOnlineImageProvider.cs" />
     <Compile Include="IPostPresenter.cs" />
     <Compile Include="IPresenter.cs" />
     <Compile Include="IQuestionAnswer.cs" />

@@ -29,6 +29,7 @@ namespace Yoyyin.Web
         public static IUser CurrentUser { get; set; } 
         public UserPresentation CurrentUserPresentation { get; set; }
         public IUserRepository UserRepository { get; set; }
+        public IRepository<IVisit> VisitRepository { get; set; }
         public IVisitsService VisitsService { get; set; }
         public ISniHeadService SniHeadService { get; set; }
         public IUserPresenter UserPresenter { get; set; }
@@ -170,7 +171,8 @@ namespace Yoyyin.Web
             var lstVisits = (ListView)loginView.FindControl("lstVisits");
             if (lstVisits != null)
             {
-                lstVisits.DataSource = VisitPresenter.Presentate(VisitsService.GetVisits(CurrentUser.UserId));
+                lstVisits.DataSource =
+                    VisitPresenter.Presentate(VisitRepository.Find(v => v.UserId == CurrentUser.UserId));
                 lstVisits.DataBind();
             }
         }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Yoyyin.Data;
+using Yoyyin.Data.Core.Entities;
 using Yoyyin.Domain;
 using Yoyyin.Domain.Extensions;
 
@@ -17,7 +18,7 @@ namespace Yoyyin.PresentationModel
             _onlineImageProvider = onlineImageProvider;
         }
 
-        public IPresentation Presentate(Visit visit)
+        public IPresentation Presentate(IVisit visit)
         {
             return new VisitPresentation
                        {
@@ -28,7 +29,7 @@ namespace Yoyyin.PresentationModel
                        };
         }
 
-        public IEnumerable<IPresentation> Presentate(IEnumerable<Visit> visits)
+        public IEnumerable<IPresentation> Presentate(IEnumerable<IVisit> visits)
         {
             return visits.Select(Presentate);
         }

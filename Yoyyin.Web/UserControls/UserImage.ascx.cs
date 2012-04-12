@@ -6,12 +6,14 @@ using Yoyyin.Domain;
 using Microsoft.Web;
 using Yoyyin.Domain.Services;
 using Yoyyin.Domain.Users;
+using Yoyyin.PresentationModel.MarkupProviders;
 using Yoyyin.Web.Helpers;
 
 namespace Yoyyin.Web.UserControls
 {
     public partial class UserImage : UserControlWithDependenciesInjected
     {
+        public FacebookImageMarkupProvider FacebookImageMarkupProvider { get; set; } 
         public Guid UserID { get; set; }
         public IUser User { get; set; }
         public IUserRepository UserRepository { get; set; }
@@ -41,7 +43,9 @@ namespace Yoyyin.Web.UserControls
                 generatedImage.Parameters.Add(new ImageParameter() { Name = "height", Value = Width.ToString() });
             }
 
-            if (WebHelpers.ShowFaceBookImage(User))
+            FacebookImageMarkupProvider = new FacebookImageMarkupProvider(User);
+
+            if (FacebookImageMarkupProvider.ShowFaceBookImage(User))
                 generatedImage.Visible = false;
         }
     }

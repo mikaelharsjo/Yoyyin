@@ -28,6 +28,8 @@ namespace Yoyyin.Web
         public IUserService UserService { get; set; }
         public IUnitOfWork UnitOfWork { get; set; }
 
+        public const string FacebookImageurlLarge = "https://graph.facebook.com/{0}/picture?type=large";
+
         public string FbID { get; set; }
         public string FbEmail { get; set; }
         public string FbLocationName { get; set; }
@@ -161,7 +163,7 @@ namespace Yoyyin.Web
                     FbName = json["name"].ToString().Replace("\"", "");
 
                     if (FbID != null)
-                        imgYoyyin.ImageUrl = string.Format(WebHelpers.FacebookImageurlLarge, FbID);
+                        imgYoyyin.ImageUrl = string.Format(FacebookImageurlLarge, FbID);
 
                     if (!IsPostBack)
                     {

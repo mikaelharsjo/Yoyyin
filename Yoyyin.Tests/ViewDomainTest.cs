@@ -51,9 +51,9 @@ namespace Yoyyin.Tests
         public void ConvertCommentToViewHeading()
         {
             var commentConverter = new CommentPresenter(new FakeCurrentUser());
-            var comment = new UserComments
+            var comment = new Comment
                               {
-                                           TimeStamp = new DateTime(2011, 5, 8, 21, 40, 0),
+                                           Created = new DateTime(2011, 5, 8, 21, 40, 0),
                                            User = new User { Name = "Peter Hansson" }
                                        };
             var convertedComment = commentConverter.Presentate(comment);

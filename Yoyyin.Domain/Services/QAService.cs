@@ -14,14 +14,14 @@ namespace Yoyyin.Domain.Services
     public class QAService : IQAService
     {
         private readonly IQuestionRepository _questionRepository;
-        private readonly IAnswerRepository _answerRepository;
+        private readonly IRepository<Answer> _answerRepository;
 
         //// Poor mans Ioc Container
         //public QAService() : this(new EFQARepository(new YoyyinEntities1()), new UserService(new EntityUserRepository()), new CategoryFactory() ){
         //}
 
         // Dependency Injection enabled constructor
-        public QAService(IQuestionRepository questionRepository, IAnswerRepository answerRepository)
+        public QAService(IQuestionRepository questionRepository, IRepository<Answer> answerRepository)
         {
             _questionRepository = questionRepository;
             _answerRepository = answerRepository;

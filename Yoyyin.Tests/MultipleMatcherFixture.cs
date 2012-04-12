@@ -2,6 +2,7 @@
 using System.Linq;
 using NUnit.Framework;
 using Yoyyin.Data;
+using Yoyyin.Data.Core.Entities;
 using Yoyyin.Domain.Matching;
 using Yoyyin.Domain.Services;
 using Yoyyin.Domain.Users;

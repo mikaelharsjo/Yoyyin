@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
 using NUnit.Framework;
 using Yoyyin.Data;
+using Yoyyin.Data.Core.Entities;
 using Yoyyin.Domain.Services;
 using Yoyyin.PresentationModel;
 using Yoyyin.Tests.Repositories;
@@ -39,7 +40,7 @@ namespace Yoyyin.Tests.PresentationModel
 
             Assert.That(userToConvert.Image, !Is.Null);
             
-            var actualUserView = _userPresenter.Presentate((IUser)userToConvert);
+            var actualUserView = _userPresenter.Presentate(userToConvert);
             Assert.That(actualUserView.User.Image, Is.EqualTo(userToConvert.Image));
         }
 

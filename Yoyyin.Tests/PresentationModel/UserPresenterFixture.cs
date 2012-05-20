@@ -8,6 +8,7 @@ using Yoyyin.Data;
 using Yoyyin.Data.Core.Entities;
 using Yoyyin.Domain.Services;
 using Yoyyin.PresentationModel;
+using Yoyyin.Tests.Fakes.Repositories;
 using Yoyyin.Tests.Repositories;
 using Yoyyin.Tests.Services;
 
@@ -22,7 +23,7 @@ namespace Yoyyin.Tests.PresentationModel
         public void Setup()
         {
             _userPresenter =
-                new UserPresenter(new OnlineImageProvider(), new TestUserRepository());
+                new UserPresenter(new OnlineImageProvider(), new FakeUserRepository());
         }
 
         [Test]

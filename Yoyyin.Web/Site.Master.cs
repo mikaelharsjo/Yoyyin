@@ -76,12 +76,16 @@ namespace Yoyyin.Web
             passwordRecovery.SendingMail += passwordRecovery_SendingMail;
 
             var newMembers = NewestMembersHelper.GetNewestMembersFromCacheOrDb();
-            lstNewest.DataSource = UserPresenter.Presentate(newMembers.Select(memuser => new Guid(memuser.ProviderUserKey.ToString())));
+            lstNewest.DataSource =
+                UserPresenter.Presentate(
+                    newMembers.Select(
+                        memuser =>
+                        memuser.ProviderUserKey != null ? new Guid(memuser.ProviderUserKey.ToString()) : new Guid()));
             lstNewest.DataBind();
             
-            lstPopular.DataSource = UserPresenter.Presentate(UserRepository.GetUserIDsWithMostVisits());
-            lstPopular.DataBind();
-            litCount.Text = string.Format(CountTxt, UserService.GetNumberOfUsers());
+            //lstPopular.DataSource = UserPresenter.Presentate(UserRepository.GetUserIDsWithMostVisits());
+            //lstPopular.DataBind();
+            litCount.Text = string.Format(CountTxt, UserRepository.FindAll().Count());
         }
 
         void LoginLoggedIn(object sender, EventArgs e)

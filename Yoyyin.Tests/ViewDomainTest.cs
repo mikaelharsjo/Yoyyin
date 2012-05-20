@@ -5,6 +5,7 @@ using NUnit.Framework;
 using Yoyyin.Data;
 using Yoyyin.Domain;
 using Yoyyin.PresentationModel;
+using Yoyyin.Tests.Fakes;
 using Yoyyin.Tests.Services;
 
 namespace Yoyyin.Tests

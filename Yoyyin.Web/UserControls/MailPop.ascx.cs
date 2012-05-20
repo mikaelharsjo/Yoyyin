@@ -8,10 +8,9 @@ namespace Yoyyin.Web.UserControls
 {
     public partial class MailPop : System.Web.UI.UserControl
     {
-        private IMessagesService _messagesService;
-        private IRepository<Message> _messageRepository;
+        private IMessageRepository _messageRepository;
 
-        public MailPop(IRepository<Message> userRepository)
+        public MailPop(IMessageRepository userRepository)
         {
             _messageRepository = userRepository;
         }

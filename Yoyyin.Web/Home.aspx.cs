@@ -16,9 +16,9 @@ namespace Yoyyin.Web
     {
         public IUser CurrentUser;
         public string CurrentEmail { get; set; }
-        public IMessagesService MessagesService { get; set; }
+        public IMessageRepository MessageRepository { get; set; }
         public IMessagePresenter MessagePresenter { get; set; }
-        public IRepository<Bookmark> BookmarkRepository { get; set; }
+        public IBookmarkRepository BookmarkRepository { get; set; }
         public IBookmarkPresenter BookmarkPresenter { get; set; }
         public ICurrentUser Current { get; set; }
         public IUserService UserService { get; set; }
@@ -43,14 +43,14 @@ namespace Yoyyin.Web
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            lstMessages.DataSource = MessagePresenter.Presentate(MessagesService.GetInBoxMessages(Current.UserId));
+            lstMessages.DataSource = MessagePresenter.Presentate(MessageRepository.GetInBoxMessages(Current.UserId));
             lstMessages.DataBind();
 
-            lstMessagesSent.DataSource = MessagePresenter.Presentate(MessagesService.GetOutBoxMessages(Current.UserId));
+            lstMessagesSent.DataSource = MessagePresenter.Presentate(MessageRepository.GetOutBoxMessages(Current.UserId));
             lstMessagesSent.DataBind();
 
             lstBookmarks.DataSource =
-                BookmarkPresenter.Presentate(BookmarkRepository.Find(b => b.UserId == CurrentUser.UserId));
+                BookmarkPresenter.Presentate(BookmarkRepository.GetUserBookmarks(CurrentUser.UserId));
             lstBookmarks.DataBind();
         }
     }

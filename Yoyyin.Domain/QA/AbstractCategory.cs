@@ -48,10 +48,7 @@ namespace Yoyyin.Domain.QA
 
         public Question GetLatestQuestion()
         {
-            return _questionRepository
-                        .Find(q => q.Category == (int) _categoryType)
-                        .OrderByDescending(q => q.Created)
-                        .First();
+            return _questionRepository.GetLatestQuestionByCategory((int)_categoryType);
         }
 
         public IEnumerable<Question> GetQuestions()

@@ -29,7 +29,7 @@ namespace Yoyyin.Web
         public static IUser CurrentUser { get; set; } 
         public UserPresentation CurrentUserPresentation { get; set; }
         public IUserRepository UserRepository { get; set; }
-        public IRepository<IVisit> VisitRepository { get; set; }
+        public IVisitRepository VisitRepository { get; set; }
         public IVisitsService VisitsService { get; set; }
         public ISniHeadService SniHeadService { get; set; }
         public IUserPresenter UserPresenter { get; set; }
@@ -169,12 +169,10 @@ namespace Yoyyin.Web
         private void DataBindVisits()
         {
             var lstVisits = (ListView)loginView.FindControl("lstVisits");
-            if (lstVisits != null)
-            {
-                lstVisits.DataSource =
-                    VisitPresenter.Presentate(VisitRepository.Find(v => v.UserId == CurrentUser.UserId));
-                lstVisits.DataBind();
-            }
+            if (lstVisits == null) return;
+
+            lstVisits.DataSource = VisitPresenter.Presentate(VisitRepository.GetUserVisits(CurrentUser.UserId));
+            lstVisits.DataBind();
         }
 
         private void DataBindNewestMembers()
@@ -279,9 +277,9 @@ namespace Yoyyin.Web
 
                 if (usersInSegment != null && usersInSegment.Any())
                 {
-                    var userIDs = usersInSegment.Select(u => u.UserId.ToString()).ToList();
+                    var userIDs = usersInSegment.Select(u => u.UserId).ToList();
                     int count = usersInSegment.Count();
-                    int currIndex = userIDs.IndexOf(CurrentUser.UserId.ToString());
+                    int currIndex = userIDs.IndexOf(CurrentUser.UserId);
                     if (count - currIndex == 1) // if current is last
                         currIndex = -1;
                     return string.Format(SegmentHtml, sniHead.Title, sniHead.Title, sniHeadID.Trim(), count, userIDs[currIndex + 1]);

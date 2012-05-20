@@ -62,12 +62,6 @@ namespace Yoyyin.Domain.Users
             set { throw new NotImplementedException(); }
         }
 
-        SniItem IUser.SniItem
-        {
-            get { throw new NotImplementedException(); }
-            set { throw new NotImplementedException(); }
-        }
-
         public ICollection<Answer> Answer
         {
             get { throw new NotImplementedException(); }
@@ -122,7 +116,7 @@ namespace Yoyyin.Domain.Users
             set { throw new NotImplementedException(); }
         }
 
-        SniHead IUser.SniHead
+        public Iaspnet_Users aspnet_Users
         {
             get { throw new NotImplementedException(); }
             set { throw new NotImplementedException(); }

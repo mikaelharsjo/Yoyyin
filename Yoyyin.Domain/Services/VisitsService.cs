@@ -9,16 +9,18 @@ namespace Yoyyin.Domain.Services
 {
     public class VisitsService : IVisitsService
     {
-        private readonly IRepository<IVisit> _repository;
+        private readonly IVisitRepository _visitRepository;
+        private IUserRepository _userRepository;
 
-        public VisitsService(IRepository<IVisit> repository)
+        public VisitsService(IVisitRepository visitRepository, IUserRepository userRepository)
         {
-            _repository = repository;
+            _visitRepository = visitRepository;
+            _userRepository = userRepository;
         }
 
         public IEnumerable<IVisit> GetVisits(Guid userID)
         {
-            return _repository
+            return _visitRepository
                 .Find(visit => visit.UserId == userID)
                 .OrderByDescending(visit => visit.Created);
         }
@@ -28,14 +30,14 @@ namespace Yoyyin.Domain.Services
             if (visitingUserID == userID)
                 return;
 
-            var visit = _repository
+            var visit = _visitRepository
                 .FindAll()
                 .FirstOrDefault(x => x.VisitingUserId == visitingUserID && x.UserId == userID);
 
             if (visit == null) // first time
             {
                 visit = new Visit { UserId = userID, VisitingUserId = visitingUserID };
-                _repository.Add(visit);
+                _visitRepository.Add(visit);
             }
 
             visit.Created = DateTime.Now;
@@ -44,19 +46,24 @@ namespace Yoyyin.Domain.Services
 
         public void LogAnonymousVisit(Guid userID)
         {
-            var visit = _repository
+            var visit = _visitRepository
                 .Find(x => x.VisitingUserId == null && x.UserId == userID)
                 .FirstOrDefault();
             if (visit == null)
             {
                 visit = new Visit();
-                _repository.Add(visit);
+                _visitRepository.Add(visit);
             }
             visit.VisitingUserId = null;
             visit.UserId = userID;
 
             visit.Created = DateTime.Now;
             //_repository.Save();
+        }
+
+        public IEnumerable<IUser> GetUsersWithMostVisits()
+        {
+            return _visitRepository.FindAll().GroupBy(v => v.User1).OrderBy(g => g.Count()).Select(g => g.Key);
         }
     }
 }

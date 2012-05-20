@@ -9,9 +9,9 @@ namespace Yoyyin.Domain.Services
 {
     public class SniHeadService : ISniHeadService
     {
-        private readonly ISniHeadRepository _repository;
+        private readonly IRepository<SniHead> _repository;
 
-        public SniHeadService(ISniHeadRepository repository)
+        public SniHeadService(IRepository<SniHead> repository)
         {
             _repository = repository;
         }
@@ -26,11 +26,11 @@ namespace Yoyyin.Domain.Services
         //    return _repository.GetAllSniIncludingUsers().Select(sniHead => new SniHeadWithUser { SniHead = sniHead, U})
         //}
 
-        public ISniHead GetSniHead(string sniHeadId)
-        {
-            return sniHeadId != null
-                       ? _repository.Find().First(x => x.SniHeadID == sniHeadId)
-                       : new NoSniHeadSelected();
-        }
+        //public ISniHead GetSniHead(string sniHeadId)
+        //{
+        //    return sniHeadId != null
+        //               ? _repository.FindAll().First(x => x.SniHeadID == sniHeadId)
+        //               : new NoSniHeadSelected();
+        //}
     }
 }

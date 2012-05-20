@@ -18,7 +18,7 @@ namespace Yoyyin.PresentationModel
                            ToDisplayName = message.User1.GetDisplayName(),
                            MessageShort = message.FromMessage.Truncate(100),
                            UserMessagesID = message.MessageID,
-                           FromUserId = message.User1.UserId
+                           FromUserId = message.User.UserId
                        };
         }
 

@@ -52,11 +52,11 @@ namespace Yoyyin.Domain.Services
 
 
 
-        public IEnumerable<User> GetLastActiveUsersWithImage()
-        {
-            throw new NotImplementedException();
-            //return _userRepository.Find().Where(user =>    ).OrderBy(User => User. orderby x.aspnet_Users.LastActivityDate descending where x.Image != null select x);
-        }
+        //public IEnumerable<User> GetLastActiveUsersWithImage()
+        //{
+        //    throw new NotImplementedException();
+        //    //return _userRepository.Find().Where(user =>    ).OrderBy(User => User. orderby x.aspnet_Users.LastActivityDate descending where x.Image != null select x);
+        //}
 
         //public IEnumerable<IUser> GetAllUsersIncludingSni()
         //{
@@ -70,11 +70,6 @@ namespace Yoyyin.Domain.Services
         //{
         //    return _user
         //}
-
-        public int GetNumberOfUsers()
-        {
-            return _userRepository.FindAll().Count();
-        }
 
         public IEnumerable<IUser> GetUsersBySni(string sniHeadID)
         {

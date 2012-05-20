@@ -20,6 +20,8 @@
     </SccAuxPath>
     <SccProvider>
     </SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\Yoyyin\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -48,9 +50,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Category\CategoryShould.cs" />
-    <Compile Include="Category\TestQARepository.cs" />
+    <Compile Include="Category\TestQuestionRepository.cs" />
     <Compile Include="Category\TestQAService.cs" />
-    <Compile Include="FakeWordsProvider.cs" />
+    <Compile Include="Fakes\FakeWordsProvider.cs" />
     <Compile Include="Matching\MatcherFixture.cs" />
     <Compile Include="Matching\Matcher_GetResultsAsHtmlTableShould.cs" />
     <Compile Include="MultipleMatcherFixture.cs" />
@@ -60,10 +62,12 @@
     <Compile Include="QAFixture.cs" />
     <Compile Include="Repositories\Fixture.cs" />
     <Compile Include="SearchWordsTest.cs" />
-    <Compile Include="Services\FakeCurrentUser.cs" />
+    <Compile Include="Fakes\FakeCurrentUser.cs" />
+    <Compile Include="Fakes\Repositories\FakeVisitRepository.cs" />
     <Compile Include="Services\UserServiceFixture.cs" />
+    <Compile Include="Services\VisitServiceGetUsersWithMostVisitsShould.cs" />
     <Compile Include="StringExtensionsTest.cs" />
-    <Compile Include="Repositories\TestUserRepository.cs" />
+    <Compile Include="Fakes\Repositories\FakeUserRepository.cs" />
     <Compile Include="ViewDomainTest.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -85,6 +89,7 @@
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

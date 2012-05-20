@@ -5,6 +5,7 @@ using System.Text;
 using NUnit.Framework;
 using Yoyyin.Data;
 using Yoyyin.Data.Core.Repositories;
+using Yoyyin.Tests.Fakes.Repositories;
 
 namespace Yoyyin.Tests.Repositories
 {
@@ -16,7 +17,7 @@ namespace Yoyyin.Tests.Repositories
         [SetUp]
         public void Setup()
         {
-            _testUserRepository = new TestUserRepository();    
+            _testUserRepository = new FakeUserRepository();    
         }
 
         [Test]

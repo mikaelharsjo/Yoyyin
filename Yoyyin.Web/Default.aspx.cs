@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using Yoyyin.Data.Core.Repositories;
 using Yoyyin.Domain.Services;
 using Yoyyin.Web.Helpers;
 
@@ -8,7 +9,7 @@ namespace Yoyyin.Web
     public partial class _Default : System.Web.UI.Page
     {
         const int FacePileCount = 8;
-        public IUserService UserService { get; set; }
+        public IUserRepository UserRepository { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {   
@@ -18,7 +19,7 @@ namespace Yoyyin.Web
                 lnkRegister.Visible = false;
                 hiddenLoggedIn.Value = "true";
                 
-                lstNewest.DataSource = UserService
+                lstNewest.DataSource = UserRepository
                                         .GetLastActiveUsersWithImage()
                                         .Take(FacePileCount);
                 lstNewest.DataBind();

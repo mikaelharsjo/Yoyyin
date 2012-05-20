@@ -6,6 +6,7 @@ using Yoyyin.Data.Core.Entities;
 using Yoyyin.Domain.Matching;
 using Yoyyin.Domain.Services;
 using Yoyyin.Domain.Users;
+using Yoyyin.Tests.Fakes.Repositories;
 using Yoyyin.Tests.Repositories;
 using Yoyyin.Tests.Services;
 using UserTypes = Yoyyin.Domain.Enumerations.UserTypes;
@@ -21,7 +22,7 @@ namespace Yoyyin.Tests
         {
             var multipleMatcher = new MultipleMatcher(new User {SniNo = "A"} as IUser,
                                                       new List<IUser> {new User {SniNo = "A"} as IUser},
-                                                      new TestUserRepository());
+                                                      new FakeUserRepository());
 
             var matchers = multipleMatcher.MatchAll();
             Assert.That(matchers.First().SniNoMatch.IsMatch(), Is.EqualTo(true));
@@ -74,7 +75,7 @@ namespace Yoyyin.Tests
                                                 },
                                             (IUser) new User {Name = "NoMatch", SniNo = "B"}
                                         },
-                                    new TestUserRepository());
+                                    new FakeUserRepository());
             return multipleMatcher;
         }
 

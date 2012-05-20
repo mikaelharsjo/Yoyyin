@@ -12,6 +12,8 @@
     <AssemblyName>Yoyyin.Data</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\Yoyyin\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -42,6 +44,9 @@
     <Compile Include="Answer.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="aspnet_Users.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Bookmark.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -49,6 +54,7 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Constants.cs" />
+    <Compile Include="Core\Entities\Iaspnet_Users.cs" />
     <Compile Include="Core\Entities\IAnswer.cs" />
     <Compile Include="Core\Entities\IBookmark.cs" />
     <Compile Include="Core\Entities\IComment.cs" />
@@ -56,17 +62,22 @@
     <Compile Include="Core\Entities\IQuestion.cs" />
     <Compile Include="Core\Entities\IVisit.cs" />
     <Compile Include="Core\Repositories\IAnswerRepository.cs" />
+    <Compile Include="EntityFramework\Repositories\EFBookmarkRepository.cs" />
+    <Compile Include="EntityFramework\Repositories\EFMessageRepository.cs" />
     <Compile Include="EntityFramework\Repositories\EFQuestionRepository.cs" />
     <Compile Include="EntityFramework\Repositories\EFUserRepository.cs" />
     <Compile Include="Core\Entities\ISniHead.cs" />
     <Compile Include="Core\Entities\ISniItem.cs" />
     <Compile Include="Core\Entities\IUser.cs" />
-    <Compile Include="Core\Repositories\IMessageRepository.cs" />
     <Compile Include="Core\Repositories\IWordsRepository.cs" />
     <Compile Include="Core\Repositories\IQuestionRepository.cs" />
     <Compile Include="Core\Repositories\IRepository.cs" />
     <Compile Include="Core\Repositories\ISniHeadRepository.cs" />
     <Compile Include="Core\Repositories\IUserRepository.cs" />
+    <Compile Include="Core\Repositories\IMessageRepository.cs" />
+    <Compile Include="Core\Repositories\IBookmarkRepository.cs" />
+    <Compile Include="EntityFramework\Repositories\EFVisitRepository.cs" />
+    <Compile Include="Core\Repositories\IVisitRepository.cs" />
     <Compile Include="MatchType.cs" />
     <Compile Include="Message.cs">
       <DependentUpon>Model.tt</DependentUpon>
@@ -131,6 +142,7 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

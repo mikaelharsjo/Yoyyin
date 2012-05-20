@@ -3,6 +3,7 @@ using NUnit.Framework;
 using Yoyyin.Data;
 using Yoyyin.Domain;
 using Yoyyin.Domain.SearchWords;
+using Yoyyin.Tests.Fakes;
 
 namespace Yoyyin.Tests
 {

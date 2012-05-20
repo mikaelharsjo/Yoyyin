@@ -6,6 +6,7 @@ using Yoyyin.Data.Core.Entities;
 using Yoyyin.Data.Core.Repositories;
 using Yoyyin.Domain.Extensions;
 using Yoyyin.Domain.QA;
+using Yoyyin.Domain.Users;
 using CategoryFactory = Yoyyin.Domain.Factories.CategoryFactory;
 using CategoryType = Yoyyin.Domain.QA.CategoryType;
 
@@ -146,22 +147,22 @@ namespace Yoyyin.Domain.Services
                     answer =>
                     new Post
                         {
-                        DisplayName = answer.User.GetDisplayName(),
+                        DisplayName = answer.User != null ? answer.User.GetDisplayName() : new NullUser().GetDisplayName(),
                         Created = answer.Created,
                         Text = answer.Text,
-                        UserId = answer.User.UserId,
-                        QuestionId = answer.Question.QuestionID,
-                        OwnerUserId = answer.Question.OwnerUserId
+                        UserId = answer.User != null ? answer.User.UserId : new NullUser().UserId,
+                        QuestionId = answer.QuestionID,
+                        OwnerUserId = answer.Question != null ? answer.Question.OwnerUserId : Guid.Empty
                     }).ToList();
             posts.AddRange(
                 questions.Select(
                     question =>
                     new Post
                         {
-                        DisplayName = question.User.GetDisplayName(),
+                        DisplayName = question.User != null ?  question.User.GetDisplayName() : new NullUser().GetDisplayName(),
                         Created = question.Created,
                         Text = question.Text,
-                        UserId = question.User.UserId,
+                        UserId = question.User != null ? question.User.UserId : new NullUser().UserId,
                         QuestionId = question.QuestionID,
                         OwnerUserId = question.OwnerUserId
                     }));

@@ -1,6 +1,8 @@
 ﻿using System;
 using NUnit.Framework;
 using Yoyyin.Domain.Services;
+using Yoyyin.Tests.Fakes;
+using Yoyyin.Tests.Fakes.Repositories;
 using Yoyyin.Tests.Repositories;
 
 namespace Yoyyin.Tests.Services
@@ -13,7 +15,7 @@ namespace Yoyyin.Tests.Services
         [SetUp]
         public void SetUp()
         {
-            _userService = new UserService(new TestUserRepository(), new FakeCurrentUser());
+            _userService = new UserService(new FakeUserRepository(), new FakeCurrentUser());
         }
 
         [Test]

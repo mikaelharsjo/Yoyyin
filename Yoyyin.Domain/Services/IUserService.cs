@@ -10,10 +10,9 @@ namespace Yoyyin.Domain.Services
     {
         IEnumerable<IUser> SearchAdvanced(string text, bool isEntrepreneur, bool isInnovator, bool isInvestor, string sniNo);
         IEnumerable<IUser> SearchQuick(string textToMatch);
-        IEnumerable<User> GetLastActiveUsersWithImage();
+        //IEnumerable<User> GetLastActiveUsersWithImage();
         //IEnumerable<IUser> GetAllUsersIncludingSni();
         //IEnumerable<Guid> GetUserIDsWithMostVisits();
-        int GetNumberOfUsers();
         IEnumerable<IUser> GetUsersBySni(string sniHeadID);
         //void DeleteUser(Guid userId);
         //void Save(IUser user);

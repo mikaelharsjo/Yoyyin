@@ -23,8 +23,8 @@ namespace Yoyyin.PresentationModel
             return new VisitPresentation
                        {
                            //OnlineImageUrl = _onlineImageProvider.GetOnlineImageUrl(visit.User.UserName),
-                           DisplayName = visit.User.GetDisplayName(),
-                           ProfileUrl = visit.User.GetProfileUrl(),
+                           DisplayName = visit.User1.GetDisplayName(),
+                           ProfileUrl = visit.User1.GetProfileUrl(),
                            VisitDate = visit.Created.ToFormattedString()
                        };
         }

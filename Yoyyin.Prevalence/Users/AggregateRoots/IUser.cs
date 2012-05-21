@@ -1,0 +1,26 @@
+using System;
+using System.Collections.Generic;
+using Yoyyin.Model.Users.Entities;
+using Yoyyin.Model.Users.ValueObjects;
+
+namespace Yoyyin.Model.Users.AggregateRoots
+{
+    public interface IUser
+    {
+        Guid UserId { get; set; }
+        string Name { get; set; }
+        string CVFileName { get; set; }
+        bool Active { get; set; }
+        string UserTypeDescription { get; set; }
+        string DislayName { get; set; }
+        Address Address { get; set; }
+        Settings Settings { get; set; }
+        //SniCategory Category { get; set; }
+        UserType UserType { get; set; }
+        IEnumerable<string> Urls { get; set; }
+        IEnumerable<Idea> Ideas { get; set; }
+        //IEnumerable<Bookmark> Bookmarks { get; set; }
+        //IEnumerable<Comment> Comments { get; set; }
+        IEnumerable<Question> GetQuestions(UserModel userModel);
+    }
+}

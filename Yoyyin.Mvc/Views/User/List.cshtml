@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "List";
+}
+
+<h1>Affärsidéer</h1>
+
+<table class="table table-bordered">
+@foreach (var user in Model)
+{
+    <tr>
+        <td>
+            <a href="#" class="thumbnail">
+                <img src="http://placehold.it/80x80" alt="">
+            </a><br/>
+            <a>@user.DisplayName</a>
+        </td>
+        <td>
+            <h2>@user.Ideas[0].Title</h2>
+            <p>@user.Ideas[0].Description</p>
+        </td>
+    </tr>
+}
+</table>
+
+
+
+

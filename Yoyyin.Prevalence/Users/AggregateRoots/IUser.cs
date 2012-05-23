@@ -12,7 +12,6 @@ namespace Yoyyin.Model.Users.AggregateRoots
         string CVFileName { get; set; }
         bool Active { get; set; }
         string UserTypeDescription { get; set; }
-        string DislayName { get; set; }
         Address Address { get; set; }
         Settings Settings { get; set; }
         //SniCategory Category { get; set; }

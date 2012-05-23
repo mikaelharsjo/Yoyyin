@@ -21,9 +21,7 @@ namespace Yoyyin.Model.Users.AggregateRoots
         public bool Active { get; set; }
         //public int UserType { get; set; }
         public string UserTypeDescription { get; set; }
-
-        public string DislayName { get; set; }
-
+        
         public string DisplayName { get; set; }
 
         public Address Address { get; set; }
@@ -31,7 +29,6 @@ namespace Yoyyin.Model.Users.AggregateRoots
         public string SniNo { get; set; }
         public UserType UserType { get; set; }
         
-
         public IEnumerable<string> Urls { get; set; }
         public IEnumerable<Idea> Ideas { get; set; }
         //public IEnumerable<Bookmark> Bookmarks { get; set; }

@@ -6,47 +6,36 @@ using System.Web.Mvc;
 using FizzWare.NBuilder;
 using Yoyyin.Model;
 using Yoyyin.Model.Users;
-using Yoyyin.Model.Users.AggregateRoots;
 using Yoyyin.Model.Users.Entities;
+using Yoyyin.Mvc.Models;
+using User = Yoyyin.Model.Users.AggregateRoots.User;
 
 namespace Yoyyin.Mvc.Controllers
 {
     public class UserController : Controller
     {
         private IUserRepository _repository;
+        private UserConverter _userConverter;
 
         public UserController()
         {
+            _userConverter = new UserConverter();
         }
 
         public UserController(IUserRepository repository)
         {
             _repository = repository;
+            _userConverter = new UserConverter();
         }
 
         public ActionResult List()
         {
-            //var users = Builder<User>
-            //    .CreateListOfSize(1000)
-            //    .Build();
+            return View(_repository.Query(m => m.Users).Select(u => _userConverter.ConvertToViewModel(u)));
+        }
 
-            //foreach (User user in users)
-            //{
-            //    user.Ideas =
-            //        new List<Idea>
-            //            {
-            //                new Idea
-            //                    {
-            //                        Title = "Min affärsidé",
-            //                        Description =
-            //                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis leo neque, tempus nec pulvinar commodo, pretium ac erat. Etiam auctor, dolor vehicula feugiat volutpat, lorem massa gravida nisi, in consectetur mauris orci tempor enim. Nullam accumsan ultricies sollicitudin"
-            //                    }
-            //            };
-            //}
-
-            //return View(users);
-
-            return View(_repository.Query(m => m.Users));
+        private User ConvertToViewModel(User priav)
+        {
+            throw new NotImplementedException();
         }
 
         public ActionResult Get(Guid userId)

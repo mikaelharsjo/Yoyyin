@@ -33,6 +33,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="nunit.framework">
+      <HintPath>..\..\Kiwi.Prevalence\packages\NUnit.2.6.0.12054\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="SoundInTheory.DynamicImage">
+      <HintPath>..\packages\DynamicImage.2.1.2\lib\NET40\SoundInTheory.DynamicImage.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -44,8 +50,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="UserImageCreater.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserImageCreaterScratchPad.cs" />
     <Compile Include="UserImporter.cs" />
   </ItemGroup>
   <ItemGroup>

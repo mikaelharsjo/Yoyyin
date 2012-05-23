@@ -30,6 +30,7 @@ namespace Yoyyin.Importing
                 yield return
                     new User
                         {
+                            UserId = user.UserId,
                             Active = user.Active != null && (bool) user.Active,
                             Name = user.Name,
                             DisplayName = string.IsNullOrEmpty(user.Alias) ? user.Name : user.Alias,

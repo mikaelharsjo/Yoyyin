@@ -10,13 +10,13 @@
     <tr>
         <td>
             <a href="#" class="thumbnail">
-                <img src="http://placehold.it/80x80" alt="">
-            </a><br/>
-            <a>@user.DisplayName</a>
+                @Html.Raw(user.ProfileImageMarkup)
+                <a>@user.DisplayName</a>
+            </a>
         </td>
         <td>
-            <h2>@user.Ideas[0].Title</h2>
-            <p>@user.Ideas[0].Description</p>
+            <h2>@user.FirstIdea.Title</h2>
+            <p>@Html.Raw(user.FirstIdea.Description)</p>
         </td>
     </tr>
 }

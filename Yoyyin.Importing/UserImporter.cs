@@ -25,7 +25,9 @@ namespace Yoyyin.Importing
         // Gets user from sql database, converts them to Yoyyin.Model.User
         public IEnumerable<User> Import()
         {
-            foreach (Data.User user in _repository.FindAll())
+            foreach (Data.User user in _repository
+                                            .FindAll()
+                                            .Where(u => u.Name != "" && u.BusinessDescription + u.BusinessTitle != ""))
             {
                 yield return
                     new User

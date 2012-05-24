@@ -51,6 +51,12 @@
     <Reference Include="FizzWare.NBuilder">
       <HintPath>..\packages\NBuilder.3.0.1.1\lib\FizzWare.NBuilder.dll</HintPath>
     </Reference>
+    <Reference Include="ImageResizer">
+      <HintPath>..\packages\ImageResizer.3.1.5\lib\ImageResizer.dll</HintPath>
+    </Reference>
+    <Reference Include="ImageResizer.Mvc">
+      <HintPath>..\packages\ImageResizer.Mvc.3.1.5\lib\ImageResizer.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="Kiwi.Json, Version=2.0.0.7, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Kiwi.Json.2.0.0.7\lib\net40\Kiwi.Json.dll</HintPath>
     </Reference>

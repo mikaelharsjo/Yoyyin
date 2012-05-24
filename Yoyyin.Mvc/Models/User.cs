@@ -9,6 +9,6 @@ namespace Yoyyin.Mvc.Models
     {
         public string DisplayName { get; set; }
         public Idea FirstIdea { get; set; }
-        public string ProfileImageMarkup { get; set; }
+        public string SmallProfileImageMarkup { get; set; }
     }
 }

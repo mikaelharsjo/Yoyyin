@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Importers\IUserImporter.cs" />
     <Compile Include="Users\AggregateRoots\IUser.cs" />
+    <Compile Include="Users\ValueObjects\Sni.cs" />
     <Compile Include="Users\UpdateUserCommand.cs" />
     <Compile Include="Users\Entities\SniCategory.cs" />
     <Compile Include="Users\Entities\UserTypesNeeded.cs" />

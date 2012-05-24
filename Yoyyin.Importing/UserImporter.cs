@@ -43,8 +43,8 @@ namespace Yoyyin.Importing
                                                     Description = user.BusinessDescription,
                                                     Title = user.BusinessTitle,
                                                     CompanyName = user.CompanyName,
-                                                    SniHeadID = user.SniHeadID != null ? user.SniHeadID.Trim() : string.Empty,
-                                                    SniNo = user.SniNo,
+                                                    //SniHeadID = user.SniHeadID != null ? user.SniHeadID.Trim() : string.Empty,
+                                                    Sni = new Sni(),
                                                     SearchProfile = new SearchProfile
                                                                         {
                                                                             SearchWords = user.SearchWords != null ? user.SearchWords.Split(new [] { ','}) : new string[0],

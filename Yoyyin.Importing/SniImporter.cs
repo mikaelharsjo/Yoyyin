@@ -31,7 +31,11 @@ namespace Yoyyin.Importing
                     new Sni
                         {
                             SniItem = new SniItem {SniNo = sniItem.SniNo.Trim(), Title = sniItem.Title},
-                            SniHead = new SniHead {SniHeadId = sniItem.SniHead.SniHeadID, Title = sniItem.SniHead.Title}
+                            SniHead = 
+                                sniItem.SniHead != null
+                                    ? new SniHead
+                                          {SniHeadId = sniItem.SniHead.SniHeadID.Trim(), Title = sniItem.SniHead.Title}
+                                    : new SniHead() { SniHeadId = sniItem.SniHeadID}
                         };
             }
         }

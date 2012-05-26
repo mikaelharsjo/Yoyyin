@@ -34,7 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="FizzWare.NBuilder">
-      <HintPath>..\..\Kiwi.Prevalence\packages\NBuilder.3.0.1.1\lib\FizzWare.NBuilder.dll</HintPath>
+      <HintPath>..\packages\NBuilder.3.0.1.1\lib\FizzWare.NBuilder.dll</HintPath>
     </Reference>
     <Reference Include="Kiwi.Json">
       <HintPath>..\packages\Kiwi.Json.2.0.0.7\lib\net40\Kiwi.Json.dll</HintPath>
@@ -43,7 +43,7 @@
       <HintPath>..\packages\Kiwi.Prevalence.0.1.0.0\lib\net40\Kiwi.Prevalence.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
-      <HintPath>..\..\Kiwi.Prevalence\packages\NUnit.2.6.0.12054\lib\nunit.framework.dll</HintPath>
+      <HintPath>..\packages\NUnit.2.6.0.12054\lib\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

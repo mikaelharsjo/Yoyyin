@@ -5,8 +5,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yoyyin.PresentationModel", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yoyyin.Tests", "Yoyyin.Tests\Yoyyin.Tests.csproj", "{328BD772-959C-42EB-8C16-CBC1FF074968}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yoyyin.Web", "Yoyyin.Web\Yoyyin.Web.csproj", "{CF24D980-7914-4E9B-A601-1C57EE29020E}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yoyyin.Domain", "Yoyyin.Domain\Yoyyin.Domain.csproj", "{E5C9F77D-AC81-4A90-937B-4F8BE8CA75DB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yoyyin.Data", "Yoyyin.Data\Yoyyin.Data.csproj", "{CA00E16D-2B05-4B84-837B-32DFC2A3FF94}"
@@ -39,10 +37,6 @@ Global
 		{328BD772-959C-42EB-8C16-CBC1FF074968}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{328BD772-959C-42EB-8C16-CBC1FF074968}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{328BD772-959C-42EB-8C16-CBC1FF074968}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CF24D980-7914-4E9B-A601-1C57EE29020E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CF24D980-7914-4E9B-A601-1C57EE29020E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CF24D980-7914-4E9B-A601-1C57EE29020E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CF24D980-7914-4E9B-A601-1C57EE29020E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E5C9F77D-AC81-4A90-937B-4F8BE8CA75DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E5C9F77D-AC81-4A90-937B-4F8BE8CA75DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E5C9F77D-AC81-4A90-937B-4F8BE8CA75DB}.Release|Any CPU.ActiveCfg = Release|Any CPU

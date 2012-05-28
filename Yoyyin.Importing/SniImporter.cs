@@ -7,6 +7,7 @@ using Yoyyin.Data;
 using Yoyyin.Data.Core.Entities;
 using Yoyyin.Data.Core.Repositories;
 using Yoyyin.Data.EntityFramework.Repositories;
+using Yoyyin.Model.Users.AggregateRoots;
 using Yoyyin.Model.Users.ValueObjects;
 using SniHead = Yoyyin.Model.Users.ValueObjects.SniHead;
 using SniItem = Yoyyin.Model.Users.ValueObjects.SniItem;

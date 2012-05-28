@@ -17,14 +17,14 @@ namespace Yoyyin.Model.Tests.Commands
         [Test]
         public void ChangeName()
         {
-            var firstUser = Repo.Query(m => m.Users.First());
+            var firstUser = UserRepository.Query(m => m.Users.First());
             Assert.That(firstUser.Name, Is.Not.EqualTo(NameOfDonaldDuck));
 
             firstUser.Name = NameOfDonaldDuck;
-            Repo.Execute(new UpdateUserCommand(firstUser));
+            UserRepository.Execute(new UpdateUserCommand(firstUser));
 
             // get user again, no cheating
-            firstUser = Repo.Query(m => m.Users.First(u => u.UserId == firstUser.UserId));
+            firstUser = UserRepository.Query(m => m.Users.First(u => u.UserId == firstUser.UserId));
             Assert.That(firstUser.Name, Is.EqualTo(NameOfDonaldDuck));
         }
 

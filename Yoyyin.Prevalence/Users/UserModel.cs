@@ -16,7 +16,7 @@ namespace Yoyyin.Model.Users
           //  BaseData = new BaseData();
             Invalidate();
 
-            Questions = new List<Question>();
+            Snis = new List<Sni>();
             Users = new List<User>();
         }
 
@@ -24,9 +24,10 @@ namespace Yoyyin.Model.Users
         public ILookup<string, User> UsersByCategory { get; set; }
         public ILookup<Guid, Question> QuestionsByUser { get; set; }
 
-        public List<Question> Questions { get; set; }
+        //public List<Question> Questions { get; set; }
 
         public List<User> Users { get; set; }
+        public List<Sni> Snis { get; set; } 
 
         public void Invalidate()
         {

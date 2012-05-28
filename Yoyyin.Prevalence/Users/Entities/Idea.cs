@@ -1,3 +1,4 @@
+using Yoyyin.Model.Users.AggregateRoots;
 using Yoyyin.Model.Users.ValueObjects;
 
 namespace Yoyyin.Model.Users.Entities

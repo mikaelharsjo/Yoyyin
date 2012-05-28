@@ -16,23 +16,29 @@ namespace Yoyyin.Model.Tests
     [TestFixture]
     public class SetupFixture
     {
-        public Repository<UserModel> Repo;
+        public Repository<UserModel> UserRepository;
+        public Repository<QandAModel> QandARepository;
         private User _firstUser;
 
         [SetUp]
         public void Setup()
         {
             var modelFactory = new ModelFactory<UserModel>(() => new UserModel()); // {OnRestore = model => model.Invalidate()};
-            Repo =
-                new DevelopmentUserRepository(new RepositoryConfiguration(), modelFactory, new UserImporter());
-                    //{Path = @"c:\Temp\yoyyin"};
+            var qandAFactory = new ModelFactory<QandAModel>(() => new QandAModel());
+            UserRepository =
+                new UserRepository(new RepositoryConfiguration(), modelFactory) //, new UserImporter())
+                    {Path = @"c:\Temp\yoyyin\Users"};
+            QandARepository = new Repository<QandAModel>(new RepositoryConfiguration(), qandAFactory)
+                                  {Path = @"c:\Temp\yoyyin\Q&A"};
+            UserRepository.Purge();
+                    
 
             //Repo.InitializeWithDataFromSql();
             
 
             //Add5QuestionsAndAnswersPerUser(users);
 
-            Console.Out.WriteLine("Revision is now {0}", Repo.Revision);
+            Console.Out.WriteLine("Revision is now {0}", UserRepository.Revision);
             //Console.Out.WriteLine("Model size is {0}", _repo.Query(m => m.Users.Count));
         }
 
@@ -69,7 +75,7 @@ namespace Yoyyin.Model.Tests
                     }
 
                     question.UserId = user.UserId;
-                    Repo.Execute(new AddQuestionCommand(question));
+                    QandARepository.Execute(new AddQuestionCommand(question));
                 }
             }
         }
@@ -82,7 +88,7 @@ namespace Yoyyin.Model.Tests
 
             foreach (var user in users)
             {
-                Repo.Execute(new AddUserCommand(user));
+                UserRepository.Execute(new AddUserCommand(user));
             }
             return users;
         }
@@ -117,7 +123,7 @@ namespace Yoyyin.Model.Tests
         [TearDown]
         public void TearDown()
         {
-            foreach (User user in Repo.Query(model => model.Users))
+            foreach (User user in UserRepository.Query(model => model.Users))
             {
                 foreach(var propInfo in user.GetType().GetProperties())
                 {
@@ -129,7 +135,7 @@ namespace Yoyyin.Model.Tests
                 //Console.Out.WriteLine("VisitCount: {0}", user.Visits.Count());
             }
 
-           Repo.Dispose();
+           UserRepository.Dispose();
         }
     }
 }

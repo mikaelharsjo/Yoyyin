@@ -6,6 +6,7 @@ using Yoyyin.Data;
 using Yoyyin.Data.Core.Repositories;
 using Yoyyin.Data.EntityFramework.Repositories;
 using Yoyyin.Model.Importers;
+using Yoyyin.Model.Users.AggregateRoots;
 using Yoyyin.Model.Users.Entities;
 using Yoyyin.Model.Users.ValueObjects;
 using User = Yoyyin.Model.Users.AggregateRoots.User;
@@ -44,7 +45,7 @@ namespace Yoyyin.Importing
                                                     Title = user.BusinessTitle,
                                                     CompanyName = user.CompanyName,
                                                     //SniHeadID = user.SniHeadID != null ? user.SniHeadID.Trim() : string.Empty,
-                                                    Sni = new Sni(),
+                                                    //Sni = new Sni(),
                                                     SearchProfile = new SearchProfile
                                                                         {
                                                                             SearchWords = user.SearchWords != null ? user.SearchWords.Split(new [] { ','}) : new string[0],

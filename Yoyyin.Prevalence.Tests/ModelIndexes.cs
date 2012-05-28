@@ -16,7 +16,7 @@ namespace Yoyyin.Model.Tests
         public void Test()
         {
             //Repo.Query()
-            Assert.That(Repo.Model.QuestionsByUser[Repo.Query(m => m.Users.First()).UserId].Count(), Is.EqualTo(5));
+            Assert.That(UserRepository.Model.QuestionsByUser[UserRepository.Query(m => m.Users.First()).UserId].Count(), Is.EqualTo(5));
         }
 
         [TearDown]

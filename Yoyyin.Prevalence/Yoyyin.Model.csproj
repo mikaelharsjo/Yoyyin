@@ -50,7 +50,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Importers\IUserImporter.cs" />
+    <Compile Include="Q&amp;A\UserModel.cs" />
     <Compile Include="Users\AggregateRoots\IUser.cs" />
+    <Compile Include="Users\AggregateRoots\Sni.cs" />
+    <Compile Include="Users\Commands\AddSniCommand.cs" />
+    <Compile Include="Users\ValueObjects\SniHead.cs" />
+    <Compile Include="Users\ValueObjects\SniItem.cs" />
     <Compile Include="Users\UpdateUserCommand.cs" />
     <Compile Include="Users\Entities\SniCategory.cs" />
     <Compile Include="Users\Entities\UserTypesNeeded.cs" />

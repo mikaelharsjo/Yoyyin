@@ -6,3 +6,7 @@ yoyyin.com.6.1.Resharper.user
 # Build Folders
 obj
 bin
+
+# Visual studio
+yoyyin.com.sln.DotSettings.user
+yoyyin.com.suo

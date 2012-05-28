@@ -1,16 +1,17 @@
 @section featured {
     <section class="featured">
-    <div class="content-wrapper">
-
-
-                            <hgroup class="title">
-            <h1>Välkommen till Yoyyin! Vi sammanför människor med idéer</h1>
-        </hgroup>
-                <p>Yoyyin sammanför folk som vill finna partners för att starta upp eller utveckla sin företagsidé eller sitt företag. Det spelar ingen roll om du vill öppna en frisörsalong, restaurang eller starta ett medicinteknikbolag - Yoyyin är till för alla som vill förverkliga sina idéer och drömmar.</p>
-
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>
+                    Välkommen till Yoyyin! Vi sammanför människor med idéer</h1>
+            </hgroup>
+            <p>
+                Yoyyin sammanför folk som vill finna partners för att starta upp eller utveckla
+                sin företagsidé eller sitt företag. Det spelar ingen roll om du vill öppna en frisörsalong,
+                restaurang eller starta ett medicinteknikbolag - Yoyyin är till för alla som vill
+                förverkliga sina idéer och drömmar.</p>
         </div>
-
-</section>
+    </section>
 }
 <div class="row-fluid">
     <div class="span6">
@@ -20,19 +21,19 @@
         Tid, kunskap och energi är hinder som ofta gör det svårt att starta upp eller utveckla
         ett företag.
         <ul>
-            <li>@Html.ActionLink("Registrera dig och få tillgång till matchning mm", "Register", "Account")</li>
+            <li><a class="registerLink">Registrera dig och få tillgång till matchning mm</a></li>
         </ul>
         <h3>
             Är du finansiär som söker intressanta projekt?</h3>
         <ul>
             <li>@Html.ActionLink("Visa alla affärsidéer som söker finansiering", "List", "User")</li>
-            <li>Registrera dig som finansiär och få tillgång till matchning mm</li>
+            <li><a class="registerLink">Registrera dig som finansiär och få tillgång till matchning mm</a></li>
         </ul>
         <h3>
             Är du entreprenör och vill förverkliga andras affärsidéer?</h3>
         <ul>
             <li>@Html.ActionLink("Visa alla affärsidéer", "List", "User")</li>
-            <li>Registrera dig som entreprenör och få tillgång till matchning mm</li>
+            <li><a class="registerLink">Registrera dig som entreprenör och få tillgång till matchning mm</a></li>
         </ul>
     </div>
     <div class="span6">
@@ -42,36 +43,33 @@
         <form class="well form-search">
         <input type="text" class="input-medium search-query">
         <button type="submit" class="btn">
-            Search</button>
+            Sök</button>
         </form>
     </div>
 </div>
 <section class="features">
     <section class="feature">
         <img src="~/Images/aspNetHome.png" alt="" />
-        <h3>Diskutera</h3>
+        <h3>
+            Diskutera</h3>
         <p>
-            ASP.NET is a free, fully supported Web application framework that helps you create standards-based web solutions. 
-            Whether you're new to ASP.NET or an experienced developer, the <a href="http://asp.net">ASP.NET website</a> 
-            is your source for news, training, downloads, and support.
+            Här kan du få svar på frågor eller diskutera affärsidéer med andra medlemmar. Vi har grupperat frågorna enligt nedan.
         </p>
     </section>
     <section class="feature">
         <img src="~/Images/NuGetGallery.png" alt="" />
-        <h3>Länkar</h3>
+        <h3>
+            Länkar</h3>
         <p>
-            NuGet is a Visual Studio extension that makes it easy to install and update open source libraries and tools in 
-            Visual Studio. To see available packages, visit the <a href="http://nuget.org">NuGet gallery</a>.
-            You can also develop your own package and share it in the gallery.
+            Nedan har vi samlat länkar till andra webplatser, bloggar mm som vi tycker är bra och relevanta för entreprenörer. Det är en blandning melan privata och statliga webbplatser.
         </p>
     </section>
     <section class="feature">
         <img src="~/Images/findHosting.png" alt="" />
-        <h3>Dokment</h3>
+        <h3>
+            Dokment</h3>
         <p>
-            You can easily find a web hosting company that offers the right mix of features and price for your applications. 
-            Visit <a href="http://microsoft.com/web/hosting" title="Microsoft/Web Website">Microsoft.com/web</a> to 
-            explore offerings from many providers.
+            När du skall starta och driva företag finns det en mängd saker att tänka på. Här finner du därför tips, mallar och checklistor som underlättar ditt företagande. 
         </p>
     </section>
 </section>

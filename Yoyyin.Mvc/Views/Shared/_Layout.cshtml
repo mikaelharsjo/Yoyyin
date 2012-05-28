@@ -31,9 +31,10 @@
                                     <li>@Html.ActionLink("Om", "About", "Home")</li>
                                     <li>@Html.ActionLink("Kontakt", "Contact", "Home")</li>
                                     <li>@Html.ActionLink("Diskutera", "Index", "QandA")</li>
+                                    <li>@Html.ActionLink("Länkar", "Links", "Home")</li>
                                 </ul>  
                                     <form class="navbar-search pull-left">
-                                    <input type="text" class="search-query" placeholder="Search">
+                                        <input type="text" class="search-query" placeholder="Sök affärspartner/kompetens mm">
                                     </form>  
                                 <ul class="nav pull-right">
                                     @Html.Partial("_LoginPartial")
@@ -51,11 +52,10 @@
     </div>
     <footer>
             <div class="content-wrapper">
-            <a class="registerLink">test</a>
-                <div class="float-left">
-                    <p>&copy; @DateTime.Now.Year - My ASP.NET MVC Application</p>
+                <div class="footerCopy">
+                    <p>&copy; @DateTime.Now.Year - Yoyyin Ventures</p>
                 </div>
-                <div class="float-right">
+                <div class="footerSocial">
                     <ul id="social">
                         <li><a href="http://facebook.com" class="facebook">Facebook</a></li>
                         <li><a href="http://twitter.com" class="twitter">Twitter</a></li>

@@ -31,7 +31,7 @@ namespace Yoyyin.Mvc.Configuration
             //    .As<IUserRepository>(); //.SingleInstance();
 
             builder.RegisterType<UserImporter>().As<IUserImporter>();
-            builder.RegisterType<DevelopmentUserRepository>()
+            builder.RegisterType<UserRepository>()
                 //.OnActivated(c => c.Instance.Path = c.Context.Resolve<HttpServerUtilityBase>().MapPath(@"~\App_Data\yoyyin"))
                 .As<IUserRepository>() ; //.SingleInstance();
         }

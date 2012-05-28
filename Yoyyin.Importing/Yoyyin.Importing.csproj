@@ -34,7 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="nunit.framework">
-      <HintPath>..\..\Kiwi.Prevalence\packages\NUnit.2.6.0.12054\lib\nunit.framework.dll</HintPath>
+      <HintPath>..\packages\NUnit.2.6.0.12054\lib\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="SoundInTheory.DynamicImage">
       <HintPath>..\packages\DynamicImage.2.1.2\lib\NET40\SoundInTheory.DynamicImage.dll</HintPath>
@@ -70,6 +70,7 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="App.configx" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />

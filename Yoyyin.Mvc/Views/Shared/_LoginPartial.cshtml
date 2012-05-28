@@ -3,16 +3,4 @@
         Hello, @Html.ActionLink(User.Identity.Name, "ChangePassword", "Account", routeValues: null, htmlAttributes: new { @class = "username", title = "Change password" })!
         @Html.ActionLink("Log off", "LogOff", "Account")
     </p>
-<<<<<<< HEAD
-} else {<li><a class="registerLink">Bli medlem</a></li><li>@Html.ActionLink("Logga in", "Login", "Account")</li>
-=======
-} else {
-    <li>
-        <a href="/Account/Register/">
-            <i class='icon-home icon-white'></i>&nbsp;Bli medlem
-        </a>
-    </li>
-    <li>@Html.ActionLink("Logga in", "Login", "Account")</li>
->>>>>>> 21c6da88b440e2909416d4d8f3ddaa82ef7079b9
-
-}
+} else {<li><a class="registerLink">Bli medlem</a></li><li>@Html.ActionLink("Logga in", "Login", "Account")</li>}

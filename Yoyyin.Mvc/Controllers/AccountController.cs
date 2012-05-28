@@ -93,7 +93,9 @@ namespace Yoyyin.Mvc.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            return ContextDependentView();
+            ViewBag.FormAction = "JsonRegister";
+            return PartialView();
+            //return ContextDependentView();
         }
 
         //

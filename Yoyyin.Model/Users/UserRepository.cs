@@ -1,4 +1,5 @@
 ﻿using Kiwi.Prevalence;
+using Yoyyin.Importing;
 using Yoyyin.Model.Importers;
 using Yoyyin.Model.Users.Commands;
 
@@ -11,22 +12,32 @@ namespace Yoyyin.Model.Users
         }
     }
 
-    public class DevelopmentUserRepository : UserRepository
+    public class DevelopmentUserRepository
     {
+        private UserRepository _userRepository;
         private IUserImporter _userImporter;
-        public DevelopmentUserRepository(IRepositoryConfiguration configuration, IModelFactory<UserModel> modelFactory, IUserImporter userImporter) : base(configuration, modelFactory)
+        private ISniImporter _sniImporter;
+        public DevelopmentUserRepository(IUserImporter userImporter, ISniImporter sniImporter, UserRepository userRepository)
         {
             _userImporter = userImporter;
+            _sniImporter = sniImporter;
+            _userRepository = userRepository;
             InitializeWithDataFromSql();
         }
 
         private void InitializeWithDataFromSql()
         {
-            Purge();
+            //Purge();
             var users = _userImporter.Import();
             foreach (var user in users)
             {
-                Execute(new AddUserCommand(user));
+                _userRepository.Execute(new AddUserCommand(user));
+            }
+
+            var snis = _sniImporter.Import();
+            foreach (var sni in snis)
+            {
+                _userRepository.Execute(new AddSniCommand(sni));
             }
         }
     }

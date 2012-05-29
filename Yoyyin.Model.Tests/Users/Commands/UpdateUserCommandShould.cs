@@ -2,7 +2,7 @@
 using NUnit.Framework;
 using Yoyyin.Model.Users;
 
-namespace Yoyyin.Model.Tests.Commands
+namespace Yoyyin.Model.Tests.Users.Commands
 {
     [TestFixture]
     public class UpdateUserCommandShould : SetupFixture

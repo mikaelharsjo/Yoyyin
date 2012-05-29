@@ -16,8 +16,9 @@ namespace Yoyyin.Model.Tests
     [TestFixture]
     public class SetupFixture
     {
-        public Repository<UserModel> UserRepository;
+        public UserRepository UserRepository;
         public Repository<QandAModel> QandARepository;
+        public DevelopmentUserRepository DevelopmentUserRepository;
         private User _firstUser;
 
         [SetUp]
@@ -25,21 +26,28 @@ namespace Yoyyin.Model.Tests
         {
             var modelFactory = new ModelFactory<UserModel>(() => new UserModel()); // {OnRestore = model => model.Invalidate()};
             var qandAFactory = new ModelFactory<QandAModel>(() => new QandAModel());
-            UserRepository =
-                new UserRepository(new RepositoryConfiguration(), modelFactory) //, new UserImporter())
-                    {Path = @"c:\Temp\yoyyin\Users"};
+            UserRepository = new UserRepository(new RepositoryConfiguration(), modelFactory) 
+                                {Path = @"c:\temp\yoyyin\users"};
+            DevelopmentUserRepository = new DevelopmentUserRepository(new UserImporter(), new SniImporter(), UserRepository);
+                    
             QandARepository = new Repository<QandAModel>(new RepositoryConfiguration(), qandAFactory)
                                   {Path = @"c:\Temp\yoyyin\Q&A"};
-            UserRepository.Purge();
+            UserRepository.SaveSnapshot();
                     
 
-            //Repo.InitializeWithDataFromSql();
+            //UserRepository.InitializeWithDataFromSql();
             
 
             //Add5QuestionsAndAnswersPerUser(users);
 
             Console.Out.WriteLine("Revision is now {0}", UserRepository.Revision);
             //Console.Out.WriteLine("Model size is {0}", _repo.Query(m => m.Users.Count));
+        }
+
+        [Test]
+        public void TEST()
+        {
+            Assert.That(UserRepository.Query(m => m.Users).Count > 0);
         }
 
         private void Add5QuestionsAndAnswersPerUser(IEnumerable<User> users)
@@ -92,33 +100,6 @@ namespace Yoyyin.Model.Tests
             }
             return users;
         }
-
-        [Test]
-        public void TestQuery()
-        {
-                
-        //    Console.Out.WriteLine("Revision is now {0}", Repo.Revision);
-        //    //Assert.That(_repo.Query(m => m.Questions).Count(), Is.EqualTo(5000));
-        //    //Assert.That(_repo.Query(m => m.Users).Count(), Is.EqualTo(1000));
-
-        //    // first users question count
-        //    Assert.That(Repo.Query(m => m.Questions.Where(q => q.UserId == (Repo.Query(x => x.Users.First()).UserId))).Count(), Is.EqualTo(5));
-        }
-
-        //[Test]
-        //public void FirstUserHaveAsked10Questions()
-        //{
-        //    _firstUser = _repo.Query(u => u.Users.First());
-        //    var questionCount = _repo.Query(q => q.Questions.Where(question => question.UserId == _firstUser.UserId)).Count();
-
-        //    Assert.That(questionCount, Is.EqualTo(10));
-        //}
-
-        //[Test]
-        //public void FirstQuestionIsAnswered5Times()
-        //{
-        //    Assert.That(_repo.Query(q => q.Questions.First().Answers.Count()), Is.EqualTo(5));
-        //}
 
         [TearDown]
         public void TearDown()

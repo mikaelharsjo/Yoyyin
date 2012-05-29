@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Importers\ISniImporter.cs" />
     <Compile Include="Importers\IUserImporter.cs" />
     <Compile Include="Q&amp;A\UserModel.cs" />
     <Compile Include="Users\AggregateRoots\IUser.cs" />

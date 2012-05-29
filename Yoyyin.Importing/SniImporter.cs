@@ -14,9 +14,8 @@ using SniItem = Yoyyin.Model.Users.ValueObjects.SniItem;
 
 namespace Yoyyin.Importing
 {
-    public class SniImporter
+    public class SniImporter : ISniImporter
     {
-        private IRepository<SniHead> _headRepository;
         private IRepository<Data.SniItem> _itemRepository;
 
         public SniImporter()

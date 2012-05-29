@@ -32,5 +32,7 @@ namespace Yoyyin.Model.Tests.Users.Commands
 
             Assert.That(UserRepository.Query(model => model.Snis).Count(), Is.EqualTo(1));
         }
+
+
     }
 }

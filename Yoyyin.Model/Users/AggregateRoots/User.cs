@@ -19,14 +19,11 @@ namespace Yoyyin.Model.Users.AggregateRoots
         public string CVFileName { get; set; }
         //string FacebookID { get; set; }
         public bool Active { get; set; }
-        //public int UserType { get; set; }
         public string UserTypeDescription { get; set; }
-        
         public string DisplayName { get; set; }
 
         public Address Address { get; set; }
         public Settings Settings { get; set; }
-        public string SniNo { get; set; }
         public UserType UserType { get; set; }
         
         public IEnumerable<string> Urls { get; set; }

@@ -45,7 +45,7 @@ namespace Yoyyin.Importing
                                                     Title = user.BusinessTitle,
                                                     CompanyName = user.CompanyName,
                                                     //SniHeadID = user.SniHeadID != null ? user.SniHeadID.Trim() : string.Empty,
-                                                    //Sni = new Sni(),
+                                                    SniNo = user.SniNo,
                                                     SearchProfile = new SearchProfile
                                                                         {
                                                                             SearchWords = user.SearchWords != null ? user.SearchWords.Split(new [] { ','}) : new string[0],
@@ -74,8 +74,8 @@ namespace Yoyyin.Importing
                                           },
                             Urls = new List<string> { user.Url },
                             CVFileName = user.CVFileName,
-                            SniNo = user.SniNo,
                             UserTypeDescription = user.UserTypeDescription,
+                            //UserType = new UserType(),
                             Settings = new Settings
                                            {
                                               ShowAddress = user.ShowAddress,

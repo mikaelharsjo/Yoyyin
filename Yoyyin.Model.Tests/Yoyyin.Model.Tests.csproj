@@ -65,7 +65,7 @@
       <Project>{C3193C65-D8A6-4BD8-AB11-BF7D1E6C2887}</Project>
       <Name>Yoyyin.Importing</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Yoyyin.Prevalence\Yoyyin.Model.csproj">
+    <ProjectReference Include="..\Yoyyin.Model\Yoyyin.Model.csproj">
       <Project>{51B0D69C-28EA-45C8-B4BB-FDD199A723D7}</Project>
       <Name>Yoyyin.Model</Name>
     </ProjectReference>

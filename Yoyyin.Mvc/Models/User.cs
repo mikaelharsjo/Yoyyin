@@ -10,6 +10,16 @@ namespace Yoyyin.Mvc.Models
         public string DisplayName { get; set; }
         public Idea FirstIdea { get; set; }
         public string SmallProfileImageMarkup { get; set; }
-        public string SniMarkup { get; set; }
+        public string SniItemTitle { get; set; }
+        public string SniHeadTitle { get; set; }
+
+        public User(string[] snis)
+        {
+            SniHeadTitle = snis[0];
+            SniItemTitle = snis[1];
+        }
     }
+
+    
+
 }

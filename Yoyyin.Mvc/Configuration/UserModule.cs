@@ -9,6 +9,7 @@ using Yoyyin.Importing;
 using Yoyyin.Model;
 using Yoyyin.Model.Importers;
 using Yoyyin.Model.Users;
+using Yoyyin.Mvc.Models;
 
 namespace Yoyyin.Mvc.Configuration
 {
@@ -22,6 +23,8 @@ namespace Yoyyin.Mvc.Configuration
                 .OnActivating(
                     c =>
                     c.Instance.CommandSerializer = new DependecyInjectingCommandSerializer(c.Instance.CommandSerializer))
+                                    //new CommandSerializer()
+                                                    //.SetAlias<Yoyyin.Model.Users.Commands.AddUserCommand>("addUser")
                 .As<IRepositoryConfiguration>();
 
             builder.Register(c => new ModelFactory<UserModel>(() => new UserModel())).As<IModelFactory<UserModel>>();
@@ -34,6 +37,8 @@ namespace Yoyyin.Mvc.Configuration
             builder.RegisterType<UserRepository>()
                 .OnActivated(c => c.Instance.Path = c.Context.Resolve<HttpServerUtilityBase>().MapPath(@"~\App_Data\users"))
                 .As<IUserRepository>() ; //.SingleInstance();
+
+            builder.RegisterType<UserConverter>();
         }
     }
 }

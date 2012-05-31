@@ -75,7 +75,7 @@ namespace Yoyyin.Importing
                             Urls = new List<string> { user.Url },
                             CVFileName = user.CVFileName,
                             UserTypeDescription = user.UserTypeDescription,
-                            //UserType = new UserType(),
+                            UserType = user.UserType != null ? (int)user.UserType : (int)UserTypes.Businessman,
                             Settings = new Settings
                                            {
                                               ShowAddress = user.ShowAddress,

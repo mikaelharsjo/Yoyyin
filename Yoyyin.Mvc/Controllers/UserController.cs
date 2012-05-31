@@ -14,28 +14,23 @@ namespace Yoyyin.Mvc.Controllers
 {
     public class UserController : Controller
     {
-        private IUserRepository _repository;
-        private UserConverter _userConverter;
+        private readonly IUserRepository _repository;
+        private readonly UserConverter _userConverter;
 
-        public UserController()
+        public UserController(UserConverter userConverter)
         {
-            _userConverter = new UserConverter();
+            _userConverter = userConverter;
         }
 
-        public UserController(IUserRepository repository)
+        public UserController(IUserRepository repository, UserConverter userConverter)
         {
             _repository = repository;
-            _userConverter = new UserConverter();
+            _userConverter = userConverter;
         }
 
         public ActionResult List()
         {
             return View(_repository.Query(m => m.Users).Select(u => _userConverter.ConvertToViewModel(u)));
-        }
-
-        private User ConvertToViewModel(User priav)
-        {
-            throw new NotImplementedException();
         }
 
         public ActionResult Get(Guid userId)

@@ -28,6 +28,9 @@ namespace Yoyyin.Model.Tests
             var qandAFactory = new ModelFactory<QandAModel>(() => new QandAModel());
             UserRepository = new UserRepository(new RepositoryConfiguration(), modelFactory) 
                                 {Path = @"c:\temp\yoyyin\users"};
+            
+            UserRepository.Purge();
+            
             DevelopmentUserRepository = new DevelopmentUserRepository(new UserImporter(), new SniImporter(), UserRepository);
                     
             QandARepository = new Repository<QandAModel>(new RepositoryConfiguration(), qandAFactory)
@@ -47,6 +50,7 @@ namespace Yoyyin.Model.Tests
         [Test]
         public void TEST()
         {
+
             Assert.That(UserRepository.Query(m => m.Users).Count > 0);
         }
 

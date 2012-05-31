@@ -24,7 +24,7 @@ namespace Yoyyin.Model.Users.AggregateRoots
 
         public Address Address { get; set; }
         public Settings Settings { get; set; }
-        public UserType UserType { get; set; }
+        public int UserType { get; set; }
         
         public IEnumerable<string> Urls { get; set; }
         public IEnumerable<Idea> Ideas { get; set; }

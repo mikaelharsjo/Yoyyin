@@ -1,26 +1,15 @@
 ﻿@{
     ViewBag.Title = "List";
 }
+@model IEnumerable<Yoyyin.Mvc.Models.User>
 
 <h1>Affärsidéer</h1>
 
 <table class="table table-bordered">
-@foreach (var user in Model)
-{
-    <tr>
-        <td>
-            <a href="#" class="thumbnail">
-                @Html.Raw(user.SmallProfileImageMarkup)
-                <a>@user.DisplayName</a>
-            </a>
-        </td>
-        <td>
-            <span class="label">@user.SniHeadTitle</span>
-            <h2>@user.FirstIdea.Title</h2>
-            <p>@Html.Raw(user.FirstIdea.Description)</p>
-        </td>
-    </tr>
-}
+    @foreach (var user in Model)
+    {
+        @Html.Partial("~/Views/User/UserRow.cshtml", user)
+    }
 </table>
 
 

@@ -1,0 +1,15 @@
+﻿@model Yoyyin.Mvc.Models.User
+
+    <tr>
+        <td>
+            <a href="#" class="thumbnail">
+                @Html.Raw(Model.SmallProfileImageMarkup)
+                <a>@Model.DisplayName</a>
+            </a>
+        </td>
+        <td>
+            <span class="label">@Model.SniHeadTitle</span>
+            <h2>@Model.FirstIdea.Title</h2>
+            <p>@Html.Raw(Model.FirstIdea.Description)</p>
+        </td>
+    </tr>

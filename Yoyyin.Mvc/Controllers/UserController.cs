@@ -30,7 +30,18 @@ namespace Yoyyin.Mvc.Controllers
 
         public ActionResult List()
         {
-            return View(_repository.Query(m => m.Users).Select(u => _userConverter.ConvertToViewModel(u)));
+            return View(_repository
+                            .Query(m => m.Users)
+                            .OrderBy(u => u.Ideas.First().SniNo)
+                            .Select(u => _userConverter.ConvertToViewModel(u)));
+        }
+
+        public ActionResult ListBySni(string sniNo)
+        {
+            return View(_repository
+                            .Query(m => m.Users)
+                            .Where(u => u.Ideas.First().SniNo == sniNo)
+                            .Select(u => _userConverter.ConvertToViewModel(u)));
         }
 
         public ActionResult Get(Guid userId)

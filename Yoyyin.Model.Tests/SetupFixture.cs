@@ -35,7 +35,7 @@ namespace Yoyyin.Model.Tests
                     
             QandARepository = new Repository<QandAModel>(new RepositoryConfiguration(), qandAFactory)
                                   {Path = @"c:\Temp\yoyyin\Q&A"};
-            UserRepository.SaveSnapshot();
+            //UserRepository.SaveSnapshot();
                     
 
             //UserRepository.InitializeWithDataFromSql();
@@ -48,9 +48,8 @@ namespace Yoyyin.Model.Tests
         }
 
         [Test]
-        public void TEST()
+        public void CreatePatch()
         {
-
             Assert.That(UserRepository.Query(m => m.Users).Count > 0);
         }
 

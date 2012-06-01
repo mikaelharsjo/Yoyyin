@@ -37,6 +37,7 @@ namespace Yoyyin.Importing
                             Active = user.Active != null && (bool) user.Active,
                             Name = user.Name,
                             DisplayName = string.IsNullOrEmpty(user.Alias) ? user.Name : user.Alias,
+                            HasImage = user.Image != null,
                             Ideas = new List<Idea>
                                         {
                                             new Idea

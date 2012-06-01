@@ -18,7 +18,6 @@ namespace Yoyyin.Mvc.Configuration
         protected override void Load(ContainerBuilder builder)
         {
             base.Load(builder);
-
             builder.RegisterType<RepositoryConfiguration>()
                 .OnActivating(
                     c =>

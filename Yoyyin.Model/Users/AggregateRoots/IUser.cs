@@ -21,5 +21,6 @@ namespace Yoyyin.Model.Users.AggregateRoots
         //IEnumerable<Bookmark> Bookmarks { get; set; }
         //IEnumerable<Comment> Comments { get; set; }
         IEnumerable<Question> GetQuestions(UserModel userModel);
+        bool HasImage { get; set; }
     }
 }

@@ -23,7 +23,7 @@ namespace Yoyyin.Mvc.Models
                        {
                            DisplayName = user.DisplayName,
                            FirstIdea = user.Ideas.First(),
-                           SmallProfileImageMarkup = string.Format("<img src='/Content/Upload/Images/{0}.jpg?width=100&height=100'", user.UserId)
+                           SmallProfileImageMarkup = user.HasImage ? string.Format("<img src='/Content/Upload/Images/{0}.jpg?width=100&height=100'", user.UserId) : string.Empty
                        };
         }
 

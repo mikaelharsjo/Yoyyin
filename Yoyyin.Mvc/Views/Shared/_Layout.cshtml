@@ -32,6 +32,14 @@
                                     <li>@Html.ActionLink("Kontakt", "Contact", "Home")</li>
                                     <li>@Html.ActionLink("Diskutera", "Index", "QandA")</li>
                                     <li>@Html.ActionLink("Länkar", "Links", "Home")</li>
+                                    <li class="dropdown">
+                                        <a class="dropdown-toggle" data-toggle="dropdown">Affärsidéer</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="/User/List">Alla</a></li>     
+                                            <li><a href="/User/List">per bransch</a></li>
+                                            <li><a href="/user/List">per kompetens</a></li>                                            
+                                        </ul>
+                                    </li>
                                 </ul>  
                                     <form class="navbar-search pull-left">
                                         <input type="text" class="search-query" placeholder="Sök affärspartner/kompetens mm">

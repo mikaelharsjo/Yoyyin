@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Yoyyin.Model.Users.Enumerations;
+using System.Linq;
 
 namespace Yoyyin.Model.Users.Entities
 {
@@ -7,6 +8,7 @@ namespace Yoyyin.Model.Users.Entities
     {
         IEnumerable<UserTypes> UserTypeIds { get; set; }
         Dictionary<UserTypes, string> UserTypesNeededDescriptions { get; set; }
+        bool WantsFinancing();
     }
 
     public class UserTypesNeeded : IUserTypesNeeded
@@ -14,6 +16,11 @@ namespace Yoyyin.Model.Users.Entities
         public IEnumerable<UserTypes> UserTypeIds { get; set; }
 
         public Dictionary<UserTypes, string> UserTypesNeededDescriptions { get; set; }
+
+        public bool WantsFinancing()
+        {
+            return UserTypeIds.Contains(UserTypes.Financing);
+        }
     }
 
     //public class NullUserTypesNeeded : IUserTypesNeeded

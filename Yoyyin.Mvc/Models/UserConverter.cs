@@ -32,10 +32,11 @@ namespace Yoyyin.Mvc.Models
         {
             string firstIdeaSniNo = user.Ideas.First().SniNo;
             if (firstIdeaSniNo == null)
-                return new string[] { string.Empty, string.Empty };
+                return new string[] { "Övrigt", "Övrigt", "Övrigt" };
 
             Sni sni = _userRepository.Query(m => m.Snis.First(s => s.SniItem.SniNo == firstIdeaSniNo));
-            return new string[] { sni.SniHead.Title, sni.SniItem.Title };
+            
+            return new string[] { sni.SniHead.Title, sni.SniItem.Title, sni.SniItem.SniNo};
         }
     }
 }

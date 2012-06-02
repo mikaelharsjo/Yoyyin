@@ -12,11 +12,13 @@ namespace Yoyyin.Mvc.Models
         public string SmallProfileImageMarkup { get; set; }
         public string SniItemTitle { get; set; }
         public string SniHeadTitle { get; set; }
+        public string SniNo { get; set; }
 
         public User(string[] snis)
         {
             SniHeadTitle = snis[0];
             SniItemTitle = snis[1];
+            SniNo = snis[2];
         }
     }
 

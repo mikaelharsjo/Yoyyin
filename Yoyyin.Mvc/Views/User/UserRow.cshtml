@@ -8,7 +8,7 @@
             </a>
         </td>
         <td>
-            <span class="label">@Model.SniHeadTitle</span>
+            <span class="label">@Html.ActionLink(Model.SniHeadTitle, "ListBySni", new { SniNo = Model.SniNo})</span>
             <h2>@Model.FirstIdea.Title</h2>
             <p>@Html.Raw(Model.FirstIdea.Description)</p>
         </td>

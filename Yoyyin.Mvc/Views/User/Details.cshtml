@@ -1,0 +1,23 @@
+﻿@model Yoyyin.Mvc.Models.User
+
+@{
+    ViewBag.Title = "Details";
+}
+
+    <div class="row-fluid">
+    <div class="span3">
+    <a href="#" class="thumbnail">
+    @Html.Raw(Model.LargeProfileImageMarkup)
+    <a>@Model.DisplayName</a>
+</a>
+    </div>
+    <div class="span9">
+            <span class="label">@Html.ActionLink(Model.SniHeadTitle, "ListBySni", new { SniNo = Model.SniNo})</span>
+            <h2>@Model.FirstIdea.Title</h2>
+            <p>@Html.Raw(Model.FirstIdea.Description)</p>
+            <h3>VC söker:</h3>
+            @Model.UserTypesNeededMarkup
+    </div>
+    </div>
+
+

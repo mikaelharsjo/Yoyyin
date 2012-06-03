@@ -65,9 +65,10 @@ namespace Yoyyin.Mvc.Controllers
         //    //                .Select(u => _userConverter.ConvertToViewModel(u)));
         //}
 
-        public ActionResult Get(Guid userId)
+        public ActionResult Details(Guid id)
         {
-            return View(_repository.Query(m => m.Users.First(u => u.UserId == userId)));
+            return View(_userConverter.ConvertToViewModel(_repository
+                            .Query(m => m.Users.First(u => u.UserId == id))));
         }
     }
 }

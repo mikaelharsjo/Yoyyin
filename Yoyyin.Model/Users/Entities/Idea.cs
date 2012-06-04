@@ -9,6 +9,7 @@ namespace Yoyyin.Model.Users.Entities
         public string Title { get; set; }
         public string Description { get; set; }
         public string SniNo { get; set; }
+        public string SniHeadId { get; set; }
         public SearchProfile SearchProfile { get; set; }
     }
 }

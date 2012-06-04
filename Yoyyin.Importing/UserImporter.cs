@@ -46,8 +46,8 @@ namespace Yoyyin.Importing
                                                     Title = user.BusinessTitle,
                                                     CompanyName = user.CompanyName,
                                                     //SniHeadID = user.SniHeadID != null ? user.SniHeadID.Trim() : string.Empty,
-                                                    SniNo = user.SniNo,
-                                                    SniHeadId = user.SniHeadID,
+                                                    SniNo = user.SniNo != null  ? user.SniNo.Trim() : "Övrigt",
+                                                    SniHeadId = user.SniHeadID != null ? user.SniHeadID.Trim() : "Övrigt",
                                                     SearchProfile = new SearchProfile
                                                                         {
                                                                             SearchWords = user.SearchWords != null ? user.SearchWords.Split(new [] { ','}) : new string[0],

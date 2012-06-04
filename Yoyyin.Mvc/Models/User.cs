@@ -17,6 +17,7 @@ namespace Yoyyin.Mvc.Models
         public string SniHeadId { get; set; } 
         public string DetailsHref { get; set; }
         public string UserTypesNeededMarkup { get; set; }
+        public string CompetencesNeededmarkup { get; set; }
 
         public User(string[] snis)
         {

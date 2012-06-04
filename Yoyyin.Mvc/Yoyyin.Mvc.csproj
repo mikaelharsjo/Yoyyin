@@ -274,6 +274,7 @@
     <Content Include="Views\User\ListBySniHead.cshtml" />
     <Content Include="Views\User\UserRowWithSni.cshtml" />
     <Content Include="Views\Shared\Breadcrumb.cshtml" />
+    <Content Include="Views\User\ListByCompetence.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

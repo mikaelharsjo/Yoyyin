@@ -67,6 +67,16 @@ namespace Yoyyin.Mvc.Controllers
                             .Select(u => _userConverter.ConvertToViewModel(u)));
         }
 
+        public ActionResult ListByCompetence(string id)
+        {
+            string competence = id;
+            ViewBag.Title = string.Format("Affärspartners som kan {0}", competence);
+            return View(_repository
+                            .Query(m => m.Users)
+                            .Where(u => u.Ideas.First().SearchProfile.Competences.Contains(id))
+                            .Select(u => _userConverter.ConvertToViewModel(u)));
+        }
+
         public ActionResult Details(Guid id)
         {
             return View(_userConverter.ConvertToViewModel(_repository

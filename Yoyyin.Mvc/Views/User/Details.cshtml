@@ -12,11 +12,13 @@
 </a>
     </div>
     <div class="span9">
-            <span class="label">@Html.ActionLink(Model.SniHeadTitle, "ListBySni", new { SniNo = Model.SniNo})</span>
+            <span class="label">@Html.ActionLink(Model.SniHeadTitle, "ListBySniNo", new { SniNo = Model.SniNo})</span>
             <h2>@Model.FirstIdea.Title</h2>
             <p>@Html.Raw(Model.FirstIdea.Description)</p>
-            <h3>VC söker:</h3>
-            @Model.UserTypesNeededMarkup
+            <h3>@Model.DisplayName söker personer som är:</h3>
+            @Html.Raw(Model.UserTypesNeededMarkup)
+            <h3>...och kan</h3>
+            @Html.Raw(Model.CompetencesNeededmarkup)
     </div>
     </div>
 

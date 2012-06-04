@@ -6,6 +6,9 @@
                 @Html.Raw(Model.SmallProfileImageMarkup)
                 @Model.DisplayName
             </a>
+            <a href=@Model.DetailsHref>
+                @Model.DisplayName
+            </a>
         </td>
         <td>
             <span class="label">@Html.ActionLink(Model.SniHeadTitle, "ListBySniHead", new { id = Model.SniHeadId})</span>

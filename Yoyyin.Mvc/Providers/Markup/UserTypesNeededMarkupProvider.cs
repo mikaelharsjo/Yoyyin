@@ -6,9 +6,14 @@ using Yoyyin.Model.Users.Entities;
 
 namespace Yoyyin.Mvc.Providers.Markup
 {
-    public class UserTypesNeededMarkupProvider
+    public interface IUserTypesNeededMarkupProvider
     {
-        public string ToMarkup(UserTypesNeeded userTypesNeeded)
+        string GetMarkup(UserTypesNeeded userTypesNeeded);
+    }
+
+    public class UserTypesNeededMarkupProvider : IUserTypesNeededMarkupProvider
+    {
+        public string GetMarkup(UserTypesNeeded userTypesNeeded)
         {
             return string.Join("<br />", userTypesNeeded.UserTypeIds.Select(u => u.ToString()).ToArray());
         }

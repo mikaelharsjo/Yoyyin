@@ -14,6 +14,7 @@ namespace Yoyyin.Mvc.Models
         public string SniItemTitle { get; set; }
         public string SniHeadTitle { get; set; }
         public string SniNo { get; set; }
+        public string SniHeadId { get; set; } 
         public string DetailsHref { get; set; }
         public string UserTypesNeededMarkup { get; set; }
 
@@ -22,9 +23,7 @@ namespace Yoyyin.Mvc.Models
             SniHeadTitle = snis[0];
             SniItemTitle = snis[1];
             SniNo = snis[2];
+            SniHeadId = snis[3];
         }
     }
-
-    
-
 }

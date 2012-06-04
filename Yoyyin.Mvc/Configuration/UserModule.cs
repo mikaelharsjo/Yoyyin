@@ -10,6 +10,7 @@ using Yoyyin.Model;
 using Yoyyin.Model.Importers;
 using Yoyyin.Model.Users;
 using Yoyyin.Mvc.Models;
+using Yoyyin.Mvc.Providers.Markup;
 
 namespace Yoyyin.Mvc.Configuration
 {
@@ -38,6 +39,7 @@ namespace Yoyyin.Mvc.Configuration
                 .As<IUserRepository>() ; //.SingleInstance();
 
             builder.RegisterType<UserConverter>();
+            builder.RegisterType<UserTypesNeededMarkupProvider>().As<IUserTypesNeededMarkupProvider>();
         }
     }
 }

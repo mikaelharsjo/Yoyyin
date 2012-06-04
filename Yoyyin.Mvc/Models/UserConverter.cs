@@ -8,9 +8,9 @@ namespace Yoyyin.Mvc.Models
     public class UserConverter
     {
         private readonly IUserRepository _userRepository;
-        private readonly UserTypesNeededMarkupProvider _userTypesNeededMarkupProvider;
+        private readonly IUserTypesNeededMarkupProvider _userTypesNeededMarkupProvider;
 
-        public UserConverter(IUserRepository userRepository, UserTypesNeededMarkupProvider userTypesNeededMarkupProvider)
+        public UserConverter(IUserRepository userRepository, IUserTypesNeededMarkupProvider userTypesNeededMarkupProvider)
         {
             _userRepository = userRepository;
             _userTypesNeededMarkupProvider = userTypesNeededMarkupProvider;
@@ -29,7 +29,7 @@ namespace Yoyyin.Mvc.Models
                            SmallProfileImageMarkup = user.HasImage ? string.Format("<img src='/Content/Upload/Images/{0}.jpg?width=100&height=100'", user.UserId) : string.Empty,
                            LargeProfileImageMarkup = user.HasImage ? string.Format("<img src='/Content/Upload/Images/{0}.jpg?width=200&height=200'", user.UserId) : string.Empty,
                            DetailsHref = string.Format("/User/Details/{0}", user.UserId),
-                           UserTypesNeededMarkup = _userTypesNeededMarkupProvider.ToMarkup((user.Ideas.First().SearchProfile.UserTypesNeeded))
+                           UserTypesNeededMarkup = _userTypesNeededMarkupProvider.GetMarkup((user.Ideas.First().SearchProfile.UserTypesNeeded))
                        };
         }
 
@@ -37,12 +37,12 @@ namespace Yoyyin.Mvc.Models
         public string[] GetSniArray(Model.Users.AggregateRoots.User user)
         {
             string firstIdeaSniNo = user.Ideas.First().SniNo;
-            if (firstIdeaSniNo == null)
-                return new string[] { "Övrigt", "Övrigt", "Övrigt" };
+            if (firstIdeaSniNo == "null" || firstIdeaSniNo == "Övrigt")
+                return new[] { "Övrigt", "Övrigt", "Övrigt", "Övrigt" };
 
             Sni sni = _userRepository.Query(m => m.Snis.First(s => s.SniItem.SniNo == firstIdeaSniNo));
             
-            return new string[] { sni.SniHead.Title, sni.SniItem.Title, sni.SniItem.SniNo};
+            return new[] { sni.SniHead.Title, sni.SniItem.Title, sni.SniItem.SniNo, sni.SniHead.SniHeadId};
         }
     }
 }

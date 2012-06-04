@@ -31,39 +31,41 @@ namespace Yoyyin.Mvc.Controllers
 
         public ActionResult List()
         {
+            ViewBag.Title = "Alla affärsidéer";
             return View(_repository
                             .Query(m => m.Users)
                             .OrderBy(u => u.Ideas.First().SniNo)
                             .Select(u => _userConverter.ConvertToViewModel(u)));
         }
 
-        public ActionResult ListBySniNo(string sniNo)
+        public ActionResult ListBySniNo(string id)
         {
+            ViewBag.Title = string.Format("Affärsidéer inom {0}",
+                                          _repository.Query(m => m.Snis.First(s => s.SniItem.SniNo == id)).SniItem.Title);
             return View(_repository
                             .Query(m => m.Users)
-                            .Where(u => u.Ideas.First().SniNo == sniNo)
+                            .Where(u => u.Ideas.First().SniNo == id)
+                            .Select(u => _userConverter.ConvertToViewModel(u)));
+        }
+
+        public ActionResult ListBySniHead(string id)
+        {
+            ViewBag.Title = string.Format("Affärsidéer inom {0}",
+                                          _repository.Query(m => m.Snis.First(s => s.SniHead.SniHeadId == id)).SniHead.Title);
+            return View(_repository
+                            .Query(m => m.Users)
+                            .Where(u => u.Ideas.First().SniHeadId == id)
                             .Select(u => _userConverter.ConvertToViewModel(u)));
         }
 
         public ActionResult ListWantsFinancing()
         {
+            ViewBag.Title = "Affärsidéer som söker finansiering";
             return View(_repository
                             .Query(m => m.Users)
                             .Where(u => u.Ideas.First().SearchProfile.UserTypesNeeded.WantsFinancing())
                             .Select(u => _userConverter.ConvertToViewModel(u)));
         }
-
-        //public ActionResult ListBySni(string sniNo)
-        //{
-        //    // TODO: Store sniHeadId on user to avoid
-        //    //Sni sni = _repository.Query(m => m.Snis).First(s => s.SniItem.SniNo == sniNo);
-        //    //var sniChildren = _repository.Query(m => m.Snis).Where(s => s.SniHead.SniHeadId == sni.SniHead.SniHeadId);
-            
-        //    //return View(_repository
-        //    //                .Query(m => m.Users)
-        //    //                .Where(u => sniChildren.Contains(u.Ideas.First().SniNo))
-        //    //                .Select(u => _userConverter.ConvertToViewModel(u)));
-        //}
 
         public ActionResult Details(Guid id)
         {

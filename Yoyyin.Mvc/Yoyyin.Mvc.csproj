@@ -268,13 +268,11 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\QandA\Index.cshtml" />
     <Content Include="Views\User\UserRow.cshtml" />
-    <Content Include="Views\User\ListBySniNo.cshtml" />
     <Content Include="Views\User\ListWantsFinancing.cshtml" />
     <Content Include="Views\User\Details.cshtml" />
     <Content Include="Views\User\ListBySniHead.cshtml" />
     <Content Include="Views\User\UserRowWithSni.cshtml" />
     <Content Include="Views\Shared\Breadcrumb.cshtml" />
-    <Content Include="Views\User\ListByCompetence.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

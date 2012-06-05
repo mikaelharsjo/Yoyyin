@@ -27,6 +27,8 @@ namespace Yoyyin.Mvc
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            routes.MapRoute("ListByUserType", "{controller}/{action}/{userType}/{title}", new { controller = "User", action = "ListByUserType", userType = UrlParameter.Optional, title = UrlParameter.Optional });
+
             routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
@@ -37,7 +39,7 @@ namespace Yoyyin.Mvc
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-            );
+            );            
         }
 
         protected void Application_Start()

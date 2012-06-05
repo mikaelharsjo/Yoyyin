@@ -10,6 +10,7 @@ using Yoyyin.Model.Users.Entities;
 using Yoyyin.Mvc.Models;
 using Yoyyin.Model.Users.AggregateRoots;
 using User = Yoyyin.Model.Users.AggregateRoots.User;
+using Yoyyin.Model.Users.Enumerations;
 
 namespace Yoyyin.Mvc.Controllers
 {
@@ -42,7 +43,7 @@ namespace Yoyyin.Mvc.Controllers
         {
             ViewBag.Title = string.Format("Affärsidéer inom {0}",
                                           _repository.Query(m => m.Snis.First(s => s.SniItem.SniNo == id)).SniItem.Title);
-            return View(_repository
+            return View("List", _repository
                             .Query(m => m.Users)
                             .Where(u => u.Ideas.First().SniNo == id)
                             .Select(u => _userConverter.ConvertToViewModel(u)));
@@ -67,11 +68,21 @@ namespace Yoyyin.Mvc.Controllers
                             .Select(u => _userConverter.ConvertToViewModel(u)));
         }
 
+        public ActionResult ListByUserType(int userType, string title)
+        {
+            //UserTypes type = (UserTypes)Enum.Parse(typeof(UserTypes), userType.ToString());
+            ViewBag.Title = string.Format("Affärspartners som är {0}", title);
+            return View("List", _repository
+                            .Query(m => m.Users)
+                            .Where(u => u.UserType == userType)
+                            .Select(u => _userConverter.ConvertToViewModel(u)));
+        }
+
         public ActionResult ListByCompetence(string id)
         {
             string competence = id;
             ViewBag.Title = string.Format("Affärspartners som kan {0}", competence);
-            return View(_repository
+            return View("List", _repository
                             .Query(m => m.Users)
                             .Where(u => u.Ideas.First().SearchProfile.Competences.Contains(id))
                             .Select(u => _userConverter.ConvertToViewModel(u)));

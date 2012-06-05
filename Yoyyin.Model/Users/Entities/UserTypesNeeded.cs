@@ -24,7 +24,7 @@ namespace Yoyyin.Model.Users.Entities
 
         public IEnumerable<string> GetUserTypeTitles()
         {
-            return UserTypeIds.Select(u => ToTitle(u));
+            return UserTypeIds.Select(ToTitle);
         }
 
         private string ToTitle(UserTypes userTypes)

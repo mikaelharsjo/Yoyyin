@@ -9,13 +9,13 @@ namespace Yoyyin.Mvc.Models
     {
         private readonly IUserRepository _userRepository;
         private readonly IUserTypesNeededMarkupProvider _userTypesNeededMarkupProvider;
-        private readonly StringsToList _stringsToList;
+        private readonly CompetencesNeededMarkupProvider _competencesNeededMarkupProvider;
 
         public UserConverter(IUserRepository userRepository, IUserTypesNeededMarkupProvider userTypesNeededMarkupProvider)
         {
             _userRepository = userRepository;
             _userTypesNeededMarkupProvider = userTypesNeededMarkupProvider;
-            _stringsToList = new StringsToList();
+            _competencesNeededMarkupProvider = new CompetencesNeededMarkupProvider();
         }
 
         public UserConverter()
@@ -31,9 +31,9 @@ namespace Yoyyin.Mvc.Models
                            SmallProfileImageMarkup = user.HasImage ? string.Format("<img src='/Content/Upload/Images/{0}.jpg?width=100&height=100'", user.UserId) : string.Empty,
                            LargeProfileImageMarkup = user.HasImage ? string.Format("<img src='/Content/Upload/Images/{0}.jpg?width=200&height=200'", user.UserId) : string.Empty,
                            DetailsHref = string.Format("/User/Details/{0}", user.UserId),
-                           UserTypesNeededMarkup = _userTypesNeededMarkupProvider.GetMarkup((user.Ideas.First().SearchProfile.UserTypesNeeded)),
-                           CompetencesNeededmarkup = _stringsToList.ToLabelList(user.Ideas.First().SearchProfile.CompetencesNeeded)
-                            
+                           UserTypesNeededMarkup = _userTypesNeededMarkupProvider.ToLabelList((user.Ideas.First().SearchProfile.UserTypesNeeded)),
+                           CompetencesNeededmarkup = _competencesNeededMarkupProvider.ToLabelList(user.Ideas.First().SearchProfile.CompetencesNeeded),
+                           UserTypeMarkup = string.Format("<span class='label label-success'>{0}</span>", user.GetUserTypeTitle())
                        };
         }
 

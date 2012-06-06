@@ -48,19 +48,4 @@ namespace Yoyyin.Model.Users.Entities
             }
         }
     }
-
-    //public class NullUserTypesNeeded : IUserTypesNeeded
-    //{
-    //    public Dictionary<UserTypes, string> UserTypesNeededDescriptions
-    //    {
-    //        get { return new Dictionary<UserTypes, string>(); }
-    //        set { }
-    //    }
-
-    //    public IEnumerable<UserTypes> UserTypeIds
-    //    {
-    //        get { return new UserTypes[0]; }
-    //        set { }
-    //    }
-    //}
 }

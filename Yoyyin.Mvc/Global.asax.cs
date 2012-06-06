@@ -27,13 +27,23 @@ namespace Yoyyin.Mvc
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            routes.MapRoute("ListByUserType", "{controller}/{action}/{userType}/{title}", new { controller = "User", action = "ListByUserType", userType = UrlParameter.Optional, title = UrlParameter.Optional });
-
             routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            routes.MapRoute(
+                name: "ListByUserType",
+                url: "User/ListByUserType/{userType}/{title}",
+                defaults:
+                    new
+                        {
+                            controller = "User",
+                            action = "ListByUserType",
+                            userType = UrlParameter.Optional,
+                            title = UrlParameter.Optional
+                        });
 
             routes.MapRoute(
                 name: "Default",

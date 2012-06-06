@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Yoyyin.Model.Users.Entities;
+using Yoyyin.Model.Users.Enumerations;
 
 namespace Yoyyin.Mvc.Providers.Markup
 {
@@ -36,8 +37,15 @@ namespace Yoyyin.Mvc.Providers.Markup
 
         public string ToLabelList(UserTypesNeeded userTypesNeeded)
         {
-            return _labelListGenerator.GenerateMarkup(userTypesNeeded.GetUserTypeTitles(),
-                                                      "<span class='label label-success'><a href='/User/ListByCompetence/{0}'>{0}</a></span>");
+            //var translatedTitlesDict = userTypesNeeded.GetUserTypeTitles().ToDictionary(s => s.);
+            Dictionary<int, string> userTypesDict = userTypesNeeded.UserTypeIds.ToDictionary(
+                userType => (int) userType, userType => userType.ToString());
+
+            string formatString =
+                "<span class='label label-success'><a href='/User/ListByUserType/{0}/{1}'>{1}</a></span>";
+
+            return string.Join("",
+                               userTypesDict.Select(dict => string.Format(formatString, dict.Key, dict.Value)).ToArray());
         }
     }
 

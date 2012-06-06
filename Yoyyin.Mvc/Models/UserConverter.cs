@@ -33,7 +33,7 @@ namespace Yoyyin.Mvc.Models
                            DetailsHref = string.Format("/User/Details/{0}", user.UserId),
                            UserTypesNeededMarkup = _userTypesNeededMarkupProvider.ToLabelList((user.Ideas.First().SearchProfile.UserTypesNeeded)),
                            CompetencesNeededmarkup = _competencesNeededMarkupProvider.ToLabelList(user.Ideas.First().SearchProfile.CompetencesNeeded),
-                           UserTypeMarkup = string.Format("<span class='label label-success'><a href='/User/ListByUserType?userType={0}&title={2}'>{1}</a></span>", user.UserType, user.GetUserTypeTitle(), user.GetUserTypeTitle())
+                           UserTypeMarkup = string.Format("<span class='label label-success'><a href='/User/ListByUserType/{0}/{2}'>{1}</a></span>", user.UserType, user.GetUserTypeTitle(), user.GetUserTypeTitle().ToLower().Replace("/", "-"))
                        };
         }
 

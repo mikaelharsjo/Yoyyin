@@ -37,7 +37,7 @@ namespace Yoyyin.Mvc.Providers.Markup
 
         public string ToLabelList(UserTypesNeeded userTypesNeeded)
         {
-            //var translatedTitlesDict = userTypesNeeded.GetUserTypeTitles().ToDictionary(s => s.);
+            //var translatedTitles = userTypesNeeded.GetUserTypeTitles();
             Dictionary<int, string> userTypesDict = userTypesNeeded.UserTypeIds.ToDictionary(
                 userType => (int) userType, userType => userType.ToString());
 

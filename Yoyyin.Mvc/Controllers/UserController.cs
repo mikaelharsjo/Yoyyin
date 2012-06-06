@@ -41,8 +41,8 @@ namespace Yoyyin.Mvc.Controllers
 
         public ActionResult ListBySniNo(string id)
         {
-            ViewBag.Title = string.Format("Affärsidéer inom {0}",
-                                          _repository.Query(m => m.Snis.First(s => s.SniItem.SniNo == id)).SniItem.Title);
+            var sni = _repository.Query(m => m.Snis.First(s => s.SniItem.SniNo == id));
+            ViewBag.Title = string.Format("Affärsidéer inom {0}", sni != null ? sni.SniItem.Title: "");
             return View("List", _repository
                             .Query(m => m.Users)
                             .Where(u => u.Ideas.First().SniNo == id)
@@ -90,8 +90,10 @@ namespace Yoyyin.Mvc.Controllers
 
         public ActionResult Details(Guid id)
         {
-            return View(_userConverter.ConvertToViewModel(_repository
-                            .Query(m => m.Users.First(u => u.UserId == id))));
+            var user = _userConverter.ConvertToViewModel(_repository
+                                                             .Query(m => m.Users.First(u => u.UserId == id)));
+            ViewBag.Title = user.FirstIdea.Title;
+            return View(user);
         }
     }
 }

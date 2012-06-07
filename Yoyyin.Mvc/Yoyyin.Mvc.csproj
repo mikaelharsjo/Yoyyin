@@ -233,6 +233,7 @@
     <Content Include="Scripts\user.js" />
     <Content Include="Scripts\yoyyin\yoyyin.base.js" />
     <Content Include="Scripts\yoyyin\yoyyin.registerLink.js" />
+    <Content Include="Scripts\yoyyin\yoyyin.widgets.quickSearch.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

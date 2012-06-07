@@ -62,7 +62,7 @@ namespace Yoyyin.Mvc.Controllers
         public ActionResult ListWantsFinancing()
         {
             ViewBag.Title = "Affärsidéer som söker finansiering";
-            return View(_repository
+            return View("List", _repository
                             .Query(m => m.Users)
                             .Where(u => u.Ideas.First().SearchProfile.UserTypesNeeded.WantsFinancing())
                             .Select(u => _userConverter.ConvertToViewModel(u)));

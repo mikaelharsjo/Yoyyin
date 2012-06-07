@@ -55,6 +55,7 @@
     <Compile Include="Users\AggregateRoots\IUser.cs" />
     <Compile Include="Users\AggregateRoots\Sni.cs" />
     <Compile Include="Users\Commands\AddSniCommand.cs" />
+    <Compile Include="Users\Commands\AddUserTypeCommand.cs" />
     <Compile Include="Users\ValueObjects\SniHead.cs" />
     <Compile Include="Users\ValueObjects\SniItem.cs" />
     <Compile Include="Users\UpdateUserCommand.cs" />

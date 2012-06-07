@@ -180,6 +180,8 @@
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Providers\Markup\CompetencesNeededMarkupProvider.cs" />
+    <Compile Include="Providers\Markup\LabelListGenerator.cs" />
     <Compile Include="Providers\Markup\UserTypesNeededMarkupProvider.cs" />
   </ItemGroup>
   <ItemGroup>

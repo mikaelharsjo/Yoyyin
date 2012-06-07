@@ -56,10 +56,10 @@ namespace Yoyyin.Importing
                                                                             UserTypesNeeded = new UserTypesNeeded
                                                                                                   {
                                                                                                       UserTypeIds = string.IsNullOrEmpty(user.UserTypesNeeded) 
-                                                                                                      ? new UserTypes[0]
+                                                                                                      ? new int[0]
                                                                                                       : user.UserTypesNeeded
                                                                                                             .Split(new [] { ','})
-                                                                                                            .Select(s => (UserTypes)Enum.Parse(typeof(UserTypes), s)) 
+                                                                                                            .Select(int.Parse) 
                                                                                                   }
                                                                         }
                                                 }

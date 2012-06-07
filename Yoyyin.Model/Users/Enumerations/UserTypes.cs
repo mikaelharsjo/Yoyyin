@@ -12,7 +12,7 @@ namespace Yoyyin.Model.Users.Enumerations
         Investor,
         [Description("Jag söker efter personer med kunskap och kapital att investera i min idé eller företag.")]
         Financing,
-        [Description("Jag söker efter personer som kan ta över mitt företag då jag går i pension snart.")]
+        [Description("Jag söker efter personer med kunskap och kapital att investera i min idé eller företag.")]
         Retiring,
         [Description("Jag söker kompetenser och delägare till min verksamhet.")]
         Businessman

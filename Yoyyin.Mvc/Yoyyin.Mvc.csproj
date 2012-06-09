@@ -177,6 +177,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\BreadCrumb.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -33,6 +33,11 @@ namespace Yoyyin.Mvc.Controllers
         public ActionResult List()
         {
             ViewBag.Title = "Alla affärsidéer";
+            ViewBag.BreadCrumb = new BreadCrumb()
+                                     {
+                                         Items =
+                                             new List<BreadCrumbItem> {new BreadCrumbItem {Text = "test", Url = "apa"}}
+                                     };
             return View(_repository
                             .Query(m => m.Users)
                             .OrderBy(u => u.Ideas.First().SniNo)
@@ -86,6 +91,14 @@ namespace Yoyyin.Mvc.Controllers
                             .Query(m => m.Users)
                             .Where(u => u.Ideas.First().SearchProfile.Competences.Contains(id))
                             .Select(u => _userConverter.ConvertToViewModel(u)));
+        }
+
+        public ActionResult QuickSearch(string term)
+        {
+            return View("List", _repository
+                                    .Query(m => m.Users)
+                                    .Where(u => u.Ideas.First().SearchProfile.ContainsString(term.ToLower()))
+                                    .Select(u => _userConverter.ConvertToViewModel(u)));
         }
 
         public ActionResult Details(Guid id)

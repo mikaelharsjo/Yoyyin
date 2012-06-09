@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Yoyyin.Model.Users.Entities
 {
@@ -8,5 +9,11 @@ namespace Yoyyin.Model.Users.Entities
         public IEnumerable<string> Competences { get; set; }
         public IEnumerable<string> CompetencesNeeded { get; set; }
         public UserTypesNeeded UserTypesNeeded { get; set; }
+
+        public bool ContainsString(string term)
+        {
+
+            return SearchWords.Any(s => s.ToLower().Contains(term)) || Competences.Any(s => s.ToLower().Contains(term));
+        }
     }
 }

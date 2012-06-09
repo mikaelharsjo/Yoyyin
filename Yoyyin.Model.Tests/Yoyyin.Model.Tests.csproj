@@ -59,6 +59,7 @@
     <Compile Include="ModelIndexes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SetupFixture.cs" />
+    <Compile Include="Users\SearchProfileContainsStringShould.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Yoyyin.Importing\Yoyyin.Importing.csproj">

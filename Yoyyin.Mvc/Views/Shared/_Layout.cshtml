@@ -41,8 +41,8 @@
                                         </ul>
                                     </li>
                                 </ul>  
-                                    <form class="navbar-search pull-left">
-                                        <input type="text" class="search-query" placeholder="Sök affärspartner/kompetens mm">
+                                    <form id="frmSearch" class="navbar-search pull-left">
+                                        <input id="txtSearch" type="text" class="search-query" placeholder="Sök affärspartner/kompetens mm">
                                     </form>  
                                 <ul class="nav pull-right">
                                     @Html.Partial("_LoginPartial")
@@ -74,6 +74,9 @@
         </footer>
     <script type="text/javascript">
         $(".registerLink").registerLink();
+        $("#txtSearch").typeahead({
+            source: ["apa", "kossa"]
+        });
     </script>
 </body>
 </html>

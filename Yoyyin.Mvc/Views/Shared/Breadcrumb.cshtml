@@ -1,6 +1,7 @@
 ﻿@model dynamic
 <ul class="breadcrumb">
-<li><a href="/Home/Index">@ViewBag.BreadCrumb.Items[0].Text</a> <span class="divider">/</span> </li>
-    <li><a href="/User/list">Affärsidéer</a> <span class="divider">/</span> </li>
-    <li class="active">Alla</li>
+    @foreach (var item in ViewBag.BreadCrumb.Items) 
+    {
+        <li><a href="@item.Url">@item.Text</a> <span class="divider">/</span> </li>
+    }
 </ul>

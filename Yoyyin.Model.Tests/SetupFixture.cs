@@ -10,6 +10,7 @@ using Yoyyin.Model.Users.AggregateRoots;
 using Yoyyin.Model.Users.Commands;
 using Yoyyin.Model.Users.Commands.Questions;
 using Yoyyin.Model.Users.Entities;
+using Yoyyin.Model.Users.Enumerations;
 
 namespace Yoyyin.Model.Tests
 {
@@ -50,7 +51,51 @@ namespace Yoyyin.Model.Tests
         [Test]
         public void CreatePatch()
         {
-            //Assert.That(UserRepository.Query(m => m.Users).Count > 0);
+
+            UserRepository.Execute(
+                new AddUserTypeCommand(new UserType
+                                           {
+                                               UserTypeId = 0,
+                                               Title = "Företagare/Entreprenör",
+                                               Description = "Personer som kan starta upp och driva företag."
+                                           }));
+            UserRepository.Execute(
+                new AddUserTypeCommand(new UserType
+                                           {
+                                               UserTypeId = 1,
+                                               Title = "Innovatör/Uppfinnare",
+                                               Description = "Personer med idéer som de vill förverkliga."
+                                           }));
+            UserRepository.Execute(
+                new AddUserTypeCommand(new UserType
+                                           {
+                                               UserTypeId = 2,
+                                               Title = "Finansiär",
+                                               Description = "Spännande idéer och företag att investera i."
+                                           }));
+            UserRepository.Execute(
+                new AddUserTypeCommand(new UserType
+                                           {
+                                               UserTypeId = 3,
+                                               Title = "Finansiär/Drake/Ängel",
+                                               Description =
+                                                   "Personer med kunskap och kapital att investera i min idé eller företag."
+                                           }));
+            UserRepository.Execute(
+                new AddUserTypeCommand(new UserType
+                                           {
+                                               UserTypeId = 4,
+                                               Title = "Företagere/Pensionär",
+                                               Description =
+                                                   "Personer med kunskap och kapital att investera i min idé eller företag."
+                                           }));
+            UserRepository.Execute(
+                new AddUserTypeCommand(new UserType
+                                           {
+                                               UserTypeId = 5,
+                                               Title = "Innovatör/Uppfinnare",
+                                               Description = "Kompetenser och delägare till min verksamhet."
+                                           }));
         }
 
         private void Add5QuestionsAndAnswersPerUser(IEnumerable<User> users)

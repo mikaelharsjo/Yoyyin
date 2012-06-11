@@ -5,9 +5,24 @@ using System.Web;
 
 namespace Yoyyin.Mvc.Models
 {
-    public class BreadCrumb
+    public interface IBreadCrumb
+    {
+        IEnumerable<BreadCrumbItem> Items { get;}
+    }
+
+    public class BreadCrumb : IBreadCrumb
     {
         public IEnumerable<BreadCrumbItem> Items { get; set; }
+    }
+
+    public class NoBreadCrumb : IBreadCrumb
+    {
+        public NoBreadCrumb()
+        {
+            Items = new BreadCrumbItem[0];
+        }
+
+        public IEnumerable<BreadCrumbItem> Items { get; private set; }
     }
 
     public class BreadCrumbItem 

@@ -18,6 +18,7 @@ namespace Yoyyin.Model.Users
 
             Snis = new List<Sni>();
             Users = new List<User>();
+            UserTypes = new List<UserType>();
         }
 
         // indexes
@@ -27,7 +28,8 @@ namespace Yoyyin.Model.Users
         //public List<Question> Questions { get; set; }
 
         public List<User> Users { get; set; }
-        public List<Sni> Snis { get; set; } 
+        public List<Sni> Snis { get; set; }
+        public List<UserType> UserTypes { get; set; }
 
         public void Invalidate()
         {

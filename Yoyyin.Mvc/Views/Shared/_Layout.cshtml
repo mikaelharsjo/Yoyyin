@@ -42,8 +42,9 @@
                                         </ul>
                                     </li>
                                 </ul>  
-                                    <form id="formQuickSearch" class="navbar-search pull-left" onkeypress="return event.keyCode != 13;">
-                                        <input type="text" class="search-query" placeholder="Sök affärspartner/kompetens mm">
+
+                                    <form id="formQuickSearch" class="navbar-search pull-left" onkeypress="return event.keyCode != 13">
+                                        <input id="txtSearch" type="text" class="search-query" placeholder="Sök affärspartner/kompetens mm">
                                     </form>  
                                 <ul class="nav pull-right">
                                     @Html.Partial("_LoginPartial")
@@ -79,6 +80,7 @@
             $("#formQuickSearch").quickSearch({ $placeHolder: $("#body") });
         });
             
+
     </script>
 </body>
 </html>

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Yoyyin.Model.Users;
 using Yoyyin.Model.Users.Entities;
 using Yoyyin.Model.Users.Enumerations;
 
@@ -12,21 +13,15 @@ namespace Yoyyin.Mvc.Providers.Markup
         string ToList(UserTypesNeeded userTypesNeeded);
         string ToLabelList(UserTypesNeeded userTypesNeeded);
     }
-    
-    public class LabelListGenerator
-    {
-        public string GenerateMarkup(IEnumerable<string> strings, string formatString)
-        {
-            return string.Join(" ", strings.Select(s => string.Format(formatString, s.ToString())).ToArray());            
-        }
-    }
 
     public class UserTypesNeededMarkupProvider : IUserTypesNeededMarkupProvider
     {
         private readonly LabelListGenerator _labelListGenerator;
+        private IUserRepository _userRepository;
 
-        public UserTypesNeededMarkupProvider()
+        public UserTypesNeededMarkupProvider(IUserRepository userRepository)
         {
+            _userRepository = userRepository;
             _labelListGenerator = new LabelListGenerator();
         }
 
@@ -38,35 +33,21 @@ namespace Yoyyin.Mvc.Providers.Markup
         public string ToLabelList(UserTypesNeeded userTypesNeeded)
         {
             //var translatedTitles = userTypesNeeded.GetUserTypeTitles();
-            Dictionary<int, string> userTypesDict = userTypesNeeded.UserTypeIds.ToDictionary(
-                userType => (int) userType, userType => userType.ToString());
+            //Dictionary<int, string> userTypesDict = userTypesNeeded.UserTypeIds.ToDictionary(
+
+            // objectify integers
+            var userTypes =
+                userTypesNeeded.UserTypeIds.Select(
+                    userTypeId =>
+                    _userRepository.Query(u => u.UserTypes.First(userType => userType.UserTypeId == userTypeId)));
+            
+            //userType => (int) userType, userType => userType.ToString());
 
             string formatString =
-                "<span class='label label-success'><a href='/User/ListByUserType/{0}/{1}'>{1}</a></span>";
+                "<span class='label label-success'><a href='/User/ListByUserType/{0}/{1}'>{2}</a></span>";
 
             return string.Join("",
-                               userTypesDict.Select(dict => string.Format(formatString, dict.Key, dict.Value)).ToArray());
-        }
-    }
-
-    public class CompetencesNeededMarkupProvider
-    {
-        private readonly LabelListGenerator _labelListGenerator;
-
-        public CompetencesNeededMarkupProvider()
-        {
-            _labelListGenerator = new LabelListGenerator();
-        }
-
-        public string ToList(IEnumerable<string> strings)
-        {
-            return string.Format("<ul>{0}</ul>", string.Join("", strings.Select(s => string.Format("<li>{0}</li>", s.ToString())).ToArray()));
-        }
-
-        public string ToLabelList(IEnumerable<string> strings)
-        {
-            return _labelListGenerator.GenerateMarkup(strings,
-                                                      "<span class='label label-info'><a href='/User/ListByCompetence/{0}'>{0}</a></span>");
+                               userTypes.Select(userType => string.Format(formatString, userType.UserTypeId, userType.Title.ToLower().Replace("/", "-"), userType.Title)).ToArray());
         }
     }
 }

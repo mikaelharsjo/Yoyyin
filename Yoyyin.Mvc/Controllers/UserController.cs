@@ -9,6 +9,7 @@ using Yoyyin.Model.Users;
 using Yoyyin.Model.Users.Entities;
 using Yoyyin.Mvc.Models;
 using Yoyyin.Model.Users.AggregateRoots;
+using Yoyyin.Mvc.Models.BreadCrumb;
 using User = Yoyyin.Model.Users.AggregateRoots.User;
 using Yoyyin.Model.Users.Enumerations;
 
@@ -38,11 +39,12 @@ namespace Yoyyin.Mvc.Controllers
                                          Items =
                                              new List<BreadCrumbItem>
                                                  {
+                                                     new BreadCrumbItem {Text = "Hem", Url = "/Home"},
                                                      new BreadCrumbItem {Text = "Affärsidéer", Url = ""},
                                                      new BreadCrumbItem
                                                          {
                                                              Text = "Alla",
-                                                             Url = "/User/List"
+                                                             Url = ""
                                                          }
                                                  }
                                      };
@@ -56,6 +58,31 @@ namespace Yoyyin.Mvc.Controllers
         {
             var sni = _repository.Query(m => m.Snis.First(s => s.SniItem.SniNo == id));
             ViewBag.Title = string.Format("Affärsidéer inom {0}", sni != null ? sni.SniItem.Title: "");
+            ViewBag.BreadCrumb = new BreadCrumb
+                                     {
+                Items =
+                    new List<BreadCrumbItem>
+                                                 {
+                                                     new BreadCrumbItem {Text = "Hem", Url = "/Home"},
+                                                     new BreadCrumbItem {Text = "Affärsidéer", Url = "/User/List"},
+                                                     new BreadCrumbItem
+                                                         {
+                                                             Text = "Branscher",
+                                                             Url = "/Sni/List"
+                                                         },
+                                                     new BreadCrumbItem
+                                                         {
+                                                             Text = sni.SniHead.Title,
+                                                             Url = "/User/ListBySniHead/" + sni.SniHead.SniHeadId
+                                                         },
+                                                     new BreadCrumbItem
+                                                         {
+                                                             Text = sni.SniItem.Title,
+                                                             Url = ""
+                                                         }
+                                                 }
+            };
+
             return View("List", _repository
                             .Query(m => m.Users)
                             .Where(u => u.Ideas.First().SniNo == id)
@@ -71,11 +98,12 @@ namespace Yoyyin.Mvc.Controllers
                                          Items =
                                              new List<BreadCrumbItem>
                                                  {
-                                                     new BreadCrumbItem {Text = "Affärsidéer", Url = ""},
+                                                     new BreadCrumbItem {Text = "Hem", Url = "/Home"},
+                                                     new BreadCrumbItem {Text = "Affärsidéer", Url = "/User/List"},
                                                      new BreadCrumbItem
                                                          {
-                                                             Text = "Kompetenser",
-                                                             Url = "/User/List"
+                                                             Text = "Branscher",
+                                                             Url = "/Sni/List"
                                                          },
                                                      new BreadCrumbItem
                                                          {

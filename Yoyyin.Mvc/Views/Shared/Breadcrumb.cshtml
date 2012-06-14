@@ -1,7 +1,6 @@
 ﻿@model dynamic
-<ul class="breadcrumb">
-    @foreach (var item in ViewBag.BreadCrumb.Items) 
-    {
-        <li><a href="@item.Url">@item.Text</a> <span class="divider">/</span> </li>
-    }
-</ul>
+
+@if (ViewBag.BreadCrumb != null)
+{
+    @Html.Raw(ViewBag.BreadCrumb.GetMarkup())
+} 

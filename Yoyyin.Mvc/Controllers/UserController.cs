@@ -34,7 +34,7 @@ namespace Yoyyin.Mvc.Controllers
         public ActionResult List()
         {
             ViewBag.Title = "Alla affärsidéer";
-            ViewBag.BreadCrumb = new BreadCrumb()
+            ViewBag.BreadCrumb = new BreadCrumb
                                      {
                                          Items =
                                              new List<BreadCrumbItem>

@@ -1,24 +1,23 @@
 ﻿@model Yoyyin.Mvc.Models.User
-
-    <div class="row-fluid">
+<div class="row-fluid">
     <div class="span2">
         <a href="#" class="thumbnail">
             @Html.Raw(Model.LargeProfileImageMarkup)
-        </a>
-        <a>@Model.DisplayName</a>
+        </a><a>@Model.DisplayName</a>
         <p>
-            @Html.Raw(Model.UserTypeMarkup)    
+            @Html.Raw(Model.UserTypeMarkup)
         </p>
     </div>
     <div class="span10">
-            <span class="label">@Html.ActionLink(Model.SniHeadTitle, "ListBySniNo", new { SniNo = Model.SniNo})</span>
-            <h2>@Model.FirstIdea.Title</h2>
-            <p>@Html.Raw(Model.FirstIdea.Description)</p>
+        <span class="label">@Html.ActionLink(Model.SniHeadTitle, "ListBySniNo", new { SniNo = Model.SniNo })</span>
+        <h2>@Model.FirstIdea.Title</h2>
+        <p>@Html.Raw(Model.FirstIdea.Description)</p>
+        <div class="well">
             <h3>@Model.DisplayName söker personer som är:</h3>
             @Html.Raw(Model.UserTypesNeededMarkup)
-            <h3>...och kan</h3>
+            <h3>
+                ...och kan</h3>
             @Html.Raw(Model.CompetencesNeededmarkup)
+        </div>
     </div>
-    </div>
-
-
+</div>

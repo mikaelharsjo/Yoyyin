@@ -12,8 +12,6 @@
             $input.keydown(function (event) {
                 if (event.keyCode == 13) {
                     $.get("/User/QuickSearch/", { term: $(this).val() }, function (result) {
-                        console.log(result);
-                        debugger;
                         that.options.$placeHolder.html(result);
                     });
 

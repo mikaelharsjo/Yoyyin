@@ -149,11 +149,13 @@ namespace Yoyyin.Mvc.Controllers
 
         public ActionResult QuickSearch(string term)
         {
+            var users = _repository
+                            .Query(m => m.Users)
+                            .Where(u => u.Ideas.First().SearchProfile.ContainsString(term.ToLower()))
+                            .Select(u => _userConverter.ConvertToViewModel(u));
             ViewBag.BreadCrumb = new NoBreadCrumb();
-            return PartialView("List", _repository
-                                    .Query(m => m.Users)
-                                    .Where(u => u.Ideas.First().SearchProfile.ContainsString(term.ToLower()))
-                                    .Select(u => _userConverter.ConvertToViewModel(u)));
+            ViewBag.ResultText = string.Format("<strong>Resultat för {0}</strong>, {1} träffar", term, users.Count());
+            return PartialView("QuickSearch", users);
         }
 
         public ActionResult Details(Guid id)

@@ -57,7 +57,7 @@
     <div id="body">
         @*What is this*@
         @RenderSection("featured", required: false)
-        <section class="content-wrapper main-content clear-fix">
+        <section id="sectionMainContent" class="content-wrapper main-content clear-fix">
             @RenderBody()
         </section>
     </div>
@@ -77,10 +77,8 @@
     <script type="text/javascript">
         $(function () {
             $(".registerLink").registerLink();
-            $("#formQuickSearch").quickSearch({ $placeHolder: $("#body") });
+            $("#formQuickSearch").quickSearch({ $placeHolder: $("#sectionMainContent") });
         });
-            
-
     </script>
 </body>
 </html>

@@ -150,7 +150,7 @@ namespace Yoyyin.Mvc.Controllers
         public ActionResult QuickSearch(string term)
         {
             ViewBag.BreadCrumb = new NoBreadCrumb();
-            return View("List", _repository
+            return PartialView("List", _repository
                                     .Query(m => m.Users)
                                     .Where(u => u.Ideas.First().SearchProfile.ContainsString(term.ToLower()))
                                     .Select(u => _userConverter.ConvertToViewModel(u)));

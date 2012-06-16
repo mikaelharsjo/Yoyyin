@@ -168,9 +168,9 @@ namespace Yoyyin.Mvc.Controllers
                     new List<BreadCrumbItem>
                                                  {
                                                      new BreadCrumbItem {Text = "Hem", Url = "/Home"},
-                                                     new BreadCrumbItem {Text = "Affärsidéer", Url = ""},
-                                                     new BreadCrumbItem { Text = user.SniHeadTitle, Url = ""},
-                                                     new BreadCrumbItem { Text = user.DisplayName }
+                                                     new BreadCrumbItem {Text = "Affärsidéer", Url = "/User/List"},
+                                                     new BreadCrumbItem { Text = user.SniHeadTitle, Url = "/User/ListBySniHead/" + user.SniHeadId},
+                                                     new BreadCrumbItem { Text = user.DisplayName, IsLast = true }
                                                  }
             };
             ViewBag.Title = user.FirstIdea.Title;

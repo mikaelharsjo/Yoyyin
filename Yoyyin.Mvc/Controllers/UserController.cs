@@ -162,6 +162,17 @@ namespace Yoyyin.Mvc.Controllers
         {
             var user = _userConverter.ConvertToViewModel(_repository
                                                              .Query(m => m.Users.First(u => u.UserId == id)));
+            ViewBag.BreadCrumb = new BreadCrumb
+            {
+                Items =
+                    new List<BreadCrumbItem>
+                                                 {
+                                                     new BreadCrumbItem {Text = "Hem", Url = "/Home"},
+                                                     new BreadCrumbItem {Text = "Affärsidéer", Url = ""},
+                                                     new BreadCrumbItem { Text = user.SniHeadTitle, Url = ""},
+                                                     new BreadCrumbItem { Text = user.DisplayName }
+                                                 }
+            };
             ViewBag.Title = user.FirstIdea.Title;
             return View(user);
         }

@@ -1,0 +1,10 @@
+﻿@model System.Collections.Generic.List<Yoyyin.Model.Users.AggregateRoots.Sni>
+
+<ul>
+@foreach(var sni in @Model)
+{
+    <li>
+        <a>@Html.Raw(sni.SniHead.Title)</a>
+    </li>
+}
+</ul>

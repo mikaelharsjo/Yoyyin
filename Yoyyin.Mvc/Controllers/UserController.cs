@@ -100,16 +100,8 @@ namespace Yoyyin.Mvc.Controllers
                                                  {
                                                      new BreadCrumbItem {Text = "Hem", Url = "/Home"},
                                                      new BreadCrumbItem {Text = "Affärsidéer", Url = "/User/List"},
-                                                     new BreadCrumbItem
-                                                         {
-                                                             Text = "Branscher",
-                                                             Url = "/Sni/List"
-                                                         },
-                                                     new BreadCrumbItem
-                                                         {
-                                                             Text = title,
-                                                             Url = ""
-                                                         }
+                                                     new BreadCrumbItem { Text = "Branscher", Url = "/Sni/List" },
+                                                     new BreadCrumbItem { Text = title, IsLast = true }
                                                  }
                                      };
             return View(_repository

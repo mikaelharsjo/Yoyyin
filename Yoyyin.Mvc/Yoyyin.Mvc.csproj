@@ -193,12 +193,14 @@
     <None Include="Content\Less\site.less" />
     <Content Include="Content\Css\jquery-ui-1.8.16.custom.css" />
     <Content Include="favicon.png" />
+    <Content Include="Images\constructionteam.png" />
     <Content Include="Images\glyphicons-halflings-white.png" />
     <Content Include="Images\glyphicons-halflings.png" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Images\group.png" />
     <Content Include="Images\forumSprite.png" />
+    <Content Include="Images\handshake.png" />
     <Content Include="Images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Images\ui-bg_glass_55_fbf9ee_1x400.png" />
     <Content Include="Images\ui-bg_glass_65_ffffff_1x400.png" />

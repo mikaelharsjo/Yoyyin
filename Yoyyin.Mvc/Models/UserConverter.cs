@@ -51,7 +51,7 @@ namespace Yoyyin.Mvc.Models
             if (firstIdeaSniNo == "null" || firstIdeaSniNo == "Övrigt")
                 return new[] { "Övrigt", "Övrigt", "Övrigt", "Övrigt" };
 
-            Sni sni = _userRepository.Query(m => m.Snis.First(s => s.SniItem.SniNo == firstIdeaSniNo));
+            var sni = _userRepository.Query(m => m.Snis.First(s => s.SniItem.SniNo == firstIdeaSniNo));
             
             return new[] { sni.SniHead.Title, sni.SniItem.Title, sni.SniItem.SniNo, sni.SniHead.SniHeadId};
         }

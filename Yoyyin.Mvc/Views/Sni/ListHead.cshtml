@@ -1,10 +1,16 @@
-﻿@model System.Collections.Generic.List<Yoyyin.Model.Users.AggregateRoots.Sni>
-
-<ul>
-@foreach(var sni in @Model)
-{
-    <li>
-        <a>@Html.Raw(sni.SniHead.Title)</a>
-    </li>
-}
+﻿@model System.Collections.Generic.List<Yoyyin.Mvc.Models.Sni>
+<h1>Branscher</h1>
+<p>Dessa är baserade på SNI: SNI betyder Svensk Näringsgrensindelning och bygger på EU:s standard, NACE.</p>
+<ul class="nav nav-pills nav-stacked">
+    @foreach (var sni in @Model)
+    {
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">
+            @Html.Raw(sni.Title)
+            <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+                <a href="@sni.UrlToIdeas">Visa affärsidéer</a>
+                <a href="@sni.UrlToItems">Visa undergrupper</a>
+            </ul>
+        </li>
+    }
 </ul>

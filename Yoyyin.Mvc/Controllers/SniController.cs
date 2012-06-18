@@ -4,8 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Yoyyin.Model.Users;
-using Yoyyin.Model.Users.AggregateRoots;
 using Yoyyin.Model.Users.ValueObjects;
+using Yoyyin.Mvc.Models;
 
 namespace Yoyyin.Mvc.Controllers
 {
@@ -20,10 +20,21 @@ namespace Yoyyin.Mvc.Controllers
 
         public ActionResult ListHead()
         {
-            return
-                View(
-                    _userRepository.Query(m => m.Snis).GroupBy(k => k.SniHead.SniHeadId).Select(
-                        g => g.First(s => s.SniHead.SniHeadId == g.Key)).ToList());
+            var distinctSniHeads = _userRepository
+                                        .Query(m => m.Snis)
+                                            .GroupBy(k => k.SniHead.SniHeadId)
+                                            .Select(g => g.First(s => s.SniHead.SniHeadId == g.Key));
+
+            var viewModel =
+                distinctSniHeads.Select(
+                    sh =>
+                    new Sni
+                        {
+                            Title = sh.SniHead.Title,
+                            UrlToIdeas = string.Format("/User/ListBySniHead/{0}", sh.SniHead.SniHeadId),
+                            UrlToItems = string.Format("/Sni/ListItems/{0}", sh.SniHead.SniHeadId)
+                        });
+            return View(viewModel.ToList());
         }
     }
 }

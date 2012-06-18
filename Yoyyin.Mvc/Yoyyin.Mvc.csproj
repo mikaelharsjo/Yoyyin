@@ -182,6 +182,7 @@
     <Compile Include="Models\BreadCrumb\BreadCrumbItem.cs" />
     <Compile Include="Models\BreadCrumb\IBreadCrumb.cs" />
     <Compile Include="Models\BreadCrumb\NoBreadCrumb.cs" />
+    <Compile Include="Models\Sni.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

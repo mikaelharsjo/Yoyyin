@@ -68,7 +68,7 @@ namespace Yoyyin.Mvc.Controllers
                                                      new BreadCrumbItem
                                                          {
                                                              Text = "Branscher",
-                                                             Url = "/Sni/List"
+                                                             Url = "/Sni/ListHead"
                                                          },
                                                      new BreadCrumbItem
                                                          {
@@ -100,7 +100,7 @@ namespace Yoyyin.Mvc.Controllers
                                                  {
                                                      new BreadCrumbItem {Text = "Hem", Url = "/Home"},
                                                      new BreadCrumbItem {Text = "Affärsidéer", Url = "/User/List"},
-                                                     new BreadCrumbItem { Text = "Branscher", Url = "/Sni/List" },
+                                                     new BreadCrumbItem { Text = "Branscher", Url = "/Sni/ListHead" },
                                                      new BreadCrumbItem { Text = title, IsLast = true }
                                                  }
                                      };

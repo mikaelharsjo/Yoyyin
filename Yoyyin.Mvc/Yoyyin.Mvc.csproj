@@ -171,6 +171,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Api\UserController.cs" />
+    <Compile Include="Controllers\MatchingController.cs" />
     <Compile Include="Controllers\Q&amp;AController.cs" />
     <Compile Include="Controllers\SniController.cs" />
     <Compile Include="Controllers\UserController.cs" />

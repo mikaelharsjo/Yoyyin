@@ -40,12 +40,8 @@ namespace Yoyyin.Mvc.Controllers
                                              new List<BreadCrumbItem>
                                                  {
                                                      new BreadCrumbItem {Text = "Hem", Url = "/Home"},
-                                                     new BreadCrumbItem {Text = "Affärsidéer", Url = ""},
-                                                     new BreadCrumbItem
-                                                         {
-                                                             Text = "Alla",
-                                                             Url = ""
-                                                         }
+                                                     new BreadCrumbItem {Text = "Affärsidéer"},
+                                                     new BreadCrumbItem { Text = "Alla", IsLast = true }
                                                  }
                                      };
             return View(_repository
@@ -113,6 +109,17 @@ namespace Yoyyin.Mvc.Controllers
         public ActionResult ListWantsFinancing()
         {
             ViewBag.Title = "Affärsidéer som söker finansiering";
+            ViewBag.BreadCrumb = new BreadCrumb
+            {
+                Items =
+                    new List<BreadCrumbItem>
+                                                 {
+                                                     new BreadCrumbItem {Text = "Hem", Url = "/Home"},
+                                                     new BreadCrumbItem {Text = "Affärsidéer"},
+                                                     new BreadCrumbItem { Text = "Söker finansiering", IsLast = true }
+                                                 }
+            };
+
             return View("List", _repository
                             .Query(m => m.Users)
                             .Where(u => u.Ideas.First().SearchProfile.UserTypesNeeded.WantsFinancing())

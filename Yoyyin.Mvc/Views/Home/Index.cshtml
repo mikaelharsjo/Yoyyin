@@ -21,12 +21,13 @@
         Tid, kunskap och energi är hinder som ofta gör det svårt att starta upp eller utveckla
         ett företag.
         <ul>
-            <li><a class="registerLink">Registrera dig och få tillgång till matchning mm</a></li>
+            <li><a class="registerLink">Registrera din affärsidé och få tillgång till matchning mm</a></li>
+            @*<li>@Html.ActionLink("Visa alla affärsidéer", "List", "User")</li>*@
         </ul>
         <h3>
             Är du finansiär som söker intressanta projekt?</h3>
         <ul>
-            <li>@Html.ActionLink("Visa alla affärsidéer som söker finansiering", "List", "User")</li>
+            <li>@Html.ActionLink("Visa alla affärsidéer som söker finansiering", "ListWantsFinancing", "User")</li>
             <li><a class="registerLink">Registrera dig som finansiär och få tillgång till matchning
                 mm</a></li>
         </ul>
@@ -51,8 +52,8 @@
                 <div class="item">
                     <img src="../../Images/constructionteam.png" />
                     <div class="carousel-caption">
-                        <p>Söker du ett bollplank för din affärsidé</p>
-                        <p>Eller finansiering?</p>
+                        <p>Söker du ett bollplank för din affärsidé<br/>
+                        Eller finansiering?</p>
                     </div>
                 </div>
             </div>

@@ -17,6 +17,9 @@
                 if (event.keyCode == 13) {
                     $.get("/User/QuickSearch/", { term: $(this).val() }, function (result) {
                         that.options.$placeHolder.html(result);
+                        // hide hero
+                        $(".featured").html("");
+                        $(".featured + .main-content").css("background", "none");
                     });
 
                     event.preventDefault();

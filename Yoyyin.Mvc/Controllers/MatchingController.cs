@@ -19,7 +19,7 @@ namespace Yoyyin.Mvc.Controllers
         public ActionResult GetQuickSearchTypeAheadItems()
         {
             // TODO: move to class
-            List<string> words = new List<string>();
+            HashSet<string> words = new HashSet<string>();
             var competences = _userRepository
                 .Query(m => m.Users.Select(u => u.Ideas.First().SearchProfile.Competences));
 

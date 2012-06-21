@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Yoyyin.Model.SearchWords
+namespace Yoyyin.Model.Tagging
 {
     public class SearchWordsOrganizer
     {

@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Tagging\CompetencesScratchPad.cs" />
     <Compile Include="Users\Commands\AddSniFixture.cs" />
     <Compile Include="Users\Commands\UpdateUserCommandShould.cs" />
     <Compile Include="ModelIndexes.cs" />
@@ -77,7 +78,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Q&amp;A\" />
-    <Folder Include="Tagging\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />

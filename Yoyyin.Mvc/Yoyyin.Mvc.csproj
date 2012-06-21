@@ -174,6 +174,7 @@
     <Compile Include="Controllers\MatchingController.cs" />
     <Compile Include="Controllers\Q&amp;AController.cs" />
     <Compile Include="Controllers\SniController.cs" />
+    <Compile Include="Controllers\TaggingController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -286,6 +287,7 @@
     <Content Include="Views\Shared\Breadcrumb.cshtml" />
     <Content Include="Views\User\QuickSearch.cshtml" />
     <Content Include="Views\Sni\ListHead.cshtml" />
+    <Content Include="Views\Tagging\ListCompetences.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

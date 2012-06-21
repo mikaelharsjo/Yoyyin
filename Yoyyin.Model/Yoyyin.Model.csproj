@@ -53,6 +53,7 @@
     <Compile Include="Importers\IUserImporter.cs" />
     <Compile Include="Q&amp;A\UserModel.cs" />
     <Compile Include="Tagging\SearchWordsOrganizer.cs" />
+    <Compile Include="Tagging\WeightedTags.cs" />
     <Compile Include="Users\AggregateRoots\IUser.cs" />
     <Compile Include="Users\AggregateRoots\Sni.cs" />
     <Compile Include="Users\Commands\AddSniCommand.cs" />

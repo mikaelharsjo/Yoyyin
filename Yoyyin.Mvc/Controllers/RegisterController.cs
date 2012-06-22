@@ -13,7 +13,7 @@ namespace Yoyyin.Mvc.Controllers
 
         public ActionResult Step1()
         {
-            return PartialView();
+            return Json(new {View = PartialView()}, JsonRequestBehavior.AllowGet);
         }
     }
 }

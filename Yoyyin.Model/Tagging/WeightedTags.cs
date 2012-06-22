@@ -39,10 +39,13 @@ namespace Yoyyin.Model.Tagging
             }
         }
 
-        //public IDictionary<string, int> Tags;
+        // returns markup sorted by weight
         public string ToMarkup()
         {
-            return string.Join(" ", _tags.Select(t => string.Format("<div class='weightedTag'><span class='label label-info'>{0}</span> x{1}</div>", t.Key, t.Value)));
+            const string format = "<div class='weightedTag'><a href='/User/ListByCompetence/{0}'><span class='label label-info'>{0}</span></a> x{1}</div>";
+            return string.Join(" ", _tags
+                                        .OrderByDescending(t => t.Value)
+                                        .Select(t => string.Format(format, t.Key, t.Value)));
         }
     }
 }

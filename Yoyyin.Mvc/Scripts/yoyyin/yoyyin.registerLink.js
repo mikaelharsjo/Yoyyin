@@ -1,4 +1,4 @@
-﻿(function ($) {
+﻿(function ($, register) {
     $.widget("yoyyin.registerLink", {
         // These options will be used as defaults
         options: {
@@ -7,10 +7,10 @@
 
         _init: function () {
             this.element.click(function () {
-                $("<h1>Bli medlem</h1>").dialog({ title: "Bli medlem", modal: true });
+                register.open();
             });
         }
     });
 
-} (jQuery));
+} (jQuery, yoyyin.register));
 

@@ -173,6 +173,7 @@
     <Compile Include="Controllers\Api\UserController.cs" />
     <Compile Include="Controllers\MatchingController.cs" />
     <Compile Include="Controllers\Q&amp;AController.cs" />
+    <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\SniController.cs" />
     <Compile Include="Controllers\TaggingController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -243,6 +244,7 @@
     <Content Include="Scripts\upshot.knockout.extensions.js" />
     <Content Include="Scripts\upshot.min.js" />
     <Content Include="Scripts\user.js" />
+    <Content Include="Scripts\yoyyin\register.js" />
     <Content Include="Scripts\yoyyin\yoyyin.init.js" />
     <Content Include="Scripts\yoyyin\yoyyin.registerLink.js" />
     <Content Include="Scripts\yoyyin\yoyyin.quickSearch.js" />
@@ -288,6 +290,7 @@
     <Content Include="Views\User\QuickSearch.cshtml" />
     <Content Include="Views\Sni\ListHead.cshtml" />
     <Content Include="Views\Tagging\ListCompetences.cshtml" />
+    <Content Include="Views\Register\Step1.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

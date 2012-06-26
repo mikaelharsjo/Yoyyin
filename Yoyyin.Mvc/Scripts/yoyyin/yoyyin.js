@@ -1,10 +1,8 @@
 ﻿(function ($, location) {
-    var app = $.sammy("#sectionMainContent", function () {
+    var appRegister = $.sammy("#sectionMainContent", function () {
         //this.use(Sammy.Mustache, "html");
-
-        this.get('#/', function (context) {
-            context.swap("apa");
-        });
+        var user = {};
+        user.Street = "Stockholm";
 
         this.get("#/register/:step", function (context) {
             var step = this.params["step"];
@@ -18,7 +16,8 @@
                     context.swap(stepPersonalMarkup + buttonsMarkup);
                     break;
                 case "location":
-                    console.log(location);
+                    console.log(user);
+                    location.setUser(user);
                     context.swap(location.getContent());
                     break;
             }
@@ -30,7 +29,7 @@
         $("#formQuickSearch").quickSearch({ $placeHolder: $("#sectionMainContent") });
         $('#carousel').carousel();
 
-        app.run("#/register/location");
+        appRegister.run("#/register/location");
     });
 
 })(jQuery, yoyyin.register.location);

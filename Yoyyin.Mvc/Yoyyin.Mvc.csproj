@@ -224,7 +224,9 @@
     <Content Include="Scripts\modernizr-2.0.6-development-only.js" />
     <Content Include="Scripts\mustache.js" />
     <Content Include="Scripts\yoyyin\register.js" />
+    <Content Include="Scripts\yoyyin\register\location.js" />
     <Content Include="Scripts\yoyyin\yoyyin.init.js" />
+    <Content Include="Scripts\yoyyin\yoyyin.js" />
     <Content Include="Scripts\yoyyin\yoyyin.registerLink.js" />
     <Content Include="Scripts\yoyyin\yoyyin.quickSearch.js" />
     <Content Include="Web.config" />

@@ -1,9 +1,7 @@
-﻿yoyyin.register.location = function () {
-    var user = {};
-    var that = this;
+﻿yoyyin.register.location = function (mustache) {
+    var stepLocationMarkup = "<section><hgroup class='title'><h1>Var är du?</h1></hgroup></div></section><div class='main-content'><label class='control-label' for='street'>Gatuadress:</label><input type='text' class='input-xlarge' id='street' value='{{Street}}' /><label class='control-label' for='zipCode'>Postnummer:</label><input type='text' class='input-xlarge' id='zipCode' value='{{ZipCode}}' /><label class='control-label' for='city'>Stad/ort:</label><input type='text' class='input-xlarge' id='city' value='{{City}}' /></div><div id='registerMap'></div>";
 
-    var setPosition = function (options) {
-        console.log(that.user);
+    var getPosition = function (options) {
         navigator.geolocation.getCurrentPosition(
             lookupCountry,
             null,
@@ -11,36 +9,33 @@
     };
 
     var lookupCountry = function (position) {
-        console.log(user);
         var latlng = new google.maps.LatLng(
                             position.coords.latitude,
                             position.coords.longitude);
 
         var geoCoder = new google.maps.Geocoder();
-        geoCoder.geocode({ location: latlng }, addLocationToUser);
-    };
-
-    var addLocationToUser = function (results, status) {
-        var parts = results[0].address_components;
-        that.user.Street = parts[1] + " " + parts[0];
-        that.user.City = parts[2];
-        that.user.Country = parts[3];
-        that.user.ZipCode = parts[4];
+        geoCoder.geocode({ location: latlng }, displayResults);
     };
 
     var displayResults = function (results, status) {
-        // here you can look through results ...
-        console.log(results[0]);
-        $("body").append("<div>").text(results[0].formatted_address);
+
+        var parts = results[0].address_components;
+        var location = {
+            Street: parts[1].long_name + " " + parts[0].long_name,
+            City: parts[2].long_name,
+            Country: parts[3].long_name,
+            ZipCode: parts[4].long_name
+        };
+
+        $("#sectionMainContent").html(mustache.render(stepLocationMarkup, location));
+
+        $("#registerMap").goMap();
     };
+
     return {
-        setUser: function (currUser) {
-            console.log("setting user");
-            this.user = currUser;
-        },
         getContent: function () {
-            setPosition();
-            return user.Street;
+            getPosition();
+            //return markup + "apa";
         }
     };
-} ();
+} (Mustache);

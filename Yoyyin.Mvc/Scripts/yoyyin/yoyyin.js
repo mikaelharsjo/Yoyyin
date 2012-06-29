@@ -16,8 +16,9 @@
                     context.swap(stepPersonalMarkup + buttonsMarkup);
                     break;
                 case "location":
-                    var content = location.getContent();
-                    context.swap(content);
+                    location.getContent();
+                    //context.swap(buttonsMarkup);
+                    
                     break;
             }
         });

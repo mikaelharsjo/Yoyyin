@@ -30,7 +30,7 @@
         };
 
         var markup = mustache.render(stepLocationMarkup, location);
-        stepLocationMarkup = markup + "<div class='form-actions'><button type='submit' class='btn btn-primary'>Spara</button><button class='btn'>Cancel</button></div><form>";
+        stepLocationMarkup = markup + "<div class='form-actions'><a class='btn' href='/#/register/personalInfo'>Föregående</button> <a class='btn btn-primary'>Nästa</a></div><form>";
 
         $("#sectionMainContent").html(stepLocationMarkup);
 

@@ -1,4 +1,4 @@
-﻿define('mustache', function(mustache) {
+﻿yoyyin.register.location = function(mustache) {
     var stepLocationMarkup = "<section><hgroup class='title'><h1>Var är du?</h1></hgroup></div></section><div class='ui-helper-clearfix'><div class='stepLeft'><label class='control-label' for='street'>Gatuadress:</label><input type='text' class='input-xlarge' id='street' value='{{Street}}' /><label class='control-label' for='zipCode'>Postnummer:</label><input type='text' class='input-xlarge' id='zipCode' value='{{ZipCode}}' /><label class='control-label' for='city'>Stad/ort:</label><input type='text' class='input-xlarge' id='city' value='{{City}}' /></div><div id='registerMap' class='stepRight thumbnail'></div></div>";
 
     var getPosition = function(options) {
@@ -53,4 +53,4 @@
             //return markup + "apa";
         }
     };
-});
+}(Mustache);

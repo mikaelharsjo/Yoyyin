@@ -34,4 +34,4 @@
             appRegister.run("#/register/location");
         });
 
-    }(jQuery, yoyyin.register.location, Mustache);
+    }(jQuery, Sammy, yoyyin.register.location, Mustache);

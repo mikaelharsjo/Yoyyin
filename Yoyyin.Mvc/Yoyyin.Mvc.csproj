@@ -174,6 +174,7 @@
     <Compile Include="Controllers\MatchingController.cs" />
     <Compile Include="Controllers\Q&amp;AController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\SniController.cs" />
     <Compile Include="Controllers\TaggingController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -222,10 +223,8 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\jquery.gomap-1.3.2.min.js" />
     <Content Include="Scripts\less-1.3.0.min.js" />
-    <Content Include="Scripts\main.js" />
     <Content Include="Scripts\modernizr-2.0.6-development-only.js" />
     <Content Include="Scripts\mustache.js" />
-    <Content Include="Scripts\require.js" />
     <Content Include="Scripts\sammy.js" />
     <Content Include="Scripts\yoyyin\register\location.js" />
     <Content Include="Scripts\yoyyin\register\register.js" />
@@ -270,10 +269,10 @@
     <Content Include="Views\User\ListBySniHead.cshtml" />
     <Content Include="Views\User\UserRowWithSni.cshtml" />
     <Content Include="Views\Shared\Breadcrumb.cshtml" />
-    <Content Include="Views\User\QuickSearch.cshtml" />
     <Content Include="Views\Sni\ListHead.cshtml" />
     <Content Include="Views\Tagging\ListCompetences.cshtml" />
     <Content Include="Views\Register\Step1.cshtml" />
+    <Content Include="Views\Search\QuickSearch.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

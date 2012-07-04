@@ -25,9 +25,8 @@
                             $.getJSON("/Search/QuickJson", { term: $(this).val() }, function (users) {
                                 var markers = [];
                                 $.each(users, function (index, user) {
-                                    markers.pop({ latitude: user.Latitude, longitude: user.Longitude, title: "apa" });
+                                    markers.push({ latitude: user.Latitude, longitude: user.Longitude, title: "apa" });
                                 });
-
                                 $("#quickSearchMap")
                                     .goMap({
                                         markers: markers,

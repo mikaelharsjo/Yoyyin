@@ -22,7 +22,12 @@
                         $(".featured + .main-content").css("background", "none");
                         $("#searchInfo").find("a").click(function () {
                             $.getJSON("/Search/QuickJson", { term: $(this).val() }, function (users) {
-                                console.log(users[0]);
+                                $("#quickSearchMap")
+                                    .goMap({
+                                        latitude: users[0].Latitude,
+                                        longitude: users[0].Longitude,
+                                        maptype: 'ROADMAP'
+                                    });
                             });
                         });
                     });

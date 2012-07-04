@@ -28,7 +28,10 @@ namespace Yoyyin.Mvc.Controllers
             return PartialView("QuickSearch", users);
         }
 
-
+        public ActionResult QuickJson(string term)
+        {
+            return Json(GetUsersByTerm(term), JsonRequestBehavior.AllowGet);
+        }
 
         private IEnumerable<Models.User> GetUsersByTerm(string term)
         {

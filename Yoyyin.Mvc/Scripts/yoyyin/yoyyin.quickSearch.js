@@ -21,7 +21,9 @@
                         $(".featured").html("");
                         $(".featured + .main-content").css("background", "none");
                         $("#searchInfo").find("a").click(function () {
-                            console.log("click");
+                            $.getJSON("/Search/QuickJson", { term: $(this).val() }, function (users) {
+                                console.log(users[0]);
+                            });
                         });
                     });
 

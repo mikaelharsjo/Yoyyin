@@ -19,6 +19,8 @@ namespace Yoyyin.Mvc.Models
         public string UserTypesNeededMarkup { get; set; }
         public string UserTypeMarkup { get; set; }
         public string CompetencesNeededmarkup { get; set; }
+        public double Latitude { get; set; }
+        public double Longitude { get; set; } 
 
         public User(string[] snis)
         {

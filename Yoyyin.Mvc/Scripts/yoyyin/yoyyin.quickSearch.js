@@ -20,10 +20,17 @@
                         // hide hero
                         $(".featured").html("");
                         $(".featured + .main-content").css("background", "none");
-                        $("#searchInfo").find("a").click(function () {
+                        $("#searchInfo").find("a#showOnMap").click(function () {
+                            $("#quickSearchMap").show();
                             $.getJSON("/Search/QuickJson", { term: $(this).val() }, function (users) {
+                                var markers = [];
+                                $.each(users, function (index, user) {
+                                    markers.pop({ latitude: user.Latitude, longitude: user.Longitude, title: "apa" });
+                                });
+
                                 $("#quickSearchMap")
                                     .goMap({
+                                        markers: markers,
                                         latitude: users[0].Latitude,
                                         longitude: users[0].Longitude,
                                         maptype: 'ROADMAP'

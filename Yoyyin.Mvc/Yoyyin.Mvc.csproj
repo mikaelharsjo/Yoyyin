@@ -178,6 +178,7 @@
     <Compile Include="Controllers\SniController.cs" />
     <Compile Include="Controllers\TaggingController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\UserTypeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -228,6 +229,7 @@
     <Content Include="Scripts\sammy.js" />
     <Content Include="Scripts\yoyyin\register\location.js" />
     <Content Include="Scripts\yoyyin\register\register.js" />
+    <Content Include="Scripts\yoyyin\register\userType.js" />
     <Content Include="Scripts\yoyyin\yoyyin.init.js" />
     <Content Include="Scripts\yoyyin\yoyyin.quickSearch.js" />
     <Content Include="Web.config" />

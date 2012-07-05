@@ -1,4 +1,4 @@
-﻿(function ($) {
+﻿(function ($, mustache) {
     $.widget("yoyyin.quickSearch", {
         options: {
             $placeHolder: null
@@ -25,15 +25,24 @@
                             $.getJSON("/Search/QuickJson", { term: $(this).val() }, function (users) {
                                 var markers = [];
                                 $.each(users, function (index, user) {
-                                    markers.push({ latitude: user.Latitude, longitude: user.Longitude, title: "apa" });
+                                    var marker = {
+                                        latitude: user.Latitude,
+                                        longitude: user.Longitude,
+                                        html: {
+                                            content: mustache.render("{{FirstIdea.Title}}<br/>{{FirstIdea.Description}}", user)
+                                        }
+                                    };
+                                    markers.push(marker);
                                 });
                                 $("#quickSearchMap")
                                     .goMap({
                                         markers: markers,
                                         latitude: users[0].Latitude,
                                         longitude: users[0].Longitude,
-                                        maptype: 'ROADMAP'
+                                        maptype: 'ROADMAP',
+                                        hideByClick: true
                                     });
+                                $input.focus();
                             });
                         });
                     });
@@ -46,4 +55,4 @@
         }
     });
 
-} (jQuery));
+} (jQuery, Mustache));

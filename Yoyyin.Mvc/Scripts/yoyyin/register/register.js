@@ -23,6 +23,7 @@
 
                         break;
                     case "location":
+                        $(".featured").find("h1").text("Vilken adress ska användas för visning på karta?");
                         location.getContent(function (data) {
                             var html = mustache.render(stepLocationMarkup, data);
                             context.swap(appendButtons({ markup: html, previousStep: "personalInfo", nextStep: "userType" }));
@@ -34,7 +35,7 @@
                     case "userType":
                         userType.init(function (data) {
                             console.log(data);
-                            var html = stepUserTypeTemplate + "<div>" +  data + "</div>";
+                            var html = stepUserTypeTemplate + "<div>" + data + "</div>";
                             console.log(html);
                             context.swap(appendButtons({ markup: html, previousStep: "location", nextStep: "location" }));
                         });

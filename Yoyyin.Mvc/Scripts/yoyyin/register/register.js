@@ -14,8 +14,8 @@
                 var step = this.params["step"];
 
                 var stepPersonalMarkup = "<section><hgroup class='title'><h1>Först behöver vi lite personuppgifter.</h1></hgroup></div></section><div class='main-content'><label class='control-label' for='name'>Namn:</label><input type='text' class='input-xlarge' id='name' /><p class='help-block'>Supporting help text</p><label class='control-label' for='alias'>Alias:</label><input type='text' class='input-xlarge' id='alias' /><p class='help-block'>Supporting help text</p></div>";
+                var stepLocationMarkup = "<section><hgroup class='title'><h1>Var är du?</h1></hgroup></div></section><div class='ui-helper-clearfix'><div class='stepLeft'><label class='control-label' for='street'>Gatuadress:</label><input type='text' class='input-xlarge' id='street' value='{{Street}}' /><label class='control-label' for='zipCode'>Postnummer:</label><input type='text' class='input-xlarge' id='zipCode' value='{{ZipCode}}' /><label class='control-label' for='city'>Stad/ort:</label><input type='text' class='input-xlarge' id='city' value='{{City}}' /><label class='control-label' for='city'>Land:</label><input type='text' class='input-xlarge' id='country' value='{{Country}}' /><label class='checkbox'><input type='checkbox'> Visa mig inte på kartan</label></div><div id='registerMap' class='stepRight thumbnail'></div></div>";
                 var stepUserType = "<h1>Vad är din roll?</h1><div></div>";
-
 
                 switch (step) {
                     case "personalInfo":
@@ -24,8 +24,9 @@
                         break;
                     case "location":
                         location.getContent(function (data) {
-                            console.log(data);  alert("callback"); });
-
+                            var html = mustache.render(stepLocationMarkup, data);
+                            context.swap(appendButtons({ markup: html, previousStep: "personalInfo", nextStep: "userType" }));
+                        });
 
                         //alert("location getContent");
 

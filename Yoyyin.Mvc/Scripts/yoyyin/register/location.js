@@ -1,5 +1,5 @@
 ﻿yoyyin.register.location = function (mustache) {
-    var stepLocationMarkup = "<section><hgroup class='title'><h1>Var är du?</h1></hgroup></div></section><div class='ui-helper-clearfix'><div class='stepLeft'><label class='control-label' for='street'>Gatuadress:</label><input type='text' class='input-xlarge' id='street' value='{{Street}}' /><label class='control-label' for='zipCode'>Postnummer:</label><input type='text' class='input-xlarge' id='zipCode' value='{{ZipCode}}' /><label class='control-label' for='city'>Stad/ort:</label><input type='text' class='input-xlarge' id='city' value='{{City}}' /></div><div id='registerMap' class='stepRight thumbnail'></div></div>";
+    
     var callback;
 
     var getPosition = function (options) {
@@ -30,10 +30,7 @@
             Longitude: results[0].geometry.location.ab
         };
 
-        var markup = mustache.render(stepLocationMarkup, location);
-        stepLocationMarkup = markup + "<div class='form-actions'><a class='btn' href='/#/register/personalInfo'>Föregående</button> <a class='btn btn-primary'>Nästa</a></div><form>";
-
-        $("#sectionMainContent").html(stepLocationMarkup);
+        callback(location);
 
         $("#registerMap").goMap({
             latitude: location.Latitude,
@@ -46,8 +43,6 @@
                 html: { content: "<h2>Hej</h2><p>hoppla</p>" }
             }]
         });
-
-        callback(location);
     };
 
     return {

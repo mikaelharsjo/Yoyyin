@@ -23,7 +23,11 @@
 
                         break;
                     case "location":
-                        location.getContent();
+                        location.getContent(function (data) {
+                            console.log(data);  alert("callback"); });
+
+
+                        //alert("location getContent");
 
                         break;
                     case "userType":

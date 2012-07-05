@@ -1,14 +1,15 @@
-﻿yoyyin.register.location = function(mustache) {
+﻿yoyyin.register.location = function (mustache) {
     var stepLocationMarkup = "<section><hgroup class='title'><h1>Var är du?</h1></hgroup></div></section><div class='ui-helper-clearfix'><div class='stepLeft'><label class='control-label' for='street'>Gatuadress:</label><input type='text' class='input-xlarge' id='street' value='{{Street}}' /><label class='control-label' for='zipCode'>Postnummer:</label><input type='text' class='input-xlarge' id='zipCode' value='{{ZipCode}}' /><label class='control-label' for='city'>Stad/ort:</label><input type='text' class='input-xlarge' id='city' value='{{City}}' /></div><div id='registerMap' class='stepRight thumbnail'></div></div>";
+    var callback;
 
-    var getPosition = function(options) {
+    var getPosition = function (options) {
         navigator.geolocation.getCurrentPosition(
             lookupCountry,
             null,
             options);
     };
 
-    var lookupCountry = function(position) {
+    var lookupCountry = function (position) {
         var latlng = new google.maps.LatLng(
             position.coords.latitude,
             position.coords.longitude);
@@ -17,7 +18,7 @@
         geoCoder.geocode({ location: latlng }, displayResults);
     };
 
-    var displayResults = function(results, status) {
+    var displayResults = function (results, status) {
         console.log(results[0]);
         var parts = results[0].address_components;
         var location = {
@@ -45,12 +46,15 @@
                 html: { content: "<h2>Hej</h2><p>hoppla</p>" }
             }]
         });
+
+        callback(location);
     };
 
     return {
-        getContent: function() {
+        getContent: function (setCallback) {
+            callback = setCallback;
             getPosition();
             //return markup + "apa";
         }
     };
-}(Mustache);
+} (Mustache);

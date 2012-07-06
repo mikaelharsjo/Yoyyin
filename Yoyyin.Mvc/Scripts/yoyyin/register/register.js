@@ -1,6 +1,7 @@
-﻿yoyyin.register.location =
+﻿/// <reference path="../../sammy.js" />
+yoyyin.register.location =
     function ($, sammy, mustache, location, userType) {
-        var buttonsMarkup = "<div class='form-actions'><a class='btn' href='/#/register/{{previousStep}}'>Föregående</button> <a class='btn btn-primary' href='/#/register/{{nextStep}}'>Nästa</a></div><form>";
+        var buttonsMarkup = "<div class='form-actions'><a class='btn' href='/#/register/{{previousStep}}'>Föregående</a> <a class='btn btn-primary' href='/#/register/{{nextStep}}'>Nästa</a></div><form>";
 
         var appendButtons = function (step) {
             var buttons = mustache.to_html(buttonsMarkup, step);
@@ -24,13 +25,12 @@
 
                 var stepPersonalMarkup = "<div><label class='control-label' for='name'>Namn:</label><input type='text' class='input-xlarge' id='name' /><p class='help-block'>Supporting help text</p><label class='control-label' for='alias'>Alias:</label><input type='text' class='input-xlarge' id='alias' /><p class='help-block'>Supporting help text</p></div>";
                 var stepLocationMarkup = "<div class='ui-helper-clearfix'><div class='stepLeft'><label class='control-label' for='street'>Gatuadress:</label><input type='text' class='input-xlarge' id='street' value='{{Street}}' /><label class='control-label' for='zipCode'>Postnummer:</label><input type='text' class='input-xlarge' id='zipCode' value='{{ZipCode}}' /><label class='control-label' for='city'>Stad/ort:</label><input type='text' class='input-xlarge' id='city' value='{{City}}' /><label class='control-label' for='city'>Land:</label><input type='text' class='input-xlarge' id='country' value='{{Country}}' /><label class='checkbox'><input type='checkbox'> Visa mig inte på kartan</label></div><div id='registerMap' class='stepRight thumbnail'></div></div>";
-                //var stepUserTypeTemplate = "<h1>Vad är din roll?</h1>";
 
                 switch (step) {
                     case "personalInfo":
                         setQuestion("Först behöver vi lite personuppgifter");
                         setDescription("");
-                        
+
                         context.swap(appendButtons({ markup: stepPersonalMarkup, previousStep: "personalInfo", nextStep: "location" }));
 
                         break;
@@ -48,9 +48,14 @@
                     case "userType":
                         setQuestion("Vilken är din roll?");
                         setDescription("");
+                        
                         userType.init(function (html) {
-                            context.swap(appendButtons({ markup: html, previousStep: "location", nextStep: "location" }));
+                            context.swap(appendButtons({ markup: html, previousStep: "location", nextStep: "location" }), function () {
+                                //context.$element.append("<div>div</div>");
+                            });
                         });
+
+
 
                         break;
                 }

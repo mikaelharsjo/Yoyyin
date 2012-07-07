@@ -48,10 +48,14 @@ yoyyin.register.location =
                     case "userType":
                         setQuestion("Vilken är din roll?");
                         setDescription("");
-                        
+
                         userType.init(function (html) {
                             context.swap(appendButtons({ markup: html, previousStep: "location", nextStep: "location" }), function () {
                                 //context.$element.append("<div>div</div>");
+                                $("#btnSaveUserType").click(function () {
+                                    $(this).button("loading");
+                                    userType.save();
+                                });
                             });
                         });
 

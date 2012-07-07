@@ -3,24 +3,32 @@
 
     return {
         init: function (callback) {
-            var markup = "<div class='ui-helper-clearfix'><div class='stepLeft'>";
+            var stepLeft = "<div class='ui-helper-clearfix'><div class='stepLeft'>";
             $.getJSON("/UserType/All", function (userTypes) {
                 $.each(userTypes, function (index, userType) {
-                    markup += mustache.render(userTypeRadioTemplate, userType);
+                    stepLeft += mustache.render(userTypeRadioTemplate, userType);
                 });
 
-                markup += "</div>";
+                stepLeft += "</div>";
+                var $markup = $(stepLeft);
 
-                var $markup = $(markup);
+                var $stepRight = $("<div class='stepRight'><h3>Ingen roll som passar?</h3><p>Hitta på en egen roll</p><label>Namn</label><input type='text' /><label>Beskrivning</label><input type='text' /><br /></div>");
 
-                $markup.append("<div class='stepRight'><h3>Ingen roll som passar?</h3><p>Hitta på en egen roll</p><label>Namn</label><input type='text' /><label>Beskrivning</label><input type='text' /></div></div>");
-                
+                var $saveButton = $("<button id='btnSaveUserType' class='btn' data-loading-text='Sparar...' >Spara</button>")
+                //$saveButton.button();
+                $stepRight.append($saveButton);
+
+                $markup = $markup.append($stepRight.append($saveButton));
 
                 if (callback) {
+                    // looks tricky but it´s just to get the markup
                     var html = $("<div>").append($markup.clone()).html();
                     callback(html);
                 }
             });
+        },
+        save: function () {
+            console.log("save user type");
         }
     };
 } (Mustache)

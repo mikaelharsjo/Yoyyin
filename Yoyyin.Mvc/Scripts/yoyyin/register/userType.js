@@ -29,9 +29,17 @@
         },
         save: function () {
             console.log("save user type");
-            $.post("/UserType/Create", { Title: $("title").val(), Description: $("description").val() }, function () {
-                console.log("saved");
-                }
+            var userType = {
+                Title: $("#title").val(),
+                Description: $("#description").val()
+            };
+            console.log(userType);
+
+            $.post("/UserType/Create", userType, function () {
+                //  console.log("saved");                
+                $(".stepLeft").append(mustache.render(userTypeRadioTemplate, userType))
+                $("#btnSaveUserType").button("reset");
+            }
             );
         }
     };

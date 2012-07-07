@@ -88,7 +88,6 @@
     <Compile Include="Users\ValueObjects\IUserType.cs" />
     <Compile Include="Users\ValueObjects\NullCoordinate.cs" />
     <Compile Include="Users\ValueObjects\Settings.cs" />
-    <Compile Include="Users\ValueObjects\UserType.cs" />
     <Compile Include="Users\Enumerations\UserTypes.cs" />
     <Compile Include="Users\UserRepository.cs" />
   </ItemGroup>

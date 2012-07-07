@@ -12,9 +12,9 @@
                 stepLeft += "</div>";
                 var $markup = $(stepLeft);
 
-                var $stepRight = $("<div class='stepRight'><h3>Ingen roll som passar?</h3><p>Hitta på en egen roll</p><label>Namn</label><input type='text' /><label>Beskrivning</label><input type='text' /><br /></div>");
+                var $stepRight = $("<div class='stepRight'><h3>Ingen roll som passar?</h3><p>Hitta på en egen roll</p><label>Titel:</label><input type='text' id='title' /><label>Beskrivning</label><input type='text' id='description' /><br /></div>");
 
-                var $saveButton = $("<button id='btnSaveUserType' class='btn' data-loading-text='Sparar...' >Spara</button>")
+                var $saveButton = $("<button id='btnSaveUserType' class='btn btn-primary' data-loading-text='Sparar...' >Spara</button>")
                 //$saveButton.button();
                 $stepRight.append($saveButton);
 
@@ -29,6 +29,10 @@
         },
         save: function () {
             console.log("save user type");
+            $.post("/UserType/Create", { Title: $("title").val(), Description: $("description").val() }, function () {
+                console.log("saved");
+                }
+            );
         }
     };
 } (Mustache)

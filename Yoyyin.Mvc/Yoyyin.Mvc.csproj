@@ -227,6 +227,7 @@
     <Content Include="Scripts\modernizr-2.0.6-development-only.js" />
     <Content Include="Scripts\mustache.js" />
     <Content Include="Scripts\sammy.js" />
+    <Content Include="Scripts\yoyyin\register\userTypesNeeded.js" />
     <Content Include="Scripts\yoyyin\register\location.js" />
     <Content Include="Scripts\yoyyin\register\register.js" />
     <Content Include="Scripts\yoyyin\register\userType.js" />

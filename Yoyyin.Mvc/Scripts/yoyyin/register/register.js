@@ -1,6 +1,6 @@
 ﻿/// <reference path="../../sammy.js" />
 yoyyin.register.location =
-    function ($, sammy, mustache, location, userType) {
+    function ($, sammy, mustache, location, userType, userTypesNeeded) {
         var buttonsMarkup = "<div class='form-actions'><a class='btn' href='/#/register/{{previousStep}}'>Föregående</a> <a class='btn btn-primary' href='/#/register/{{nextStep}}'>Nästa</a></div><form>";
 
         var appendButtons = function (step) {
@@ -50,7 +50,7 @@ yoyyin.register.location =
                         setDescription("");
 
                         userType.init(function (html) {
-                            context.swap(appendButtons({ markup: html, previousStep: "location", nextStep: "location" }), function () {
+                            context.swap(appendButtons({ markup: html, previousStep: "location", nextStep: "userTypesNeeded" }), function () {
                                 //context.$element.append("<div>div</div>");
                                 $("#btnSaveUserType").click(function () {
                                     $(this).button("loading");
@@ -59,9 +59,30 @@ yoyyin.register.location =
                             });
                         });
 
-
-
                         break;
+
+                    case "userTypesNeeded":
+                        setQuestion("Vad söker du?");
+                        setDescription("");
+
+                        userTypesNeeded.init(function (html) {
+                            context.swap(appendButtons({ markup: html, previousStep: "userType", nextStep: "userTypesNeeded" }), function () {
+
+                                $("#btnSaveUserType").click(function () {
+                                    $(this).button("loading");
+                                    userType.save();
+                                });
+
+                                debugger;
+
+                                $(":checkbox").change(function () {
+                                    console.log("change")
+                                    if ($(this).is(":checked")) {
+                                        $(this).append("<label>Lägg till valfri text:</label><input type='text' />");
+                                    }
+                                });
+                            });
+                        });
                 }
             });
         });
@@ -70,4 +91,4 @@ yoyyin.register.location =
             appRegister.run("#/register/userType");
         });
 
-    } (jQuery, Sammy, Mustache, yoyyin.register.location, yoyyin.register.userType);
+    } (jQuery, Sammy, Mustache, yoyyin.register.location, yoyyin.register.userType, yoyyin.register.userTypesNeeded);

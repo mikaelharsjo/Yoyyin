@@ -94,7 +94,9 @@ yoyyin.register.location =
                         setQuestion("Kompetenser/Egenskaper");
                         setDescription("");
                         context.swap("<ul id='competences'><li>Tag1</li><li>Tag2</li></ul>");
-                        $("#competences").tagit();
+                        $.get("/Matching/GetQuickSearchTypeAheadItems/", function (items) {
+                            $("#competences").tagit({ availableTags: items });
+                        });
                         break;
                 }
             });

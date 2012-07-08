@@ -198,7 +198,9 @@
   <ItemGroup>
     <None Include="Content\Less\site.less" />
     <Content Include="Content\Css\jquery-ui-1.8.16.custom.css" />
+    <Content Include="Content\Css\jquery.tagit.css" />
     <Content Include="favicon.png" />
+    <Content Include="HTMLPage1.htm" />
     <Content Include="Images\constructionteam.png" />
     <Content Include="Images\glyphicons-halflings-white.png" />
     <Content Include="Images\glyphicons-halflings.png" />
@@ -227,6 +229,8 @@
     <Content Include="Scripts\modernizr-2.0.6-development-only.js" />
     <Content Include="Scripts\mustache.js" />
     <Content Include="Scripts\sammy.js" />
+    <Content Include="Scripts\tag-it.js" />
+    <Content Include="Scripts\yoyyin\register\tags.js" />
     <Content Include="Scripts\yoyyin\register\userTypesNeeded.js" />
     <Content Include="Scripts\yoyyin\register\location.js" />
     <Content Include="Scripts\yoyyin\register\register.js" />

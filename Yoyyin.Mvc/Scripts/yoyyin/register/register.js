@@ -1,6 +1,6 @@
 ﻿/// <reference path="../../sammy.js" />
 yoyyin.register.location =
-    function ($, sammy, mustache, location, userType, userTypesNeeded) {
+    function ($, sammy, mustache, location, userType, userTypesNeeded, tags) {
         var buttonsMarkup = "<div class='form-actions'><a class='btn' href='/#/register/{{previousStep}}'>Föregående</a> <a class='btn btn-primary' href='/#/register/{{nextStep}}'>Nästa</a></div><form>";
 
         var appendButtons = function (step) {
@@ -16,9 +16,7 @@ yoyyin.register.location =
             $(".featured").find("p").text(description);
         };
 
-
         var appRegister = $.sammy("#sectionMainContent", function () {
-
 
             this.get("#/register/:step", function (context) {
                 var step = this.params["step"];
@@ -66,7 +64,7 @@ yoyyin.register.location =
                         setDescription("");
 
                         userTypesNeeded.init(function (html) {
-                            context.swap(appendButtons({ markup: html, previousStep: "userType", nextStep: "userTypesNeeded" }), function () {
+                            context.swap(appendButtons({ markup: html, previousStep: "userType", nextStep: "tags" }), function () {
 
                                 $("#btnSaveUserType").click(function () {
                                     $(this).button("loading");
@@ -89,12 +87,21 @@ yoyyin.register.location =
                                 });
                             });
                         });
+
+                        break
+
+                    case "tags":
+                        setQuestion("Kompetenser/Egenskaper");
+                        setDescription("");
+                        context.swap("<ul id='competences'><li>Tag1</li><li>Tag2</li></ul>");
+                        $("#competences").tagit();
+                        break;
                 }
             });
         });
 
         $(function () {
-            appRegister.run("#/register/userType");
+            appRegister.run("#");
         });
 
-    } (jQuery, Sammy, Mustache, yoyyin.register.location, yoyyin.register.userType, yoyyin.register.userTypesNeeded);
+    } (jQuery, Sammy, Mustache, yoyyin.register.location, yoyyin.register.userType, yoyyin.register.userTypesNeeded, yoyyin.register.tags);

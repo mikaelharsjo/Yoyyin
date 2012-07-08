@@ -51,7 +51,7 @@ yoyyin.register.location =
 
                         userType.init(function (html) {
                             context.swap(appendButtons({ markup: html, previousStep: "location", nextStep: "userTypesNeeded" }), function () {
-                                //context.$element.append("<div>div</div>");
+
                                 $("#btnSaveUserType").click(function () {
                                     $(this).button("loading");
                                     userType.save();
@@ -73,12 +73,18 @@ yoyyin.register.location =
                                     userType.save();
                                 });
 
-                                debugger;
 
                                 $(":checkbox").change(function () {
-                                    console.log("change")
                                     if ($(this).is(":checked")) {
-                                        $(this).append("<label>Lägg till valfri text:</label><input type='text' />");
+                                        $(this)
+                                            .parent()
+                                            .append($("<div><label>Lägg till valfri text: <input type='text' /></label></div>"));
+                                    }
+                                    else {
+                                        $(this)
+                                            .parent()
+                                            .find("div")
+                                            .remove();
                                     }
                                 });
                             });

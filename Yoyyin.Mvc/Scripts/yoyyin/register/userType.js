@@ -1,5 +1,5 @@
 ﻿yoyyin.register.userType = function (mustache) {
-    var userTypeRadioTemplate = "<label class='radio'><input name='optionsRadios' id='optionsRadios1' value='{{UserTypeId}}' type='radio'><strong>{{Title}}</strong> {{Description}}</label>";
+    var userTypeRadioTemplate = "<label class='radio'><input name='optionsRadios' id='optionsRadios1' value='{{UserTypeId}}' type='radio' /><strong>{{Title}}</strong> {{Description}}</label>";
 
     return {
         init: function (callback) {

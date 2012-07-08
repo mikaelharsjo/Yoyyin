@@ -1,5 +1,5 @@
 ﻿yoyyin.register.userTypesNeeded = function (mustache) {
-    var userTypeRadioTemplate = "<label class='checkbox'><input name='optionsRadios' id='optionsRadios1' value='{{UserTypeId}}' type='checkbox'><strong>{{Title}}</strong> {{Description}}</label>";
+    var userTypeRadioTemplate = "<label class='checkbox'><input name='optionsRadios' id='optionsRadios1' value='{{UserTypeId}}' type='checkbox' /><strong>{{Title}}</strong> {{Description}}</label>";
 
     return {
         init: function (callback) {

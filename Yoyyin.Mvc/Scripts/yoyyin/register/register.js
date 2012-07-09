@@ -23,7 +23,7 @@ yoyyin.register.location =
 
                 var stepPersonalMarkup = "<div><label class='control-label' for='name'>Namn:</label><input type='text' class='input-xlarge' id='name' /><p class='help-block'>Supporting help text</p><label class='control-label' for='alias'>Alias:</label><input type='text' class='input-xlarge' id='alias' /><p class='help-block'>Supporting help text</p></div>";
                 var stepLocationMarkup = "<div class='ui-helper-clearfix'><div class='stepLeft'><label class='control-label' for='street'>Gatuadress:</label><input type='text' class='input-xlarge' id='street' value='{{Street}}' /><label class='control-label' for='zipCode'>Postnummer:</label><input type='text' class='input-xlarge' id='zipCode' value='{{ZipCode}}' /><label class='control-label' for='city'>Stad/ort:</label><input type='text' class='input-xlarge' id='city' value='{{City}}' /><label class='control-label' for='city'>Land:</label><input type='text' class='input-xlarge' id='country' value='{{Country}}' /><label class='checkbox'><input type='checkbox'> Visa mig inte på kartan</label></div><div id='registerMap' class='stepRight thumbnail'></div></div>";
-                
+
                 setQuestion("Först behöver vi lite personuppgifter");
                 setDescription("");
 
@@ -39,7 +39,7 @@ yoyyin.register.location =
                 });
             });
 
-            this.get("#/register/userType", function (context) {                    
+            this.get("#/register/userType", function (context) {
                 setQuestion("Vilken är din roll?");
                 setDescription("");
 
@@ -83,13 +83,20 @@ yoyyin.register.location =
             });
 
             this.get("#/register/tags", function (context) {
-                    setQuestion("Kompetenser/Egenskaper");
-                    setDescription("");
-                    context.swap("<ul id='competences'><li>Tag1</li><li>Tag2</li></ul>");
-                    $.get("/Matching/GetQuickSearchTypeAheadItems/", function (items) {
-                        $("#competences").tagit({ availableTags: items });
-                    });
-                });                       
+                setQuestion("Kompetenser/Taggar");
+                setDescription("");
+                var tagsTemplate = "<h3>Dina kompetenser</h3><label>För att andra lättare ska kunna hitta din profil kan du lägga<br />till kompetenser du har. För kortare meningar skriv bindestreck.<br /><i>Ex. programmering,marknadsföring,köra-truck</i></div><ul id='competences'></ul></label><h3>Kompetenser du söker</h3><label>Här anger du kompetenser du söker hos en ev affärspartner. Ange dessa nedan separerade med kommatecken.<br /><i>Ex. telefonförsäljning,restaurang</i></label><ul id='competencesNeeded'></ul><h3>Tagga din affärsidé</h3><label>För att andra lättare ska kunna hitta din affärsidé kan du lägga till egenskaper/taggar.<br /><i>Ex. pizzeria,städbolag,e-handel</i></label><ul id='tags'></ul>";
+
+                context.swap(tagsTemplate);
+                $.get("/Matching/GetQuickSearchTypeAheadItems/", function (items) {
+                    $("#tags").tagit({ availableTags: items });
+                });
+
+                $.get("/Tagging/Competences/", function (competences) {
+                    $("#competences").tagit({ availableTags: competences });
+                    $("#competencesNeeded").tagit({ availableTags: competences });                    
+                });
+            });
         });
 
         $(function () {

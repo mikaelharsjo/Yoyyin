@@ -27,5 +27,13 @@ namespace Yoyyin.Mvc.Controllers
 
             return View(tags);
         }
+
+        public ActionResult Competences()
+        {
+            var allCompetences = userRepository
+                                .Query(m => m.Users.Select(u => u.Ideas.First().SearchProfile.Competences));
+
+            return Json(allCompetences, JsonRequestBehavior.AllowGet);
+        }
     }
 }

@@ -88,7 +88,7 @@ yoyyin.register.location =
                             });
                         });
 
-                        break
+                        break;
 
                     case "tags":
                         setQuestion("Kompetenser/Egenskaper");

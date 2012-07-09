@@ -14,7 +14,7 @@
 
                 var $stepRight = $("<div class='stepRight'><h3>Ingen roll som passar?</h3><p>Hitta på en egen roll</p><label>Titel:</label><input type='text' id='title' /><label>Beskrivning</label><input type='text' id='description' /><br /></div>");
 
-                var $saveButton = $("<button id='btnSaveUserType' class='btn btn-primary' data-loading-text='Sparar...' >Lägg till</button>")
+                var $saveButton = $("<button id='btnSaveUserType' class='btn btn-primary' data-loading-text='Sparar...' >Lägg till</button>");
                 //$saveButton.button();
                 $stepRight.append($saveButton);
 
@@ -37,7 +37,7 @@
 
             $.post("/UserType/Create", userType, function () {
                 //  console.log("saved");                
-                $(".stepLeft").append(mustache.render(userTypeRadioTemplate, userType))
+                $(".stepLeft").append(mustache.render(userTypeRadioTemplate, userType));
                 $("#btnSaveUserType").button("reset");
             }
             );

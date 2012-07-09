@@ -60,7 +60,7 @@
     <Compile Include="Users\Commands\AddUserTypeCommand.cs" />
     <Compile Include="Users\ValueObjects\SniHead.cs" />
     <Compile Include="Users\ValueObjects\SniItem.cs" />
-    <Compile Include="Users\UpdateUserCommand.cs" />
+    <Compile Include="Users\Commands\UpdateUserCommand.cs" />
     <Compile Include="Users\Entities\SniCategory.cs" />
     <Compile Include="Users\Entities\UserTypesNeeded.cs" />
     <Compile Include="Users\Entities\Visit.cs" />

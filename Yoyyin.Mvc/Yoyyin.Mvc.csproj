@@ -200,7 +200,6 @@
     <Content Include="Content\Css\jquery-ui-1.8.16.custom.css" />
     <Content Include="Content\Css\jquery.tagit.css" />
     <Content Include="favicon.png" />
-    <Content Include="HTMLPage1.htm" />
     <Content Include="Images\constructionteam.png" />
     <Content Include="Images\glyphicons-halflings-white.png" />
     <Content Include="Images\glyphicons-halflings.png" />

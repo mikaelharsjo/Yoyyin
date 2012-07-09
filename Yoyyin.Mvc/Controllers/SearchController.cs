@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using Yoyyin.Model.Users;
 using Yoyyin.Mvc.Models;
@@ -24,7 +22,8 @@ namespace Yoyyin.Mvc.Controllers
         {
             var users = GetUsersByTerm(term);
             ViewBag.BreadCrumb = new NoBreadCrumb();
-            ViewBag.ResultText = string.Format("<strong>Resultat för {0}</strong>, {1} träffar", term, users.Count());
+            ViewBag.Hits = users.Count();
+            ViewBag.Term = term;
             return PartialView("QuickSearch", users);
         }
 

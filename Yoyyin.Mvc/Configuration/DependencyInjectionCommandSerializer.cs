@@ -4,6 +4,9 @@ using Kiwi.Prevalence;
 
 namespace Yoyyin.Mvc.Configuration
 {
+    /// <summary>
+    /// Use if you need to inject dependencies into the commands
+    /// </summary>
     public class DependecyInjectingCommandSerializer : ICommandSerializer
     {
         private readonly ICommandSerializer _inner;

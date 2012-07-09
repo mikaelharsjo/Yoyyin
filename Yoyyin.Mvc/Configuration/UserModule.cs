@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Web;
 using Autofac;
-using FizzWare.NBuilder;
 using Kiwi.Prevalence;
 using Yoyyin.Importing;
-using Yoyyin.Model;
 using Yoyyin.Model.Importers;
 using Yoyyin.Model.Users;
+using Yoyyin.Model.Users.Commands;
 using Yoyyin.Mvc.Models;
 using Yoyyin.Mvc.Providers.Markup;
 
@@ -22,10 +18,12 @@ namespace Yoyyin.Mvc.Configuration
             builder.RegisterType<RepositoryConfiguration>()
                 .OnActivating(
                     c =>
-                    c.Instance.CommandSerializer = new DependecyInjectingCommandSerializer(c.Instance.CommandSerializer))
-                                    //new CommandSerializer()
-                                                    //.SetAlias<Yoyyin.Model.Users.Commands.AddUserCommand>("addUser")
-                .As<IRepositoryConfiguration>();
+                    c.Instance.CommandSerializer = new CommandSerializer()
+                                                    .WithTypeAlias<AddUserCommand>("addUser")
+                                                    .WithTypeAlias<AddUserTypeCommand>("addUserType")
+                                                    .WithTypeAlias<AddSniCommand>("addSni")
+                                                    .WithTypeAlias<UpdateUserCommand>("updateUser"))
+                                                    .As<IRepositoryConfiguration>();
 
             builder.Register(c => new ModelFactory<UserModel>(() => new UserModel())).As<IModelFactory<UserModel>>();
 

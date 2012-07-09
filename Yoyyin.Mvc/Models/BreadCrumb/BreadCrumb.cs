@@ -6,6 +6,8 @@ namespace Yoyyin.Mvc.Models.BreadCrumb
     public class BreadCrumb : IBreadCrumb
     {
         public IEnumerable<BreadCrumbItem> Items { get; set; }
+
+        // TODO: refactor with Razor foreach + partial
         public string GetMarkup()
         {
             if (Items.Any())

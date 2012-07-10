@@ -83,24 +83,26 @@ yoyyin.register.location =
             });
 
             this.get("#/register/tags", function (context) {
-                setQuestion("Kompetenser/Taggar");
+                setQuestion("Vilka kompetenser har du/söker du?");
                 setDescription("Har du svårt att hitta på kompetenser?");
-                var tagsTemplate = "<h3>Dina kompetenser</h3><label>För att andra lättare ska kunna hitta din profil kan du lägga till kompetenser du har. För kortare meningar skriv bindestreck.<br /><i>Ex. programmering,marknadsföring,köra-truck</i></div><ul id='competences'></ul></label><h3>Kompetenser du söker</h3><label>Här anger du kompetenser du söker hos en ev affärspartner.<br /><i>Ex. telefonförsäljning,restaurang</i></label><ul id='competencesNeeded'></ul><h3>Tagga din affärsidé</h3><label>För att andra lättare ska kunna hitta din affärsidé kan du lägga till egenskaper/taggar.<br /><i>Ex. pizzeria,städbolag,e-handel</i></label><ul id='tags'></ul>";
+                var tagsMarkup = "<h3>Dina kompetenser</h3><label>För att andra lättare ska kunna hitta din profil kan du lägga till kompetenser du har. För kortare meningar skriv bindestreck.<br /><i>Ex. programmering,marknadsföring,köra-truck</i></div><ul id='competences'></ul></label><h3>Kompetenser du söker</h3><label>Här anger du kompetenser du söker hos en ev affärspartner.<br /><i>Ex. telefonförsäljning,restaurang</i></label><ul id='competencesNeeded'></ul><h3>Tagga din affärsidé</h3><label>För att andra lättare ska kunna hitta din affärsidé kan du lägga till egenskaper/taggar.<br /><i>Ex. pizzeria,städbolag,e-handel</i></label><ul id='tags'></ul>";
 
-                context.swap(tagsTemplate);
-                $.get("/Matching/GetQuickSearchTypeAheadItems/", function (items) {
-                    $("#tags").tagit({ availableTags: items });
-                });
+                context.swap(appendButtons({ markup: tagsMarkup, previousStep: "userTypesNeeded", nextStep: "idea" }, function(){
+                    $.get("/Matching/GetQuickSearchTypeAheadItems/", function (items) {
+                        $("#tags").tagit({ availableTags: items });
+                    });
 
-                $.get("/Tagging/Competences/", function (competences) {
-                    $("#competences").tagit({ availableTags: competences });
-                    $("#competencesNeeded").tagit({ availableTags: competences });                    
-                });
+                    $.get("/Tagging/Competences/", function (competences) {
+                        $("#competences").tagit({ availableTags: competences });
+                        $("#competencesNeeded").tagit({ availableTags: competences });
+                    });
+                }
+                ));
             });
         });
 
         $(function () {
-            appRegister.run("#");
+            appRegister.run();
         });
 
     } (jQuery, Sammy, Mustache, yoyyin.register.location, yoyyin.register.userType, yoyyin.register.userTypesNeeded, yoyyin.register.tags);

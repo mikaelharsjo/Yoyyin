@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Mvc;
 using Yoyyin.Model.Tagging;
 using Yoyyin.Model.Users;
@@ -19,6 +16,7 @@ namespace Yoyyin.Mvc.Controllers
 
         public ActionResult ListCompetences()
         {
+            // TODO: include CompetencesNeeded?
             var allCompetences = userRepository
                 .Query(m => m.Users.Select(u => u.Ideas.First().SearchProfile.Competences));
 
@@ -33,7 +31,10 @@ namespace Yoyyin.Mvc.Controllers
             var allCompetences = userRepository
                                 .Query(m => m.Users.Select(u => u.Ideas.First().SearchProfile.Competences));
 
-            return Json(allCompetences, JsonRequestBehavior.AllowGet);
+            WeightedTags tags = new WeightedTags();
+            tags.Add(allCompetences);
+
+            return Json(tags.SortedStrings(), JsonRequestBehavior.AllowGet);
         }
     }
 }

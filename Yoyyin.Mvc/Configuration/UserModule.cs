@@ -32,9 +32,10 @@ namespace Yoyyin.Mvc.Configuration
             //    .As<IUserRepository>(); //.SingleInstance();
 
             builder.RegisterType<UserImporter>().As<IUserImporter>();
+
             builder.RegisterType<UserRepository>()
                 .OnActivated(c => c.Instance.Path = c.Context.Resolve<HttpServerUtilityBase>().MapPath(@"~\App_Data\users"))
-                .As<IUserRepository>() ; //.SingleInstance();
+                .As<IUserRepository>(); //.SingleInstance();
 
             builder.RegisterType<UserConverter>();
             builder.RegisterType<UserTypesNeededMarkupProvider>().As<IUserTypesNeededMarkupProvider>();

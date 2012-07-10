@@ -39,6 +39,13 @@ namespace Yoyyin.Model.Tagging
             }
         }
 
+        public IEnumerable<string> SortedStrings()
+        {
+            return _tags
+                .OrderByDescending(t => t.Value)
+                .Select(t => t.Key);
+        }
+
         // returns markup sorted by weight
         public string ToMarkup()
         {

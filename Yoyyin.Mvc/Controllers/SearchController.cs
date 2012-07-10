@@ -24,6 +24,7 @@ namespace Yoyyin.Mvc.Controllers
             ViewBag.BreadCrumb = new NoBreadCrumb();
             ViewBag.Hits = users.Count();
             ViewBag.Term = term;
+
             return PartialView("QuickSearch", users);
         }
 
@@ -38,6 +39,7 @@ namespace Yoyyin.Mvc.Controllers
                 .Query(m => m.Users)
                 .Where(u => u.Ideas.First().SearchProfile.ContainsString(term.ToLower()))
                 .Select(u => _userConverter.ConvertToViewModel(u));
+
             return users;
         }
 

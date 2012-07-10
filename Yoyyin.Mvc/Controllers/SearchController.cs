@@ -32,7 +32,7 @@ namespace Yoyyin.Mvc.Controllers
             return Json(GetUsersByTerm(term), JsonRequestBehavior.AllowGet);
         }
 
-        private IEnumerable<Models.User> GetUsersByTerm(string term)
+        private IEnumerable<User> GetUsersByTerm(string term)
         {
             var users = _repository
                 .Query(m => m.Users)

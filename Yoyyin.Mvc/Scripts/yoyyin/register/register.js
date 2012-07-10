@@ -87,7 +87,7 @@ yoyyin.register.location =
                 setDescription("Har du svårt att hitta på kompetenser?");
                 var tagsMarkup = "<h3>Dina kompetenser</h3><label>För att andra lättare ska kunna hitta din profil kan du lägga till kompetenser du har. För kortare meningar skriv bindestreck.<br /><i>Ex. programmering,marknadsföring,köra-truck</i></div><ul id='competences'></ul></label><h3>Kompetenser du söker</h3><label>Här anger du kompetenser du söker hos en ev affärspartner.<br /><i>Ex. telefonförsäljning,restaurang</i></label><ul id='competencesNeeded'></ul><h3>Tagga din affärsidé</h3><label>För att andra lättare ska kunna hitta din affärsidé kan du lägga till egenskaper/taggar.<br /><i>Ex. pizzeria,städbolag,e-handel</i></label><ul id='tags'></ul>";
 
-                context.swap(appendButtons({ markup: tagsMarkup, previousStep: "userTypesNeeded", nextStep: "idea" }, function(){
+                context.swap(appendButtons({ markup: tagsMarkup, previousStep: "userTypesNeeded", nextStep: "upload" }), function () {
                     $.get("/Matching/GetQuickSearchTypeAheadItems/", function (items) {
                         $("#tags").tagit({ availableTags: items });
                     });
@@ -96,8 +96,22 @@ yoyyin.register.location =
                         $("#competences").tagit({ availableTags: competences });
                         $("#competencesNeeded").tagit({ availableTags: competences });
                     });
-                }
-                ));
+                });
+                //));
+            });
+
+            this.get("#/register/upload", function (context) {
+                setQuestion("Bild och CV");
+                setDescription("");
+                var uploadMarkup = "<label>Välj bild till din profil: <input type='file' /></label><label>Välj en CV/meritförteckning: <input type='file' /></label>";
+                context.swap(appendButtons({ markup: uploadMarkup, previousStep: "tags", nextStep: "idea" }));
+            });
+
+            this.get("#/register/idea", function (context) {
+                setQuestion("Sista steget - Nu vill vi höra om din affärsidé");
+                setDescription("");
+                var ideaMarkup = "<div class='ui-helper-clearfix'><div class='stepLeft'><label for='title'>Rubrik för din verksamhet/affärsidé:</label><input type='text' id='title' class='input-xlarge' /><label for='description'>Om verksamheten/affärsidén eller om dig själv:</label><textarea class='input-xlarge' id='description' /></div><div class='stepRight'><label>Välj arbetsområde/affärssegment:</label><select class='input-xlarge'></select></div></div>";
+                context.swap(appendButtons({ markup: ideaMarkup, previousStep: "upload", nextStep: "idea" }));
             });
         });
 

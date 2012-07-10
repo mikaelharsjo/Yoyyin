@@ -149,15 +149,23 @@ namespace Yoyyin.Model.Tests
             return users;
         }
 
+        [Test]
+        public void FixCompetences()
+        {
+            Assert.Fail();
+        }
+
         [TearDown]
         public void TearDown()
         {
             foreach (User user in UserRepository.Query(model => model.Users))
             {
-                foreach(var propInfo in user.GetType().GetProperties())
-                {
-                    Console.Out.WriteLine(string.Format("{0}: {1}", propInfo.Name, propInfo.GetValue(user, null) ) );
-                }
+                Console.Out.WriteLine("User.Name: {0}", user.Name);
+
+                //foreach(var propInfo in user.GetType().GetProperties())
+                //{
+                //    Console.Out.WriteLine(string.Format("{0}: {1}", propInfo.Name, propInfo.GetValue(user, null) ) );
+                //}
                 //Console.Out.WriteLine("User.Name: {0}", user.Name);
                 //Console.Out.WriteLine("IdeaCount: {0}", user.Ideas != null ? user.Ideas.Count() : 0);
                 //Console.Out.WriteLine("BookmarkCount: {0}", user.Bookmarks != null ? user.Bookmarks.Count() : 0);

@@ -1,4 +1,5 @@
 ﻿using System.Web;
+using System.Web.Mvc;
 using Autofac;
 using Kiwi.Prevalence;
 using Yoyyin.Importing;
@@ -27,15 +28,13 @@ namespace Yoyyin.Mvc.Configuration
 
             builder.Register(c => new ModelFactory<UserModel>(() => new UserModel())).As<IModelFactory<UserModel>>();
 
-            //builder.RegisterType<UserRepository>()
-            //    .OnActivated(c => c.Instance.Path = c.Context.Resolve<HttpServerUtilityBase>().MapPath(@"~\App_Data\yoyyin"))
-            //    .As<IUserRepository>(); //.SingleInstance();
-
             builder.RegisterType<UserImporter>().As<IUserImporter>();
 
             builder.RegisterType<UserRepository>()
-                .OnActivated(c => c.Instance.Path = c.Context.Resolve<HttpServerUtilityBase>().MapPath(@"~\App_Data\users"))
-                .As<IUserRepository>(); //.SingleInstance();
+                            .OnActivated(
+                                c => c.Instance.Path = DependencyResolver.Current.GetService<HttpRequestBase>().MapPath(@"~\App_Data\users"))
+                            .As<IUserRepository>()
+                            .SingleInstance();
 
             builder.RegisterType<UserConverter>();
             builder.RegisterType<UserTypesNeededMarkupProvider>().As<IUserTypesNeededMarkupProvider>();

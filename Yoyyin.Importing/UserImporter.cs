@@ -50,9 +50,9 @@ namespace Yoyyin.Importing
                                                     SniHeadId = user.SniHeadID != null ? user.SniHeadID.Trim() : "Övrigt",
                                                     SearchProfile = new SearchProfile
                                                                         {
-                                                                            SearchWords = user.SearchWords != null ? user.SearchWords.Split(new [] { ','}) : new string[0],
-                                                                            Competences = user.SearchWordsCompetence != null ? user.SearchWordsCompetence.Split(new [] { ','}) : new string[0],
-                                                                            CompetencesNeeded = user.SearchWordsCompetenceNeeded != null ? user.SearchWordsCompetenceNeeded.Split(new [] { ','}) : new string[0],
+                                                                            SearchWords = GetSearchWords(user),
+                                                                            Competences = GetCompetences(user),
+                                                                            CompetencesNeeded = GetCompetencesNeeded(user),
                                                                             UserTypesNeeded = new UserTypesNeeded
                                                                                                   {
                                                                                                       UserTypeIds = string.IsNullOrEmpty(user.UserTypesNeeded) 
@@ -87,6 +87,36 @@ namespace Yoyyin.Importing
                              
                         };
             }
+        }
+
+        private static string[] GetSearchWords(Data.User user)
+        {
+            return user.SearchWords != null 
+                ? user.SearchWords
+                        .Split(new[] { ',' }).Select(s => s.ToLower().Trim().Replace(" ", "-").Replace(".", ""))
+                        .Where(s => s.Length > 0)
+                        .ToArray()
+                : new string[0];
+        }
+
+        private static string[] GetCompetencesNeeded(Data.User user)
+        {
+            return user.SearchWordsCompetenceNeeded != null 
+                ? user.SearchWordsCompetenceNeeded
+                             .Split(new[] { ',' }).Select(s => s.ToLower().Trim().Replace(" ", "-").Replace(".", ""))
+                             .Where(s => s.Length > 0)
+                             .ToArray()
+                : new string[0];
+        }
+
+        private static string[] GetCompetences(Data.User user)
+        {
+            return user.SearchWordsCompetence != null
+                       ? user.SearchWordsCompetence
+                             .Split(new[] { ',' }).Select(s => s.ToLower().Trim().Replace(" ", "-").Replace(".", ""))
+                             .Where(s => s.Length > 0)
+                             .ToArray()
+                       : new string[0];
         }
     }
 }

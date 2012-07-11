@@ -160,7 +160,11 @@ namespace Yoyyin.Model.Tests
         {
             foreach (User user in UserRepository.Query(model => model.Users))
             {
-                Console.Out.WriteLine("User.Name: {0}", user.Name);
+                foreach (string c in user.Ideas.First().SearchProfile.Competences)
+                {
+                    //UserRepository.Query(x => x.Users.First(, ))
+                    Console.Out.WriteLine(c);
+                }
 
                 //foreach(var propInfo in user.GetType().GetProperties())
                 //{

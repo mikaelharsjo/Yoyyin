@@ -279,6 +279,7 @@
     <Content Include="Views\Tagging\ListCompetences.cshtml" />
     <Content Include="Views\Register\Step1.cshtml" />
     <Content Include="Views\Search\QuickSearch.cshtml" />
+    <Content Include="Views\Tagging\CompetencesPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

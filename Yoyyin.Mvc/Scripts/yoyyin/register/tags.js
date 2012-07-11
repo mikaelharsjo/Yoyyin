@@ -1,9 +1,14 @@
 ﻿yoyyin.register.tags = function () {
-    var template = "<strong>Dina egna kompetenser</strong><br />För att andra lättare ska kunna hitta din profil kan du lägga<br />till kompetenser du har. Ange dessa nedan separerade med kommatecken.&nbsp;<br /><i>Ex. programmering,marknadsföring,köra truck</i></div>";
+    var template = "<p>Har du svårt att hitta på kompetenser? <a id='showAllCompetences'>Visa andras kompetenser</a></p>";
     return {
-        getContent: function () {
-            
+        setDescription: function () {
+            $(".featured").find("p").html(template);
 
+            $("#showAllCompetences").click(function () {
+                $.get("/Tagging/CompetencesPartial", function (markup) {
+                    $("<div></div>").append(markup).dialog({ width: "700", title: "Kompetenser" });
+                });
+            });
         }
     };
 } ();

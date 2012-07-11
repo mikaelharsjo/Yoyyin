@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using FizzWare.NBuilder;
+using Kiwi.Prevalence;
 using Yoyyin.Model;
 using Yoyyin.Model.Users;
 using Yoyyin.Model.Users.Entities;
@@ -44,10 +45,13 @@ namespace Yoyyin.Mvc.Controllers
                                                      new BreadCrumbItem { Text = "Alla", IsLast = true }
                                                  }
                                      };
-            return View(_repository
-                            .Query(m => m.Users)
-                            .OrderBy(u => u.Ideas.First().SniNo)
-                            .Select(u => _userConverter.ConvertToViewModel(u)));
+
+            // optimized by jola
+            return View(_repository.Query(
+                          m => from user in m.Users
+                               orderby user.Ideas.First().SniNo
+                               select _userConverter.ConvertToViewModel(user),
+                                          QueryOptions.NoMarshal));      
         }
 
         public ActionResult ListBySniNo(string id)

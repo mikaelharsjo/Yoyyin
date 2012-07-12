@@ -21,16 +21,17 @@ namespace Yoyyin.Model.Tests.Users.Commands
         [Test]
         public void Add()
         {
-            Assert.That(UserRepository.Query(model => model.Snis).Count(), Is.EqualTo(0));
+            Assert.That(UserRepository.Query(model => model.SniHeads).Count(), Is.EqualTo(0));
 
             UserRepository.Execute(
-                new AddSniCommand(new Sni
-                                      {
-                                          SniHead = new SniHead {SniHeadId = "1", Title = "Ett"},
-                                          SniItem = new SniItem {SniNo = "A", Title = "Title"}
-                                      }));
+                new AddSniHeadCommand(new SniHead
+                                          {
+                                              SniHeadId = "1",
+                                              Title = "Ett",
+                                              Items = new[] {new SniItem {SniNo = "A", Title = "Title"}}
+                                          }));
 
-            Assert.That(UserRepository.Query(model => model.Snis).Count(), Is.EqualTo(1));
+            Assert.That(UserRepository.Query(model => model.SniHeads).Count(), Is.EqualTo(1));
         }
 
 

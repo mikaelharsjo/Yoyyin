@@ -33,10 +33,10 @@ namespace Yoyyin.Model.Users
                 _userRepository.Execute(new AddUserCommand(user));
             }
 
-            var snis = _sniImporter.Import();
-            foreach (var sni in snis)
+            var sniHeads = _sniImporter.Import();
+            foreach (var sniHead in sniHeads)
             {
-                _userRepository.Execute(new AddSniCommand(sni));
+                _userRepository.Execute(new AddSniHeadCommand(sniHead));
             }
         }
     }

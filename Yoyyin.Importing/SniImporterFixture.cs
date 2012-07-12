@@ -18,9 +18,9 @@ namespace Yoyyin.Importing
             var importedSnis = sniImporter.Import();
             Assert.That(importedSnis.Count(), Is.AtLeast(10));
 
-            foreach(Sni sni in importedSnis)
+            foreach(SniHead sniHead in importedSnis)
             {
-                Console.WriteLine(string.Format("SniNo: {0} SniTitel: {1} Snigrupp: {2} SniGruppId: {3}", sni.SniItem.SniNo, sni.SniItem.Title, sni.SniHead.Title, sni.SniHead.SniHeadId));
+                Console.WriteLine(string.Format("SniNo: {0} SniTitel: {1} Snigrupp: {2} SniGruppId: {3}", sniHead.Items.First().SniNo, sniHead.Items.First().Title, sniHead.Title, sniHead.SniHeadId));
             }
         }
     }

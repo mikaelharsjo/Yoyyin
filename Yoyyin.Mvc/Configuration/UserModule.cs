@@ -22,7 +22,7 @@ namespace Yoyyin.Mvc.Configuration
                     c.Instance.CommandSerializer = new CommandSerializer()
                                                     .WithTypeAlias<AddUserCommand>("addUser")
                                                     .WithTypeAlias<AddUserTypeCommand>("addUserType")
-                                                    .WithTypeAlias<AddSniCommand>("addSni")
+                                                    .WithTypeAlias<AddSniHeadCommand>("addSni")
                                                     .WithTypeAlias<UpdateUserCommand>("updateUser"))
                                                     .As<IRepositoryConfiguration>();
 

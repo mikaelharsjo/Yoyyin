@@ -1,25 +1,26 @@
 using System;
 using Kiwi.Prevalence;
 using Yoyyin.Model.Users.AggregateRoots;
+using Yoyyin.Model.Users.ValueObjects;
 
 namespace Yoyyin.Model.Users.Commands
 {
-    public class AddSniCommand : AbstractCommand<UserModel, bool>
+    public class AddSniHeadCommand : AbstractCommand<UserModel, bool>
     {
-        public AddSniCommand()
+        public AddSniHeadCommand()
         {
         }
 
-        public Sni Sni { get; set; }
+        public SniHead SniHead { get; set; }
 
-        public AddSniCommand(Sni sni)
+        public AddSniHeadCommand(SniHead sni)
         {
-            Sni = sni;
+            SniHead = sni;
         }
 
         public override Func<bool> Prepare(UserModel model)
         {
-            model.Snis.Add(Sni);
+            model.SniHeads.Add(SniHead);
             return () => true;
         }
     }

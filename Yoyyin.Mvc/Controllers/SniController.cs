@@ -11,30 +11,32 @@ namespace Yoyyin.Mvc.Controllers
 {
     public class SniController : Controller
     {
-        private IUserRepository _userRepository;
+        private readonly IUserRepository _userRepository;
+        private SniConverter _converter;
 
         public SniController(IUserRepository userRepository)
         {
             _userRepository = userRepository;
+            _converter = new SniConverter();
         }
 
         public ActionResult ListHead()
         {
-            var distinctSniHeads = _userRepository
-                                        .Query(m => m.Snis)
-                                            .GroupBy(k => k.SniHead.SniHeadId)
-                                            .Select(g => g.First(s => s.SniHead.SniHeadId == g.Key));
+            return View(_userRepository
+                            .Query(m => m.SniHeads)
+                            .Select(_converter.ConvertToVewModel)
+                            .ToList());
 
-            var viewModel =
-                distinctSniHeads.Select(
-                    sh =>
-                    new Sni
-                        {
-                            Title = sh.SniHead.Title,
-                            UrlToIdeas = string.Format("/User/ListBySniHead/{0}", sh.SniHead.SniHeadId),
-                            UrlToItems = string.Format("/Sni/ListItems/{0}", sh.SniHead.SniHeadId)
-                        });
-            return View(viewModel.ToList());
+        }
+
+        public ActionResult ListItems(string id)
+        {
+            return View(_userRepository
+                            .Query(m => m.SniHeads)
+                            .First(h => h.SniHeadId == id)
+                            .Items
+                            .Select(_converter.ConvertToVewModel)
+                            .ToList());
         }
     }
 }

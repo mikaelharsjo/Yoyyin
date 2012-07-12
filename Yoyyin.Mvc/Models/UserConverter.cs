@@ -1,5 +1,6 @@
 using System.Linq;
 using Yoyyin.Model.Users;
+using Yoyyin.Model.Users.ValueObjects;
 using Yoyyin.Mvc.Providers.Markup;
 
 namespace Yoyyin.Mvc.Models
@@ -52,9 +53,9 @@ namespace Yoyyin.Mvc.Models
             if (firstIdeaSniNo == "null" || firstIdeaSniNo == "Övrigt")
                 return new[] { "Övrigt", "Övrigt", "Övrigt", "Övrigt" };
 
-            var sni = _userRepository.Query(m => m.Snis.First(s => s.SniItem.SniNo == firstIdeaSniNo));
+            var sniHead = _userRepository.Query(m => m.SniHeads.First(s => s.Items.Any(item => item.SniNo == firstIdeaSniNo)));
             
-            return new[] { sni.SniHead.Title, sni.SniItem.Title, sni.SniItem.SniNo, sni.SniHead.SniHeadId};
+            return new[] { sniHead.Title, sniHead.Items.First().Title, sniHead.Items.First().SniNo, sniHead.SniHeadId};
         }
     }
 }

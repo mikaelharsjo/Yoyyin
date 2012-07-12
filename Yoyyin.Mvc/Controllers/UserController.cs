@@ -54,44 +54,44 @@ namespace Yoyyin.Mvc.Controllers
                                           QueryOptions.NoMarshal));      
         }
 
-        public ActionResult ListBySniNo(string id)
-        {
-            var sni = _repository.Query(m => m.Snis.First(s => s.SniItem.SniNo == id));
-            ViewBag.Title = string.Format("Affärsidéer inom {0}", sni != null ? sni.SniItem.Title: "");
-            ViewBag.BreadCrumb = new BreadCrumb
-                                     {
-                Items =
-                    new List<BreadCrumbItem>
-                                                 {
-                                                     new BreadCrumbItem {Text = "Hem", Url = "/Home"},
-                                                     new BreadCrumbItem {Text = "Affärsidéer", Url = "/User/List"},
-                                                     new BreadCrumbItem
-                                                         {
-                                                             Text = "Branscher",
-                                                             Url = "/Sni/ListHead"
-                                                         },
-                                                     new BreadCrumbItem
-                                                         {
-                                                             Text = sni.SniHead.Title,
-                                                             Url = "/User/ListBySniHead/" + sni.SniHead.SniHeadId
-                                                         },
-                                                     new BreadCrumbItem
-                                                         {
-                                                             Text = sni.SniItem.Title,
-                                                             Url = ""
-                                                         }
-                                                 }
-            };
+        //public ActionResult ListBySniNo(string id)
+        //{
+        //    var sniHead = _repository.Query(m => m.SniHeads.First(s => s.SniItem.SniNo == id));
+        //    ViewBag.Title = string.Format("Affärsidéer inom {0}", sniHead != null ? sniHead.SniItem.Title: "");
+        //    ViewBag.BreadCrumb = new BreadCrumb
+        //                             {
+        //        Items =
+        //            new List<BreadCrumbItem>
+        //                                         {
+        //                                             new BreadCrumbItem {Text = "Hem", Url = "/Home"},
+        //                                             new BreadCrumbItem {Text = "Affärsidéer", Url = "/User/List"},
+        //                                             new BreadCrumbItem
+        //                                                 {
+        //                                                     Text = "Branscher",
+        //                                                     Url = "/Sni/ListHead"
+        //                                                 },
+        //                                             new BreadCrumbItem
+        //                                                 {
+        //                                                     Text = sniHead.SniHead.Title,
+        //                                                     Url = "/User/ListBySniHead/" + sniHead.SniHead.SniHeadId
+        //                                                 },
+        //                                             new BreadCrumbItem
+        //                                                 {
+        //                                                     Text = sniHead.SniItem.Title,
+        //                                                     Url = ""
+        //                                                 }
+        //                                         }
+        //    };
 
-            return View("List", _repository
-                            .Query(m => m.Users)
-                            .Where(u => u.Ideas.First().SniNo == id)
-                            .Select(u => _userConverter.ConvertToViewModel(u)));
-        }
+        //    return View("List", _repository
+        //                    .Query(m => m.Users)
+        //                    .Where(u => u.Ideas.First().SniNo == id)
+        //                    .Select(u => _userConverter.ConvertToViewModel(u)));
+        //}
 
         public ActionResult ListBySniHead(string id)
         {
-            string title = _repository.Query(m => m.Snis.First(s => s.SniHead.SniHeadId == id)).SniHead.Title;
+            string title = _repository.Query(m => m.SniHeads.First(s => s.SniHeadId == id)).Title;
             ViewBag.Title = string.Format("Affärsidéer inom {0}", title);
             ViewBag.BreadCrumb = new BreadCrumb()
                                      {

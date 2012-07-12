@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Yoyyin.Model.Users.AggregateRoots;
+using Yoyyin.Model.Users.ValueObjects;
 
 namespace Yoyyin.Model.Users
 {
@@ -16,7 +17,7 @@ namespace Yoyyin.Model.Users
           //  BaseData = new BaseData();
             Invalidate();
 
-            Snis = new List<Sni>();
+            SniHeads = new List<SniHead>();
             Users = new List<User>();
             UserTypes = new List<UserType>();
         }
@@ -28,7 +29,7 @@ namespace Yoyyin.Model.Users
         //public List<Question> Questions { get; set; }
 
         public List<User> Users { get; set; }
-        public List<Sni> Snis { get; set; }
+        public List<SniHead> SniHeads { get; set; }
         public List<UserType> UserTypes { get; set; }
 
         public void Invalidate()

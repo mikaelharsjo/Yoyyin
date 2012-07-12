@@ -1,6 +1,5 @@
 ﻿/// <reference path="../../sammy.js" />
-yoyyin.register.location =
-    function ($, sammy, mustache, location, userType, userTypesNeeded, tags) {
+yoyyin.register =  function ($, sammy, mustache, location, userType, userTypesNeeded, tags) {
         var buttonsMarkup = "<div class='form-actions'><a class='btn' href='/#/register/{{previousStep}}'>Föregående</a> <a class='btn btn-primary' href='/#/register/{{nextStep}}'>Nästa</a></div><form>";
 
         var appendButtons = function (step) {
@@ -19,12 +18,15 @@ yoyyin.register.location =
         var appRegister = $.sammy("#sectionMainContent", function () {
 
             this.get("#/register/personalInfo", function (context) {
+                require(["text!HTMLPage1.tpl"], function(template){
+                    context.swap(appendButtons({ markup: template, previousStep: "personalInfo", nextStep: "location" }));    
+                });
                 var stepPersonalMarkup = "<div><label class='control-label' for='name'>Namn:</label><input type='text' class='input-xlarge' id='name' /><p class='help-block'>Supporting help text</p><label class='control-label' for='alias'>Alias:</label><input type='text' class='input-xlarge' id='alias' /><p class='help-block'>Supporting help text</p></div>";
 
                 setQuestion("Först behöver vi lite personuppgifter");
                 setDescription("");
 
-                context.swap(appendButtons({ markup: stepPersonalMarkup, previousStep: "personalInfo", nextStep: "location" }));
+                
             });
 
             this.get("#/register/location", function (context) {

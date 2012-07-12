@@ -227,8 +227,10 @@
     <Content Include="Scripts\less-1.3.0.min.js" />
     <Content Include="Scripts\modernizr-2.0.6-development-only.js" />
     <Content Include="Scripts\mustache.js" />
+    <Content Include="Scripts\require.js" />
     <Content Include="Scripts\sammy.js" />
     <Content Include="Scripts\tag-it.js" />
+    <None Include="Scripts\yoyyin\register\HTMLPage1.tpl" />
     <Content Include="Scripts\yoyyin\register\tags.js" />
     <Content Include="Scripts\yoyyin\register\userTypesNeeded.js" />
     <Content Include="Scripts\yoyyin\register\location.js" />
@@ -277,7 +279,7 @@
     <Content Include="Views\Shared\Breadcrumb.cshtml" />
     <Content Include="Views\Sni\ListHead.cshtml" />
     <Content Include="Views\Tagging\ListCompetences.cshtml" />
-    <Content Include="Views\Register\Step1.cshtml" />
+    <Content Include="Views\Register\PersonalInfo.html" />
     <Content Include="Views\Search\QuickSearch.cshtml" />
     <Content Include="Views\Tagging\CompetencesPartial.cshtml" />
     <Content Include="Views\Sni\ListItems.cshtml" />

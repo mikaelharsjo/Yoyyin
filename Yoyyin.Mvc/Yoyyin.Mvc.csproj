@@ -230,7 +230,6 @@
     <Content Include="Scripts\require.js" />
     <Content Include="Scripts\sammy.js" />
     <Content Include="Scripts\tag-it.js" />
-    <None Include="Scripts\yoyyin\register\HTMLPage1.tpl" />
     <Content Include="Scripts\text.js" />
     <Content Include="Scripts\yoyyin\register\tags.js" />
     <Content Include="Scripts\yoyyin\register\userTypesNeeded.js" />
@@ -239,6 +238,10 @@
     <Content Include="Scripts\yoyyin\register\userType.js" />
     <Content Include="Scripts\yoyyin\yoyyin.init.js" />
     <Content Include="Scripts\yoyyin\yoyyin.quickSearch.js" />
+    <Content Include="Templates\Register\idea.htm" />
+    <Content Include="Templates\Register\personalInfo.htm" />
+    <Content Include="Templates\Register\tags.htm" />
+    <Content Include="Templates\Register\upload.htm" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -280,7 +283,6 @@
     <Content Include="Views\Shared\Breadcrumb.cshtml" />
     <Content Include="Views\Sni\ListHead.cshtml" />
     <Content Include="Views\Tagging\ListCompetences.cshtml" />
-    <Content Include="Views\Register\PersonalInfo.html" />
     <Content Include="Views\Search\QuickSearch.cshtml" />
     <Content Include="Views\Tagging\CompetencesPartial.cshtml" />
     <Content Include="Views\Sni\ListItems.cshtml" />

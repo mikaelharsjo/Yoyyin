@@ -231,6 +231,7 @@
     <Content Include="Scripts\sammy.js" />
     <Content Include="Scripts\tag-it.js" />
     <None Include="Scripts\yoyyin\register\HTMLPage1.tpl" />
+    <Content Include="Scripts\text.js" />
     <Content Include="Scripts\yoyyin\register\tags.js" />
     <Content Include="Scripts\yoyyin\register\userTypesNeeded.js" />
     <Content Include="Scripts\yoyyin\register\location.js" />

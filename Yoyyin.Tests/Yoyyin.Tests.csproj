@@ -83,10 +83,6 @@
       <Project>{E5C9F77D-AC81-4A90-937B-4F8BE8CA75DB}</Project>
       <Name>Yoyyin.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Yoyyin.PresentationModel\Yoyyin.PresentationModel.csproj">
-      <Project>{CF5F540A-46AB-45B2-8CA1-46C3CDD11C17}</Project>
-      <Name>Yoyyin.PresentationModel</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

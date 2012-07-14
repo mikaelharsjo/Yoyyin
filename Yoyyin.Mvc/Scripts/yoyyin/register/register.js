@@ -16,22 +16,24 @@ yoyyin.register = function ($, sammy, mustache, location, userType, userTypesNee
     };
 
     var appRegister = $.sammy("#sectionMainContent", function () {
-
         this.get("#/register/personalInfo", function (context) {
+            setQuestion("Först behöver vi lite personuppgifter");
+            setDescription("");
 
             require(["text!../Templates/Register/personalInfo.htm"], function (template) {
                 context.swap(appendButtons({ markup: template, previousStep: "personalInfo", nextStep: "location" }));
+                $.get("/Tagging/Competences/", function (competences) {
+                    $("#competences").tagit({ availableTags: competences });
+                });
             });
-
-            setQuestion("Först behöver vi lite personuppgifter");
-            setDescription("");
         });
 
         this.get("#/register/location", function (context) {
             setQuestion("Vilken adress ska användas för visning på karta?");
             setDescription("Vi använder bara din address...");
+            // had trouble moving this to templates
             var template = "<div class='ui-helper-clearfix'><div class='stepLeft'><label class='control-label' for='street'>Gatuadress:</label><input type='text' class='input-xlarge' id='street' value='{{Street}}' /><label class='control-label' for='zipCode'>Postnummer:</label><input type='text' class='input-xlarge' id='zipCode' value='{{ZipCode}}' /><label class='control-label' for='city'>Stad/ort:</label><input type='text' class='input-xlarge' id='city' value='{{City}}' /><label class='control-label' for='city'>Land:</label><input type='text' class='input-xlarge' id='country' value='{{Country}}' /><label class='checkbox'><input type='checkbox'>Visa mig inte på kartan</label></div><div id='registerMap' class='stepRight thumbnail'></div></div>";
-            
+
             location.getContent(function (data) {
                 var html = mustache.render(template, data);
                 context.swap(appendButtons({ markup: html, previousStep: "personalInfo", nextStep: "userType" }));
@@ -92,7 +94,6 @@ yoyyin.register = function ($, sammy, mustache, location, userType, userTypesNee
                     });
 
                     $.get("/Tagging/Competences/", function (competences) {
-                        $("#competences").tagit({ availableTags: competences });
                         $("#competencesNeeded").tagit({ availableTags: competences });
                     });
                 });

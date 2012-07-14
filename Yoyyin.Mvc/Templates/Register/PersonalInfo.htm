@@ -1,14 +1,25 @@
 ﻿<div class="ui-helper-clearfix">
     <div class='stepLeft'>
         <label class='control-label' for='name'>
-            Namn:</label><input type='text' class='input-xlarge' id='name' /><p class='help-block'>Vill du vara privat? Ange valfritt alias nedan</p>
+            Namn:</label><input type='text' class='input-xlarge' id='name' /><p class='help-block'>
+                Vill du vara privat? Ange valfritt alias nedan</p>
         <label class='control-label' for='alias'>
-            Alias:</label><input type='text' class='input-xlarge' id='alias' /><p class='help-block'>Visas på sajten istället för namn</p>
+            Alias:</label><input type='text' class='input-xlarge' id='alias' /><p class='help-block'>
+                Visas på sajten istället för namn</p>
+        <label for="url">
+            Hemsida/Blogg:</label>
+        <input type="text" class='input-xlarge' id="url" />
     </div>
     <div class="stepRight">
-        <label for="url">Hemsida/Blogg:</label>
-        <input type="text" class='input-xlarge' id="url" />
-        <label for="userDescription">Presentera dig själv:</label>
+        <h3>
+            Dina kompetenser</h3>
+        <label for="competences">
+            För att andra lättare ska kunna hitta din profil kan du lägga till kompetenser du
+            har. För kortare meningar skriv bindestreck.<br />
+            <i>Ex. programmering,marknadsföring,köra-truck</i>            
+        </label><ul id='competences'></ul>
+        <label for="userDescription">
+            Presentera dig själv:</label>
         <textarea id="userDescription" class='input-xlarge'></textarea>
     </div>
 </div>

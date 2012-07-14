@@ -3,4 +3,4 @@
         Hello, @Html.ActionLink(User.Identity.Name, "ChangePassword", "Account", routeValues: null, htmlAttributes: new { @class = "username", title = "Change password" })!
         @Html.ActionLink("Log off", "LogOff", "Account")
     </p>
-} else {<li><a class="registerLink">Bli medlem</a></li><li>@Html.ActionLink("Logga in", "Login", "Account")</li>}
+} else {<li><a href="/#/register/personalInfo">Bli medlem</a></li><li>@Html.ActionLink("Logga in", "Login", "Account")</li>}

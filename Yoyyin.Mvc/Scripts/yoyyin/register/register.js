@@ -17,7 +17,7 @@ yoyyin.register = function ($, sammy, mustache, location, userType, userTypesNee
 
     var appRegister = $.sammy("#sectionMainContent", function () {
         this.get("#/register/personalInfo", function (context) {
-            setQuestion("Först behöver vi lite personuppgifter");
+            setQuestion("Kul att du vill bli medlem, först vill vi höra om dig själv");
             setDescription("");
 
             require(["text!../Templates/Register/personalInfo.htm"], function (template) {

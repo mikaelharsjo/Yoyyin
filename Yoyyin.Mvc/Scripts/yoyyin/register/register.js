@@ -1,6 +1,6 @@
 ﻿/// <reference path="../../sammy.js" />
 yoyyin.register = function ($, sammy, mustache, location, userType, userTypesNeeded, tags) {
-    var buttonsMarkup = "<div class='form-actions'><a class='btn' href='/#/register/{{previousStep}}'>Föregående</a> <a class='btn btn-primary' href='/#/register/{{nextStep}}'>Nästa</a></div><form>";
+    var buttonsMarkup = "<div class='form-actions'><a class='btn' href='/#/register/{{previousStep}}'>Föregående</a><a class='btn btn-primary' href='/#/register/{{nextStep}}'>Nästa</a></div><form>";
 
     var appendButtons = function (step) {
         var buttons = mustache.to_html(buttonsMarkup, step);
@@ -30,18 +30,20 @@ yoyyin.register = function ($, sammy, mustache, location, userType, userTypesNee
 
         this.get("#/register/location", function (context) {
             setQuestion("Vilken adress ska användas för visning på karta?");
-            setDescription("Vi använder bara din address...");
+            setDescription("Vi har hämtat adressen nedan från din nuvarande position. Vi använder bara denna för visning på karta och liknande i samband med sökningar.");
             // had trouble moving this to templates
-            var template = "<div class='ui-helper-clearfix'><div class='stepLeft'><label class='control-label' for='street'>Gatuadress:</label><input type='text' class='input-xlarge' id='street' value='{{Street}}' /><label class='control-label' for='zipCode'>Postnummer:</label><input type='text' class='input-xlarge' id='zipCode' value='{{ZipCode}}' /><label class='control-label' for='city'>Stad/ort:</label><input type='text' class='input-xlarge' id='city' value='{{City}}' /><label class='control-label' for='city'>Land:</label><input type='text' class='input-xlarge' id='country' value='{{Country}}' /><label class='checkbox'><input type='checkbox'>Visa mig inte på kartan</label></div><div id='registerMap' class='stepRight thumbnail'></div></div>";
+            var template = "<div class='ui-helper-clearfix'><div class='stepLeft'><label class='control-label' for='street'>Gatuadress:</label><input type='text' class='input-xlarge' id='street' value='{{Street}}' /><label class='control-label' for='zipCode'>Postnummer:</label><input type='text' class='input-xlarge' id='zipCode' value='{{ZipCode}}' /><label class='control-label' for='city'>Stad/ort:</label><input type='text' class='input-xlarge' id='city' value='{{City}}' /><label class='control-label' for='city'>Land:</label><input type='text' class='input-xlarge' id='country' value='{{Country}}' /></div><div id='registerMap' class='stepRight thumbnail'></div></div>";
 
             location.getContent(function (data) {
                 var html = mustache.render(template, data);
                 context.swap(appendButtons({ markup: html, previousStep: "personalInfo", nextStep: "userType" }));
+
+                $("div.form-actions").append("<a class='btn btn-warning' href='/#/register/userType'>Visa mig inte på kartor</a>")
             });
         });
 
         this.get("#/register/userType", function (context) {
-            setQuestion("Vilken är din roll?");
+            setQuestion("Vilken är din roll/titel?");
             setDescription("");
 
             userType.init(function (html) {
@@ -115,6 +117,8 @@ yoyyin.register = function ($, sammy, mustache, location, userType, userTypesNee
 
             require(["text!../Templates/Register/idea.htm"], function (template) {
                 context.swap(appendButtons({ markup: template, previousStep: "upload", nextStep: "idea" }));
+
+                $("div.form-actions").append("<a class='btn btn-warning' href='/#/register/userType'>Jag har ingen affärsidé</a>")
             });
         });
     });

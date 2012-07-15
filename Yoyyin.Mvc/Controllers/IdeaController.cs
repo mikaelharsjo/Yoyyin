@@ -99,7 +99,7 @@ namespace Yoyyin.Mvc.Controllers
                                              new List<BreadCrumbItem>
                                                  {
                                                      new BreadCrumbItem {Text = "Hem", Url = "/Home"},
-                                                     new BreadCrumbItem {Text = "Affärsidéer", Url = "/User/List"},
+                                                     new BreadCrumbItem {Text = "Affärsidéer", Url = "/Idea/List"},
                                                      new BreadCrumbItem { Text = "Branscher", Url = "/Sni/ListHead" },
                                                      new BreadCrumbItem { Text = title, IsLast = true }
                                                  }
@@ -148,27 +148,6 @@ namespace Yoyyin.Mvc.Controllers
                             .Query(m => m.Users)
                             .Where(u => u.Ideas.First().SearchProfile.Competences.Contains(id))
                             .Select(u => _userConverter.ConvertToViewModel(u)));
-        }
-
-
-
-        public ActionResult Details(Guid id)
-        {
-            var user = _userConverter.ConvertToViewModel(_repository
-                                                             .Query(m => m.Users.First(u => u.UserId == id)));
-            ViewBag.BreadCrumb = new BreadCrumb
-            {
-                Items =
-                    new List<BreadCrumbItem>
-                                                 {
-                                                     new BreadCrumbItem {Text = "Hem", Url = "/Home"},
-                                                     new BreadCrumbItem {Text = "Affärsidéer", Url = "/User/List"},
-                                                     new BreadCrumbItem { Text = user.SniHeadTitle, Url = "/User/ListBySniHead/" + user.SniHeadId},
-                                                     new BreadCrumbItem { Text = user.DisplayName, IsLast = true }
-                                                 }
-            };
-            ViewBag.Title = user.FirstIdea.Title;
-            return View(user);
         }
     }
 }

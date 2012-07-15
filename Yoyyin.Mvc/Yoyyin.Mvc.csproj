@@ -178,6 +178,7 @@
     <Compile Include="Controllers\SniController.cs" />
     <Compile Include="Controllers\TaggingController.cs" />
     <Compile Include="Controllers\IdeaController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\UserTypeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -277,7 +278,7 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\QandA\Index.cshtml" />
     <Content Include="Views\Idea\UserRow.cshtml" />
-    <Content Include="Views\Idea\Details.cshtml" />
+    <Content Include="Views\User\Details.cshtml" />
     <Content Include="Views\Idea\ListBySniHead.cshtml" />
     <Content Include="Views\Idea\UserRowWithSni.cshtml" />
     <Content Include="Views\Shared\Breadcrumb.cshtml" />

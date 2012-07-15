@@ -16,17 +16,17 @@ using Yoyyin.Model.Users.Enumerations;
 
 namespace Yoyyin.Mvc.Controllers
 {
-    public class UserController : Controller
+    public class IdeaController : Controller
     {
         private readonly IUserRepository _repository;
         private readonly UserConverter _userConverter;
 
-        public UserController(UserConverter userConverter)
+        public IdeaController(UserConverter userConverter)
         {
             _userConverter = userConverter;
         }
 
-        public UserController(IUserRepository repository, UserConverter userConverter)
+        public IdeaController(IUserRepository repository, UserConverter userConverter)
         {
             _repository = repository;
             _userConverter = userConverter;

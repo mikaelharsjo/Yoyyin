@@ -38,6 +38,7 @@ namespace Yoyyin.Importing
                             Name = user.Name,
                             DisplayName = string.IsNullOrEmpty(user.Alias) ? user.Name : user.Alias,
                             HasImage = user.Image != null,
+                            Competences = GetCompetences(user),
                             Ideas = new List<Idea>
                                         {
                                             new Idea
@@ -51,7 +52,7 @@ namespace Yoyyin.Importing
                                                     SearchProfile = new SearchProfile
                                                                         {
                                                                             SearchWords = GetSearchWords(user),
-                                                                            Competences = GetCompetences(user),
+                                                                            //Competences = GetCompetences(user),
                                                                             CompetencesNeeded = GetCompetencesNeeded(user),
                                                                             UserTypesNeeded = new UserTypesNeeded
                                                                                                   {
@@ -60,6 +61,8 @@ namespace Yoyyin.Importing
                                                                                                       : user.UserTypesNeeded
                                                                                                             .Split(new [] { ','})
                                                                                                             .Select(int.Parse) 
+                                                                                                            .Select(i => i == 5 ? 1 : i)
+                                                                                                            .Distinct()
                                                                                                   }
                                                                         }
                                                 }
@@ -113,7 +116,7 @@ namespace Yoyyin.Importing
         {
             return user.SearchWordsCompetence != null
                        ? user.SearchWordsCompetence
-                             .Split(new[] { ',' }).Select(s => s.ToLower().Trim().Replace(" ", "-").Replace(".", ""))
+                             .Split(new[] { ',' }).Select(s => s.ToLower().Trim().Replace(" ", "-").Replace(".", "")) //.Replace("5", "1"))
                              .Where(s => s.Length > 0)
                              .ToArray()
                        : new string[0];

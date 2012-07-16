@@ -17,7 +17,7 @@ namespace Yoyyin.Model.Tests.Tagging
             UserRepository userRepository = new UserRepository(new RepositoryConfiguration(), modelFactory) { Path = @"c:\temp\yoyyin\users" };
 
             var allCompetences = userRepository
-                .Query(m => m.Users.Select(u => u.Ideas.First().SearchProfile.Competences));
+                .Query(m => m.Users.Select(u => u.Ideas.First().SearchProfile.CompetencesNeeded));
 
             WeightedTags tags = new WeightedTags();
             tags.Add(allCompetences);

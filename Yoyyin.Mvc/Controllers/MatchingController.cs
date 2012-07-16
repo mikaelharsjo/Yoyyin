@@ -21,7 +21,7 @@ namespace Yoyyin.Mvc.Controllers
             // TODO: move to class
             HashSet<string> words = new HashSet<string>();
             var competences = _userRepository
-                .Query(m => m.Users.Select(u => u.Ideas.First().SearchProfile.Competences));
+                .Query(m => m.Users.Select(u => u.Ideas.First().SearchProfile.CompetencesNeeded));
 
             var searchWords = _userRepository
                 .Query(m => m.Users.Select(u => u.Ideas.First().SearchProfile.SearchWords));

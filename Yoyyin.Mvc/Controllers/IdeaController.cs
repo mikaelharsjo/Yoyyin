@@ -148,7 +148,7 @@ namespace Yoyyin.Mvc.Controllers
             ViewBag.Title = string.Format("Affärspartners som kan {0}", competence);
             return View("List", _repository
                             .Query(m => m.Users)
-                            .Where(u => u.Ideas.First().SearchProfile.Competences.Contains(id))
+                            .Where(u => u.Competences.Contains(id))
                             .Select(u => _userConverter.ConvertToViewModel(u)));
         }
     }

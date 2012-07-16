@@ -15,7 +15,7 @@ namespace Yoyyin.Model.Tests.Users
         {
             SearchProfile searchProfile = new SearchProfile
                                               {
-                                                  Competences = new string[] {"springa", "gå", "krypa"},
+                                                  CompetencesNeeded = new string[] {"springa", "gå", "krypa"},
                                                   SearchWords = new string[] {"apa"}
                                               };
             Assert.That(searchProfile.ContainsString("krypa"), Is.EqualTo(true));
@@ -26,7 +26,7 @@ namespace Yoyyin.Model.Tests.Users
         {
             SearchProfile searchProfile = new SearchProfile
             {
-                Competences = new string[] { "springa", "gå", "krypa" },
+                CompetencesNeeded = new string[] { "springa", "gå", "krypa" },
                 SearchWords = new string[] { "apa" }
             };
             Assert.That(searchProfile.ContainsString("k"), Is.EqualTo(true));

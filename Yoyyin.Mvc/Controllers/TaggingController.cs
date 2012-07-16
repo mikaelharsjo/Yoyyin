@@ -28,7 +28,7 @@ namespace Yoyyin.Mvc.Controllers
         {
             // TODO: include CompetencesNeeded?
             var allCompetences = userRepository
-                .Query(m => m.Users.Select(u => u.Ideas.First().SearchProfile.Competences));
+                .Query(m => m.Users.Select(u => u.Competences));
 
             WeightedTags tags = new WeightedTags();
             tags.Add(allCompetences);
@@ -38,7 +38,7 @@ namespace Yoyyin.Mvc.Controllers
         public ActionResult Competences()
         {
             var allCompetences = userRepository
-                                .Query(m => m.Users.Select(u => u.Ideas.First().SearchProfile.Competences));
+                                .Query(m => m.Users.Select(u => u.Competences));
 
             WeightedTags tags = new WeightedTags();
             tags.Add(allCompetences);

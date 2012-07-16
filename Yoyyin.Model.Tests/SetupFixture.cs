@@ -57,14 +57,14 @@ namespace Yoyyin.Model.Tests
                                            {
                                                UserTypeId = 0,
                                                Title = "Företagare/Entreprenör",
-                                               Description = "Personer som kan starta upp och driva företag."
+                                               Description = "Person som kan starta upp och driva företag."
                                            }));
             UserRepository.Execute(
                 new AddUserTypeCommand(new UserType
                                            {
                                                UserTypeId = 1,
                                                Title = "Innovatör/Uppfinnare",
-                                               Description = "Personer med idéer som de vill förverkliga."
+                                               Description = "Person med idéer."
                                            }));
             UserRepository.Execute(
                 new AddUserTypeCommand(new UserType
@@ -77,24 +77,18 @@ namespace Yoyyin.Model.Tests
                 new AddUserTypeCommand(new UserType
                                            {
                                                UserTypeId = 3,
-                                               Title = "Finansiär/Drake/Ängel",
-                                               Description =
-                                                   "Personer med kunskap och kapital att investera i min idé eller företag."
+                                               Title = ""
+                                               //Title = "Finansiär/Drake/Ängel",
+                                               //Description =
+                                                 //  "Personer med kunskap och kapital att investera i min idé eller företag."
                                            }));
             UserRepository.Execute(
                 new AddUserTypeCommand(new UserType
                                            {
                                                UserTypeId = 4,
-                                               Title = "Företagere/Pensionär",
+                                               Title = "Företagare/Pensionär",
                                                Description =
-                                                   "Personer med kunskap och kapital att investera i min idé eller företag."
-                                           }));
-            UserRepository.Execute(
-                new AddUserTypeCommand(new UserType
-                                           {
-                                               UserTypeId = 5,
-                                               Title = "Innovatör/Uppfinnare",
-                                               Description = "Kompetenser och delägare till min verksamhet."
+                                                   "Person som vill avveckla/sälja sitt företag."
                                            }));
         }
 
@@ -160,7 +154,7 @@ namespace Yoyyin.Model.Tests
         {
             foreach (User user in UserRepository.Query(model => model.Users))
             {
-                foreach (string c in user.Ideas.First().SearchProfile.Competences)
+                foreach (string c in user.Competences)
                 {
                     //UserRepository.Query(x => x.Users.First(, ))
                     Console.Out.WriteLine(c);

@@ -224,26 +224,28 @@
     <Content Include="Images\ui-icons_888888_256x240.png" />
     <Content Include="Images\ui-icons_cd0a0a_256x240.png" />
     <Content Include="Images\ui-icons_f6cf3b_256x240.png" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\jquery.gomap-1.3.2.min.js" />
-    <Content Include="Scripts\less-1.3.0.min.js" />
-    <Content Include="Scripts\modernizr-2.0.6-development-only.js" />
-    <Content Include="Scripts\mustache.js" />
-    <Content Include="Scripts\require.js" />
-    <Content Include="Scripts\sammy.js" />
-    <Content Include="Scripts\tag-it.js" />
-    <Content Include="Scripts\text.js" />
+    <Content Include="Scripts\lib\bootstrap.js" />
+    <Content Include="Scripts\lib\jquery.gomap-1.3.2.min.js" />
+    <Content Include="Scripts\lib\less-1.3.0.min.js" />
+    <Content Include="Scripts\lib\modernizr-2.0.6-development-only.js" />
+    <Content Include="Scripts\lib\mustache.js" />
+    <Content Include="Scripts\lib\require.js" />
+    <Content Include="Scripts\lib\sammy.js" />
+    <Content Include="Scripts\lib\tag-it.js" />
+    <Content Include="Scripts\lib\text.js" />
     <Content Include="Scripts\yoyyin\register\tags.js" />
     <Content Include="Scripts\yoyyin\register\userTypesNeeded.js" />
     <Content Include="Scripts\yoyyin\register\location.js" />
     <Content Include="Scripts\yoyyin\register\register.js" />
     <Content Include="Scripts\yoyyin\register\userType.js" />
+    <Content Include="Scripts\yoyyin\user\user.js" />
     <Content Include="Scripts\yoyyin\yoyyin.init.js" />
     <Content Include="Scripts\yoyyin\yoyyin.quickSearch.js" />
     <Content Include="Templates\Register\idea.htm" />
     <Content Include="Templates\Register\personalInfo.htm" />
     <Content Include="Templates\Register\tags.htm" />
     <Content Include="Templates\Register\upload.htm" />
+    <Content Include="Templates\User\userRow.htm" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -251,8 +253,6 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Scripts\_references.js" />
-    <Content Include="Scripts\AjaxLogin.js" />
     <Content Include="Images\accent.png" />
     <Content Include="Images\aspNetHome.png" />
     <Content Include="Images\bullet.png" />

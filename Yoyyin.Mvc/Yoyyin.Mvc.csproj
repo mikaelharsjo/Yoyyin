@@ -198,9 +198,9 @@
     <Compile Include="Providers\Markup\UserTypesNeededMarkupProvider.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Controllers\Content\Less\site.less" />
-    <Content Include="Controllers\Content\Css\jquery-ui-1.8.16.custom.css" />
-    <Content Include="Controllers\Content\Css\jquery.tagit.css" />
+    <None Include="Content\Less\site.less" />
+    <Content Include="Content\Css\jquery-ui-1.8.16.custom.css" />
+    <Content Include="Content\Css\jquery.tagit.css" />
     <Content Include="favicon.png" />
     <Content Include="Images\constructionteam.png" />
     <Content Include="Images\glyphicons-halflings-white.png" />
@@ -291,7 +291,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\Content\Upload\Images\" />
+    <Folder Include="Content\Upload\Images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -310,46 +310,46 @@
     <Content Include="Views\Idea\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Controllers\Content\Less\accordion.less" />
-    <None Include="Controllers\Content\Less\alerts.less" />
-    <None Include="Controllers\Content\Less\bootstrap.less" />
-    <None Include="Controllers\Content\Less\breadcrumbs.less" />
-    <None Include="Controllers\Content\Less\button-groups.less" />
-    <None Include="Controllers\Content\Less\buttons.less" />
-    <None Include="Controllers\Content\Less\carousel.less" />
-    <None Include="Controllers\Content\Less\close.less" />
-    <None Include="Controllers\Content\Less\code.less" />
-    <None Include="Controllers\Content\Less\component-animations.less" />
-    <None Include="Controllers\Content\Less\dropdowns.less" />
-    <None Include="Controllers\Content\Less\forms.less" />
-    <None Include="Controllers\Content\Less\grid.less" />
-    <None Include="Controllers\Content\Less\hero-unit.less" />
-    <None Include="Controllers\Content\Less\labels-badges.less" />
-    <None Include="Controllers\Content\Less\layouts.less" />
-    <None Include="Controllers\Content\Less\mixins.less" />
-    <None Include="Controllers\Content\Less\modals.less" />
-    <None Include="Controllers\Content\Less\navbar.less" />
-    <None Include="Controllers\Content\Less\navs.less" />
-    <None Include="Controllers\Content\Less\pager.less" />
-    <None Include="Controllers\Content\Less\pagination.less" />
-    <None Include="Controllers\Content\Less\popovers.less" />
-    <None Include="Controllers\Content\Less\progress-bars.less" />
-    <None Include="Controllers\Content\Less\reset.less" />
-    <None Include="Controllers\Content\Less\responsive-1200px-min.less" />
-    <None Include="Controllers\Content\Less\responsive-767px-max.less" />
-    <None Include="Controllers\Content\Less\responsive-768px-979px.less" />
-    <None Include="Controllers\Content\Less\responsive-navbar.less" />
-    <None Include="Controllers\Content\Less\responsive-utilities.less" />
-    <None Include="Controllers\Content\Less\responsive.less" />
-    <None Include="Controllers\Content\Less\scaffolding.less" />
-    <None Include="Controllers\Content\Less\sprites.less" />
-    <None Include="Controllers\Content\Less\tables.less" />
-    <None Include="Controllers\Content\Less\thumbnails.less" />
-    <None Include="Controllers\Content\Less\tooltip.less" />
-    <None Include="Controllers\Content\Less\type.less" />
-    <None Include="Controllers\Content\Less\utilities.less" />
-    <None Include="Controllers\Content\Less\variables.less" />
-    <None Include="Controllers\Content\Less\wells.less" />
+    <None Include="Content\Less\accordion.less" />
+    <None Include="Content\Less\alerts.less" />
+    <None Include="Content\Less\bootstrap.less" />
+    <None Include="Content\Less\breadcrumbs.less" />
+    <None Include="Content\Less\button-groups.less" />
+    <None Include="Content\Less\buttons.less" />
+    <None Include="Content\Less\carousel.less" />
+    <None Include="Content\Less\close.less" />
+    <None Include="Content\Less\code.less" />
+    <None Include="Content\Less\component-animations.less" />
+    <None Include="Content\Less\dropdowns.less" />
+    <None Include="Content\Less\forms.less" />
+    <None Include="Content\Less\grid.less" />
+    <None Include="Content\Less\hero-unit.less" />
+    <None Include="Content\Less\labels-badges.less" />
+    <None Include="Content\Less\layouts.less" />
+    <None Include="Content\Less\mixins.less" />
+    <None Include="Content\Less\modals.less" />
+    <None Include="Content\Less\navbar.less" />
+    <None Include="Content\Less\navs.less" />
+    <None Include="Content\Less\pager.less" />
+    <None Include="Content\Less\pagination.less" />
+    <None Include="Content\Less\popovers.less" />
+    <None Include="Content\Less\progress-bars.less" />
+    <None Include="Content\Less\reset.less" />
+    <None Include="Content\Less\responsive-1200px-min.less" />
+    <None Include="Content\Less\responsive-767px-max.less" />
+    <None Include="Content\Less\responsive-768px-979px.less" />
+    <None Include="Content\Less\responsive-navbar.less" />
+    <None Include="Content\Less\responsive-utilities.less" />
+    <None Include="Content\Less\responsive.less" />
+    <None Include="Content\Less\scaffolding.less" />
+    <None Include="Content\Less\sprites.less" />
+    <None Include="Content\Less\tables.less" />
+    <None Include="Content\Less\thumbnails.less" />
+    <None Include="Content\Less\tooltip.less" />
+    <None Include="Content\Less\type.less" />
+    <None Include="Content\Less\utilities.less" />
+    <None Include="Content\Less\variables.less" />
+    <None Include="Content\Less\wells.less" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

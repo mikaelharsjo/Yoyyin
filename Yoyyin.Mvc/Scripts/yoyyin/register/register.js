@@ -20,7 +20,7 @@ yoyyin.register = function ($, sammy, mustache, location, userType, userTypesNee
             setQuestion("Kul att du vill bli medlem, först vill vi höra om dig själv");
             setDescription("");
 
-            require(["text!../Templates/Register/personalInfo.htm"], function (template) {
+            require(["text!../../Templates/Register/personalInfo.htm"], function (template) {
                 context.swap(appendButtons({ markup: template, previousStep: "personalInfo", nextStep: "location" }));
                 $.get("/Tagging/Competences/", function (competences) {
                     $("#competences").tagit({ availableTags: competences });
@@ -86,10 +86,10 @@ yoyyin.register = function ($, sammy, mustache, location, userType, userTypesNee
         });
 
         this.get("#/register/tags", function (context) {
-            setQuestion("Vilka kompetenser har du/söker du?");
+            setQuestion("Vilka kompetenser söker du?");
             tags.setDescription();
 
-            require(["text!../Templates/Register/tags.htm"], function (template) {
+            require(["text!../../Templates/Register/tags.htm"], function (template) {
                 context.swap(appendButtons({ markup: template, previousStep: "userTypesNeeded", nextStep: "upload" }), function () {
                     $.get("/Matching/GetQuickSearchTypeAheadItems/", function (items) {
                         $("#tags").tagit({ availableTags: items });
@@ -106,7 +106,7 @@ yoyyin.register = function ($, sammy, mustache, location, userType, userTypesNee
             setQuestion("Bild och CV");
             setDescription("");
 
-            require(["text!../Templates/Register/upload.htm"], function (template) {
+            require(["text!../../Templates/Register/upload.htm"], function (template) {
                 context.swap(appendButtons({ markup: template, previousStep: "tags", nextStep: "idea" }));
             });
         });
@@ -115,7 +115,7 @@ yoyyin.register = function ($, sammy, mustache, location, userType, userTypesNee
             setQuestion("Sista steget - Nu vill vi höra om din affärsidé");
             setDescription("");
 
-            require(["text!../Templates/Register/idea.htm"], function (template) {
+            require(["text!../../Templates/Register/idea.htm"], function (template) {
                 context.swap(appendButtons({ markup: template, previousStep: "upload", nextStep: "idea" }));
 
                 $("div.form-actions").append("<a class='btn btn-warning' href='/#/register/userType'>Jag har ingen affärsidé</a>")

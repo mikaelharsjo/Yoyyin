@@ -2,7 +2,7 @@
 var yoyyin = {};
 yoyyin.register = {};
 
-require.config({ baseUrl: "/Scripts" });
+require.config({ baseUrl: "/Scripts/lib" });
 
 $(function($) {
     $("#formQuickSearch").quickSearch({ $placeHolder: $("#sectionMainContent") });

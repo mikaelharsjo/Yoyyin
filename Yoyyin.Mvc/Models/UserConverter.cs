@@ -22,6 +22,16 @@ namespace Yoyyin.Mvc.Models
         {
         }
 
+        public User Convert(Model.Users.AggregateRoots.User user)
+        {
+            return new User
+            {
+                DisplayName = user.DisplayName,
+                SmallProfileImageMarkup = user.HasImage ? string.Format("<img src='/Content/Upload/Images/{0}.jpg?width=100&height=100'", user.UserId) : string.Empty,
+                Competences = user.Competences
+            };
+        }
+
         public UserWithFirstIdea ConvertToViewModel(Model.Users.AggregateRoots.User user)
         {
             return new UserWithFirstIdea(GetSniArray(user))

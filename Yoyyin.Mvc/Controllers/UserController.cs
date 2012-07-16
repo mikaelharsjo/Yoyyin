@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -19,6 +20,13 @@ namespace Yoyyin.Mvc.Controllers
         {
             _repository = repository;
             _userConverter = userConverter;
+        }
+
+        public ActionResult All()
+        {
+            return Json(_repository
+                            .Query(m => m.Users)
+                            .Select(_userConverter.Convert), JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult Details(Guid id)

@@ -22,9 +22,9 @@ namespace Yoyyin.Mvc.Models
         {
         }
 
-        public User ConvertToViewModel(Model.Users.AggregateRoots.User user)
+        public UserWithFirstIdea ConvertToViewModel(Model.Users.AggregateRoots.User user)
         {
-            return new User(GetSniArray(user))
+            return new UserWithFirstIdea(GetSniArray(user))
                        {
                            DisplayName = user.DisplayName,
                            FirstIdea = user.Ideas.First(),

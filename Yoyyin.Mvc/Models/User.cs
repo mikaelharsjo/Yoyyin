@@ -5,7 +5,7 @@ using Yoyyin.Model.Users.Entities;
 
 namespace Yoyyin.Mvc.Models
 {
-    public class User
+    public class UserWithFirstIdea
     {
         public string DisplayName { get; set; }
         public Idea FirstIdea { get; set; }
@@ -22,7 +22,7 @@ namespace Yoyyin.Mvc.Models
         public double Latitude { get; set; }
         public double Longitude { get; set; } 
 
-        public User(string[] snis)
+        public UserWithFirstIdea(string[] snis)
         {
             SniHeadTitle = snis[0];
             SniItemTitle = snis[1];

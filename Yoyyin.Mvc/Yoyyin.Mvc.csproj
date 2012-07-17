@@ -248,8 +248,8 @@
     <Content Include="Templates\Register\upload.htm" />
     <Content Include="Templates\User\competenceLabel.htm" />
     <Content Include="Templates\User\image.htm" />
-    <Content Include="Templates\User\userRow.htm" />
-    <Content Include="Templates\User\usersTable.htm" />
+    <Content Include="Templates\User\row.htm" />
+    <Content Include="Templates\User\table.htm" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

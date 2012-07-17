@@ -93,7 +93,8 @@ namespace Yoyyin.Mvc.Controllers
         public ActionResult ListBySniHead(string id)
         {
             string title = _repository.Query(m => m.SniHeads.First(s => s.SniHeadId == id)).Title;
-            ViewBag.Title = string.Format("Affärsidéer inom {0}", title);
+            ViewBag.Title = "Affärsidéer"; // string.Format("Affärsidéer inom {0}", title);
+            ViewBag.SubTitle = string.Format("Här visas alla affärsidéer inom {0}", title);
             ViewBag.BreadCrumb = new BreadCrumb()
                                      {
                                          Items =

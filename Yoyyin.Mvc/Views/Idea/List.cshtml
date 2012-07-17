@@ -1,7 +1,10 @@
 ﻿@model IEnumerable<Yoyyin.Mvc.Models.UserWithFirstIdea>
 
 @Html.Partial("Breadcrumb")
-<h1 class="bottomMargin">@ViewBag.Title</h1>
+<div class="page-header">
+    <h1>@ViewBag.Title. <small>Här visas alla affärsidéer, sorterade på bransch</small></h1>
+</div>
+
 
 <table class="table table-bordered">
     @foreach (var user in Model)

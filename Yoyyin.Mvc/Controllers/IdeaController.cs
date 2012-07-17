@@ -47,11 +47,10 @@ namespace Yoyyin.Mvc.Controllers
                                      };
 
             // optimized by jola
-            return View(_repository.Query(
-                          m => from user in m.Users
-                               orderby user.Ideas.First().SniNo
-                               select _userConverter.ConvertToViewModel(user),
-                                          QueryOptions.NoMarshal));      
+            return View(_repository
+                            .Query(m => m.Users)
+                            .OrderBy(u => u.Ideas.First().SniNo)
+                            .Select(_userConverter.ConvertToViewModel));
         }
 
         public ActionResult ListBySniNo(string id)

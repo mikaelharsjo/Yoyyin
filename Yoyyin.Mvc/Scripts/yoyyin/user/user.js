@@ -1,25 +1,28 @@
 ﻿yoyyin.user = function (mustache) {
-    var appUser = $.sammy("#sectionMainContent", function () {
+    $.sammy("#sectionMainContent", function () {
         this.get("#/user/all", function (context) {
-            console.log("all users");
-
-            require(["text!../../Templates/User/userRow.htm"], function (template) {
-
+            // TODO: find better way
+            $(".featured").hide();
+            $(".featured + .main-content").css("background", "none");
+            
+            require(["text!../../Templates/User/userRow.htm", "text!../../Templates/User/usersTable.htm", "text!../../Templates/User/competenceLabel.htm", "text!../../Templates/User/image.htm"], function (rowTemplate, tableTemplate, competenceTemplate, imageTemplate) {
                 $.getJSON("/User/All", function (users) {
                     var markup = "";
                     $.each(users, function (index, user) {
-                        competenceTemplate = "<span class='label label-info'>{{Competence}}</span>&nbsp;";
                         user.CompetencesMarkup = "";
                         $.each(user.Competences, function (index, competence) {
-                            //markup += competence;
                             user.CompetencesMarkup += mustache.to_html(competenceTemplate, { Competence: competence });
-                            console.log(competence);
                         });
-                        markup += mustache.render(template, user);
+                        
+                        var imageMarkup = mustache.render(imageTemplate, { Src: user.SmallProfileImageSrc });
+                        user.ImageMarkup = imageMarkup;
+
+                        markup += mustache.render(rowTemplate, user);
                     });
+
+                    markup = mustache.to_html(tableTemplate, { rows: markup });
                     context.swap(markup);
                 });
-
             });
         });
     });

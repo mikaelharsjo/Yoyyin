@@ -1,8 +1,8 @@
 ﻿@model Yoyyin.Model.Tagging.WeightedTags
 
 <div class="page-header">
-<h1>Kompetenser. <small>Sorterade efter popularitet</small></h1>
+<h1>Kompetenser som söks. <small>Sorterade efter popularitet</small></h1>
 </div>
 
-<div class="alert alert-info">Detta är dom mest efterfrågade kompetenserna. Klicka på en kompetens för att komma till medlemmar som har just den kompetensen.</div>
+<div class="alert alert-info"><button class="close" data-dismiss="alert">×</button>Detta är dom mest efterfrågade kompetenserna. Klicka på en kompetens för att komma till medlemmar som har just den kompetensen.</div>
 @Html.Raw(Model.ToMarkup())

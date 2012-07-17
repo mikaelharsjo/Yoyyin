@@ -303,6 +303,7 @@
     <Content Include="Views\Tagging\CompetencesPartial.cshtml" />
     <Content Include="Views\Sni\ListItems.cshtml" />
     <Content Include="Views\Auth\SignIn.cshtml" />
+    <Content Include="Views\Tagging\ListCompetencesNeeded.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

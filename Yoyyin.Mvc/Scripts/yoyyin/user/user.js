@@ -5,7 +5,7 @@
             $(".featured").hide();
             $(".featured + .main-content").css("background", "none");
             
-            require(["text!../../Templates/User/userRow.htm", "text!../../Templates/User/usersTable.htm", "text!../../Templates/User/competenceLabel.htm", "text!../../Templates/User/image.htm"], function (rowTemplate, tableTemplate, competenceTemplate, imageTemplate) {
+            require(["text!../../Templates/User/row.htm", "text!../../Templates/User/table.htm", "text!../../Templates/User/competenceLabel.htm", "text!../../Templates/User/image.htm"], function (rowTemplate, tableTemplate, competenceTemplate, imageTemplate) {
                 $.getJSON("/User/All", function (users) {
                     var markup = "";
                     $.each(users, function (index, user) {

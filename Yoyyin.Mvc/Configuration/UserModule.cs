@@ -16,7 +16,7 @@ namespace Yoyyin.Mvc.Configuration
         protected override void Load(ContainerBuilder builder)
         {
             base.Load(builder);
-            builder.RegisterType<RepositoryConfiguration>()
+            builder.Register(c => new RepositoryConfiguration { Marshal = new NoMarshal()})
                 .OnActivating(
                     c =>
                     c.Instance.CommandSerializer = new CommandSerializer()

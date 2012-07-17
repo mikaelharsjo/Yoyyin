@@ -167,6 +167,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration\DependencyInjectionCommandSerializer.cs" />
+    <Compile Include="Configuration\NoMarshal.cs" />
     <Compile Include="Configuration\UserModule.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />

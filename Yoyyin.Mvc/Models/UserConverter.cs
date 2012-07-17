@@ -28,7 +28,9 @@ namespace Yoyyin.Mvc.Models
             {
                 DisplayName = user.DisplayName,
                 SmallProfileImageSrc = user.HasImage ? string.Format("/Content/Upload/Images/{0}.jpg?width=100&height=100'", user.UserId) : string.Empty,
-                Competences = user.Competences
+                Competences = user.Competences,
+                City = user.Address.City,
+                UserType = _userRepository.Query(m => m.UserTypes.First(ut => ut.UserTypeId == user.UserType)).Title
             };
         }
 

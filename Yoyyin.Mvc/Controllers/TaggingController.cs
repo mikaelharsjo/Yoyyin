@@ -16,19 +16,35 @@ namespace Yoyyin.Mvc.Controllers
 
         public ActionResult ListCompetences()
         {
-            return View(GetWeightedTags());
+            return View(GetWeightedCompetences());
+        }
+
+        public ActionResult ListCompetencesNeeded()
+        {
+            return View(GetWeightedCompetencesNeeded());
         }
 
         public ActionResult CompetencesPartial()
         {
-            return PartialView(GetWeightedTags());
+            return PartialView(GetWeightedCompetences());
         }
 
-        private WeightedTags GetWeightedTags()
+        private WeightedTags GetWeightedCompetences()
         {
             // TODO: include CompetencesNeeded?
             var allCompetences = userRepository
                 .Query(m => m.Users.Select(u => u.Competences));
+
+            WeightedTags tags = new WeightedTags();
+            tags.Add(allCompetences);
+            return tags;
+        }
+
+        private WeightedTags GetWeightedCompetencesNeeded()
+        {
+            // TODO: include CompetencesNeeded?
+            var allCompetences = userRepository
+                .Query(m => m.Users.Select(u => u.Ideas.First().SearchProfile.CompetencesNeeded));
 
             WeightedTags tags = new WeightedTags();
             tags.Add(allCompetences);

@@ -1,43 +1,44 @@
 ﻿@model dynamic
-<div class="hero-unit">
-    <h2>
-        Logga in</h2>
-    <p>
-        Logga in med någon av nedanstående populära tjänster.
-    </p>
-    <p>
-        <div class="container-fluid">
-            <span class="span1">
-                <form class="form-inline" method="POST">
-                    @Html.Hidden("openIdProviderUrl", "https://www.google.com/accounts/o8/id")
-                    <input type="image" src="@Url.Content("~/Images/authbuttons/google_64.png")"/>
-                </form>
-            </span><span class="span1">
-                       <form class="form-inline" method="POST">
-                           @Html.Hidden("openIdProviderUrl", "http://yahoo.com/")
-                           <input type="image" src="@Url.Content("~/Images/authbuttons/yahoo_64.png")"/>
-                       </form>
-                   </span>
-        </div>
-        <div class="alert alert-info">
-            När du loggat in känner vi din emailadress men du kan vara trygg...
-            <ul>
-                <li>Din emailadress kommer aldrig att visas på sajten</li>
-                <li>Din emailadress kommer aldrig att meddelas tredje part</li>
-                <li>Din emailadress kommer aldrig att användas i marknadsföringssyfte om du inte godkänner detta</li>
-            </ul>
-        </div>
-    </p>
-    <hr />
-    <h3>
-        Användaravtal</h3>
-    <p>
-        <ul>
-            <li>När du loggat in känner vi till din mailadress, och denna sparas i sessionen så
-                länge du är inloggad.</li>
-            <li>Förutom din mailadress hanterar vi ingen annan information kring din person.</li>
-            <li>Din mailadress används bara för de funktioner på sajten som kräver detta och aldrig
-                i marknadsföringssyfte, mailutskick eller liknande.</li>
-        </ul>
-    </p>
+<div class="page-header">
+    <h1>
+        Logga in. <small>Klicka på din openID-leverantör</small></h1>
 </div>
+<p>
+    Logga in med någon av nedanstående populära tjänster.
+</p>
+<p>
+    <div class="container-fluid">
+        <span class="span1">
+            <form class="form-inline" method="POST">
+            @Html.Hidden("openIdProviderUrl", "https://www.google.com/accounts/o8/id")
+            <input type="image" src="@Url.Content("~/Images/authbuttons/google_64.png")"/>
+            </form>
+        </span><span class="span1">
+            <form class="form-inline" method="POST">
+            @Html.Hidden("openIdProviderUrl", "http://yahoo.com/")
+            <input type="image" src="@Url.Content("~/Images/authbuttons/yahoo_64.png")"/>
+            </form>
+        </span>
+    </div>
+    <div class="alert alert-info">
+        När du loggat in känner vi din emailadress men du kan vara trygg...
+        <ul>
+            <li>Din emailadress kommer aldrig att visas på sajten</li>
+            <li>Din emailadress kommer aldrig att meddelas tredje part</li>
+            <li>Din emailadress kommer aldrig att användas i marknadsföringssyfte om du inte godkänner
+                detta</li>
+        </ul>
+    </div>
+</p>
+<hr />
+<h3>
+    Användaravtal</h3>
+<p>
+    <ul>
+        <li>När du loggat in känner vi till din mailadress, och denna sparas i sessionen så
+            länge du är inloggad.</li>
+        <li>Förutom din mailadress hanterar vi ingen annan information kring din person.</li>
+        <li>Din mailadress används bara för de funktioner på sajten som kräver detta och aldrig
+            i marknadsföringssyfte, mailutskick eller liknande.</li>
+    </ul>
+</p>

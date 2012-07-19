@@ -3,8 +3,7 @@
     <tr>
         <td>
             <a href=@Model.DetailsHref class="thumbnail">
-                @Html.Raw(Model.SmallProfileImageMarkup)
-                @Model.DisplayName
+                <img src="@Model.SmallProfileImageSrc" />
             </a>
             <a href=@Model.DetailsHref>
                 @Model.DisplayName

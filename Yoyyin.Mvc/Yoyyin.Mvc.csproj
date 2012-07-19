@@ -226,6 +226,8 @@
     <Content Include="Images\glyphicons-halflings.png" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Images\glyphicons_003_user%402x.png" />
+    <Content Include="Images\grid-18px-masked.png" />
     <Content Include="Images\group.png" />
     <Content Include="Images\forumSprite.png" />
     <Content Include="Images\handshake.png" />

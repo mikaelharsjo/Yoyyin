@@ -27,7 +27,7 @@ namespace Yoyyin.Mvc.Models
             return new User
             {
                 DisplayName = user.DisplayName,
-                SmallProfileImageSrc = user.HasImage ? string.Format("/Content/Upload/Images/{0}.jpg?width=100&height=100'", user.UserId) : string.Empty,
+                SmallProfileImageSrc = user.HasImage ? string.Format("/Content/Upload/Images/{0}.jpg?width=100&height=100'", user.UserId) : "/Images/glyphicons_003_user@2x.png",
                 Competences = user.Competences,
                 City = user.Address.City,
                 UserType = _userRepository.Query(m => m.UserTypes.First(ut => ut.UserTypeId == user.UserType)).Title
@@ -40,8 +40,8 @@ namespace Yoyyin.Mvc.Models
                        {
                            DisplayName = user.DisplayName,
                            FirstIdea = user.Ideas.First(),
-                           SmallProfileImageMarkup = user.HasImage ? string.Format("<img src='/Content/Upload/Images/{0}.jpg?width=100&height=100' />", user.UserId) : string.Empty,
-                           LargeProfileImageMarkup = user.HasImage ? string.Format("<img src='/Content/Upload/Images/{0}.jpg?width=200&height=200' />", user.UserId) : string.Empty,
+                           SmallProfileImageSrc = user.HasImage ? string.Format("/Content/Upload/Images/{0}.jpg?width=100&height=100' />", user.UserId) : "/Images/glyphicons_003_user@2x.png",
+                           LargeProfileImageSrc = user.HasImage ? string.Format("/Content/Upload/Images/{0}.jpg?width=200&height=200' />", user.UserId) : "/Images/glyphicons_003_user@2x.png",
                            DetailsHref = string.Format("/User/Details/{0}", user.UserId),
                            UserTypesNeededMarkup = _userTypesNeededMarkupProvider.ToLabelList((user.Ideas.First().SearchProfile.UserTypesNeeded)),
                            CompetencesNeededmarkup = _competencesNeededMarkupProvider.ToLabelList(user.Ideas.First().SearchProfile.CompetencesNeeded),

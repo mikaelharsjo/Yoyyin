@@ -71,6 +71,7 @@ namespace Yoyyin.Mvc
             builder.RegisterModelBinders(Assembly.GetExecutingAssembly());
             builder.RegisterModule<AutofacWebTypesModule>();
             builder.RegisterModule<UserModule>();
+            builder.RegisterModule<UserRoleModule>();
             var container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
         }

@@ -27,69 +27,124 @@ namespace Yoyyin.Importing
         public IEnumerable<User> Import()
         {
             foreach (Data.User user in _repository
-                                            .FindAll()
-                                            .Where(u => u.Name != "" && u.BusinessDescription + u.BusinessTitle != ""))
+                                            .FindAll())
+                                            //.Where(u => ProfileIsNotEmpty(u) && ProfileIsNotInExcluded(u)))
             {
-                yield return
-                    new User
-                        {
-                            UserId = user.UserId,
-                            Active = user.Active != null && (bool) user.Active,
-                            Name = user.Name,
-                            DisplayName = string.IsNullOrEmpty(user.Alias) ? user.Name : user.Alias,
-                            HasImage = user.Image != null,
-                            Competences = GetCompetences(user),
-                            Ideas = new List<Idea>
-                                        {
-                                            new Idea
-                                                {
-                                                    Description = user.BusinessDescription,
-                                                    Title = user.BusinessTitle,
-                                                    CompanyName = user.CompanyName,
-                                                    //SniHeadID = user.SniHeadID != null ? user.SniHeadID.Trim() : string.Empty,
-                                                    SniNo = user.SniNo != null  ? user.SniNo.Trim() : "Övrigt",
-                                                    SniHeadId = user.SniHeadID != null ? user.SniHeadID.Trim() : "Övrigt",
-                                                    SearchProfile = new SearchProfile
-                                                                        {
-                                                                            SearchWords = GetSearchWords(user),
-                                                                            //Competences = GetCompetences(user),
-                                                                            CompetencesNeeded = GetCompetencesNeeded(user),
-                                                                            UserTypesNeeded = new UserTypesNeeded
-                                                                                                  {
-                                                                                                      UserTypeIds = string.IsNullOrEmpty(user.UserTypesNeeded) 
-                                                                                                      ? new int[0]
-                                                                                                      : user.UserTypesNeeded
-                                                                                                            .Split(new [] { ','})
-                                                                                                            .Select(int.Parse) 
-                                                                                                            .Select(i => i == 5 ? 1 : i)
-                                                                                                            .Distinct()
-                                                                                                  }
-                                                                        }
-                                                }
-                                        },
-                            Address = new Address
-                                          {
-                                              Street = user.Street,
-                                              City = user.City,
-                                              Phone = user.Phone,
-                                              ZipCode = user.ZipCode, 
-                                              Coordinate = user.Latitude != null
-                                                      ? new Coordinate {Latitude = (double) user.Latitude, Longitude = (double) user.Longitude}
-                                                      : new Coordinate()
-                                          },
-                            Urls = new List<string> { user.Url },
-                            CVFileName = user.CVFileName,
-                            UserTypeDescription = user.UserTypeDescription,
-                            UserType = user.UserType != null ? (int)user.UserType : (int)UserTypes.Businessman,
-                            Settings = new Settings
-                                           {
-                                              ShowAddress = user.ShowAddress,
-                                              ShowEmail = user.ShowEmail,
-                                              ShowOnMap = user.ShowOnMap
-                                           },
-                             
-                        };
+                if (ProfileIsNotEmpty(user) && ProfileIsNotInExcluded(user))
+                {
+                    yield return
+                        new User
+                            {
+                                UserId = user.UserId,
+                                Active = user.Active != null && (bool) user.Active,
+                                Name = user.Name,
+                                DisplayName = string.IsNullOrEmpty(user.Alias) ? user.Name : user.Alias,
+                                HasImage = user.Image != null,
+                                Competences = GetCompetences(user),
+                                Ideas = new List<Idea>
+                                            {
+                                                new Idea
+                                                    {
+                                                        Description = user.BusinessDescription,
+                                                        Title = user.BusinessTitle,
+                                                        CompanyName = user.CompanyName,
+                                                        //SniHeadID = user.SniHeadID != null ? user.SniHeadID.Trim() : string.Empty,
+                                                        SniNo = user.SniNo != null ? user.SniNo.Trim() : "Övrigt",
+                                                        SniHeadId =
+                                                            user.SniHeadID != null ? user.SniHeadID.Trim() : "Övrigt",
+                                                        SearchProfile = new SearchProfile
+                                                                            {
+                                                                                SearchWords = GetSearchWords(user),
+                                                                                //Competences = GetCompetences(user),
+                                                                                CompetencesNeeded =
+                                                                                    GetCompetencesNeeded(user),
+                                                                                UserTypesNeeded = new UserTypesNeeded
+                                                                                                      {
+                                                                                                          UserTypeIds =
+                                                                                                              string.
+                                                                                                                  IsNullOrEmpty
+                                                                                                                  (user.
+                                                                                                                       UserTypesNeeded)
+                                                                                                                  ? new int
+                                                                                                                        [
+                                                                                                                        0
+                                                                                                                        ]
+                                                                                                                  : user
+                                                                                                                        .
+                                                                                                                        UserTypesNeeded
+                                                                                                                        .
+                                                                                                                        Split
+                                                                                                                        (new[
+                                                                                                                             ]
+                                                                                                                             {
+                                                                                                                                 ','
+                                                                                                                             })
+                                                                                                                        .
+                                                                                                                        Select
+                                                                                                                        (int
+                                                                                                                             .
+                                                                                                                             Parse)
+                                                                                                                        .
+                                                                                                                        Select
+                                                                                                                        (i
+                                                                                                                         =>
+                                                                                                                         i ==
+                                                                                                                         5
+                                                                                                                             ? 1
+                                                                                                                             : i)
+                                                                                                                        .
+                                                                                                                        Distinct
+                                                                                                                        ()
+                                                                                                      }
+                                                                            }
+                                                    }
+                                            },
+                                Address = new Address
+                                              {
+                                                  Street = user.Street,
+                                                  City = user.City,
+                                                  Phone = user.Phone,
+                                                  ZipCode = user.ZipCode,
+                                                  Coordinate = user.Latitude != null
+                                                                   ? new Coordinate
+                                                                         {
+                                                                             Latitude = (double) user.Latitude,
+                                                                             Longitude = (double) user.Longitude
+                                                                         }
+                                                                   : new Coordinate()
+                                              },
+                                Urls = new List<string> {user.Url},
+                                CVFileName = user.CVFileName,
+                                UserTypeDescription = user.UserTypeDescription,
+                                UserType = user.UserType != null ? (int) user.UserType : (int) UserTypes.Businessman,
+                                Settings = new Settings
+                                               {
+                                                   ShowAddress = user.ShowAddress,
+                                                   ShowEmail = user.ShowEmail,
+                                                   ShowOnMap = user.ShowOnMap
+                                               },
+
+                            };
+                }
             }
+        }
+
+        private static bool ProfileIsNotEmpty(Data.User u)
+        {
+            return u.Name != "" && u.BusinessDescription + u.BusinessTitle != "";
+        }
+
+        private static bool ProfileIsNotInExcluded(Data.User u)
+        {
+            List<Guid> excluded = new List<Guid>
+                                      {
+                                          new Guid("fb453746-ef54-4157-874d-fab2003e9c1a"),
+                                          new Guid("e8533d8d-d880-4da1-a6a1-7dd0fb9765ec"),
+                                          new Guid("300c20c9-7c06-4bc6-9807-59701da10d76"),
+                                          new Guid("d618afd6-d2bf-425f-865d-c13acc425af4")
+                                      };
+
+            return !excluded.Contains(u.UserId);
         }
 
         private static string[] GetSearchWords(Data.User user)

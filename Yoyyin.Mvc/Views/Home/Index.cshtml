@@ -1,3 +1,5 @@
+@model IEnumerable<Yoyyin.Mvc.Models.UserWithFirstIdea>
+
 @section featured {
     <section class="featured">
         <div class="content-wrapper">
@@ -64,7 +66,7 @@
         </div>
     </div>
 </div>
-@Html.Partial("~/Views/Idea/ListStacked.cshtml")
+@*@Html.RenderPartial("~/Views/Idea/ListStacked.cshtml", Model)*@
 @*<section class="features">
     <section class="feature">
         <img src="~/Images/featuresForum.png" alt="Diskutera" class="thumbnail" />

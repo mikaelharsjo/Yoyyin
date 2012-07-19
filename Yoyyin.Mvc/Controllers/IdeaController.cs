@@ -32,11 +32,11 @@ namespace Yoyyin.Mvc.Controllers
             _userConverter = userConverter;
         }
 
-        public ActionResul ListStacked(int count)
+        public ActionResult ListStacked()
         {
             return View(_repository
                 .Query(m => m.Users)
-                .Take(count)
+                .Take(8)
                 .OrderBy(u => u.Ideas.First().SniNo)
                 .Select(_userConverter.ConvertToViewModel));
         }

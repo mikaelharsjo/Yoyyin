@@ -2,17 +2,26 @@
 
 @foreach (var user in Model)
 {
-<div class="well">
-    <a href=@user.DetailsHref class="thumbnail">
-        @user.SmallProfileImageSrc
-        @user.DisplayName
-    </a>
-    <a href=@user.DetailsHref>
-        @user.DisplayName
-    </a>
-    <span class="label">@Html.ActionLink(user.SniHeadTitle, "ListBySniHead", new { id = user.SniHeadId})</span>
-    <h2>@user.FirstIdea.Title</h2>
-    <p>@Html.Raw(user.FirstIdea.Description)</p>
+    
+<div class="well stackedUser ui-helper-clearfix">
+    <div class="stackedUserLeft">
+        <a href=@user.DetailsHref class="thumbnail">
+            <img src=@user.SmallProfileImageSrc />
+        </a>
+        <a href=@user.DetailsHref>
+            @user.DisplayName
+        </a>
+    </div>
 
+    <div class="stackedUserRight">
+        Jag är:<br />
+        @Html.Raw(user.UserTypeMarkup)
+        Jag söker: 
+        @Html.Raw(user.UserTypesNeededMarkup)
+        Bransch:
+        <span class="label">@Html.ActionLink(user.SniHeadTitle, "ListBySniHead", new { id = user.SniHeadId})</span>
+@*        <h2>@user.FirstIdea.Title</h2>
+        <p>@Html.Raw(user.FirstIdea.Description)</p>
+*@    </div>
 </div>
 }

@@ -1,0 +1,18 @@
+﻿@model IEnumerable<Yoyyin.Mvc.Models.UserWithFirstIdea>
+
+@foreach (var user in Model)
+{
+<div class="well">
+    <a href=@user.DetailsHref class="thumbnail">
+        @user.SmallProfileImageSrc)
+        @user.DisplayName
+    </a>
+    <a href=@user.DetailsHref>
+        @user.DisplayName
+    </a>
+    <span class="label">@Html.ActionLink(Model.SniHeadTitle, "ListBySniHead", new { id = Model.SniHeadId})</span>
+    <h2>@user.FirstIdea.Title</h2>
+    <p>@Html.Raw(user.FirstIdea.Description)</p>
+
+</div>
+}

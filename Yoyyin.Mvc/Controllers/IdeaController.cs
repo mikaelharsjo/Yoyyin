@@ -32,6 +32,15 @@ namespace Yoyyin.Mvc.Controllers
             _userConverter = userConverter;
         }
 
+        public ActionResul ListStacked(int count)
+        {
+            return View(_repository
+                .Query(m => m.Users)
+                .Take(count)
+                .OrderBy(u => u.Ideas.First().SniNo)
+                .Select(_userConverter.ConvertToViewModel));
+        }
+
         public ActionResult List()
         {
             ViewBag.Title = "Alla affärsidéer";
@@ -46,7 +55,6 @@ namespace Yoyyin.Mvc.Controllers
                                                  }
                                      };
 
-            // optimized by jola
             return View(_repository
                             .Query(m => m.Users)
                             .OrderBy(u => u.Ideas.First().SniNo)

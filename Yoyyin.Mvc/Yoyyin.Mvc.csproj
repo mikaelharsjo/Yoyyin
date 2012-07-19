@@ -178,6 +178,7 @@
     <Compile Include="Configuration\DependencyInjectionCommandSerializer.cs" />
     <Compile Include="Configuration\NoMarshal.cs" />
     <Compile Include="Configuration\UserModule.cs" />
+    <Compile Include="Configuration\UserRoleModule.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -189,6 +190,7 @@
     <Compile Include="Controllers\SniController.cs" />
     <Compile Include="Controllers\TaggingController.cs" />
     <Compile Include="Controllers\IdeaController.cs" />
+    <Compile Include="Controllers\TeaserController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\UserTypeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -201,6 +203,10 @@
     <Compile Include="Models\BreadCrumb\NoBreadCrumb.cs" />
     <Compile Include="Models\Sni.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Models\UserRoles\Authorizer.cs" />
+    <Compile Include="Models\UserRoles\IAuthorizer.cs" />
+    <Compile Include="Models\UserRoles\IUserRoles.cs" />
+    <Compile Include="Models\UserRoles\UserRoles.cs" />
     <Compile Include="Models\UserWithFirstIdea.cs" />
     <Compile Include="Models\UserConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -213,11 +219,15 @@
     <Content Include="Content\Css\jquery-ui-1.8.16.custom.css" />
     <Content Include="Content\Css\jquery.tagit.css" />
     <Content Include="favicon.png" />
+    <Content Include="Images\authbuttons\google_64.png" />
+    <Content Include="Images\authbuttons\yahoo_64.png" />
     <Content Include="Images\constructionteam.png" />
     <Content Include="Images\glyphicons-halflings-white.png" />
     <Content Include="Images\glyphicons-halflings.png" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Images\glyphicons_003_user%402x.png" />
+    <Content Include="Images\grid-18px-masked.png" />
     <Content Include="Images\group.png" />
     <Content Include="Images\forumSprite.png" />
     <Content Include="Images\handshake.png" />
@@ -280,10 +290,6 @@
     <Content Include="Images\twitter.png" />
     <Content Include="Images\windowsLive.png" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Account\ChangePassword.cshtml" />
-    <Content Include="Views\Account\ChangePasswordSuccess.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -305,6 +311,9 @@
     <Content Include="Views\Auth\SignIn.cshtml" />
     <Content Include="Views\Tagging\ListCompetencesNeeded.cshtml" />
     <Content Include="Views\Idea\ListStacked.cshtml" />
+    <Content Include="Views\Teaser\Index.cshtml" />
+    <Content Include="Views\Teaser\_Layout\_Layout.cshtml" />
+    <Content Include="Views\Shared\TeaserLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -71,7 +71,7 @@ namespace Yoyyin.Model.Tests
                                            {
                                                UserTypeId = 2,
                                                Title = "Finansiär",
-                                               Description = "Spännande idéer och företag att investera i."
+                                               Description = "Söker idéer och företag att investera i."
                                            }));
             UserRepository.Execute(
                 new AddUserTypeCommand(new UserType

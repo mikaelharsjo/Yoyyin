@@ -190,6 +190,7 @@
     <Compile Include="Controllers\SniController.cs" />
     <Compile Include="Controllers\TaggingController.cs" />
     <Compile Include="Controllers\IdeaController.cs" />
+    <Compile Include="Controllers\TeaserController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\UserTypeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -287,10 +288,6 @@
     <Content Include="Images\twitter.png" />
     <Content Include="Images\windowsLive.png" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Account\ChangePassword.cshtml" />
-    <Content Include="Views\Account\ChangePasswordSuccess.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -311,6 +308,9 @@
     <Content Include="Views\Sni\ListItems.cshtml" />
     <Content Include="Views\Auth\SignIn.cshtml" />
     <Content Include="Views\Tagging\ListCompetencesNeeded.cshtml" />
+    <Content Include="Views\Teaser\Index.cshtml" />
+    <Content Include="Views\Teaser\_Layout\_Layout.cshtml" />
+    <Content Include="Views\Shared\TeaserLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

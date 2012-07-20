@@ -1,5 +1,4 @@
 @model IEnumerable<Yoyyin.Mvc.Models.UserWithFirstIdea>
-
 @section featured {
     <section class="featured">
         <div class="content-wrapper">
@@ -17,30 +16,31 @@
 }
 <div class="row-fluid">
     <div class="span6">
-        <h3>
-            Söker du en partner till din affärsidé?
-        </h3>
-        
-        Tid, kunskap och energi är hinder som ofta gör det svårt att starta upp eller utveckla
-        ett företag.
-        <ul>
-            <li><a class="registerLink">Registrera din affärsidé och få tillgång till matchning mm</a></li>
-            @*<li>@Html.ActionLink("Visa alla affärsidéer", "List", "User")</li>*@
-        </ul>
-        <h3>
-            Är du finansiär som söker intressanta projekt?</h3>
-        <ul>
-            <li>@Html.ActionLink("Visa alla affärsidéer som söker finansiering", "ListWantsFinancing", "User")</li>
-            <li><a class="registerLink">Registrera dig som finansiär och få tillgång till matchning
-                    mm</a></li>
-        </ul>
-        <h3>
-            Är du entreprenör och vill förverkliga andras idéer?</h3>
-        <ul>
-            <li>@Html.ActionLink("Visa alla affärsidéer", "List", "User")</li>
-            <li><a class="registerLink">Registrera dig som entreprenör och få tillgång till matchning
-                    mm</a></li>
-        </ul>
+        <div class="well">
+            <h3>
+                <img src="/Images/glyphicons_064_lightbulb.png" />
+                Har du en affärsidé och vill ha en partner?
+            </h3>
+            <a href="/#/register">Registrera din affärsidé och få tillgång till matchning mm</a><br />
+            <a href="/#/user/all">Visa alla personer, kanske finns din nya partner här redan?</a>
+        </div>
+        <div class="well">
+            <h3>
+                <img src="../../Images/glyphicons_043_group.png" />
+                Vill förverkliga andras idéer?</h3>
+            @Html.ActionLink("Visa alla affärsidéer", "List", "User")<br />
+            <a class="registerLink">Registrera dig som entreprenör och få tillgång till matchning
+                mm</a>
+        </div>
+        <div class="well">
+            <h3>
+                <img src="../../Images/glyphicons_037_credit.png" />
+                Är du finansiär som söker intressanta projekt?
+            </h3>
+            @Html.ActionLink("Visa alla affärsidéer som söker finansiering", "ListWantsFinancing", "User")<br />
+            <a class="registerLink">Registrera dig som finansiär och få tillgång till matchning
+                mm</a>
+        </div>
     </div>
     <div class="span6">
         <div id="carousel" class="carousel slide">
@@ -49,13 +49,16 @@
                 <div class="active item">
                     <img src="../../Images/handshake.png" />
                     <div class="carousel-caption">
-                        <p>Har du en bra affärsidé men behöver stöd eller en viss kompetens för att förverkliga den?</p>
+                        <p>
+                            Har du en bra affärsidé men behöver stöd eller en viss kompetens för att förverkliga
+                            den?</p>
                     </div>
                 </div>
                 <div class="item">
                     <img src="../../Images/constructionteam.png" />
                     <div class="carousel-caption">
-                        <p>Söker du ett bollplank för din affärsidé<br/>
+                        <p>
+                            Söker du ett bollplank för din affärsidé<br />
                             Eller finansiering?</p>
                     </div>
                 </div>
@@ -66,7 +69,7 @@
         </div>
     </div>
 </div>
-<br/>
+<br />
 @Html.Partial("~/Views/Idea/ListStacked.cshtml", Model)
 @*<section class="features">
     <section class="feature">
@@ -99,4 +102,4 @@
             </p>
         
     </section>
-</section>*@
+</section>*@ 

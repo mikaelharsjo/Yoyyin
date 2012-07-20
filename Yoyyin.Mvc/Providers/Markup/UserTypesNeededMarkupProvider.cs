@@ -44,7 +44,7 @@ namespace Yoyyin.Mvc.Providers.Markup
             //userType => (int) userType, userType => userType.ToString());
 
             string formatString =
-                "<span class='label label-success'><a href='/User/ListByUserType/{0}/{1}'>{2}</a></span>";
+                "<span class='label label-success'><a href='/User/ListByUserType/{0}/{1}'>{2}</a></span>&nbsp;";
 
             return string.Join("",
                                userTypes.Select(userType => string.Format(formatString, userType.UserTypeId, userType.Title.ToLower().Replace("/", "-"), userType.Title)).ToArray());

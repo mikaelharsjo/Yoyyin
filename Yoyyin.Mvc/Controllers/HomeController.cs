@@ -37,7 +37,7 @@ namespace Yoyyin.Mvc.Controllers
             return View(
             _repository
                 .Query(m => m.Users)
-                .Take(8)
+                .Take(12)
                 .OrderBy(u => u.Ideas.First().SniNo)
                 .Select(_userConverter.ConvertToViewModel));
         }

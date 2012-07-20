@@ -47,7 +47,8 @@ namespace Yoyyin.Mvc.Models
                            CompetencesNeededmarkup = _competencesNeededMarkupProvider.ToLabelList(user.Ideas.First().SearchProfile.CompetencesNeeded),
                            UserTypeMarkup = string.Format("<span class='label label-success'><a href='/User/ListByUserType/{0}/{2}'>{1}</a></span>", user.UserType, GetUserTypeTitle(user), GetUserTypeTitle(user).ToLower().Replace("/", "-")),
                            Latitude = user.Address.Coordinate.Latitude,
-                           Longitude = user.Address.Coordinate.Longitude
+                           Longitude = user.Address.Coordinate.Longitude,
+                           City = user.Address.City
                        };
         }
 

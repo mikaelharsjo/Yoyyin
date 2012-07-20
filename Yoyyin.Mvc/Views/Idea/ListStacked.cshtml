@@ -16,7 +16,8 @@
                 Jag söker:<br />
                 @Html.Raw(user.UserTypesNeededMarkup)
                 <hr />
-                Bransch: <span class="label">@Html.ActionLink(user.SniHeadTitle, "ListBySniHead", new { id = user.SniHeadId })</span>
+                Bransch:<br />
+                <span class="label">@Html.ActionLink(user.SniHeadTitle, "ListBySniHead", new { id = user.SniHeadId })</span>
             </div>
         </div>
         <hr/>

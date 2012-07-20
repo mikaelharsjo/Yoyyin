@@ -8,6 +8,8 @@ namespace Yoyyin.Mvc.Models
         public string SmallProfileImageSrc { get; set; }
         public string City { get; set; }
         public string UserType { get; set; }
+        public IEnumerable<string> UserTypesNeeded { get; set; } 
         public IEnumerable<string> Competences { get; set; }
+        public IEnumerable<string> CompetencesNeeded { get; set; }
     }
 }

@@ -1,8 +1,16 @@
-﻿<tr>
-    <td>{{{ImageMarkup}}}</td>
-    <td>
-        <a><strong>{{DisplayName}}</strong></a>, {{City}}<br />
-        <span class="label label-success">{{UserType}}</span><br /><br />
-        <h3>Kompetenser:</h3>{{{CompetencesMarkup}}}
-    </td>    
-</tr>
+﻿<div class="well ui-helper-clearfix">
+    <div class="listedUserLeft">
+        {{{ImageMarkup}}}
+        <a><strong>{{DisplayName}}</strong></a>, {{City}}
+    </div>
+    <div class="listedUserRight">
+        Jag är:<br />
+        {{{UserType}}}<br />
+        ...och kan:<br/>{{{CompetencesMarkup}}}
+        <hr />
+        Jag söker:<br />
+        {{{UserTypesNeededMarkup}}}<br/>
+        ...som kan:<br/>
+        {{{CompetencesNeededMarkup}}}
+    </div>    
+</div>

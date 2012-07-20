@@ -1,7 +1,9 @@
+using System.Collections.Generic;
 using System.Linq;
 using Yoyyin.Model.Users;
 using Yoyyin.Model.Users.ValueObjects;
 using Yoyyin.Mvc.Providers.Markup;
+using System.Linq;
 
 namespace Yoyyin.Mvc.Models
 {
@@ -30,8 +32,20 @@ namespace Yoyyin.Mvc.Models
                 SmallProfileImageSrc = user.HasImage ? string.Format("/Content/Upload/Images/{0}.jpg?width=100&height=100'", user.UserId) : "/Images/glyphicons_003_user@2x.png",
                 Competences = user.Competences,
                 City = user.Address.City,
-                UserType = _userRepository.Query(m => m.UserTypes.First(ut => ut.UserTypeId == user.UserType)).Title
+                UserType = _userRepository.Query(m => m.UserTypes.First(ut => ut.UserTypeId == user.UserType)).Title,
+                UserTypesNeeded = GetUserTypesAsStrings(user),
+                CompetencesNeeded = user.Ideas.First().SearchProfile.CompetencesNeeded
             };
+        }
+
+        private IEnumerable<string> GetUserTypesAsStrings(Model.Users.AggregateRoots.User user)
+        {
+            return
+                _userRepository.Query(
+                    m =>
+                    m.UserTypes.Where(
+                        ut => user.Ideas.First().SearchProfile.UserTypesNeeded.UserTypeIds.Contains(ut.UserTypeId)))
+                    .Select(ut => ut.Title);
         }
 
         public UserWithFirstIdea ConvertToViewModel(Model.Users.AggregateRoots.User user)

@@ -22,31 +22,5 @@ namespace Yoyyin.Model.Users.Entities
             // TODO: this is ugly
             return UserTypeIds.Contains(3);
         }
-
-        //public IEnumerable<string> GetUserTypeTitles()
-        //{
-        //    return UserTypeIds.Select(ToTitle);
-        //}
-
-        //private string ToTitle(UserTypes userTypes)
-        //{
-        //    switch (userTypes)
-        //    {
-        //        case UserTypes.Innovator:
-        //            return "Innovatör/Uppfinnare";
-        //        case UserTypes.Entrepreneur:
-        //            return "Företagare/Entreprenör";
-        //        case UserTypes.Investor:
-        //            return "Finansiär";
-        //        case UserTypes.Businessman:
-        //            return "Företagare";
-        //        case UserTypes.Retiring:
-        //            return "Företagare";
-        //        case UserTypes.Financing:
-        //            return "Finansiär/Drake/Ängel";
-        //        default:
-        //            return "Detta borde aldrig hända";
-        //    }
-        //}
     }
 }

@@ -269,7 +269,8 @@
     <Content Include="Templates\User\competenceLabel.htm" />
     <Content Include="Templates\User\image.htm" />
     <Content Include="Templates\User\row.htm" />
-    <Content Include="Templates\User\table.htm" />
+    <Content Include="Templates\User\container.htm" />
+    <Content Include="Templates\User\userTypeLabel.htm" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

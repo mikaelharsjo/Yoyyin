@@ -56,15 +56,15 @@ namespace Yoyyin.Model.Tests
                 new AddUserTypeCommand(new UserType
                                            {
                                                UserTypeId = 0,
-                                               Title = "Företagare/Entreprenör",
-                                               Description = "Person som kan starta upp och driva företag."
+                                               Title = "Entreprenör",
+                                               Description = "Affärsutvecklare, person som kan starta upp och driva företag."
                                            }));
             UserRepository.Execute(
                 new AddUserTypeCommand(new UserType
                                            {
                                                UserTypeId = 1,
-                                               Title = "Innovatör/Uppfinnare",
-                                               Description = "Person med idéer."
+                                               Title = "Uppfinnare",
+                                               Description = "Innovatör, person med idéer."
                                            }));
             UserRepository.Execute(
                 new AddUserTypeCommand(new UserType
@@ -77,19 +77,26 @@ namespace Yoyyin.Model.Tests
                 new AddUserTypeCommand(new UserType
                                            {
                                                UserTypeId = 3,
-                                               Title = ""
+                                               Title = "Utvecklare",
                                                //Title = "Finansiär/Drake/Ängel",
-                                               //Description =
-                                                 //  "Personer med kunskap och kapital att investera i min idé eller företag."
+                                               Description = "Person som kan utveckla programvara eler webb."
                                            }));
             UserRepository.Execute(
                 new AddUserTypeCommand(new UserType
                                            {
                                                UserTypeId = 4,
-                                               Title = "Företagare/Pensionär",
+                                               Title = "Snart pensionär",
                                                Description =
                                                    "Person som vill avveckla/sälja sitt företag."
                                            }));
+            UserRepository.Execute(
+                new AddUserTypeCommand(new UserType
+                {
+                    UserTypeId = 5,
+                    Title = "Marknadsförare",
+                    Description =
+                        "Person som kan sälja/marknadsföra."
+                }));
         }
 
         private void Add5QuestionsAndAnswersPerUser(IEnumerable<User> users)

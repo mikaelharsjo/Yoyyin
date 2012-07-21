@@ -200,6 +200,9 @@
     <Compile Include="Models\BreadCrumb\BreadCrumb.cs" />
     <Compile Include="Models\BreadCrumb\BreadCrumbItem.cs" />
     <Compile Include="Models\BreadCrumb\IBreadCrumb.cs" />
+    <Compile Include="Models\BreadCrumb\ListBreadCrumb.cs" />
+    <Compile Include="Models\BreadCrumb\ListBySniHeadBreadCrumb.cs" />
+    <Compile Include="Models\BreadCrumb\ListBySniNoBreadCrumb.cs" />
     <Compile Include="Models\BreadCrumb\NoBreadCrumb.cs" />
     <Compile Include="Models\Sni.cs" />
     <Compile Include="Models\User.cs" />

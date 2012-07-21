@@ -23,7 +23,7 @@ namespace Yoyyin.Mvc.Models
             return new SniHead
                        {
                            Title = head.Title,
-                           UrlToIdeas = string.Format("/User/ListBySniHead/{0}", head.SniHeadId),
+                           UrlToIdeas = string.Format("/Idea/ListBySniHead/{0}", head.SniHeadId),
                            UrlToItems = string.Format("/Sni/ListItems/{0}", head.SniHeadId)
                        };
         }

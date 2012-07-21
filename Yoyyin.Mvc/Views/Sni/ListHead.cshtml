@@ -1,6 +1,12 @@
 ﻿@model System.Collections.Generic.List<Yoyyin.Mvc.Models.SniHead>
-<h1>Branscher</h1>
-<p>Dessa är baserade på SNI: SNI betyder Svensk Näringsgrensindelning och bygger på EU:s standard, NACE.</p>
+<div class="page-header">
+    <h1>
+        Branscher. <small>Klicka för att hitta en affärspartner inom din bransch</small></h1>
+</div>
+<div class="alert alert-info">
+    <button class="close" data-dismiss="alert">
+        ×</button>Dessa är baserade på SNI: SNI betyder Svensk Näringsgrensindelning
+    och bygger på EU:s standard, NACE.</div>
 <ul class="nav nav-pills nav-stacked">
     @foreach (var sni in @Model)
     {
@@ -8,8 +14,7 @@
             @Html.Raw(sni.Title)
             <b class="caret"></b></a>
             <ul class="dropdown-menu">
-                <a href="@sni.UrlToIdeas">Visa affärsidéer</a>
-                <a href="@sni.UrlToItems">Visa undergrupper</a>
+                <a href="@sni.UrlToIdeas">Visa affärsidéer</a> <a href="@sni.UrlToItems">Visa undergrupper</a>
             </ul>
         </li>
     }

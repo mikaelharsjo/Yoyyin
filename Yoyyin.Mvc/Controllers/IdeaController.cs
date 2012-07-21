@@ -44,16 +44,8 @@ namespace Yoyyin.Mvc.Controllers
         public ActionResult List()
         {
             ViewBag.Title = "Alla affärsidéer";
-            ViewBag.BreadCrumb = new BreadCrumb
-                                     {
-                                         Items =
-                                             new List<BreadCrumbItem>
-                                                 {
-                                                     new BreadCrumbItem {Text = "Hem", Url = "/Home"},
-                                                     new BreadCrumbItem {Text = "Affärsidéer"},
-                                                     new BreadCrumbItem { Text = "Alla", IsLast = true }
-                                                 }
-                                     };
+            ViewBag.SubTitle = "Här visas alla affärsidéer, sorterade på bransch";
+            ViewBag.BreadCrumb = new ListBreadCrumb();
 
             return View(_repository
                             .Query(m => m.Users)
@@ -66,31 +58,9 @@ namespace Yoyyin.Mvc.Controllers
             var sniHead = _repository
                             .Query(m => m.SniHeads.Where(head => head.Items.Any(item => item.SniNo == id)))
                             .First();
-            ViewBag.Title = string.Format("Affärsidéer inom {0}", sniHead != null ? sniHead.Items.First().Title : "");
-            ViewBag.BreadCrumb = new BreadCrumb
-                                     {
-                                         Items =
-                                             new List<BreadCrumbItem>
-                                                 {
-                                                     new BreadCrumbItem {Text = "Hem", Url = "/Home"},
-                                                     new BreadCrumbItem {Text = "Affärsidéer", Url = "/User/List"},
-                                                     new BreadCrumbItem
-                                                         {
-                                                             Text = "Branscher",
-                                                             Url = "/Sni/ListHead"
-                                                         },
-                                                     new BreadCrumbItem
-                                                         {
-                                                             Text = sniHead.Title,
-                                                             Url = "/User/ListBySniHead/" + sniHead.SniHeadId
-                                                         },
-                                                     new BreadCrumbItem
-                                                         {
-                                                             Text = sniHead.Items.First().Title,
-                                                             Url = ""
-                                                         }
-                                                 }
-            };
+            ViewBag.Title = "Affärsidéer";
+            ViewBag.SubTitle = "Här visas affärsidéer inom " + sniHead.Items.First().Title;
+            ViewBag.BreadCrumb = new ListBySniNoBreadCrumb(sniHead);
 
             return View("List", _repository
                             .Query(m => m.Users)
@@ -103,17 +73,8 @@ namespace Yoyyin.Mvc.Controllers
             string title = _repository.Query(m => m.SniHeads.First(s => s.SniHeadId == id)).Title;
             ViewBag.Title = "Affärsidéer"; // string.Format("Affärsidéer inom {0}", title);
             ViewBag.SubTitle = string.Format("Här visas alla affärsidéer inom {0}", title);
-            ViewBag.BreadCrumb = new BreadCrumb()
-                                     {
-                                         Items =
-                                             new List<BreadCrumbItem>
-                                                 {
-                                                     new BreadCrumbItem {Text = "Hem", Url = "/Home"},
-                                                     new BreadCrumbItem {Text = "Affärsidéer", Url = "/Idea/List"},
-                                                     new BreadCrumbItem { Text = "Branscher", Url = "/Sni/ListHead" },
-                                                     new BreadCrumbItem { Text = title, IsLast = true }
-                                                 }
-                                     };
+            ViewBag.BreadCrumb = new ListBySniHeadBreadCrumb(title);
+                                     
             return View(_repository
                             .Query(m => m.Users)
                             .Where(u => u.Ideas.First().SniHeadId == id)

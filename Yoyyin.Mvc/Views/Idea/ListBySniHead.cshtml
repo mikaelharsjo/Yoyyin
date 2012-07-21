@@ -5,13 +5,10 @@
     <h1>@ViewBag.Title. <small>@ViewBag.SubTitle</small> </h1>    
 </div>
 
-<table class="table table-bordered">
+<div class="ui-helper-clearfix">
     @foreach (var user in Model)
     {
         @Html.Partial("~/Views/Idea/UserRowWithSni.cshtml", user)
     }
-</table>
-
-
-
+</div>
 

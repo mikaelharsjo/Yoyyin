@@ -1,17 +1,15 @@
 ﻿@model Yoyyin.Mvc.Models.UserWithFirstIdea
-
-    <tr>
-        <td>
-            <a href=@Model.DetailsHref class="thumbnail">
-                <img src="@Model.SmallProfileImageSrc" />
-            </a>
-            <a href=@Model.DetailsHref>
-                @Model.DisplayName
-            </a>
-        </td>
-        <td>
-            <span class="label">@Html.ActionLink(Model.SniHeadTitle, "ListBySniHead", new { id = Model.SniHeadId})</span>
-            <h2>@Model.FirstIdea.Title</h2>
-            <p>@Html.Raw(Model.FirstIdea.Description)</p>
-        </td>
-    </tr>
+<div class="well ui-helper-clearfix">
+    <div class="listedUserLeft">
+        <a href=@Model.DetailsHref class="thumbnail">
+            <img src="@Model.SmallProfileImageSrc" />
+        </a><a href=@Model.DetailsHref>
+                <strong>@Model.DisplayName</strong>
+        </a>, @Model.City
+    </div>
+    <div class="listedUserRight">
+        <span class="label">@Html.ActionLink(Model.SniHeadTitle, "ListBySniHead", new { id = Model.SniHeadId })</span>
+        <h2>@Model.FirstIdea.Title</h2>
+        <p>@Html.Raw(Model.FirstIdea.Description)</p>
+    </div>
+</div>

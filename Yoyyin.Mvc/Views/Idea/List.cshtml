@@ -6,12 +6,12 @@
 </div>
 
 
-<table class="table table-bordered">
+<div class="ui-helper-clearfix">
     @foreach (var user in Model)
     {
         @Html.Partial("~/Views/Idea/UserRow.cshtml", user)
     }
-</table>
+</div>
 
 
 

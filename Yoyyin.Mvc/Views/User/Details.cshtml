@@ -11,10 +11,14 @@
         </p>
     </div>
     <div class="span10">
-        <span class="label">@Html.ActionLink(Model.SniHeadTitle, "ListBySniHead", new { id = Model.SniHeadId })</span>
-        <h2>@Model.FirstIdea.Title</h2>
-        <p>@Html.Raw(Model.FirstIdea.Description)</p>
         <div class="well">
+            <span class="label">@Html.ActionLink(Model.SniHeadTitle, "ListBySniHead", new { id = Model.SniHeadId })</span>
+            <h2>
+                <img src="../../Images/glyphicons_064_lightbulb.png" />
+                @Model.FirstIdea.Title
+            </h2>
+        <p>@Html.Raw(Model.FirstIdea.Description)</p>
+        
             <h3>@Model.DisplayName söker personer som är:</h3>
             @Html.Raw(Model.UserTypesNeededMarkup)
             <h3>

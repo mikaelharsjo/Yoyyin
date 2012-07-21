@@ -21,13 +21,22 @@ yoyyin.register = function ($, sammy, mustache, location, userType, userTypesNee
             setDescription("");
 
             require(["text!../../Templates/Register/personalInfo.htm"], function (template) {
-                context.swap(appendButtons({ markup: template, previousStep: "personalInfo", nextStep: "location" }));
+                context.swap(appendButtons({ markup: template, previousStep: "personalInfo", nextStep: "wanted" }));
                 $.get("/Tagging/Competences/", function (competences) {
                     $("#competences").tagit({ availableTags: competences });
                 });
             });
         });
 
+        this.get("#/register/wanted", function (context) {
+            setQuestion("Vad söker du?");
+            setDescription("");
+
+            require(["text!../../Templates/Register/wanted.htm"], function (template) {
+                context.swap(appendButtons({ markup: template, previousStep: "personalInfo", nextStep: "location" }));
+            });
+        });
+        
         this.get("#/register/location", function (context) {
             setQuestion("Vilken adress ska användas för visning på karta?");
             setDescription("Vi har hämtat adressen nedan från din nuvarande position. Vi använder bara denna för visning på karta och liknande i samband med sökningar.");
@@ -36,7 +45,7 @@ yoyyin.register = function ($, sammy, mustache, location, userType, userTypesNee
 
             location.getContent(function (data) {
                 var html = mustache.render(template, data);
-                context.swap(appendButtons({ markup: html, previousStep: "personalInfo", nextStep: "userType" }));
+                context.swap(appendButtons({ markup: html, previousStep: "wanted", nextStep: "userType" }));
 
                 $("div.form-actions").append("<a class='btn btn-warning' href='/#/register/userType'>Visa mig inte på kartor</a>")
             });
@@ -58,7 +67,7 @@ yoyyin.register = function ($, sammy, mustache, location, userType, userTypesNee
         });
 
         this.get("#/register/userTypesNeeded", function (context) {
-            setQuestion("Vad söker du?");
+            setQuestion("Vilken sorts affärspartner söker du?");
             setDescription("");
             userTypesNeeded.init(function (html) {
                 context.swap(appendButtons({ markup: html, previousStep: "userType", nextStep: "tags" }), function () {

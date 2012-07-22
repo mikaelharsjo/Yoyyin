@@ -1,10 +1,8 @@
-﻿@model IEnumerable<Yoyyin.Mvc.Models.UserWithFirstIdea>
+﻿@using Yoyyin.Mvc.Helpers
+@model IEnumerable<Yoyyin.Mvc.Models.UserWithFirstIdea>
 
 @Html.Partial("Breadcrumb")
-<div class="page-header">
-    <h1>@ViewBag.Title. <small>@ViewBag.SubTitle</small></h1>
-</div>
-
+@Html.PageHeader((string)@ViewBag.Title, (string)@ViewBag.SubTitle)
 
 <div class="ui-helper-clearfix">
     @foreach (var user in Model)

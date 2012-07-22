@@ -1,18 +1,9 @@
-﻿@model List<Yoyyin.Mvc.Models.SniItem>
+﻿@using Yoyyin.Mvc.Models
+@model List<Yoyyin.Mvc.Models.SniItem>
 
-@{
-    Layout = null;
+<ul class="nav nav-pills nav-stacked">
+@foreach (SniItem item in Model)
+{
+    <li><a href="@item.UrlToIdeas">@item.Title</a></li>
 }
-
-<!DOCTYPE html>
-
-<html>
-    <head>
-        <title>title</title>
-    </head>
-    <body>
-        <div>
-              
-        </div>
-    </body>
-</html>
+</ul>

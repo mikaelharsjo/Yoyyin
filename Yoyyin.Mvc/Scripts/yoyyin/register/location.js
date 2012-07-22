@@ -1,5 +1,4 @@
-﻿yoyyin.register.location = function (mustache) {
-    
+﻿yoyyin.register.location = function () {
     var callback;
 
     var getPosition = function (options) {
@@ -19,19 +18,21 @@
     };
 
     var displayResults = function (results, status) {
-        console.log(results[0]);
         var parts = results[0].address_components;
+        console.log(results[0]);
+
         var location = {
             Street: parts[1].long_name + " " + parts[0].long_name,
             City: parts[2].long_name,
             Country: parts[3].long_name,
             ZipCode: parts[4].long_name,
-            Latitude: results[0].geometry.location.$a,
-            Longitude: results[0].geometry.location.ab
+            Latitude: results[0].geometry.location.lat(),
+            Longitude: results[0].geometry.location.lng()
         };
 
         callback(location);
 
+        console.log(location);
         $("#registerMap").goMap({
             latitude: location.Latitude,
             longitude: location.Longitude,
@@ -49,7 +50,6 @@
         getContent: function (setCallback) {
             callback = setCallback;
             getPosition();
-            //return markup + "apa";
         }
     };
-} (Mustache);
+} ();

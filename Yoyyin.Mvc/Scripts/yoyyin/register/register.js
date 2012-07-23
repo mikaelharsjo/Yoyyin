@@ -1,10 +1,23 @@
-﻿/// <reference path="../../sammy.js" />
+﻿
+/// <reference path="../../sammy.js" />
 yoyyin.register = function ($, sammy, mustache, location, userType, userTypesNeeded, tags) {
+
     var buttonsMarkup = "<div class='form-actions'><a class='btn' href='/#/register/{{previousStep}}'>Föregående</a><a class='btn btn-primary' href='/#/register/{{nextStep}}'>Nästa</a></div><form>";
 
     var appendButtons = function (step) {
         var buttons = mustache.to_html(buttonsMarkup, step);
         return step.markup + buttons;
+    };
+
+    var setHero = function (params) {
+        require(["text!../../Templates/Register/hero.htm"], function (heroTemplate) {
+            if ($(".featured").html() == null) {
+                $("#body").prepend(mustache.render(heroTemplate, params));
+            } else {
+                setQuestion(params.Headline);
+                setDescription(params.Description);
+            }
+        });
     };
 
     var setQuestion = function (question) {
@@ -17,10 +30,13 @@ yoyyin.register = function ($, sammy, mustache, location, userType, userTypesNee
 
     var appRegister = $.sammy("#sectionMainContent", function () {
         this.get("#/register/personalInfo", function (context) {
-            setQuestion("Kul att du vill bli medlem, först vill vi höra om dig själv");
-            setDescription("");
 
             require(["text!../../Templates/Register/personalInfo.htm"], function (template) {
+                setHero({
+                    Headline: "Kul att du vill bli medlem, först vill vi höra om dig själv",
+                    Description: ""
+                });
+
                 context.swap(appendButtons({ markup: template, previousStep: "personalInfo", nextStep: "wanted" }));
                 $.get("/Tagging/Competences/", function (competences) {
                     $("#competences").tagit({ availableTags: competences });
@@ -29,17 +45,19 @@ yoyyin.register = function ($, sammy, mustache, location, userType, userTypesNee
         });
 
         this.get("#/register/wanted", function (context) {
-            setQuestion("Vad söker du?");
-            setDescription("");
+            setHero({ Headline: "Vad söker du?" });
 
             require(["text!../../Templates/Register/wanted.htm"], function (template) {
                 context.swap(appendButtons({ markup: template, previousStep: "personalInfo", nextStep: "location" }));
             });
         });
-        
+
         this.get("#/register/location", function (context) {
-            setQuestion("Vilken adress ska användas för visning på karta?");
-            setDescription("Vi har hämtat adressen nedan från din nuvarande position. Vi använder bara denna för visning på karta och liknande i samband med sökningar.");
+            setHero({
+                Headline: "Vilken adress ska användas för visning på karta?",
+                Description: "Vi har hämtat adressen nedan från din nuvarande position. Vi använder bara denna för visning på karta och liknande i samband med sökningar."
+            });
+
             // had trouble moving this to templates
             var template = "<div class='ui-helper-clearfix'><div class='stepLeft'><label class='control-label' for='street'>Gatuadress:</label><input type='text' class='input-xlarge' id='street' value='{{Street}}' /><label class='control-label' for='zipCode'>Postnummer:</label><input type='text' class='input-xlarge' id='zipCode' value='{{ZipCode}}' /><label class='control-label' for='city'>Stad/ort:</label><input type='text' class='input-xlarge' id='city' value='{{City}}' /><label class='control-label' for='city'>Land:</label><input type='text' class='input-xlarge' id='country' value='{{Country}}' /></div><div id='registerMap' class='stepRight thumbnail'></div></div>";
 
@@ -52,8 +70,7 @@ yoyyin.register = function ($, sammy, mustache, location, userType, userTypesNee
         });
 
         this.get("#/register/userType", function (context) {
-            setQuestion("Vilken är din roll/titel?");
-            setDescription("");
+            setHero({ Headline: "Vilken är din roll/titel?" });
 
             userType.init(function (html) {
                 context.swap(appendButtons({ markup: html, previousStep: "location", nextStep: "userTypesNeeded" }), function () {
@@ -67,8 +84,8 @@ yoyyin.register = function ($, sammy, mustache, location, userType, userTypesNee
         });
 
         this.get("#/register/userTypesNeeded", function (context) {
-            setQuestion("Vilken sorts affärspartner söker du?");
-            setDescription("");
+            setHero({ Headline: "Vilken sorts affärspartner söker du?" });
+
             userTypesNeeded.init(function (html) {
                 context.swap(appendButtons({ markup: html, previousStep: "userType", nextStep: "tags" }), function () {
 
@@ -95,7 +112,7 @@ yoyyin.register = function ($, sammy, mustache, location, userType, userTypesNee
         });
 
         this.get("#/register/tags", function (context) {
-            setQuestion("Vilka kompetenser söker du?");
+            setHero({ Headline: "Vilka kompetenser söker du?" });
             tags.setDescription();
 
             require(["text!../../Templates/Register/tags.htm"], function (template) {
@@ -112,8 +129,7 @@ yoyyin.register = function ($, sammy, mustache, location, userType, userTypesNee
         });
 
         this.get("#/register/upload", function (context) {
-            setQuestion("Bild och CV");
-            setDescription("");
+            setHero({ Headline: "Bild och CV" });
 
             require(["text!../../Templates/Register/upload.htm"], function (template) {
                 context.swap(appendButtons({ markup: template, previousStep: "tags", nextStep: "idea" }));
@@ -121,8 +137,7 @@ yoyyin.register = function ($, sammy, mustache, location, userType, userTypesNee
         });
 
         this.get("#/register/idea", function (context) {
-            setQuestion("Sista steget - Nu vill vi höra om din affärsidé");
-            setDescription("");
+            setHero({ Headline: "Sista steget - Nu vill vi höra om din affärsidé" });
 
             require(["text!../../Templates/Register/idea.htm"], function (template) {
                 context.swap(appendButtons({ markup: template, previousStep: "upload", nextStep: "idea" }));

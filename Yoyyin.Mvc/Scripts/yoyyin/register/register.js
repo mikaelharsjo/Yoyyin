@@ -1,6 +1,6 @@
 ﻿
 /// <reference path="../../sammy.js" />
-yoyyin.register = function ($, sammy, mustache, location, userType, userTypesNeeded, tags) {
+yoyyin.register = function ($, sammy, mustache) {
 
     var buttonsMarkup = "<div class='form-actions'><a class='btn' href='/#/register/{{previousStep}}'>Föregående</a><a class='btn btn-primary' href='/#/register/{{nextStep}}'>Nästa</a></div><form>";
 
@@ -61,23 +61,27 @@ yoyyin.register = function ($, sammy, mustache, location, userType, userTypesNee
             // had trouble moving this to templates
             var template = "<div class='ui-helper-clearfix'><div class='stepLeft'><label class='control-label' for='street'>Gatuadress:</label><input type='text' class='input-xlarge' id='street' value='{{Street}}' /><label class='control-label' for='zipCode'>Postnummer:</label><input type='text' class='input-xlarge' id='zipCode' value='{{ZipCode}}' /><label class='control-label' for='city'>Stad/ort:</label><input type='text' class='input-xlarge' id='city' value='{{City}}' /><label class='control-label' for='city'>Land:</label><input type='text' class='input-xlarge' id='country' value='{{Country}}' /></div><div id='registerMap' class='stepRight thumbnail'></div></div>";
 
-            location.getContent(function (data) {
-                var html = mustache.render(template, data);
-                context.swap(appendButtons({ markup: html, previousStep: "wanted", nextStep: "userType" }));
+            require(["../yoyyin/register/location"], function (location) {
+                location.getContent(function (data) {
+                    var html = mustache.render(template, data);
+                    context.swap(appendButtons({ markup: html, previousStep: "wanted", nextStep: "userType" }));
 
-                $("div.form-actions").append("<a class='btn btn-warning' href='/#/register/userType'>Visa mig inte på kartor</a>")
+                    $("div.form-actions").append("<a class='btn btn-warning' href='/#/register/userType'>Visa mig inte på kartor</a>")
+                });                
             });
         });
 
         this.get("#/register/userType", function (context) {
             setHero({ Headline: "Vilken är din roll/titel?" });
 
-            userType.init(function (html) {
-                context.swap(appendButtons({ markup: html, previousStep: "location", nextStep: "userTypesNeeded" }), function () {
+            require(["../yoyyin/register/userType"], function (userType) {
+                userType.init(function (html) {
+                    context.swap(appendButtons({ markup: html, previousStep: "location", nextStep: "userTypesNeeded" }), function () {
 
-                    $("#btnSaveUserType").click(function () {
-                        $(this).button("loading");
-                        userType.save();
+                        $("#btnSaveUserType").click(function () {
+                            $(this).button("loading");
+                            userType.save();
+                        });
                     });
                 });
             });
@@ -86,26 +90,27 @@ yoyyin.register = function ($, sammy, mustache, location, userType, userTypesNee
         this.get("#/register/userTypesNeeded", function (context) {
             setHero({ Headline: "Vilken sorts affärspartner söker du?" });
 
-            userTypesNeeded.init(function (html) {
-                context.swap(appendButtons({ markup: html, previousStep: "userType", nextStep: "tags" }), function () {
+            require(["../yoyyin/register/userTypesNeeded"], function (userTypesNeeded) {
+                userTypesNeeded.init(function (html) {
+                    context.swap(appendButtons({ markup: html, previousStep: "userType", nextStep: "tags" }), function () {
 
-                    $("#btnSaveUserType").click(function () {
-                        $(this).button("loading");
-                        userType.save();
-                    });
+                        $("#btnSaveUserType").click(function () {
+                            $(this).button("loading");
+                            userType.save();
+                        });
 
-                    $(":checkbox").change(function () {
-                        if ($(this).is(":checked")) {
-                            $(this)
+                        $(":checkbox").change(function () {
+                            if ($(this).is(":checked")) {
+                                $(this)
                                     .parent()
                                     .append($("<div><label>Lägg till valfri text: <input type='text' /></label></div>"));
-                        }
-                        else {
-                            $(this)
+                            } else {
+                                $(this)
                                     .parent()
                                     .find("div")
                                     .remove();
-                        }
+                            }
+                        });
                     });
                 });
             });
@@ -113,10 +118,11 @@ yoyyin.register = function ($, sammy, mustache, location, userType, userTypesNee
 
         this.get("#/register/tags", function (context) {
             setHero({ Headline: "Vilka kompetenser söker du?" });
-            tags.setDescription();
 
-            require(["text!../../Templates/Register/tags.htm"], function (template) {
+            require(["text!../../Templates/Register/tags.htm", "../yoyyin/register/tags"], function (template, tags) {
+
                 context.swap(appendButtons({ markup: template, previousStep: "userTypesNeeded", nextStep: "upload" }), function () {
+                    tags.init();
                     $.get("/Matching/GetQuickSearchTypeAheadItems/", function (items) {
                         $("#tags").tagit({ availableTags: items });
                     });
@@ -139,10 +145,10 @@ yoyyin.register = function ($, sammy, mustache, location, userType, userTypesNee
         this.get("#/register/idea", function (context) {
             setHero({ Headline: "Sista steget - Nu vill vi höra om din affärsidé" });
 
-            require(["text!../../Templates/Register/idea.htm"], function (template) {
+            require(["text!../../Templates/Register/idea.htm", "../yoyyin/register/idea"], function (template, idea) {
                 context.swap(appendButtons({ markup: template, previousStep: "upload", nextStep: "idea" }));
-
-                $("div.form-actions").append("<a class='btn btn-warning' href='/#/register/userType'>Jag har ingen affärsidé</a>")
+                idea.init();
+                $("div.form-actions").append("<a class='btn btn-warning' href='/#/register/userType'>Jag har ingen affärsidé</a>");
             });
         });
     });
@@ -151,4 +157,4 @@ yoyyin.register = function ($, sammy, mustache, location, userType, userTypesNee
         appRegister.run();
     });
 
-} (jQuery, Sammy, Mustache, yoyyin.register.location, yoyyin.register.userType, yoyyin.register.userTypesNeeded, yoyyin.register.tags);
+} (jQuery, Sammy, Mustache);

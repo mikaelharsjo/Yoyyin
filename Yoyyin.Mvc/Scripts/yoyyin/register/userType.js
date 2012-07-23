@@ -1,12 +1,12 @@
-﻿yoyyin.register.userType = function (mustache) {
+﻿define(function() {
     var userTypeRadioTemplate = "<label class='radio'><input name='optionsRadios' id='optionsRadios1' value='{{UserTypeId}}' type='radio' /><strong>{{Title}}</strong> {{Description}}</label>";
 
     return {
-        init: function (callback) {
+        init: function(callback) {
             var stepLeft = "<div class='ui-helper-clearfix'><div class='stepLeft'>";
-            $.getJSON("/UserType/All", function (userTypes) {
-                $.each(userTypes, function (index, userType) {
-                    stepLeft += mustache.render(userTypeRadioTemplate, userType);
+            $.getJSON("/UserType/All", function(userTypes) {
+                $.each(userTypes, function(index, userType) {
+                    stepLeft += Mustache.render(userTypeRadioTemplate, userType);
                 });
 
                 stepLeft += "</div>";
@@ -27,7 +27,7 @@
                 }
             });
         },
-        save: function () {
+        save: function() {
             console.log("save user type");
             var userType = {
                 Title: $("#title").val(),
@@ -35,12 +35,12 @@
             };
             console.log(userType);
 
-            $.post("/UserType/Create", userType, function () {
+            $.post("/UserType/Create", userType, function() {
                 //  console.log("saved");                
-                $(".stepLeft").append(mustache.render(userTypeRadioTemplate, userType));
+                $(".stepLeft").append(Mustache.render(userTypeRadioTemplate, userType));
                 $("#btnSaveUserType").button("reset");
             }
             );
         }
     };
-} (Mustache)
+});

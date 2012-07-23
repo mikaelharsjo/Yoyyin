@@ -1,14 +1,14 @@
-﻿yoyyin.register.location = function () {
+﻿define(function() {
     var callback;
 
-    var getPosition = function (options) {
+    var getPosition = function(options) {
         navigator.geolocation.getCurrentPosition(
             lookupCountry,
             null,
             options);
     };
 
-    var lookupCountry = function (position) {
+    var lookupCountry = function(position) {
         var latlng = new google.maps.LatLng(
             position.coords.latitude,
             position.coords.longitude);
@@ -17,9 +17,8 @@
         geoCoder.geocode({ location: latlng }, displayResults);
     };
 
-    var displayResults = function (results, status) {
+    var displayResults = function(results, status) {
         var parts = results[0].address_components;
-        console.log(results[0]);
 
         var location = {
             Street: parts[1].long_name + " " + parts[0].long_name,
@@ -32,7 +31,6 @@
 
         callback(location);
 
-        console.log(location);
         $("#registerMap").goMap({
             latitude: location.Latitude,
             longitude: location.Longitude,
@@ -47,9 +45,9 @@
     };
 
     return {
-        getContent: function (setCallback) {
+        getContent: function(setCallback) {
             callback = setCallback;
             getPosition();
         }
     };
-} ();
+});

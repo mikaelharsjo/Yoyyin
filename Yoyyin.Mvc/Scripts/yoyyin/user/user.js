@@ -4,6 +4,7 @@
             // TODO: find better way
             $(".featured").hide();
             $(".featured + .main-content").css("background", "none");
+            $(".featured + .main-content").css("padding", "0");
 
             require(["text!../../Templates/User/row.htm", "text!../../Templates/User/container.htm", "text!../../Templates/User/competenceLabel.htm", "text!../../Templates/User/image.htm", "text!../../Templates/User/userTypeLabel.htm"], function (rowTemplate, containerTemplate, competenceTemplate, imageTemplate, userTypeLabelTemplate) {
                 $.getJSON("/User/All", function (users) {

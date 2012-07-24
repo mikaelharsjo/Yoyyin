@@ -35,6 +35,7 @@ yoyyin.register = function ($, sammy, mustache) {
                 setHero({ Headline: "Kul att du vill bli medlem, först vill vi höra om dig själv" });
 
                 context.swap(appendButtons({ markup: template, previousStep: "personalInfo", nextStep: "wanted" }));
+                // TODO: move to module
                 $.get("/Tagging/Competences/", function (competences) {
                     $("#competences").tagit({ availableTags: competences });
                 });

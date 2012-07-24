@@ -257,6 +257,7 @@
     <Content Include="Scripts\lib\require.js" />
     <Content Include="Scripts\lib\sammy.js" />
     <Content Include="Scripts\lib\tag-it.js" />
+    <Content Include="Scripts\yoyyin\member\member.js" />
     <Content Include="Scripts\yoyyin\register\idea.js" />
     <Content Include="Scripts\yoyyin\register\wanted.js" />
     <Content Include="Scripts\yoyyin\text.js" />
@@ -268,6 +269,7 @@
     <Content Include="Scripts\yoyyin\user\user.js" />
     <Content Include="Scripts\yoyyin\yoyyin.init.js" />
     <Content Include="Scripts\yoyyin\yoyyin.quickSearch.js" />
+    <Content Include="Templates\Member\matcher.htm" />
     <Content Include="Templates\Register\hero.htm" />
     <Content Include="Templates\Register\idea.htm" />
     <Content Include="Templates\Register\personalInfo.htm" />

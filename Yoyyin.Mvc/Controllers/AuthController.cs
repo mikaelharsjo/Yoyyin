@@ -30,7 +30,6 @@ namespace Yoyyin.Mvc.Controllers
                             FormsAuthentication.SetAuthCookie(claimsResponse.Email, true);
                             return Redirect(returnUrl);
                         }
-                        break;
                     case AuthenticationStatus.Canceled:
                         ModelState.AddModelError("loginIdentifier",
                                                  "Login was cancelled at the provider");

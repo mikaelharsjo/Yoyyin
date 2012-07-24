@@ -61,7 +61,7 @@ yoyyin.register = function ($, sammy, mustache) {
             // had trouble moving this to templates
             var template = "<div class='ui-helper-clearfix'><div class='stepLeft'><label class='control-label' for='street'>Gatuadress:</label><input type='text' class='input-xlarge' id='street' value='{{Street}}' /><label class='control-label' for='zipCode'>Postnummer:</label><input type='text' class='input-xlarge' id='zipCode' value='{{ZipCode}}' /><label class='control-label' for='city'>Stad/ort:</label><input type='text' class='input-xlarge' id='city' value='{{City}}' /><label class='control-label' for='city'>Land:</label><input type='text' class='input-xlarge' id='country' value='{{Country}}' /></div><div id='registerMap' class='stepRight thumbnail'></div></div>";
 
-            require(["../yoyyin/register/location"], function (location) {
+            require(["register/location"], function (location) {
                 location.getContent(function (data) {
                     var html = mustache.render(template, data);
                     context.swap(appendButtons({ markup: html, previousStep: "wanted", nextStep: "userType" }));
@@ -74,7 +74,7 @@ yoyyin.register = function ($, sammy, mustache) {
         this.get("#/register/userType", function (context) {
             setHero({ Headline: "Vilken är din roll/titel?" });
 
-            require(["../yoyyin/register/userType"], function (userType) {
+            require(["register/userType"], function (userType) {
                 userType.init(function (html) {
                     context.swap(appendButtons({ markup: html, previousStep: "location", nextStep: "userTypesNeeded" }), function () {
 
@@ -90,7 +90,7 @@ yoyyin.register = function ($, sammy, mustache) {
         this.get("#/register/userTypesNeeded", function (context) {
             setHero({ Headline: "Vilken sorts affärspartner söker du?" });
 
-            require(["../yoyyin/register/userTypesNeeded"], function (userTypesNeeded) {
+            require(["register/userTypesNeeded"], function (userTypesNeeded) {
                 userTypesNeeded.init(function (html) {
                     context.swap(appendButtons({ markup: html, previousStep: "userType", nextStep: "tags" }), function () {
 
@@ -119,7 +119,7 @@ yoyyin.register = function ($, sammy, mustache) {
         this.get("#/register/tags", function (context) {
             setHero({ Headline: "Vilka kompetenser söker du?" });
 
-            require(["text!../../Templates/Register/tags.htm", "../yoyyin/register/tags"], function (template, tags) {
+            require(["text!../../Templates/Register/tags.htm", "register/tags"], function (template, tags) {
 
                 context.swap(appendButtons({ markup: template, previousStep: "userTypesNeeded", nextStep: "upload" }), function () {
                     tags.init();
@@ -145,7 +145,7 @@ yoyyin.register = function ($, sammy, mustache) {
         this.get("#/register/idea", function (context) {
             setHero({ Headline: "Sista steget - Nu vill vi höra om din affärsidé" });
 
-            require(["text!../../Templates/Register/idea.htm", "../yoyyin/register/idea"], function (template, idea) {
+            require(["text!../../Templates/Register/idea.htm", "register/idea"], function (template, idea) {
                 context.swap(appendButtons({ markup: template, previousStep: "upload", nextStep: "idea" }));
                 idea.init();
                 $("div.form-actions").append("<a class='btn btn-warning' href='/#/register/userType'>Jag har ingen affärsidé</a>");

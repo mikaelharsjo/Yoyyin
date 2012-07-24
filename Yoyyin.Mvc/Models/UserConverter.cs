@@ -1,9 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Yoyyin.Model.Users;
-using Yoyyin.Model.Users.ValueObjects;
 using Yoyyin.Mvc.Providers.Markup;
-using System.Linq;
 
 namespace Yoyyin.Mvc.Models
 {

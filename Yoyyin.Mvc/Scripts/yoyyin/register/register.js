@@ -32,10 +32,7 @@ yoyyin.register = function ($, sammy, mustache) {
         this.get("#/register/personalInfo", function (context) {
 
             require(["text!../../Templates/Register/personalInfo.htm"], function (template) {
-                setHero({
-                    Headline: "Kul att du vill bli medlem, först vill vi höra om dig själv",
-                    Description: ""
-                });
+                setHero({ Headline: "Kul att du vill bli medlem, först vill vi höra om dig själv" });
 
                 context.swap(appendButtons({ markup: template, previousStep: "personalInfo", nextStep: "wanted" }));
                 $.get("/Tagging/Competences/", function (competences) {
@@ -47,8 +44,9 @@ yoyyin.register = function ($, sammy, mustache) {
         this.get("#/register/wanted", function (context) {
             setHero({ Headline: "Vad söker du?" });
 
-            require(["text!../../Templates/Register/wanted.htm"], function (template) {
+            require(["text!../../Templates/Register/wanted.htm", "register/wanted"], function (template, wanted) {
                 context.swap(appendButtons({ markup: template, previousStep: "personalInfo", nextStep: "location" }));
+                wanted.init();
             });
         });
 
@@ -67,7 +65,7 @@ yoyyin.register = function ($, sammy, mustache) {
                     context.swap(appendButtons({ markup: html, previousStep: "wanted", nextStep: "userType" }));
 
                     $("div.form-actions").append("<a class='btn btn-warning' href='/#/register/userType'>Visa mig inte på kartor</a>")
-                });                
+                });
             });
         });
 

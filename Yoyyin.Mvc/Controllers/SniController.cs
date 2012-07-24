@@ -38,5 +38,10 @@ namespace Yoyyin.Mvc.Controllers
                             .Select(_converter.ConvertToVewModel)
                             .ToList());
         }
+
+        public ActionResult Heads()
+        {
+            return Json(_userRepository.Query(m => m.SniHeads), JsonRequestBehavior.AllowGet);            
+        }
     }
 }

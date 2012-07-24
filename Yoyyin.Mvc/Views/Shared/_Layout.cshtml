@@ -29,41 +29,7 @@
     <meta name="viewport" content="width=device-width" />
 </head>
 <body>
-    <header>
-            <div class="content-wrapper">
-                    <nav class="navbar navbar-fixed-top">
-                        <div class="navbar-inner">
-                            <div class="container">
-                                <a class="brand" href="#">Yoyyin</a>
-                                <ul class="nav">
-                                    <li>@Html.ActionLink("Hem", "Index", "Home")</li>
-                                    <li>@Html.ActionLink("Om", "About", "Home")</li>
-                                    <li>@Html.ActionLink("Kontakt", "Contact", "Home")</li>
-                                    <li><a href="/#/user/all">Personer</a></li>
-                                    <li class="dropdown">
-                                        <a class="dropdown-toggle" data-toggle="dropdown">Affärsidéer</a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="/idea/List">Alla</a></li>     
-                                            <li><a href="/Sni/ListHead">per bransch</a></li>
-                                            <li><a href="/idea/ListWantsFinancing">som söker finansiering</a></li>                                            
-                                            <li class="divider"></li>                                            
-                                            <li><a href="/Tagging/ListCompetences">kompetens som finnns</a></li>
-                                            <li><a href="/Tagging/ListCompetencesNeeded">kompetens som söks</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>  
-
-                                    <form id="formQuickSearch" class="navbar-search pull-left" onkeypress="return event.keyCode != 13">
-                                        <input id="txtSearch" type="text" class="search-query" placeholder="Sök affärspartner/kompetens mm">
-                                    </form>  
-                                <ul class="nav pull-right">
-                                    @Html.Partial("_LoginPartial")
-                                </ul>
-                            </div>
-                        </div>
-                    </nav>
-            </div>
-        </header>
+    @Html.Partial("Header")
     <div id="body">
         @*What is this*@
         @RenderSection("featured", required: false)

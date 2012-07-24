@@ -184,6 +184,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Api\UserController.cs" />
     <Compile Include="Controllers\MatchingController.cs" />
+    <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Controllers\Q&amp;AController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
@@ -257,6 +258,7 @@
     <Content Include="Scripts\lib\sammy.js" />
     <Content Include="Scripts\lib\tag-it.js" />
     <Content Include="Scripts\yoyyin\register\idea.js" />
+    <Content Include="Scripts\yoyyin\register\wanted.js" />
     <Content Include="Scripts\yoyyin\text.js" />
     <Content Include="Scripts\yoyyin\register\tags.js" />
     <Content Include="Scripts\yoyyin\register\userTypesNeeded.js" />
@@ -321,6 +323,8 @@
     <Content Include="Views\Teaser\Index.cshtml" />
     <Content Include="Views\Teaser\_Layout\_Layout.cshtml" />
     <Content Include="Views\Shared\TeaserLayout.cshtml" />
+    <Content Include="Views\Shared\Header.cshtml" />
+    <Content Include="Views\Member\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

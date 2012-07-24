@@ -1,8 +1,8 @@
-﻿@model dynamic
+﻿@using Yoyyin.Mvc.Helpers
+@model dynamic
 
 @{
-    ViewBag.Title = "title";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <br/><br/>
-<h2>Welcome member!</h2>
+@Html.PageHeader((string)ViewBag.Title, "Potentiella affärspartners, sorterat och klart")

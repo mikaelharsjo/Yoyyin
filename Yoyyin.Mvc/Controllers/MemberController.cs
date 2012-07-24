@@ -13,8 +13,8 @@ namespace Yoyyin.Mvc.Controllers
 
         public ActionResult Index()
         {
+            ViewBag.Title = string.Format("Välkommen {0}", @User.Identity.Name);
             return View();
         }
-
     }
 }

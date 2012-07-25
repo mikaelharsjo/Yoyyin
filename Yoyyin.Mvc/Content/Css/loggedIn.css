@@ -1,0 +1,3 @@
+﻿#body { margin-top: 20px;}
+.featured { display: none; }
+.featured + .main-content { background: none;}

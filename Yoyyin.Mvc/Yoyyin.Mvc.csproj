@@ -223,6 +223,7 @@
     <None Include="Content\Less\site.less" />
     <Content Include="Content\Css\jquery-ui-1.8.16.custom.css" />
     <Content Include="Content\Css\jquery.tagit.css" />
+    <Content Include="Content\Css\loggedIn.css" />
     <Content Include="favicon.png" />
     <Content Include="Images\authbuttons\google_64.png" />
     <Content Include="Images\authbuttons\yahoo_64.png" />

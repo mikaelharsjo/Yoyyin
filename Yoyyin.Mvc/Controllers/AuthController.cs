@@ -11,12 +11,6 @@ namespace Yoyyin.Mvc.Controllers
     {
         public ActionResult SignIn()
         {
-            var returnUrl = Request.QueryString["ReturnUrl"];
-            if (string.IsNullOrEmpty(returnUrl))
-            {
-                returnUrl = "~/";
-            }
-
             var openid = new OpenIdRelyingParty();
             var response = openid.GetResponse();
 
@@ -25,11 +19,9 @@ namespace Yoyyin.Mvc.Controllers
                 switch (response.Status)
                 {
                     case AuthenticationStatus.Authenticated:
-                        {
-                            var claimsResponse = response.GetExtension<ClaimsResponse>();
-                            FormsAuthentication.SetAuthCookie(claimsResponse.Email, true);
-                            return Redirect(returnUrl);
-                        }
+                        var claimsResponse = response.GetExtension<ClaimsResponse>();
+                        FormsAuthentication.SetAuthCookie(claimsResponse.Email, true);
+                        return RedirectToAction("Index", "Member");
                     case AuthenticationStatus.Canceled:
                         ModelState.AddModelError("loginIdentifier",
                                                  "Login was cancelled at the provider");

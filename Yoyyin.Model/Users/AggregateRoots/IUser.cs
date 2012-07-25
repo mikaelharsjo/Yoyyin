@@ -20,7 +20,10 @@ namespace Yoyyin.Model.Users.AggregateRoots
         IEnumerable<Idea> Ideas { get; set; }
         //IEnumerable<Bookmark> Bookmarks { get; set; }
         //IEnumerable<Comment> Comments { get; set; }
+        IEnumerable<string> Competences { get; set; }
         IEnumerable<Question> GetQuestions(UserModel userModel);
         bool HasImage { get; set; }
+        string Presentation { get; set; }
+        LookingFor LookingFor { get; set; }
     }
 }

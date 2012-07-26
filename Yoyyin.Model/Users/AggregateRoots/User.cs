@@ -23,6 +23,7 @@ namespace Yoyyin.Model.Users.AggregateRoots
         public string UserTypeDescription { get; set; }
         public string DisplayName { get; set; }
         public bool HasImage { get; set; }
+        public string Email { get; set; }
 
         public Address Address { get; set; }
         public Settings Settings { get; set; }

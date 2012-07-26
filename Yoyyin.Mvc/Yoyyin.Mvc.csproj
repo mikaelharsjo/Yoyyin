@@ -181,6 +181,7 @@
     <Compile Include="Configuration\UserRoleModule.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AuthController.cs" />
+    <Compile Include="Controllers\CurrentUserController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Api\UserController.cs" />
     <Compile Include="Controllers\MatchingController.cs" />
@@ -218,6 +219,7 @@
     <Compile Include="Providers\Markup\CompetencesNeededMarkupProvider.cs" />
     <Compile Include="Providers\Markup\LabelListGenerator.cs" />
     <Compile Include="Providers\Markup\UserTypesNeededMarkupProvider.cs" />
+    <Compile Include="Services\CurrentUserService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Content\Less\site.less" />

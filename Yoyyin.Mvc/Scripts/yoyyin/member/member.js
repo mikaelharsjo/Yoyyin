@@ -1,6 +1,13 @@
 ﻿/// <reference path="../../sammy.js" />
-yoyyin.register = function ($, sammy, mustache) {
-    
+yoyyin.member = function ($, sammy, mustache) {
+
+    var currentUser;
+
+    $.get("/CurrentUser/Get", function (user) {
+        currentUser = user;
+        console.log(currentUser);
+    });
+
     var appMember = $.sammy("#sectionMainContent", function () {
         this.get("#/member/matcher", function (context) {
             require(["text!../../Templates/Member/matcher.htm"], function (template) {

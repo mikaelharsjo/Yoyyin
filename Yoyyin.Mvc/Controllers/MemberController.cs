@@ -8,9 +8,6 @@ namespace Yoyyin.Mvc.Controllers
 {
     public class MemberController : Controller
     {
-        //
-        // GET: /Member/
-
         public ActionResult Index()
         {
             ViewBag.Title = string.Format("Välkommen {0}", @User.Identity.Name);

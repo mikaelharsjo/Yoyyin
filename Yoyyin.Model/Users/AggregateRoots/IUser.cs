@@ -26,5 +26,6 @@ namespace Yoyyin.Model.Users.AggregateRoots
         bool HasImage { get; set; }
         string Presentation { get; set; }
         LookingFor LookingFor { get; set; }
+        string DisplayName { get; set; }
     }
 }

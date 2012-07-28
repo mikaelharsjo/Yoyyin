@@ -1,6 +1,6 @@
 ﻿@if (Request.IsAuthenticated) 
 {
-    <li><a>Hej, @User.Identity.Name!</a></li>
+    <li id="loggedIn"></li> @*<div class="thumbnail" style="background-color: #fff; width: 20px; float: left; padding-top: 9px;"><span class="icon icon-user"></span></div><a>Mikael</a></li>*@
     <li>@Html.ActionLink("Logga ut", "SignOut", "Auth")</li>
 }
 else

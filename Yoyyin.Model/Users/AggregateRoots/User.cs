@@ -14,6 +14,12 @@ namespace Yoyyin.Model.Users.AggregateRoots
             Urls = new List<string>();
         }
 
+        public Guid id
+        {
+            get { return UserId; }
+            set { UserId = value; }
+        }
+
         public Guid UserId { get; set; }
         public string Name { get; set; }
         //byte[] Image { get; set; }

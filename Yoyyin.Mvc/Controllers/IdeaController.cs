@@ -11,6 +11,7 @@ using Yoyyin.Model.Users.Entities;
 using Yoyyin.Mvc.Models;
 using Yoyyin.Model.Users.AggregateRoots;
 using Yoyyin.Mvc.Models.BreadCrumb;
+using Yoyyin.Mvc.Models.Converters;
 using User = Yoyyin.Model.Users.AggregateRoots.User;
 using Yoyyin.Model.Users.Enumerations;
 

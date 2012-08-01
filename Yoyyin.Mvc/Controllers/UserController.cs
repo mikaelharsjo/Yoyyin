@@ -8,6 +8,7 @@ using Yoyyin.Model;
 using Yoyyin.Model.Users;
 using Yoyyin.Mvc.Models;
 using Yoyyin.Mvc.Models.BreadCrumb;
+using Yoyyin.Mvc.Models.Converters;
 
 namespace Yoyyin.Mvc.Controllers
 {
@@ -24,9 +25,12 @@ namespace Yoyyin.Mvc.Controllers
 
         public ActionResult All()
         {
-            return Json(_repository
-                            .Query(m => m.Users)
-                            .Select(_userConverter.Convert), JsonRequestBehavior.AllowGet);
+            return Json(_repository.Query(m => m.Users).Select(_userConverter.Convert), JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult Get(Guid id)
+        {
+            return Json(_userConverter.Convert(_repository.Query(m => m.Users.First(u => u.UserId == id))), JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult Details(Guid id)

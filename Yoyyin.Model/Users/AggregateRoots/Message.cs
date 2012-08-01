@@ -4,6 +4,7 @@ namespace Yoyyin.Model.Users.AggregateRoots
 {
     public class Message
     {
+        public Guid UserId;
         //System.Guid FromUserId { get; set; }
         //System.Guid ToUserId { get; set; }
         public string Text { get; set; }

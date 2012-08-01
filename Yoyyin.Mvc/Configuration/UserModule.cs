@@ -8,7 +8,9 @@ using Yoyyin.Model.Users;
 using Yoyyin.Model.Users.Commands;
 using Yoyyin.Model.Users.Services;
 using Yoyyin.Mvc.Models;
+using Yoyyin.Mvc.Models.Converters;
 using Yoyyin.Mvc.Providers.Markup;
+using Yoyyin.Mvc.Services;
 using CurrentUserService = Yoyyin.Mvc.Services.CurrentUserService;
 
 namespace Yoyyin.Mvc.Configuration
@@ -38,6 +40,10 @@ namespace Yoyyin.Mvc.Configuration
                             .As<IUserRepository>()
                             .SingleInstance();
 
+            builder.RegisterType<UserTypeService>();
+            builder.RegisterType<SniService>();
+
+            builder.RegisterType<IdeaConverter>();
             builder.RegisterType<UserConverter>();
             builder.RegisterType<UserTypesNeededMarkupProvider>().As<IUserTypesNeededMarkupProvider>();
             builder.RegisterType<CurrentUserService>();

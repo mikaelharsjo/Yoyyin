@@ -24,16 +24,19 @@
                             $("#quickSearchMap").show();
                             $.getJSON("/Search/QuickJson", { term: $(this).val() }, function (users) {
                                 var markers = [];
-                                $.each(users, function (index, user) {
-                                    var marker = {
-                                        latitude: user.Latitude,
-                                        longitude: user.Longitude,
-                                        html: {
-                                            content: mustache.render("{{FirstIdea.Title}}<br/>{{FirstIdea.Description}}", user)
-                                        }
-                                    };
-                                    markers.push(marker);
+                                require(["mustache"], function(mustache) {
+                                    $.each(users, function(index, user) {
+                                        var marker = {
+                                            latitude: user.Latitude,
+                                            longitude: user.Longitude,
+                                            html: {
+                                                content: mustache.render("{{FirstIdea.Title}}<br/>{{FirstIdea.Description}}", user)
+                                            }
+                                        };
+                                        markers.push(marker);
+                                    });
                                 });
+
                                 $("#quickSearchMap")
                                     .goMap({
                                         markers: markers,
@@ -55,4 +58,4 @@
         }
     });
 
-} (jQuery, Mustache));
+} (jQuery));

@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using NUnit.Framework;
 using Yoyyin.Model.Users;
+using Yoyyin.Model.Users.Commands;
 
 namespace Yoyyin.Model.Tests.Users.Commands
 {

@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extensions\DateTimeExtensions.cs" />
     <Compile Include="Importers\ISniImporter.cs" />
     <Compile Include="Importers\IUserImporter.cs" />
     <Compile Include="Matching\IMultipleMatcher.cs" />

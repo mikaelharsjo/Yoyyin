@@ -3,7 +3,7 @@ using System.Linq;
 using Kiwi.Prevalence;
 using Yoyyin.Model.Users.AggregateRoots;
 
-namespace Yoyyin.Model.Users
+namespace Yoyyin.Model.Users.Commands
 {
     public class UpdateUserCommand : AbstractCommand<UserModel, bool>
     {

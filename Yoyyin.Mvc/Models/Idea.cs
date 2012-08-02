@@ -1,11 +1,13 @@
 using System.Collections.Generic;
+using Yoyyin.Model.Users.Entities;
 using Yoyyin.Model.Users.ValueObjects;
 
 namespace Yoyyin.Mvc.Models
 {
     public class Idea
     {
-        public IEnumerable<string> UserTypesNeeded;
+        public IEnumerable<string> UserTypesNeeded { get; set; }
+        public IEnumerable<Comment> Comments { get; set; }
         public string CompanyName { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }

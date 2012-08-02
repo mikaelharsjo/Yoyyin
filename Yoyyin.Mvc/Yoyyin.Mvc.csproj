@@ -208,6 +208,9 @@
     <Compile Include="Models\BreadCrumb\ListBySniHeadBreadCrumb.cs" />
     <Compile Include="Models\BreadCrumb\ListBySniNoBreadCrumb.cs" />
     <Compile Include="Models\BreadCrumb\NoBreadCrumb.cs" />
+    <Compile Include="Models\Comment.cs" />
+    <Compile Include="Models\Converters\CommentConverter.cs" />
+    <Compile Include="Providers\ImageProvider.cs" />
     <Compile Include="Services\SniService.cs" />
     <Compile Include="Models\Idea.cs" />
     <Compile Include="Models\Converters\IdeaConverter.cs" />
@@ -293,6 +296,7 @@
     <Content Include="Scripts\yoyyin\views\messages\unReadMessages.js" />
     <Content Include="Scripts\yoyyin\views\users\users.js" />
     <Content Include="Scripts\yoyyin\views\users\user.js" />
+    <Content Include="Scripts\yoyyin\views\users\userThumbnail.js" />
     <Content Include="Scripts\yoyyin\yoyyin.init.js" />
     <Content Include="Scripts\yoyyin\yoyyin.quickSearch.js" />
     <Content Include="Templates\Member\editProfile.htm" />
@@ -308,6 +312,7 @@
     <Content Include="Templates\Register\tags.htm" />
     <Content Include="Templates\Register\upload.htm" />
     <Content Include="Templates\Register\wanted.htm" />
+    <Content Include="Templates\Shared\comment.htm" />
     <Content Include="Templates\Shared\idea.htm" />
     <Content Include="Templates\Shared\pageHeader.htm" />
     <Content Include="Templates\Shared\competenceLabel.htm" />

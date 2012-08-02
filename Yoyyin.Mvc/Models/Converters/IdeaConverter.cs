@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Web;
 using Yoyyin.Model.Users.Entities;
 using Yoyyin.Mvc.Services;
@@ -9,11 +10,13 @@ namespace Yoyyin.Mvc.Models.Converters
     {
         private readonly UserTypeService _userTypeService;
         private SniService _sniService;
+        private readonly CommentConverter _commentConverter;
 
-        public IdeaConverter(UserTypeService userTypeService, SniService sniService)
+        public IdeaConverter(UserTypeService userTypeService, SniService sniService, CommentConverter commentConverter)
         {
             _userTypeService = userTypeService;
             _sniService = sniService;
+            _commentConverter = commentConverter;
         }
 
         public Idea Convert(Model.Users.Entities.Idea idea)
@@ -28,7 +31,8 @@ namespace Yoyyin.Mvc.Models.Converters
                            Title = idea.Title,
                            UserTypesNeeded = _userTypeService.GetUserTypesAsStrings(idea.SearchProfile.UserTypesNeeded),
                            CompetencesNeeded = idea.SearchProfile.CompetencesNeeded,
-                           SniHeadTitle = _sniService.GetTitle(idea.SniHeadId)
+                           SniHeadTitle = _sniService.GetTitle(idea.SniHeadId),
+                           Comments = idea.Comments != null ? idea.Comments.Select(_commentConverter.Convert) : new List<Comment>()
                        };
         }
     }

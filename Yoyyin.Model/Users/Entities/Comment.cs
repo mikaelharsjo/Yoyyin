@@ -5,9 +5,10 @@ namespace Yoyyin.Model.Users.Entities
 {
     public class Comment
     {
-        int UserId { get; set; }
-        string Text { get; set; }
-        DateTime Created { get; set; }
-        IEnumerable<Comment> Comments { get; set; } 
+        public Guid UserId;
+        //public int UserId { get; set; }
+        public string Text { get; set; }
+        public DateTime Created { get; set; }
+        public IEnumerable<Comment> Comments { get; set; } 
     }
 }

@@ -6,9 +6,11 @@ using System.Web;
 using System.Web.Mvc;
 using Yoyyin.Model;
 using Yoyyin.Model.Users;
+using Yoyyin.Model.Users.Entities;
 using Yoyyin.Mvc.Models;
 using Yoyyin.Mvc.Models.BreadCrumb;
 using Yoyyin.Mvc.Models.Converters;
+using Comment = Yoyyin.Mvc.Models.Comment;
 
 namespace Yoyyin.Mvc.Controllers
 {
@@ -30,7 +32,24 @@ namespace Yoyyin.Mvc.Controllers
 
         public ActionResult Get(Guid id)
         {
-            return Json(_userConverter.Convert(_repository.Query(m => m.Users.First(u => u.UserId == id))), JsonRequestBehavior.AllowGet);
+            var user = _repository.Query(m => m.Users.First(u => u.UserId == id));
+            user.Ideas.First().Comments = new List<Model.Users.Entities.Comment>
+                                              {
+                                                  new Model.Users.Entities.Comment
+                                                           {
+                                                               UserId = new Guid("6e37b452-4f92-45e0-875b-01dd92de7686"),
+                                                               Created = DateTime.Now.AddDays(-1),
+                                                               Text = "Lorem ipsum dolor cit amet"
+                                                           },
+                                                           new Model.Users.Entities.Comment
+                                                           {
+                                                               UserId = new Guid("6e37b452-4f92-45e0-875b-01dd92de7686"),
+                                                               Created = DateTime.Now.AddDays(-5),
+                                                               Text = "Intressant idé"
+                                                           }
+                                              };
+
+            return Json(_userConverter.Convert(user), JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult Details(Guid id)

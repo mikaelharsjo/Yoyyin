@@ -1,5 +1,6 @@
 using System.Linq;
 using Yoyyin.Model.Users;
+using Yoyyin.Mvc.Providers;
 using Yoyyin.Mvc.Providers.Markup;
 using Yoyyin.Mvc.Services;
 
@@ -12,6 +13,7 @@ namespace Yoyyin.Mvc.Models.Converters
         private readonly CompetencesNeededMarkupProvider _competencesNeededMarkupProvider;
         private readonly UserTypeService _userTypeService;
         private readonly IdeaConverter _ideaConverter;
+        private readonly ImageProvider _imageProvider;
 
         public UserConverter(IUserRepository userRepository, IUserTypesNeededMarkupProvider userTypesNeededMarkupProvider, UserTypeService userTypeService, IdeaConverter ideaConverter)
         {
@@ -20,6 +22,7 @@ namespace Yoyyin.Mvc.Models.Converters
             _userTypeService = userTypeService;
             _ideaConverter = ideaConverter;
             _competencesNeededMarkupProvider = new CompetencesNeededMarkupProvider();
+            _imageProvider = new ImageProvider();
         }
 
         public UserConverter(UserTypeService userTypeService, IdeaConverter ideaConverter)
@@ -34,7 +37,7 @@ namespace Yoyyin.Mvc.Models.Converters
             {
                 id = user.UserId,
                 DisplayName = user.DisplayName,
-                SmallProfileImageSrc = user.HasImage ? string.Format("/Content/Upload/Images/{0}.jpg?width=100&height=100'", user.UserId) : "/Images/glyphicons_003_user@2x.png",
+                SmallProfileImageSrc = _imageProvider.GetProfileImageSrc(user),
                 Competences = user.Competences,
                 City = user.Address.City,
                 UserType = _userRepository.Query(m => m.UserTypes.First(ut => ut.UserTypeId == user.UserType)).Title,
@@ -44,6 +47,8 @@ namespace Yoyyin.Mvc.Models.Converters
                 Ideas = user.Ideas.Select(_ideaConverter.Convert)
             };
         }
+
+
 
         public UserWithFirstIdea ConvertToViewModel(Model.Users.AggregateRoots.User user)
         {

@@ -1,4 +1,4 @@
-﻿define(["underscore", "backbone", "mustache", "text!../../../../Templates/Member/User/image.htm", "text!../../../../Templates/Member/User/details.htm", "text!../../../../Templates/Shared/idea.htm", "text!../../../../Templates/Shared/userTypeLabel.htm", "text!../../../../Templates/Shared/competenceLabel.htm"], function (_, Backbone, mustache, imageTemplate, detailsTemplate, ideaTemplate, userTypeLabelTemplate, competenceLabelTemplate) {
+﻿define(["underscore", "backbone", "mustache", "models/user", "text!../../../../Templates/Member/User/image.htm", "text!../../../../Templates/Member/User/details.htm", "text!../../../../Templates/Shared/idea.htm", "text!../../../../Templates/Shared/userTypeLabel.htm", "text!../../../../Templates/Shared/competenceLabel.htm", "text!../../../../Templates/Shared/comment.htm"], function (_, Backbone, mustache, UserModel, imageTemplate, detailsTemplate, ideaTemplate, userTypeLabelTemplate, competenceLabelTemplate, commentTemplate) {
     var UserView = Backbone.View.extend({
         initialize: function () {
             this.render();
@@ -7,6 +7,7 @@
             var user = this.model.toJSON();
             user.Image = mustache.render(imageTemplate, user);
 
+            // make idea own view?
             user.IdeasMarkup = "";
             $.each(user.Ideas, function (index, idea) {
                 idea.UserTypesNeededMarkup = "";
@@ -18,6 +19,11 @@
                 console.log(idea);
                 $.each(idea.CompetencesNeeded, function (index, competence) {
                     idea.CompetencesNeededMarkup += mustache.render(competenceLabelTemplate, { Competence: competence });
+                });
+
+                idea.CommentsMarkup = "<div class='page-header'><h2>Kommentarer. <small>Här får man tycka vad man vill, men var snälla<small></h2></div>";
+                $.each(idea.Comments, function (index, comment) {
+                    idea.CommentsMarkup += mustache.render(commentTemplate, comment);
                 });
 
                 user.IdeasMarkup += mustache.render(ideaTemplate, idea);

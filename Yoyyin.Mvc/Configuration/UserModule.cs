@@ -43,8 +43,11 @@ namespace Yoyyin.Mvc.Configuration
             builder.RegisterType<UserTypeService>();
             builder.RegisterType<SniService>();
 
+            builder.RegisterType<CommentConverter>();
             builder.RegisterType<IdeaConverter>();
             builder.RegisterType<UserConverter>();
+
+
             builder.RegisterType<UserTypesNeededMarkupProvider>().As<IUserTypesNeededMarkupProvider>();
             builder.RegisterType<CurrentUserService>();
         }

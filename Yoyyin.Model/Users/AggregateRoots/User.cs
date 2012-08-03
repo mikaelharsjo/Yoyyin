@@ -28,6 +28,10 @@ namespace Yoyyin.Model.Users.AggregateRoots
         public bool Active { get; set; }
         public string UserTypeDescription { get; set; }
         public string DisplayName { get; set; }
+
+        public DateTime LastLogin { get; set; }
+        public DateTime Created { get; set; }
+
         public bool HasImage { get; set; }
         public string Email { get; set; }
 

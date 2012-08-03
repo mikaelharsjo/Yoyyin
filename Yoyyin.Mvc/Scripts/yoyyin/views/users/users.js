@@ -1,4 +1,4 @@
-﻿define(["backbone", "mustache", "text!../../../../Templates/Shared/pageHeader.htm", "text!../../../../Templates/Member/User/container.htm", "text!../../../../Templates/Member/User/item.htm", "text!../../../../Templates/Shared/competenceLabel.htm", "text!../../../../Templates/Member/User/image.htm", "text!../../../../Templates/Shared/userTypeLabel.htm"], function (Backbone, mustache, pageHeaderTemplate, containerTemplate, itemTemplate, competenceTemplate, imageTemplate, userTypeLabelTemplate) {
+﻿define(["backbone", "mustache", "text!templates/Shared/pageHeader.htm", "text!templates/User/container.htm", "text!templates/User/item.htm", "text!templates/Shared/competenceLabel.htm", "text!templates/User/image.htm", "text!templates/Shared/userTypeLabel.htm"], function (Backbone, mustache, pageHeaderTemplate, containerTemplate, itemTemplate, competenceTemplate, imageTemplate, userTypeLabelTemplate) {
     return Backbone.View.extend({
         initialize: function () {
             this.collection.on("sync", this.render, this);
@@ -11,10 +11,9 @@
             var markup = "";
 
             this.collection.each(function (user) {
-                //console.log(user);
                 user = user.toJSON();
                 user.CompetencesNeededMarkup = "";
-                console.log(user.CompetencesNeeded);
+
                 $.each(user.CompetencesNeeded, function (index, competence) {
                     user.CompetencesNeededMarkup += mustache.to_html(competenceTemplate, { Competence: competence });
                 });

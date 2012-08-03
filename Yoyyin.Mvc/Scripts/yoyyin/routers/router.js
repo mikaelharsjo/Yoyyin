@@ -1,23 +1,24 @@
-﻿define(["underscore", "backbone", "mustache", "models/currentUser", "models/user", "collections/users", "views/users/user", "views/users/users"], function (_, Backbone, mustache, CurrentUserModel, UserModel, UserCollection, UserView, UsersView) {
+﻿define(["underscore", "backbone", "mustache", "models/currentUser", "models/user", "models/currentUser", "collections/users", "views/users/user", "views/users/users", "views/currentUser/dashboard", "views/currentUser/inbox"], function (_, Backbone, mustache, CurrentUserModel, UserModel, CurrentUserModel, UserCollection, UserView, UsersView, Dashboard, Inbox) {
     var Router = Backbone.Router.extend({
         initialize: function () {
             this.users = new UserCollection(); // { model: UserModel });
+            this.currentUser = new CurrentUserModel();
         },
         routes: {
             "editProfile": "editProfile",
             "inbox": "inbox",
             "user/:id": "user",
-            "users": "users"
+            "users": "users",
+            "dashboard": "dashboard"
         },
 
         user: function (id) {
-            //console.log(this.users);
-            var user = new UserModel({ id: id });  //this.users.last(); // get(id);  //("6e37b452-4f92-45e0-875b-01dd92de7686"); //"   id);
+            var user = new UserModel({ id: id });
 
             user.fetch({
                 success: function () {
                     var view = new UserView({ model: user, el: $("#body") });
-                    view.render();        
+                    view.render();
                 }
             });
 
@@ -25,29 +26,21 @@
         },
 
         inbox: function () {
-            //var inbox = new Inbox();
+            var inbox = new Inbox({ el: $("#body") });
+            inbox.render();
         },
 
         users: function () {
-            console.log("users route");
-            console.log(this.users);
             var view = new UsersView({ collection: this.users, el: $("#body") });
             view.render();
 
         },
-        //    editProfile: function () {
-        //        console.log("editPRofile yo oy oy");
-        //        require(["text!../../Templates/Member/editProfile.htm"], function (template) {
-        //            $.get("/CurrentUser/Get", function (user) {
-        //                console.log(user);
-        //                context.swap(mustache.render(template, user));
-        //            });
-        //        });
-        //    },
-        search: function (query, page) {
 
+        dashboard: function () {
+            console.log(this.currentUser);
+            var view = new Dashboard({ model: this.currentUser });
+            view.render();
         }
-
     });
 
     return Router;

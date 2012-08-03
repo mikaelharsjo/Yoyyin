@@ -46,7 +46,7 @@ namespace Yoyyin.Mvc.Configuration
             builder.RegisterType<CommentConverter>();
             builder.RegisterType<IdeaConverter>();
             builder.RegisterType<UserConverter>();
-
+            builder.RegisterType<CurrentUserConverter>();
 
             builder.RegisterType<UserTypesNeededMarkupProvider>().As<IUserTypesNeededMarkupProvider>();
             builder.RegisterType<CurrentUserService>();

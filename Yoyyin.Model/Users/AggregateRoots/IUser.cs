@@ -28,5 +28,7 @@ namespace Yoyyin.Model.Users.AggregateRoots
         string Presentation { get; set; }
         LookingFor LookingFor { get; set; }
         string DisplayName { get; set; }
+        DateTime LastLogin { get; set; }
+        DateTime Created { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-﻿define(["underscore", "backbone", "mustache", "models/user", "text!../../../../Templates/Member/User/image.htm", "text!../../../../Templates/Member/User/details.htm", "text!../../../../Templates/Shared/idea.htm", "text!../../../../Templates/Shared/userTypeLabel.htm", "text!../../../../Templates/Shared/competenceLabel.htm", "text!../../../../Templates/Shared/comment.htm"], function (_, Backbone, mustache, UserModel, imageTemplate, detailsTemplate, ideaTemplate, userTypeLabelTemplate, competenceLabelTemplate, commentTemplate) {
+﻿define(["underscore", "backbone", "mustache", "models/user", "text!templates/User/image.htm", "text!templates/User/details.htm", "text!templates/Shared/idea.htm", "text!templates/Shared/userTypeLabel.htm", "text!templates/Shared/competenceLabel.htm", "text!templates/Shared/comment.htm"], function (_, Backbone, mustache, UserModel, imageTemplate, detailsTemplate, ideaTemplate, userTypeLabelTemplate, competenceLabelTemplate, commentTemplate) {
     var UserView = Backbone.View.extend({
         initialize: function () {
             this.render();

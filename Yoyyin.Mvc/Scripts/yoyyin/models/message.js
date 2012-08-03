@@ -1,9 +1,7 @@
-﻿define([], function () {
-    var Message = Backbone.Model.extend({
+﻿define(["backbone"], function (Backbone) {
+    return Backbone.Model.extend({
         urlRoot: "/Message/Get",
         initialize: function () {
         }
     });
-
-    return Message;
 });

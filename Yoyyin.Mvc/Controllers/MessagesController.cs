@@ -10,11 +10,11 @@ namespace Yoyyin.Mvc.Controllers
 {
     public class MessagesController : Controller
     {
-        private MessageConverter _converter;
+        private readonly MessageConverter _converter;
 
-        public MessagesController()
+        public MessagesController(MessageConverter converter)
         {
-            _converter = new MessageConverter();
+            _converter = converter;
         }
 
         public ActionResult GetAll()

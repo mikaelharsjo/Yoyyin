@@ -7,6 +7,7 @@ namespace Yoyyin.Mvc.Models
 {
     public class Message
     {
+        public string DisplayName { get; set; }
         public Guid UserId { get; set; }
         public string Subject { get; set; }
         public string Text { get; set; }

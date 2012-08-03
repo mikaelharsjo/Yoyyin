@@ -4,27 +4,32 @@ using System.Linq;
 using System.Web;
 using Yoyyin.Model.Extensions;
 using Yoyyin.Model.Users;
+using Yoyyin.Mvc.Providers;
 
 namespace Yoyyin.Mvc.Models.Converters
 {
     public class MessageConverter
     {
-        //private IUserRepository _repository;
+        private readonly ImageProvider _imageProvider;
+        private readonly IUserRepository _repository;
 
-        //public MessageConverter(IUserRepository repository)
-        //{
-        //    _repository = repository;
-        //}
+        public MessageConverter(IUserRepository repository)
+        {
+            _imageProvider = new ImageProvider();
+            _repository = repository;
+        }
 
         public Message Convert(Model.Users.AggregateRoots.Message message)
         {
+            var from = _repository.Query(m => m.Users.FirstOrDefault(u => u.UserId == message.UserId));
             return new Message
                        {
                            Subject = message.Subject, 
                            Text = message.Text, 
                            Created = message.Created.ToFormattedString(),
-                           ImageSrc = string.Format("/Content/Upload/Images/{0}.jpg?width=50&height=50", message.UserId),
-                           UserId = message.UserId
+                           ImageSrc = _imageProvider.GetProfileImageSrc(from),
+                           UserId = message.UserId,
+                           DisplayName = from.DisplayName
                        };
         }
     }

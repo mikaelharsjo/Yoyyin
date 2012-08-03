@@ -44,6 +44,7 @@ namespace Yoyyin.Mvc.Configuration
             builder.RegisterType<SniService>();
 
             builder.RegisterType<CommentConverter>();
+            builder.RegisterType<MessageConverter>();
             builder.RegisterType<IdeaConverter>();
             builder.RegisterType<UserConverter>();
             builder.RegisterType<CurrentUserConverter>();

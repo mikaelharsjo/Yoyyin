@@ -16,7 +16,6 @@
                 $(that.el).html(Mustache.render(pageHeader, { Heading: "Inkorgen", SubHeading: "Senaste överst" }));
                 var $table = $("<table>").addClass("table table-striped");
                 that.collection.each(function (message) {
-                    console.log(message.toJSON());
                     $table.append(Mustache.render(template, message.toJSON()));
                 });
 

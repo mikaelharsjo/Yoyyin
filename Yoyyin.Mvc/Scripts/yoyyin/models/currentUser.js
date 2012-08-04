@@ -2,7 +2,7 @@
     var User = Backbone.Model.extend({
         urlRoot: "/CurrentUser/Get",
         initialize: function () {
-            this.fetch();
+            //this.fetch();
         }
     });
 

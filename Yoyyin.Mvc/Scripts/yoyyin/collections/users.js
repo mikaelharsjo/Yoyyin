@@ -3,7 +3,7 @@
         url: "/User/All",
         model: UserModel,
         initialize: function () {
-            this.fetch();
+            //this.fetch();
         }
     });
 });

@@ -1,8 +1,8 @@
-﻿define(["underscore", "backbone", "mustache", "models/currentUser", "models/user", "models/currentUser", "collections/users", "views/users/user", "views/users/users", "views/currentUser/dashboard", "views/currentUser/inbox"], function (_, Backbone, mustache, CurrentUserModel, UserModel, CurrentUserModel, UserCollection, UserView, UsersView, Dashboard, Inbox) {
+﻿define(["underscore", "backbone", "mustache", "models/user", "models/currentUser", "views/users/user", "views/users/users", "views/currentUser/dashboard", "views/currentUser/inbox"], function (_, Backbone, mustache, UserModel, CurrentUserModel, UserView, UsersView, Dashboard, Inbox) {
     var Router = Backbone.Router.extend({
         initialize: function () {
-            this.users = new UserCollection(); // { model: UserModel });
-            this.currentUser = new CurrentUserModel();
+            //this.users = new UserCollection(); // { model: UserModel });
+            //this.currentUser = new CurrentUserModel();
         },
         routes: {
             "editProfile": "editProfile",
@@ -27,19 +27,15 @@
 
         inbox: function () {
             var inbox = new Inbox({ el: $("#body") });
-            inbox.render();
         },
 
         users: function () {
-            var view = new UsersView({ collection: this.users, el: $("#body") });
-            view.render();
+            var view = new UsersView({ el: $("#body") });
 
         },
 
         dashboard: function () {
-            console.log(this.currentUser);
-            var view = new Dashboard({ model: this.currentUser });
-            view.render();
+            var view = new Dashboard({ el: $("#body") });
         }
     });
 

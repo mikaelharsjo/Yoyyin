@@ -1,6 +1,7 @@
 ﻿define(["underscore", "backbone", "mustache", "models/user", "text!templates/User/image.htm", "text!templates/User/details.htm", "text!templates/Shared/idea.htm", "text!templates/Shared/userTypeLabel.htm", "text!templates/Shared/competenceLabel.htm", "text!templates/Shared/comment.htm"], function (_, Backbone, mustache, UserModel, imageTemplate, detailsTemplate, ideaTemplate, userTypeLabelTemplate, competenceLabelTemplate, commentTemplate) {
     var UserView = Backbone.View.extend({
         initialize: function () {
+            //this.model = new UserModel();
             this.render();
         },
         render: function () {

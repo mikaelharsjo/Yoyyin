@@ -1,6 +1,13 @@
-﻿define(["backbone", "mustache", "text!templates/Shared/pageHeader.htm", "text!templates/User/container.htm", "text!templates/User/item.htm", "text!templates/Shared/competenceLabel.htm", "text!templates/User/image.htm", "text!templates/Shared/userTypeLabel.htm"], function (Backbone, mustache, pageHeaderTemplate, containerTemplate, itemTemplate, competenceTemplate, imageTemplate, userTypeLabelTemplate) {
+﻿define(["backbone", "mustache", "collections/users", "text!templates/Shared/pageHeader.htm", "text!templates/User/container.htm", "text!templates/User/item.htm", "text!templates/Shared/competenceLabel.htm", "text!templates/User/image.htm", "text!templates/Shared/userTypeLabel.htm"], function (Backbone, mustache, UserCollection, pageHeaderTemplate, containerTemplate, itemTemplate, competenceTemplate, imageTemplate, userTypeLabelTemplate) {
     return Backbone.View.extend({
         initialize: function () {
+            var that = this;
+            this.collection = new UserCollection();
+            this.collection.fetch({
+                success: function () {
+                    that.render();
+                }
+            });
             this.collection.on("sync", this.render, this);
         },
         render: function () {

@@ -17,7 +17,6 @@
                 });
 
                 idea.CompetencesNeededMarkup = "";
-                console.log(idea);
                 $.each(idea.CompetencesNeeded, function (index, competence) {
                     idea.CompetencesNeededMarkup += mustache.render(competenceLabelTemplate, { Competence: competence });
                 });
@@ -26,6 +25,7 @@
                 $.each(idea.Comments, function (index, comment) {
                     idea.CommentsMarkup += mustache.render(commentTemplate, comment);
                 });
+                idea.CommentsMarkup += "<button class='btn'><i class='text-icon icon-comment'></i> Lägg till kommentar</button>";
 
                 user.IdeasMarkup += mustache.render(ideaTemplate, idea);
             });

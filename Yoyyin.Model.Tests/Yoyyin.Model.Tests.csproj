@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Matching\MatcherMatchShould.cs" />
     <Compile Include="Tagging\CompetencesScratchPad.cs" />
     <Compile Include="Users\Commands\AddSniFixture.cs" />
     <Compile Include="Users\Commands\UpdateUserCommandShould.cs" />

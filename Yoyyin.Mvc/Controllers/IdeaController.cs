@@ -42,6 +42,13 @@ namespace Yoyyin.Mvc.Controllers
                 .Select(_userConverter.ConvertToViewModel));
         }
 
+        public ActionResult All()
+        {
+            return Json(_repository
+                            .Query(m => m.Users)
+                            .Select(_userConverter.Convert), JsonRequestBehavior.AllowGet);
+        }
+
         public ActionResult List()
         {
             ViewBag.Title = "Alla affärsidéer";

@@ -24,10 +24,10 @@
 
 @*    <script src="/Scripts/yoyyin/register/register.js" type="text/javascript"></script>
     <script src="/Scripts/yoyyin/user/user.js" type="text/javascript"></script>*@
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width" />j
 </head>
 <body>
-    @Html.Partial("Header")
+    @Html.Partial(Request.IsAuthenticated ? "HeaderWhenLoggedIn" : "Header")
     <div id="body">
         @*What is this*@
         @RenderSection("featured", required: false)

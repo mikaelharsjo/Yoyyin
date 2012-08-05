@@ -11,11 +11,11 @@
             this.collection.on("sync", this.render, this);
         },
         render: function () {
-            var that = this;
-            require(["mustache"], function (mustache2) {
-                $(that.el).html(mustache2.render(pageHeaderTemplate, { Heading: "Alla användare", SubHeading: "Kanske din nästa affärspartner?" }));
-            });
-            var markup = "";
+            //var that = this;
+            //            require(["mustache"], function (mustache2) {
+            //                $(that.el).html(mustache2.render(pageHeaderTemplate, { Heading: "Alla användare", SubHeading: "Kanske din nästa affärspartner?" }));
+            //            });
+            var markup = mustache.render(pageHeaderTemplate, { Heading: "Personer", SubHeading: "Kanske din nästa affärspartner?" });
 
             this.collection.each(function (user) {
                 user = user.toJSON();
@@ -44,6 +44,8 @@
             });
 
             markup = mustache.to_html(containerTemplate, { items: markup });
+            //console.log(markup);
+            //debugger;
             $(this.el).html(markup);
         }
     });

@@ -280,14 +280,17 @@
     <Content Include="Scripts\lib\sammy.js" />
     <Content Include="Scripts\lib\tag-it.js" />
     <Content Include="Scripts\lib\underscore.js" />
+    <Content Include="Scripts\yoyyin\collections\ideas.js" />
     <Content Include="Scripts\yoyyin\collections\messages.js" />
     <Content Include="Scripts\yoyyin\collections\users.js" />
     <Content Include="Scripts\yoyyin\member\member.js" />
+    <Content Include="Scripts\yoyyin\models\idea.js" />
     <Content Include="Scripts\yoyyin\models\message.js" />
     <Content Include="Scripts\yoyyin\models\currentUser.js" />
     <Content Include="Scripts\yoyyin\models\user.js" />
     <Content Include="Scripts\yoyyin\routers\router.js" />
     <Content Include="Scripts\yoyyin\templates\CurrentUser\dashboard.htm" />
+    <Content Include="Scripts\yoyyin\templates\idea\item.htm" />
     <Content Include="Scripts\yoyyin\views\currentUser\dashboard.js" />
     <Content Include="Scripts\yoyyin\views\currentUser\editProfile.js" />
     <Content Include="Scripts\yoyyin\register\idea.js" />
@@ -302,6 +305,7 @@
     <Content Include="Scripts\yoyyin\views\currentUser\inbox.js" />
     <Content Include="Scripts\yoyyin\views\currentUser\loggedIn.js" />
     <Content Include="Scripts\yoyyin\views\currentUser\unReadMessages.js" />
+    <Content Include="Scripts\yoyyin\views\ideas\all.js" />
     <Content Include="Scripts\yoyyin\views\users\users.js" />
     <Content Include="Scripts\yoyyin\views\users\user.js" />
     <Content Include="Scripts\yoyyin\views\users\userThumbnail.js" />
@@ -375,6 +379,7 @@
     <Content Include="Views\Shared\TeaserLayout.cshtml" />
     <Content Include="Views\Shared\Header.cshtml" />
     <Content Include="Views\Member\Index.cshtml" />
+    <Content Include="Views\Shared\HeaderWhenLoggedIn.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

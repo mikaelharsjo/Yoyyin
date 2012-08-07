@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yoyyin.Mvc", "Yoyyin.Mvc\Yo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yoyyin.Model", "Yoyyin.Model\Yoyyin.Model.csproj", "{51B0D69C-28EA-45C8-B4BB-FDD199A723D7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yoyyin.Model.Tests", "Yoyyin.Model.Tests\Yoyyin.Model.Tests.csproj", "{424E6770-20EE-412F-B9B7-8C1FEB17088C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{51B0D69C-28EA-45C8-B4BB-FDD199A723D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{51B0D69C-28EA-45C8-B4BB-FDD199A723D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{51B0D69C-28EA-45C8-B4BB-FDD199A723D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{424E6770-20EE-412F-B9B7-8C1FEB17088C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{424E6770-20EE-412F-B9B7-8C1FEB17088C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{424E6770-20EE-412F-B9B7-8C1FEB17088C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{424E6770-20EE-412F-B9B7-8C1FEB17088C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

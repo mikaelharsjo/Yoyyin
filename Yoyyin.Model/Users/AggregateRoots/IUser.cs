@@ -7,7 +7,6 @@ namespace Yoyyin.Model.Users.AggregateRoots
 {
     public interface IUser
     {
-        Guid id { get; set; }
         Guid UserId { get; set; }
         string Name { get; set; }
         string CVFileName { get; set; }

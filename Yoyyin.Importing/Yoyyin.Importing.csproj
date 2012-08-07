@@ -58,10 +58,6 @@
     <Compile Include="UserImporter.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Yoyyin.Data\Yoyyin.Data.csproj">
-      <Project>{CA00E16D-2B05-4B84-837B-32DFC2A3FF94}</Project>
-      <Name>Yoyyin.Data</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Yoyyin.Model\Yoyyin.Model.csproj">
       <Project>{51B0D69C-28EA-45C8-B4BB-FDD199A723D7}</Project>
       <Name>Yoyyin.Model</Name>

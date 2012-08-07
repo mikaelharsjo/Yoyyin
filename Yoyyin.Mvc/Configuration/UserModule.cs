@@ -2,12 +2,8 @@
 using System.Web.Mvc;
 using Autofac;
 using Kiwi.Prevalence;
-using Yoyyin.Importing;
-using Yoyyin.Model.Importers;
 using Yoyyin.Model.Users;
 using Yoyyin.Model.Users.Commands;
-using Yoyyin.Model.Users.Services;
-using Yoyyin.Mvc.Models;
 using Yoyyin.Mvc.Models.Converters;
 using Yoyyin.Mvc.Providers.Markup;
 using Yoyyin.Mvc.Services;
@@ -31,8 +27,6 @@ namespace Yoyyin.Mvc.Configuration
                                                     .As<IRepositoryConfiguration>();
 
             builder.Register(c => new ModelFactory<UserModel>(() => new UserModel())).As<IModelFactory<UserModel>>();
-
-            builder.RegisterType<UserImporter>().As<IUserImporter>();
 
             builder.RegisterType<UserRepository>()
                             .OnActivated(

@@ -291,6 +291,7 @@
     <Content Include="Scripts\yoyyin\routers\router.js" />
     <Content Include="Scripts\yoyyin\templates\CurrentUser\dashboard.htm" />
     <Content Include="Scripts\yoyyin\templates\idea\item.htm" />
+    <Content Include="Scripts\yoyyin\templates\User\container.htm" />
     <Content Include="Scripts\yoyyin\views\currentUser\dashboard.js" />
     <Content Include="Scripts\yoyyin\views\currentUser\editProfile.js" />
     <Content Include="Scripts\yoyyin\register\idea.js" />
@@ -301,19 +302,19 @@
     <Content Include="Scripts\yoyyin\register\location.js" />
     <Content Include="Scripts\yoyyin\register\register.js" />
     <Content Include="Scripts\yoyyin\register\userType.js" />
-    <Content Include="Scripts\yoyyin\user\user.js" />
     <Content Include="Scripts\yoyyin\views\currentUser\inbox.js" />
-    <Content Include="Scripts\yoyyin\views\currentUser\loggedIn.js" />
+    <Content Include="Scripts\yoyyin\views\currentUser\userBox.js" />
     <Content Include="Scripts\yoyyin\views\currentUser\unReadMessages.js" />
     <Content Include="Scripts\yoyyin\views\ideas\all.js" />
+    <Content Include="Scripts\yoyyin\views\ideas\idea.js" />
     <Content Include="Scripts\yoyyin\views\users\users.js" />
     <Content Include="Scripts\yoyyin\views\users\user.js" />
     <Content Include="Scripts\yoyyin\views\users\userThumbnail.js" />
     <Content Include="Scripts\yoyyin\yoyyin.init.js" />
     <Content Include="Scripts\yoyyin\yoyyin.quickSearch.js" />
     <Content Include="Scripts\yoyyin\templates\CurrentUser\profile.htm" />
-    <Content Include="Scripts\yoyyin\templates\editProfile.htm" />
-    <Content Include="Scripts\yoyyin\templates\loggedIn.htm" />
+    <Content Include="Scripts\yoyyin\templates\CurrentUser\editProfile.htm" />
+    <Content Include="Scripts\yoyyin\templates\CurrentUser\userBox.htm" />
     <Content Include="Scripts\yoyyin\templates\matcher.htm" />
     <Content Include="Scripts\yoyyin\templates\CurrentUser\inbox.htm" />
     <Content Include="Scripts\yoyyin\templates\CurrentUser\message.htm" />
@@ -331,7 +332,7 @@
     <Content Include="Scripts\yoyyin\templates\Shared\competenceLabel.htm" />
     <Content Include="Scripts\yoyyin\templates\User\image.htm" />
     <Content Include="Scripts\yoyyin\templates\User\item.htm" />
-    <Content Include="Scripts\yoyyin\templates\User\container.htm" />
+    <Content Include="Scripts\yoyyin\templates\Shared\container.htm" />
     <Content Include="Scripts\yoyyin\templates\Shared\userTypeLabel.htm" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -384,15 +385,12 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\Upload\Images\" />
+    <Folder Include="Scripts\yoyyin\user\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Yoyyin.Importing\Yoyyin.Importing.csproj">
-      <Project>{C3193C65-D8A6-4BD8-AB11-BF7D1E6C2887}</Project>
-      <Name>Yoyyin.Importing</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Yoyyin.Model\Yoyyin.Model.csproj">
       <Project>{51B0D69C-28EA-45C8-B4BB-FDD199A723D7}</Project>
       <Name>Yoyyin.Model</Name>

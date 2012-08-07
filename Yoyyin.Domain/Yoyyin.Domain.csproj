@@ -114,12 +114,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Yoyyin.Data\Yoyyin.Data.csproj">
-      <Project>{CA00E16D-2B05-4B84-837B-32DFC2A3FF94}</Project>
-      <Name>Yoyyin.Data</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="EntityHelpers\" />
     <Folder Include="Mappers\" />
   </ItemGroup>

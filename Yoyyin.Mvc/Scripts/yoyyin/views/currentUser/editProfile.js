@@ -1,18 +1,18 @@
-﻿define([], function() {
-    var EditProfile = Backbone.View.extend({
-        initialize: function() {
+﻿define(["backbone", "models/currentUser", "text!templates/CurrentUser/editProfile.htm"], function (Backbone, CurrentUserModel, template) {
+    return Backbone.View.extend({
+        initialize: function () {
             //this.model.bind("change", this.render, this);
-        },
-        render: function() {
             var that = this;
-            require(["text!../../Templates/Member/editProfile.htm"], function(template) {
-                $(that.el).html(Mustache.render(template, that.model.toJSON));
+            this.model = new CurrentUserModel();
+            this.model.fetch({
+                success: function () {
+                    that.render();
+                }
             });
+        },
+        render: function () {
+            $(this.el).html(Mustache.render(template, this.model.toJSON));
+            return this;
         }
-//    yoyyin.routers.MemberRouter.on("route:editProfile": function() {
-//        console.log("route event");
-//    });
     });
-
-    return EditProfile;
 });

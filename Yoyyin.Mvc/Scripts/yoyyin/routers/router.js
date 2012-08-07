@@ -1,4 +1,4 @@
-﻿define(["underscore", "backbone", "mustache", "models/user", "models/currentUser", "views/users/user", "views/users/users", "views/currentUser/dashboard", "views/currentUser/inbox", "views/ideas/all"], function (_, Backbone, mustache, UserModel, CurrentUserModel, UserView, UsersView, Dashboard, Inbox, ViewOfAllIdeas) {
+﻿define(["underscore", "backbone", "mustache", "models/user", "models/currentUser", "views/users/user", "views/users/users", "views/currentUser/dashboard", "views/currentUser/inbox", "views/ideas/all", "views/currentUser/editProfile"], function (_, Backbone, mustache, UserModel, CurrentUserModel, UserView, UsersView, Dashboard, Inbox, ViewOfAllIdeas, EditProfile) {
     var Router = Backbone.Router.extend({
         initialize: function () {
             //this.users = new UserCollection(); // { model: UserModel });
@@ -10,10 +10,14 @@
             "user/:id": "user",
             "users": "users",
             "dashboard": "dashboard",
-            "ideas/list": "ideasList"
+            "ideas/all": "allIdeas"
         },
 
-        ideasList: function () {
+        editProfile: function () {
+            var view = new EditProfile({ el: $("#body") });
+        },
+
+        allIdeas: function () {
             var view = new ViewOfAllIdeas({ el: $("#body") });
         },
         user: function (id) {

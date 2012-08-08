@@ -52,9 +52,14 @@
     <Compile Include="Extensions\DateTimeExtensions.cs" />
     <Compile Include="Importers\ISniImporter.cs" />
     <Compile Include="Importers\IUserImporter.cs" />
+    <Compile Include="Matching\MatchResult\CompetencesNeededMatch.cs" />
     <Compile Include="Matching\DoesNotMatch.cs" />
-    <Compile Include="Matching\IMatchResult.cs" />
+    <Compile Include="Matching\MatchResult\IMatchResult.cs" />
+    <Compile Include="Matching\MatchResult\IsMatchResult.cs" />
+    <Compile Include="Matching\MatchResult\LookingForMatch.cs" />
     <Compile Include="Matching\Matcher.cs" />
+    <Compile Include="Matching\MatchResult\UserTypeMatch.cs" />
+    <Compile Include="Matching\MatchResult\UserTypeNeededMatch.cs" />
     <Compile Include="Q&amp;A\UserModel.cs" />
     <Compile Include="Tagging\SearchWordsOrganizer.cs" />
     <Compile Include="Tagging\WeightedTags.cs" />

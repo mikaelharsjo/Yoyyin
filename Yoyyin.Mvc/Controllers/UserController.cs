@@ -25,9 +25,18 @@ namespace Yoyyin.Mvc.Controllers
             _userConverter = userConverter;
         }
 
+        public ActionResult List()
+        {
+            return View(_repository
+                            .Query(m => m.Users)
+                            .Select(_userConverter.Convert));
+        }
+
         public ActionResult All()
         {
-            return Json(_repository.Query(m => m.Users).Select(_userConverter.Convert), JsonRequestBehavior.AllowGet);
+            return Json(_repository
+                            .Query(m => m.Users)
+                            .Select(_userConverter.Convert), JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult Get(Guid id)

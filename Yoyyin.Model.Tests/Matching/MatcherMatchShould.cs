@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using NUnit.Framework;
 using Yoyyin.Model.Matching;
+using Yoyyin.Model.Matching.MatchResult;
 using Yoyyin.Model.Users.AggregateRoots;
 using Yoyyin.Model.Users.Entities;
 using Yoyyin.Model.Users.Enumerations;
@@ -33,8 +34,8 @@ namespace Yoyyin.Model.Tests.Matching
         [Test]
         public void CheckUserType()
         {
-            var userDeveloper = new User {UserType = 1};
-            var userLookingForDeveloper = new User
+            var user1= new User {UserType = 1};
+            var userLookingFor1 = new User
                                               {
                                                   Ideas = new List<Idea>
                                                           {
@@ -51,11 +52,61 @@ namespace Yoyyin.Model.Tests.Matching
                                                           }
                                               };
 
-            _matcher = new Matcher(userDeveloper, userLookingForDeveloper);
-            Assert.That(_matcher.MatchUserType().IsMatch, Is.EqualTo(true));
+            _matcher = new Matcher(user1, userLookingFor1);
+            var matchResult = _matcher.MatchUserType();
+            Assert.That(matchResult.IsMatch, Is.EqualTo(true));
+            var userTypeMatch = matchResult as UserTypeMatch;
+            Assert.That(userTypeMatch.UserType, Is.EqualTo(1));
+            Assert.That(userTypeMatch.SecondUserTypes.Count(), Is.EqualTo(3));
 
-            _matcher = new Matcher(new User(), userLookingForDeveloper);
+            _matcher = new Matcher(new User(), userLookingFor1);
             Assert.That(_matcher.MatchUserType().IsMatch, Is.EqualTo(false));
+        }
+
+        [Test]
+        public void CheckUserTypesNeeded()
+        {
+            var user1 = new User { UserType = 1 };
+            var userLookingFor1 = new User
+            {
+                Ideas = new List<Idea>
+                                                          {
+                                                              new Idea
+                                                                  {
+                                                                      SearchProfile = new SearchProfile
+                                                                              {
+                                                                                  UserTypesNeeded = new UserTypesNeeded
+                                                                                          {
+                                                                                              UserTypeIds = new[] {1, 2, 3}
+                                                                                          }
+                                                                              }
+                                                                  }
+                                                          }
+            };
+
+            _matcher = new Matcher(userLookingFor1, user1);
+            var matchResult = _matcher.MatchUserTypesNeeded();
+            Assert.That(matchResult.IsMatch, Is.EqualTo(true));
+        }
+
+        [Test]
+        public void CheckCompetencesNeeded()
+        {
+            var userSeeksDesign = new User
+            {
+                Ideas = new[]
+                                                  {
+                                                      new Idea
+                                                          {
+                                                              SearchProfile = new SearchProfile {CompetencesNeeded = new[] {"design"}}
+                                                          }
+                                                  }
+            };
+            var designer = new User {Competences = new[] {"design"}};
+
+
+            _matcher = new Matcher(userSeeksDesign, designer);
+            Assert.That(_matcher.MatchCompetencesNeeded().IsMatch, Is.EqualTo(true));
             
         }
     }

@@ -1,3 +1,5 @@
+using Yoyyin.Model.Matching.MatchResult;
+
 namespace Yoyyin.Model.Matching
 {
     public class DoesNotMatch : IMatchResult

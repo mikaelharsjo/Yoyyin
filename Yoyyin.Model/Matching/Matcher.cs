@@ -1,7 +1,7 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Yoyyin.Model.Matching.MatchResult;
 using Yoyyin.Model.Users.AggregateRoots;
 using Yoyyin.Model.Users.Entities;
 using Yoyyin.Model.Users.Enumerations;
@@ -27,31 +27,36 @@ namespace Yoyyin.Model.Matching
 
         public IMatchResult MatchUserType()
         {
-            return _secondUser
-                       .Ideas
-                       .ToList()
-                       .Select(idea => idea.SearchProfile.UserTypesNeeded.UserTypeIds.Contains(_firstUser.UserType))
-                       .Contains(true)
-                       ? new UserTypeMatch()
+            var secondUserTypesFlattened = _secondUser
+                .Ideas
+                .SelectMany(idea => idea.SearchProfile.UserTypesNeeded.UserTypeIds);
+                       
+                       
+            return secondUserTypesFlattened.Any(secondUserType => secondUserType == _firstUser.UserType)
+                       ? new UserTypeMatch(_firstUser.UserType, secondUserTypesFlattened)
                        : new DoesNotMatch() as IMatchResult;
         }
-    }
 
-    public class UserTypeMatch : IMatchResult
-    {
-        public bool IsMatch
+        public IMatchResult MatchUserTypesNeeded()
         {
-            get { return true; }
-            set { ; }
+            var userTypesFlattened = _firstUser
+                .Ideas
+                .SelectMany(idea => idea.SearchProfile.UserTypesNeeded.UserTypeIds);
+
+            return userTypesFlattened.Any(neededUserType => _secondUser.UserType == neededUserType)
+                       ? new UserTypeNeededMatch(userTypesFlattened, _secondUser.UserType)
+                       : new DoesNotMatch() as IMatchResult;
         }
-    }
 
-    public class LookingForMatch : IMatchResult
-    {
-        public bool IsMatch
+        public IMatchResult MatchCompetencesNeeded()
         {
-            get { return true; }
-            set { ; }
+            var neededCompetencesFlattened = _firstUser
+                                                .Ideas
+                                                .SelectMany(idea => idea.SearchProfile.CompetencesNeeded);
+
+            return neededCompetencesFlattened.Any(competence => _secondUser.Competences.Contains(competence))
+                       ? new CompetencesNeededMatch(neededCompetencesFlattened, _secondUser.Competences)
+                       : new DoesNotMatch() as IMatchResult;
         }
     }
 }

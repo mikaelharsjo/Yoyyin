@@ -27,6 +27,7 @@ namespace Yoyyin.Model.Tests.Matching
 
             _matcher = new Matcher(userLookingForPartnerToMyIdea, userLookingForPartnerToMyIdea);
             Assert.That(_matcher.MatchLookingFor().IsMatch, Is.EqualTo(new DoesNotMatch().IsMatch));
+            Assert.That(_matcher.MatchLookingFor(), Is.EqualTo(new DoesNotMatch().IsMatch));
 
             Assert.That(userLookingForIdeasToJoin.LookingFor.MatchWith(userLookingForPartnerToMyIdea.LookingFor), Is.EqualTo(true));
         }
@@ -108,6 +109,25 @@ namespace Yoyyin.Model.Tests.Matching
             _matcher = new Matcher(userSeeksDesign, designer);
             Assert.That(_matcher.MatchCompetencesNeeded().IsMatch, Is.EqualTo(true));
             
+        }
+
+        [Test]
+        public void CheckCompetences()
+        {
+            var designer = new User { Competences = new[] { "design" } };
+            var userSeeksDesign = new User
+            {
+                Ideas = new[]
+                                                  {
+                                                      new Idea
+                                                          {
+                                                              SearchProfile = new SearchProfile {CompetencesNeeded = new[] {"design"}}
+                                                          }
+                                                  }
+            };
+
+            _matcher = new Matcher(designer, userSeeksDesign);
+            Assert.That(_matcher.MatchCompetences().IsMatch, Is.EqualTo(true));
         }
     }
 }

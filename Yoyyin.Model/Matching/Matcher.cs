@@ -58,5 +58,16 @@ namespace Yoyyin.Model.Matching
                        ? new CompetencesNeededMatch(neededCompetencesFlattened, _secondUser.Competences)
                        : new DoesNotMatch() as IMatchResult;
         }
+
+        public IMatchResult MatchCompetences()
+        {
+            var neededCompetencesFlattened = _secondUser
+                                                .Ideas
+                                                .SelectMany(idea => idea.SearchProfile.CompetencesNeeded);
+
+            return neededCompetencesFlattened.Any(competence => _firstUser.Competences.Contains(competence))
+                       ? new CompetencesNeededMatch(neededCompetencesFlattened, _firstUser.Competences)
+                       : new DoesNotMatch() as IMatchResult;
+        }
     }
 }

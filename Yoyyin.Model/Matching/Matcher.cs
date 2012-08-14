@@ -20,16 +20,15 @@ namespace Yoyyin.Model.Matching
             return _firstUser.LookingFor.MatchWith(_secondUser.LookingFor) ? new LookingForMatch() : new DoesNotMatch() as IMatchResult;
         }
 
-        public IMatchResult MatchUserType()
+        public UserTypeMatch MatchUserType()
         {
             var secondUserTypesFlattened = _secondUser
                 .Ideas
                 .SelectMany(idea => idea.SearchProfile.UserTypesNeeded.UserTypeIds);
                        
-                       
             return secondUserTypesFlattened.Any(secondUserType => secondUserType == _firstUser.UserType)
-                       ? new UserTypeMatch(_firstUser.UserType, secondUserTypesFlattened)
-                       : new DoesNotMatch() as IMatchResult;
+                       ? new UserTypeMatch(true, _firstUser.UserType, secondUserTypesFlattened)
+                       : new UserTypeMatch(false, _firstUser.UserType, secondUserTypesFlattened);
         }
 
         public IMatchResult MatchUserTypesNeeded()
@@ -67,12 +66,7 @@ namespace Yoyyin.Model.Matching
 
         public MatchStat Match()
         {
-            return new MatchStat {CompetencesResult = MatchCompetences()};
+            return new MatchStat {CompetencesResult = MatchCompetences(), UserTypeMatch = MatchUserType()};
         }
-    }
-
-    public class MatchStat
-    {
-        public CompetencesMatch CompetencesResult { get; set; }
     }
 }

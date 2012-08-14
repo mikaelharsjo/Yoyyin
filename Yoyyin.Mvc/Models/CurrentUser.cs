@@ -16,7 +16,7 @@ namespace Yoyyin.Mvc.Models
         public string Email { get; set; }
         public IEnumerable<Model.Users.Entities.Idea> Ideas { get; set; }
         public string Name { get; set; }
-        public string SmallProfileImageSrc { get; set; }
+        public string ProfileImageSrc { get; set; }
         public string UserType { get; set; }
         public string LastLogin { get; set; }
     }

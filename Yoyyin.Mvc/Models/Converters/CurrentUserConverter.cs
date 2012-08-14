@@ -29,7 +29,7 @@ namespace Yoyyin.Mvc.Models.Converters
                            CVFileName = user.CVFileName,
                            DisplayName = user.DisplayName,
                            Email = user.Email,
-                           SmallProfileImageSrc = _imageProvider.GetProfileImageSrc(user),
+                           ProfileImageSrc = _imageProvider.GetProfileImageSrc(user),
                            Ideas = user.Ideas,
                            UserType = _sniService.GetTitle(user.Ideas.First().SniHeadId),
                            Name = user.Name,

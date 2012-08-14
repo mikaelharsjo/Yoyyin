@@ -4,9 +4,7 @@
             this.model.bind("change", this.render, this);
         },
         render: function () {
-            var user = this.model.toJSON();
-            user.ImageSrc = user.HasImage ? "/Images/" + user.UserId + ".jpg??width=20&height=20" : "/Images/glyphicons_003_user@2x.png?width=20&height=20";
-            $(this.el).html(mustache.render(template, user));
+           $(this.el).html(mustache.render(template, this.model.toJSON()));
         }
     });
 });

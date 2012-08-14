@@ -11,7 +11,6 @@
             });
 
             idea.CompetencesNeededMarkup = "";
-            console.log(idea);
             $.each(idea.CompetencesNeeded, function (index, competence) {
                 idea.CompetencesNeededMarkup += mustache.render(competenceLabelTemplate, { Competence: competence });
             });

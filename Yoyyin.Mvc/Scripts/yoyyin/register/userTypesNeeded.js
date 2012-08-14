@@ -27,15 +27,12 @@
             });
         },
         save: function() {
-            console.log("save user type");
             var userType = {
                 Title: $("#title").val(),
                 Description: $("#description").val()
             };
-            console.log(userType);
 
-            $.post("/UserType/Create", userType, function() {
-                //  console.log("saved");                
+            $.post("/UserType/Create", userType, function() {              
                 $(".stepLeft").append(Mustache.render(userTypeRadioTemplate, userType))
                 $("#btnSaveUserType").button("reset");
             }

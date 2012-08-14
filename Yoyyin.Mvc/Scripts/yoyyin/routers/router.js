@@ -29,8 +29,6 @@
                     view.render();
                 }
             });
-
-            console.log("user route");
         },
 
         inbox: function () {

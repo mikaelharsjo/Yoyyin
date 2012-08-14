@@ -7,7 +7,7 @@ namespace Yoyyin.Mvc.Models
     {
         public IEnumerable<Idea> Ideas;
         public string DisplayName { get; set; }
-        public string SmallProfileImageSrc { get; set; }
+        public string ProfileImageSrc { get; set; }
         public string City { get; set; }
         public string UserType { get; set; }
         public IEnumerable<string> UserTypesNeeded { get; set; } 

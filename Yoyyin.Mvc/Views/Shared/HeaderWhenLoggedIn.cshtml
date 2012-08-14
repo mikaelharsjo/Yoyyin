@@ -1,39 +1,36 @@
 ﻿<link rel="stylesheet" type="text/css" href="/Content/Css/loggedIn.css" />
 <header>
-            <div class="content-wrapper">
-                <nav class="navbar navbar-fixed-top">
-                    <div class="navbar-inner">
-                        <div class="container">
-                            <a class="brand" href="#"><img src="../../Images/logo.png" /></a>@*<small>Företagar-<br />Matchmaking</small></a>*@
-                            @*<a class="brand" href="#">Yoyyin</a>*@
-                            <ul class="nav">
-                                <li><a href="/#/users">Personer</a></li>
-                                <li class="dropdown">
-                                    <a class="dropdown-toggle" data-toggle="dropdown">Affärsidéer</a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="/#/ideas/all">Alla</a></li>     
-                                        <li><a href="/Sni/ListHead">per bransch</a></li>
-                                        <li><a href="/idea/ListWantsFinancing">som söker finansiering</a></li>                                            
-                                        <li class="divider"></li>                                            
-                                        <li><a href="/Tagging/ListCompetences">kompetens som finnns</a></li>
-                                        <li><a href="/Tagging/ListCompetencesNeeded">kompetens som söks</a></li>
-                                    </ul>
-                                </li>
-                            </ul>  
-
-                            <form id="formQuickSearch" class="navbar-search pull-left" onkeypress="return event.keyCode != 13">
-                                <input id="txtSearch" type="text" class="search-query" placeholder="Sök affärspartner/kompetens mm">
-                            </form>  
-                            <ul class="nav pull-right">
-                                @Html.Partial("_LoginPartial")
+    <div class="content-wrapper">
+        <nav class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="brand" href="#"><img src="../../Images/logo.png" /></a>@*<small>Företagar-<br />Matchmaking</small></a>*@
+                    @*<a class="brand" href="#">Yoyyin</a>*@
+                    <ul class="nav">
+                        <li><a href="/#/users">Personer</a></li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown">Affärsidéer</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/#/ideas/all">Alla</a></li>     
+                                <li><a href="/Sni/ListHead">per bransch</a></li>
+                                <li><a href="/idea/ListWantsFinancing">som söker finansiering</a></li>                                            
+                                <li class="divider"></li>                                            
+                                <li><a href="/Tagging/ListCompetences">kompetens som finnns</a></li>
+                                <li><a href="/Tagging/ListCompetencesNeeded">kompetens som söks</a></li>
                             </ul>
-                        </div>
-                    </div>
-                </nav>
-                
+                        </li>
+                    </ul>  
 
-    
-    
+                    <form id="formQuickSearch" class="navbar-search pull-left" onkeypress="return event.keyCode != 13">
+                        <input id="txtSearch" type="text" class="search-query" placeholder="Sök affärspartner/kompetens mm">
+                    </form>  
+                    <ul class="nav pull-right">
+                        @Html.Partial("_LoginPartial")
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
     <div class="subnav subnav-fixed">
         <ul class="nav nav-pills">
             <li>
@@ -69,7 +66,7 @@
         </ul>
     </div>
     
-    <script src="/Scripts/yoyyin/member/member.js" type="text/javascript"></script>
+    <script src="/Scripts/yoyyin/main.js" type="text/javascript"></script>
 
-            </div>
-        </header>
+    </div>
+</header>

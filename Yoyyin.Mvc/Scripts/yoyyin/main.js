@@ -17,7 +17,6 @@
 
     currentUser.fetch({
         success: function () {
-            console.log("success");
             var userBox = new UserBox({ model: currentUser, el: $("#userBox") });
             userBox.render();
 

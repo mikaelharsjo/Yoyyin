@@ -31,13 +31,13 @@ namespace Yoyyin.Mvc.Models.Converters
             _ideaConverter = ideaConverter;
         }
 
-        public User Convert(Model.Users.AggregateRoots.User user)
+        public User Convert(Model.Users.AggregateRoots.IUser user)
         {
             return new User
             {
                 id = user.UserId,
                 DisplayName = user.DisplayName,
-                SmallProfileImageSrc = _imageProvider.GetProfileImageSrc(user),
+                ProfileImageSrc = _imageProvider.GetProfileImageSrc(user),
                 Competences = user.Competences,
                 City = user.Address.City,
                 UserType = _userRepository.Query(m => m.UserTypes.First(ut => ut.UserTypeId == user.UserType)).Title,

@@ -1,11 +1,6 @@
-using System;
 using System.Linq;
-using System.Text;
 using Yoyyin.Model.Matching.MatchResult;
 using Yoyyin.Model.Users.AggregateRoots;
-using Yoyyin.Model.Users.Entities;
-using Yoyyin.Model.Users.Enumerations;
-using Yoyyin.Model.Users.ValueObjects;
 
 namespace Yoyyin.Model.Matching
 {
@@ -14,7 +9,7 @@ namespace Yoyyin.Model.Matching
         private IUser _firstUser;
         private IUser _secondUser;
 
-        public Matcher(User firstUser, User secondUser)
+        public Matcher(IUser firstUser, IUser secondUser)
         {
             _firstUser = firstUser;
             _secondUser = secondUser;
@@ -55,19 +50,29 @@ namespace Yoyyin.Model.Matching
                                                 .SelectMany(idea => idea.SearchProfile.CompetencesNeeded);
 
             return neededCompetencesFlattened.Any(competence => _secondUser.Competences.Contains(competence))
-                       ? new CompetencesNeededMatch(neededCompetencesFlattened, _secondUser.Competences)
+                       ? new CompetencesNeededMatch(true, neededCompetencesFlattened, _secondUser.Competences)
                        : new DoesNotMatch() as IMatchResult;
         }
 
-        public IMatchResult MatchCompetences()
+        public CompetencesNeededMatch MatchCompetences()
         {
             var neededCompetencesFlattened = _secondUser
                                                 .Ideas
                                                 .SelectMany(idea => idea.SearchProfile.CompetencesNeeded);
 
             return neededCompetencesFlattened.Any(competence => _firstUser.Competences.Contains(competence))
-                       ? new CompetencesNeededMatch(neededCompetencesFlattened, _firstUser.Competences)
-                       : new DoesNotMatch() as IMatchResult;
+                       ? new CompetencesNeededMatch(true, neededCompetencesFlattened, _firstUser.Competences)
+                       : new CompetencesNeededMatch(false, neededCompetencesFlattened, _firstUser.Competences);
         }
+
+        public MatchStat Match()
+        {
+            return new MatchStat {CompetencesResult = MatchCompetences()};
+        }
+    }
+
+    public class MatchStat
+    {
+        public CompetencesNeededMatch CompetencesResult { get; set; }
     }
 }

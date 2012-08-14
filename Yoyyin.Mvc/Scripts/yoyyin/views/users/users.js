@@ -11,10 +11,6 @@
             this.collection.on("sync", this.render, this);
         },
         render: function () {
-            //var that = this;
-            //            require(["mustache"], function (mustache2) {
-            //                $(that.el).html(mustache2.render(pageHeaderTemplate, { Heading: "Alla användare", SubHeading: "Kanske din nästa affärspartner?" }));
-            //            });
             var markup = mustache.render(pageHeaderTemplate, { Heading: "Personer", SubHeading: "Kanske din nästa affärspartner?" });
 
             this.collection.each(function (user) {
@@ -37,7 +33,7 @@
                     user.UserTypesNeededMarkup += mustache.to_html(userTypeLabelTemplate, { Title: userType });
                 });
 
-                var imageMarkup = mustache.render(imageTemplate, { Src: user.SmallProfileImageSrc });
+                var imageMarkup = mustache.render(imageTemplate, { Src: user.ProfileImageSrc });
                 user.ImageMarkup = imageMarkup;
 
                 markup += mustache.render(itemTemplate, user);

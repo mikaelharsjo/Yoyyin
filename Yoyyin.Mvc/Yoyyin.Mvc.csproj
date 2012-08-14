@@ -283,14 +283,18 @@
     <Content Include="Scripts\yoyyin\collections\ideas.js" />
     <Content Include="Scripts\yoyyin\collections\messages.js" />
     <Content Include="Scripts\yoyyin\collections\users.js" />
-    <Content Include="Scripts\yoyyin\member\member.js" />
+    <Content Include="Scripts\yoyyin\main.js" />
     <Content Include="Scripts\yoyyin\models\idea.js" />
+    <Content Include="Scripts\yoyyin\models\matching\match.js" />
     <Content Include="Scripts\yoyyin\models\message.js" />
     <Content Include="Scripts\yoyyin\models\currentUser.js" />
     <Content Include="Scripts\yoyyin\models\user.js" />
     <Content Include="Scripts\yoyyin\routers\router.js" />
     <Content Include="Scripts\yoyyin\templates\CurrentUser\dashboard.htm" />
     <Content Include="Scripts\yoyyin\templates\idea\item.htm" />
+    <Content Include="Scripts\yoyyin\templates\matching\result.htm" />
+    <Content Include="Scripts\yoyyin\templates\matching\singleMatchContainer.htm" />
+    <Content Include="Scripts\yoyyin\templates\Shared\modal.htm" />
     <Content Include="Scripts\yoyyin\templates\User\container.htm" />
     <Content Include="Scripts\yoyyin\views\currentUser\dashboard.js" />
     <Content Include="Scripts\yoyyin\views\currentUser\editProfile.js" />
@@ -307,6 +311,7 @@
     <Content Include="Scripts\yoyyin\views\currentUser\unReadMessages.js" />
     <Content Include="Scripts\yoyyin\views\ideas\all.js" />
     <Content Include="Scripts\yoyyin\views\ideas\idea.js" />
+    <Content Include="Scripts\yoyyin\views\matching\dialogMatcher.js" />
     <Content Include="Scripts\yoyyin\views\users\users.js" />
     <Content Include="Scripts\yoyyin\views\users\user.js" />
     <Content Include="Scripts\yoyyin\views\users\userThumbnail.js" />
@@ -386,7 +391,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\Upload\Images\" />
-    <Folder Include="Scripts\yoyyin\user\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

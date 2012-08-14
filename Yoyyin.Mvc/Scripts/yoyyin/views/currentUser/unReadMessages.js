@@ -4,7 +4,6 @@
             this.collection.on("sync", this.render, this);
         },
         render: function () {
-            console.log("unreadmessages render");
             var that = this;
             require(["text!../../Templates/Member/Messages/unReadMessages.htm"], function (template) {
                 $(that.el).html(Mustache.render(template, { Count: that.collection.length }));

@@ -1,6 +1,6 @@
 ﻿<div class="row-fluid">
     <div class="span2">
-        <img class="thumbnail" src="{{SmallProfileImageSrc}}" />
+        <img class="thumbnail" src="{{ProfileImageSrc}}" />
         <strong>{{DisplayName}}, {{City}}</strong> <span class="label label-success">{{UserType}}</span>
     </div>
     <div class="span10">
@@ -13,12 +13,12 @@
         faucibus ultrices leo eu suscipit. Maecenas mollis laoreet ultricies. Nulla elementum
         blandit adipiscing. Integer pulvinar elit et tortor consectetur pharetra.
         <div class="form-actions">
-        <button class="btn btn-primary">
+        <button id="sendMessage" class="btn btn-primary">
             <i class="icon-white icon-envelope"></i> Skicka meddelande</button>
-        <button class="btn btn-info">
+        <button id="match" class="btn btn-info">
             <i class="icon-white icon-ok"></i> Matcha</button>
-         <a class="btn">
-            <i class="icon icon-star"></i> Lägg till som favorit</a>           
+         <button id="addToFavorites" class="btn">
+            <i class="icon icon-star"></i> Lägg till som favorit</button>           
         </div>
         <div class="well">
             {{{IdeasMarkup}}}

@@ -50,19 +50,19 @@ namespace Yoyyin.Model.Matching
                                                 .SelectMany(idea => idea.SearchProfile.CompetencesNeeded);
 
             return neededCompetencesFlattened.Any(competence => _secondUser.Competences.Contains(competence))
-                       ? new CompetencesNeededMatch(true, neededCompetencesFlattened, _secondUser.Competences)
+                       ? new CompetencesMatch(true, neededCompetencesFlattened, _secondUser.Competences)
                        : new DoesNotMatch() as IMatchResult;
         }
 
-        public CompetencesNeededMatch MatchCompetences()
+        public CompetencesMatch MatchCompetences()
         {
             var neededCompetencesFlattened = _secondUser
                                                 .Ideas
                                                 .SelectMany(idea => idea.SearchProfile.CompetencesNeeded);
 
             return neededCompetencesFlattened.Any(competence => _firstUser.Competences.Contains(competence))
-                       ? new CompetencesNeededMatch(true, neededCompetencesFlattened, _firstUser.Competences)
-                       : new CompetencesNeededMatch(false, neededCompetencesFlattened, _firstUser.Competences);
+                       ? new CompetencesMatch(true, neededCompetencesFlattened, _firstUser.Competences)
+                       : new CompetencesMatch(false, neededCompetencesFlattened, _firstUser.Competences);
         }
 
         public MatchStat Match()
@@ -73,6 +73,6 @@ namespace Yoyyin.Model.Matching
 
     public class MatchStat
     {
-        public CompetencesNeededMatch CompetencesResult { get; set; }
+        public CompetencesMatch CompetencesResult { get; set; }
     }
 }

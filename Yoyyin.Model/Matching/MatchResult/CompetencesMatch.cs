@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace Yoyyin.Model.Matching.MatchResult
 {
-    public class CompetencesNeededMatch : IMatchResult
+    public class CompetencesMatch : IMatchResult
     {
         private readonly IEnumerable<string> _neededCompetencesFlattened;
         private readonly IEnumerable<string> _competences;
@@ -15,7 +15,7 @@ namespace Yoyyin.Model.Matching.MatchResult
         //    _competences = new string[0];
         //}
 
-        public CompetencesNeededMatch(bool isMatch, IEnumerable<string> neededCompetencesFlattened, IEnumerable<string> competences)
+        public CompetencesMatch(bool isMatch, IEnumerable<string> neededCompetencesFlattened, IEnumerable<string> competences)
         {
             _neededCompetencesFlattened = neededCompetencesFlattened;
             _competences = competences;

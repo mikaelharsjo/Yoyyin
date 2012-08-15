@@ -212,14 +212,14 @@
     <Compile Include="Models\BreadCrumb\ListBySniNoBreadCrumb.cs" />
     <Compile Include="Models\BreadCrumb\NoBreadCrumb.cs" />
     <Compile Include="Models\Comment.cs" />
-    <Compile Include="Models\Converters\CommentConverter.cs" />
-    <Compile Include="Models\Converters\CurrentUserConverter.cs" />
+    <Compile Include="Models\Presenters\CommentConverter.cs" />
+    <Compile Include="Models\Presenters\CurrentUserConverter.cs" />
     <Compile Include="Models\CurrentUser.cs" />
     <Compile Include="Providers\ImageProvider.cs" />
     <Compile Include="Services\SniService.cs" />
     <Compile Include="Models\Idea.cs" />
-    <Compile Include="Models\Converters\IdeaConverter.cs" />
-    <Compile Include="Models\Converters\MessageConverter.cs" />
+    <Compile Include="Models\Presenters\IdeaConverter.cs" />
+    <Compile Include="Models\Presenters\MessageConverter.cs" />
     <Compile Include="Models\Message.cs" />
     <Compile Include="Models\Sni.cs" />
     <Compile Include="Models\User.cs" />
@@ -228,7 +228,7 @@
     <Compile Include="Models\UserRoles\IUserRoles.cs" />
     <Compile Include="Models\UserRoles\UserRoles.cs" />
     <Compile Include="Models\UserWithFirstIdea.cs" />
-    <Compile Include="Models\Converters\UserConverter.cs" />
+    <Compile Include="Models\Presenters\UserConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\Markup\CompetencesNeededMarkupProvider.cs" />
     <Compile Include="Providers\Markup\LabelListGenerator.cs" />
@@ -391,6 +391,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\Upload\Images\" />
+    <Folder Include="Models\Matching\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

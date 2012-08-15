@@ -1,10 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using Yoyyin.Model.Users.Entities;
 using Yoyyin.Mvc.Services;
 
-namespace Yoyyin.Mvc.Models.Converters
+namespace Yoyyin.Mvc.Models.Presenters
 {
     public class IdeaConverter
     {

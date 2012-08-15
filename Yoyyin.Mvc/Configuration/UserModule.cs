@@ -4,7 +4,7 @@ using Autofac;
 using Kiwi.Prevalence;
 using Yoyyin.Model.Users;
 using Yoyyin.Model.Users.Commands;
-using Yoyyin.Mvc.Models.Converters;
+using Yoyyin.Mvc.Models.Presenters;
 using Yoyyin.Mvc.Providers.Markup;
 using Yoyyin.Mvc.Services;
 using CurrentUserService = Yoyyin.Mvc.Services.CurrentUserService;

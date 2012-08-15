@@ -4,7 +4,7 @@ using Yoyyin.Mvc.Providers;
 using Yoyyin.Mvc.Providers.Markup;
 using Yoyyin.Mvc.Services;
 
-namespace Yoyyin.Mvc.Models.Converters
+namespace Yoyyin.Mvc.Models.Presenters
 {
     public class UserConverter
     {

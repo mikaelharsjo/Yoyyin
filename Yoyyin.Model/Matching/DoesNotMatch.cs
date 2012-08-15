@@ -1,4 +1,4 @@
-using Yoyyin.Model.Matching.MatchResult;
+using Yoyyin.Model.Matching.MatchResults;
 
 namespace Yoyyin.Model.Matching
 {

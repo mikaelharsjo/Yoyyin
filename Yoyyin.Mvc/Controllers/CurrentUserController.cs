@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Yoyyin.Model.Users.AggregateRoots;
 using Yoyyin.Model.Users.Services;
-using Yoyyin.Mvc.Models.Converters;
+using Yoyyin.Mvc.Models.Presenters;
 using CurrentUserService = Yoyyin.Mvc.Services.CurrentUserService;
 
 namespace Yoyyin.Mvc.Controllers

@@ -1,5 +1,6 @@
 using System.Linq;
-using Yoyyin.Model.Matching.MatchResult;
+using Yoyyin.Model.Matching.MatchResults;
+using Yoyyin.Model.Users;
 using Yoyyin.Model.Users.AggregateRoots;
 
 namespace Yoyyin.Model.Matching
@@ -8,11 +9,19 @@ namespace Yoyyin.Model.Matching
     {
         private IUser _firstUser;
         private IUser _secondUser;
+        private IUserRepository _repository;
 
         public Matcher(IUser firstUser, IUser secondUser)
         {
             _firstUser = firstUser;
             _secondUser = secondUser;
+        }
+
+        public Matcher(IUser firstUser, IUser secondUser, IUserRepository repository)
+        {
+            _firstUser = firstUser;
+            _secondUser = secondUser;
+            _repository = repository;
         }
 
         public IMatchResult MatchLookingFor()
@@ -27,8 +36,8 @@ namespace Yoyyin.Model.Matching
                 .SelectMany(idea => idea.SearchProfile.UserTypesNeeded.UserTypeIds);
                        
             return secondUserTypesFlattened.Any(secondUserType => secondUserType == _firstUser.UserType)
-                       ? new UserTypeMatch(true, _firstUser.UserType, secondUserTypesFlattened)
-                       : new UserTypeMatch(false, _firstUser.UserType, secondUserTypesFlattened);
+                       ? new UserTypeMatch(true, _firstUser.UserType, secondUserTypesFlattened, _repository)
+                       : new UserTypeMatch(false, _firstUser.UserType, secondUserTypesFlattened, _repository);
         }
 
         public IMatchResult MatchUserTypesNeeded()
@@ -64,9 +73,9 @@ namespace Yoyyin.Model.Matching
                        : new CompetencesMatch(false, neededCompetencesFlattened, _firstUser.Competences);
         }
 
-        public MatchStat Match()
+        public MatchResult Match()
         {
-            return new MatchStat {CompetencesResult = MatchCompetences(), UserTypeMatch = MatchUserType()};
+            return new MatchResult {CompetencesResult = MatchCompetences(), UserTypeMatch = MatchUserType()};
         }
     }
 }

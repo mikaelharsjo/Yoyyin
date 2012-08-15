@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using Yoyyin.Model.Matching;
 using Yoyyin.Model.Users;
-using Yoyyin.Mvc.Models.Converters;
+using Yoyyin.Mvc.Models.Presenters;
 using Yoyyin.Mvc.Services;
 
 namespace Yoyyin.Mvc.Controllers
@@ -13,7 +12,6 @@ namespace Yoyyin.Mvc.Controllers
     public class MatchingController : Controller
     {
         private readonly IUserRepository _repository;
-        //private readonly Matcher _matcher;
         private readonly CurrentUserService _currentUserService;
         private readonly UserConverter _converter;
 
@@ -28,7 +26,7 @@ namespace Yoyyin.Mvc.Controllers
         {
             var currentUser = _currentUserService.Get();
             var userToMatchWith = _repository.Query(m => m.Users.First(u => u.UserId == id));
-            var matcher = new Matcher(currentUser, userToMatchWith);
+            var matcher = new Matcher(currentUser, userToMatchWith, _repository);
             var matchResult = matcher.Match();
 
             return Json(new

@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using Yoyyin.Model.Extensions;
 using Yoyyin.Model.Users;
 using Yoyyin.Mvc.Providers;
 
-namespace Yoyyin.Mvc.Models.Converters
+namespace Yoyyin.Mvc.Models.Presenters
 {
     public class MessageConverter
     {

@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using Yoyyin.Model.Extensions;
 using Yoyyin.Mvc.Providers;
 using Yoyyin.Mvc.Services;
 
-namespace Yoyyin.Mvc.Models.Converters
+namespace Yoyyin.Mvc.Models.Presenters
 {
     public class CurrentUserConverter
     {

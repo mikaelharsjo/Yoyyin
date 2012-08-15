@@ -1,4 +1,4 @@
-namespace Yoyyin.Model.Matching.MatchResult
+namespace Yoyyin.Model.Matching.MatchResults
 {
     public interface IMatchResult
     {

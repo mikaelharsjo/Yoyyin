@@ -1,8 +1,6 @@
-using Yoyyin.Model.Matching.MatchResult;
-
-namespace Yoyyin.Model.Matching
+namespace Yoyyin.Model.Matching.MatchResults
 {
-    public class MatchStat
+    public class MatchResult
     {
         public CompetencesMatch CompetencesResult { get; set; }
         public UserTypeMatch UserTypeMatch { get; set; }

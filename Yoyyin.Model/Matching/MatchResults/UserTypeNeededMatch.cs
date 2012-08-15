@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Yoyyin.Model.Matching.MatchResult
+namespace Yoyyin.Model.Matching.MatchResults
 {
     public class UserTypeNeededMatch : IsMatchResult
     {

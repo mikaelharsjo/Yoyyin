@@ -9,7 +9,7 @@ using Yoyyin.Model.Users;
 using Yoyyin.Model.Users.Entities;
 using Yoyyin.Mvc.Models;
 using Yoyyin.Mvc.Models.BreadCrumb;
-using Yoyyin.Mvc.Models.Converters;
+using Yoyyin.Mvc.Models.Presenters;
 using Comment = Yoyyin.Mvc.Models.Comment;
 
 namespace Yoyyin.Mvc.Controllers

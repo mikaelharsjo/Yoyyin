@@ -32,14 +32,14 @@
             $.each(result.CompetencesResult.NeededCompetencesFlattened, function (index, competence) {
                 resultViewModel.NeededCompetencesMarkup += mustache.render(competenceTemplate, { Competence: competence });
             });
-            var competencesMarkup = mustache.render(resultTemplate, { firstColMarkup: resultViewModel.CompetencesMarkup, secondColMarkup: resultViewModel.NeededCompetencesMarkup });
+            var competencesMarkup = mustache.render(resultTemplate, { title: "Kompetenser", firstColMarkup: resultViewModel.CompetencesMarkup, secondColMarkup: resultViewModel.NeededCompetencesMarkup });
 
             // render usertypes
             var userTypeMarkup = "";
             $.each(result.UserTypeMatch.SecondUserTypes, function (index, userType) {
                 userTypeMarkup += userType;
             });
-            var userTypesMarkup = mustache.render(resultTemplate, { firstColMarkup: result.UserTypeMatch.UserType, secondColMarkup: userTypeMarkup });
+            var userTypesMarkup = mustache.render(resultTemplate, { title: "Titel", firstColMarkup: result.UserTypeMatch.UserType, secondColMarkup: userTypeMarkup });
 
             resultMarkup += competencesMarkup + userTypesMarkup;
 

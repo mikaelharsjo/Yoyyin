@@ -40,15 +40,15 @@ namespace Yoyyin.Model.Matching
                        : new UserTypeMatch(false, _firstUser.UserType, secondUserTypesFlattened, _repository);
         }
 
-        public IMatchResult MatchUserTypesNeeded()
+        public UserTypeNeededMatch MatchUserTypesNeeded()
         {
             var userTypesFlattened = _firstUser
                 .Ideas
                 .SelectMany(idea => idea.SearchProfile.UserTypesNeeded.UserTypeIds);
 
             return userTypesFlattened.Any(neededUserType => _secondUser.UserType == neededUserType)
-                       ? new UserTypeNeededMatch(userTypesFlattened, _secondUser.UserType)
-                       : new DoesNotMatch() as IMatchResult;
+                       ? new UserTypeNeededMatch(true, userTypesFlattened, _secondUser.UserType, _repository)
+                       : new UserTypeNeededMatch(false, userTypesFlattened, _secondUser.UserType, _repository);
         }
 
         public IMatchResult MatchCompetencesNeeded()
@@ -75,7 +75,12 @@ namespace Yoyyin.Model.Matching
 
         public MatchResult Match()
         {
-            return new MatchResult {CompetencesResult = MatchCompetences(), UserTypeMatch = MatchUserType()};
+            return new MatchResult
+                       {
+                           CompetencesResult = MatchCompetences(),
+                           UserType = MatchUserType(),
+                           UserTypesNeeded = MatchUserTypesNeeded()
+                       };
         }
     }
 }

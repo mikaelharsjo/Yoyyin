@@ -3,3 +3,7 @@
 .featured + .main-content { background: none;}
 .matchImageCol { text-align: center; }
 #singleMatchContainer { margin-bottom: 5px;}
+
+/* modal overrides */
+.modal { width: 700px !important; /* 560px */margin-top: -350px !important; /* 250px*/ }
+.modal-body { max-height: 530px !important; /* 400px */ }

@@ -298,6 +298,7 @@
     <Content Include="Scripts\yoyyin\templates\matching\singleMatchContainer.htm" />
     <Content Include="Scripts\yoyyin\templates\Shared\modal.htm" />
     <Content Include="Scripts\yoyyin\templates\User\container.htm" />
+    <Content Include="Scripts\yoyyin\templates\User\newMessage.htm" />
     <Content Include="Scripts\yoyyin\views\currentUser\dashboard.js" />
     <Content Include="Scripts\yoyyin\views\currentUser\editProfile.js" />
     <Content Include="Scripts\yoyyin\register\idea.js" />
@@ -314,6 +315,7 @@
     <Content Include="Scripts\yoyyin\views\ideas\all.js" />
     <Content Include="Scripts\yoyyin\views\ideas\idea.js" />
     <Content Include="Scripts\yoyyin\views\matching\dialogMatcher.js" />
+    <Content Include="Scripts\yoyyin\views\users\newMessage.js" />
     <Content Include="Scripts\yoyyin\views\users\users.js" />
     <Content Include="Scripts\yoyyin\views\users\user.js" />
     <Content Include="Scripts\yoyyin\views\users\userThumbnail.js" />

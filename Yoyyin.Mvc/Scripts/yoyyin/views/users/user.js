@@ -1,4 +1,4 @@
-﻿define(["underscore", "backbone", "mustache", "models/user", "models/idea", "views/ideas/idea", "views/matching/dialogMatcher", "text!templates/User/image.htm", "text!templates/User/details.htm", "text!templates/Shared/idea.htm", "text!templates/Shared/userTypeLabel.htm", "text!templates/Shared/competenceLabel.htm", "text!templates/Shared/comment.htm"], function (_, Backbone, mustache, UserModel, IdeaModel, IdeaView, DialogMatcher, imageTemplate, detailsTemplate, ideaTemplate, userTypeLabelTemplate, competenceLabelTemplate, commentTemplate) {
+﻿define(["underscore", "backbone", "mustache", "models/user", "models/idea", "views/ideas/idea", "views/matching/dialogMatcher", "text!templates/User/image.htm", "text!templates/User/details.htm", "text!templates/Shared/idea.htm", "text!templates/Shared/userTypeLabel.htm", "text!templates/Shared/competenceLabel.htm", "text!templates/Shared/comment.htm", "views/users/newMessage"], function (_, Backbone, mustache, UserModel, IdeaModel, IdeaView, DialogMatcher, imageTemplate, detailsTemplate, ideaTemplate, userTypeLabelTemplate, competenceLabelTemplate, commentTemplate, NewMessage) {
     return Backbone.View.extend({
         initialize: function () {
             this.render();
@@ -36,11 +36,11 @@
 
         },
         match: function () {
-            console.log("match event");
             var view = new DialogMatcher({ userId: this.model.id });
         },
         sendMessage: function () {
-            console.log("sending message");
+            var view = new NewMessage();
+            view.render();
         },
         addToFavorites: function () {
             console.log("adding to favorites");

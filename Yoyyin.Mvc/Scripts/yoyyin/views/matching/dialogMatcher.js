@@ -60,8 +60,8 @@
         render: function () {
             var currentUser = this.model.get("currentUser");
             var userToMatch = this.model.get("userToMatchWith");
-            var currentUserImageMarkup = mustache.render(imageTemplate, { Src: currentUser.ProfileImageSrc + "?width=50" });
-            var userToMatchImageMarkup = mustache.render(imageTemplate, { Src: userToMatch.ProfileImageSrc + "?width=50" });
+            var currentUserImageMarkup = mustache.render(imageTemplate, { Src: currentUser.ProfileImageSrc + "?width=50&height=50" });
+            var userToMatchImageMarkup = mustache.render(imageTemplate, { Src: userToMatch.ProfileImageSrc + "?width=50&height=50" });
             var currentUserViewModel = { ImageMarkup: currentUserImageMarkup, Name: currentUser.DisplayName };
             var userToMatchViewModel = { ImageMarkup: userToMatchImageMarkup, Name: userToMatch.DisplayName };
 

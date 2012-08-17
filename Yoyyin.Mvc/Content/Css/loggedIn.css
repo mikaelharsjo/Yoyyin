@@ -2,3 +2,4 @@
 .featured { display: none; }
 .featured + .main-content { background: none;}
 .matchImageCol { text-align: center; }
+#singleMatchContainer { margin-bottom: 5px;}

@@ -15,27 +15,47 @@
             $.each(result.UserTypesNeeded.UserTypesFlattened, function (index, ut) {
                 userTypeMarkup += ut;
             });
-            return mustache.render(resultTemplate, { title: "Titlar/roller du söker:", firstColMarkup: result.UserTypesNeeded.UserType, secondColMarkup: userTypeMarkup });
+
+            var viewData = { title: "Titlar/roller du söker:", firstColMarkup: result.UserTypesNeeded.UserType, secondColMarkup: userTypeMarkup };
+            return mustache.render(resultTemplate, this.renderMatch(result, viewData));
         },
         renderUserTypes: function (result) {
             var userTypeMarkup = "";
             $.each(result.UserType.SecondUserTypes, function (index, userType) {
                 userTypeMarkup += userType;
             });
-            return mustache.render(resultTemplate, { title: "Titlar/roller du har:", firstColMarkup: result.UserType.UserType, secondColMarkup: userTypeMarkup });
+
+            var viewData = { title: "Titlar/roller du har:", firstColMarkup: result.UserType.UserType, secondColMarkup: userTypeMarkup };
+            return mustache.render(resultTemplate, this.renderMatch(result, viewData));
         },
-        renderCompetencesNeeded: function (result) {
+        renderCompetences: function (competencesResult, title) {
             var resultViewModel = {};
             resultViewModel.CompetencesMarkup = "";
             resultViewModel.NeededCompetencesMarkup = "";
 
-            $.each(result.CompetencesResult.Competences, function (index, competence) {
+            $.each(competencesResult.Competences, function (index, competence) {
                 resultViewModel.CompetencesMarkup += mustache.render(competenceTemplate, { Competence: competence });
             });
-            $.each(result.CompetencesResult.NeededCompetencesFlattened, function (index, competence) {
+            $.each(competencesResult.NeededCompetencesFlattened, function (index, competence) {
                 resultViewModel.NeededCompetencesMarkup += mustache.render(competenceTemplate, { Competence: competence });
             });
-            return mustache.render(resultTemplate, { title: "Kompetenser du söker:", firstColMarkup: resultViewModel.CompetencesMarkup, secondColMarkup: resultViewModel.NeededCompetencesMarkup });
+
+            var viewData = { title: title, firstColMarkup: resultViewModel.CompetencesMarkup, secondColMarkup: resultViewModel.NeededCompetencesMarkup };
+            return mustache.render(resultTemplate, this.renderMatch(competencesResult, viewData));
+        },
+        renderSni: function (sniResult, title) {
+            var sni = {
+                title: title,
+                firstColMarkup: sniResult.FirstSniHead,
+                secondColMarkup: sniResult.SecondSniHead
+            };
+
+            return mustache.render(resultTemplate, this.renderMatch(sniResult, sni));
+        },
+        renderMatch: function (result, viewData) {
+            viewData.imageName = result.IsMatch ? "glyphicons_206_ok_2.png" : "glyphicons_207_remove_2.png";
+            viewData.cssClass = result.IsMatch ? "alert-success" : "";
+            return viewData;
         },
         render: function () {
             var currentUser = this.model.get("currentUser");
@@ -46,7 +66,12 @@
             var userToMatchViewModel = { ImageMarkup: userToMatchImageMarkup, Name: userToMatch.DisplayName };
 
             var result = this.model.get("matchResult");
-            var resultMarkup = this.renderCompetencesNeeded(result) + this.renderUserTypes(result) + this.renderUserTypesNeeded(result);
+            console.log(result);
+            var resultMarkup = this.renderCompetences(result.Competences, "Kompetenser du söker:") +
+                this.renderCompetences(result.CompetencesNeeded, "Kompetenser du har:") +
+                    this.renderUserTypes(result) +
+                        this.renderUserTypesNeeded(result) +
+                            this.renderSni(result.SniHeadMatch, "Bransch");
 
             var bodyMarkup = mustache.render(containerTemplate, { currentUser: currentUserViewModel, userToMatch: userToMatchViewModel, resultMarkup: resultMarkup });
             var modalMarkup = mustache.render(modalTemplate, { title: "Matchning", body: bodyMarkup });

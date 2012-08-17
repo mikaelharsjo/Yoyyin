@@ -61,6 +61,7 @@
     <Compile Include="Matching\MatchResults\UserTypeMatch.cs" />
     <Compile Include="Matching\MatchResults\UserTypeNeededMatch.cs" />
     <Compile Include="Matching\MatchResults\MatchResult.cs" />
+    <Compile Include="Matching\MatchResults\SniHeadMatch.cs" />
     <Compile Include="Q&amp;A\UserModel.cs" />
     <Compile Include="Tagging\SearchWordsOrganizer.cs" />
     <Compile Include="Tagging\WeightedTags.cs" />

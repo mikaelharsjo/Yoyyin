@@ -51,7 +51,7 @@ namespace Yoyyin.Model.Matching
                        : new UserTypeNeededMatch(false, userTypesFlattened, _secondUser.UserType, _repository);
         }
 
-        public IMatchResult MatchCompetencesNeeded()
+        public CompetencesMatch MatchCompetencesNeeded()
         {
             var neededCompetencesFlattened = _firstUser
                                                 .Ideas
@@ -59,7 +59,7 @@ namespace Yoyyin.Model.Matching
 
             return neededCompetencesFlattened.Any(competence => _secondUser.Competences.Contains(competence))
                        ? new CompetencesMatch(true, neededCompetencesFlattened, _secondUser.Competences)
-                       : new DoesNotMatch() as IMatchResult;
+                       : new CompetencesMatch(false, neededCompetencesFlattened, _secondUser.Competences);
         }
 
         public CompetencesMatch MatchCompetences()
@@ -77,10 +77,23 @@ namespace Yoyyin.Model.Matching
         {
             return new MatchResult
                        {
-                           CompetencesResult = MatchCompetences(),
+                           Competences = MatchCompetences(),
+                           CompetencesNeeded = MatchCompetencesNeeded(),
                            UserType = MatchUserType(),
-                           UserTypesNeeded = MatchUserTypesNeeded()
+                           UserTypesNeeded = MatchUserTypesNeeded(),
+                           SniHeadMatch = MatchSniHead()
                        };
+        }
+
+        private SniHeadMatch MatchSniHead()
+        {
+            //var firstSniHeads = _firstUser.Ideas.Select(idea => idea.SniHeadId);
+            //var secondSniHeads = _secondUser.Ideas.Select(i => i.SniHeadId);
+            var firstSniHead = _firstUser.Ideas.First().SniHeadId;
+            var secondSniHead = _secondUser.Ideas.First().SniHeadId;
+            bool match = firstSniHead == secondSniHead;
+
+            return new SniHeadMatch(match, firstSniHead, secondSniHead, _repository);
         }
     }
 }

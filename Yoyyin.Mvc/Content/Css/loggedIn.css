@@ -1,3 +1,4 @@
 ﻿#body { margin: 60px auto;width: 960px;}
 .featured { display: none; }
 .featured + .main-content { background: none;}
+.matchImageCol { text-align: center; }

@@ -126,5 +126,17 @@ namespace Yoyyin.Model.Tests.Matching
             _matcher = new Matcher(designer, userSeeksDesign);
             Assert.That(_matcher.MatchCompetences().IsMatch, Is.EqualTo(true));
         }
+
+        [Test]
+        public void CheckSniHead()
+        {
+            var user1 = new User {Ideas = new[] {new Idea {SniHeadId = "1"}}};
+            var user2 = new User { Ideas = new[] { new Idea { SniHeadId = "1" } } };
+            var user3 = new User { Ideas = new[] { new Idea { SniHeadId = "2" } } };
+            _matcher = new Matcher(user1, user2);
+
+            Assert.That(_matcher.Match().SniHeadMatch.IsMatch, Is.EqualTo(true));
+            
+        }
     }
 }

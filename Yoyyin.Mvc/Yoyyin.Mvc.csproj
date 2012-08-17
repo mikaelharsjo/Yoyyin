@@ -250,6 +250,8 @@
     <Content Include="Global.asax" />
     <Content Include="Images\glyphicons_003_user%402x.png" />
     <Content Include="Images\glyphicons_025_binoculars.png" />
+    <Content Include="Images\glyphicons_206_ok_2.png" />
+    <Content Include="Images\glyphicons_207_remove_2.png" />
     <Content Include="Images\grid-18px-masked.png" />
     <Content Include="Images\group.png" />
     <Content Include="Images\forumSprite.png" />

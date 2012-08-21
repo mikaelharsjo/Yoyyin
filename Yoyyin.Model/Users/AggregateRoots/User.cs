@@ -12,6 +12,7 @@ namespace Yoyyin.Model.Users.AggregateRoots
         {
             Ideas = new List<Idea>();
             Urls = new List<string>();
+            Competences = new List<string>();
         }
 
         public Guid id

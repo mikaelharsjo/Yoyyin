@@ -6,6 +6,11 @@ namespace Yoyyin.Model.Users.Entities
 {
     public class Idea
     {
+        public Idea()
+        {
+            SearchProfile = new SearchProfile();
+        }
+
         public string CompanyName { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }

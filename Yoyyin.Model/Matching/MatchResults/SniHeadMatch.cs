@@ -34,10 +34,10 @@ namespace Yoyyin.Model.Matching.MatchResults
         {
             get
             {
-                return _repository
-                    .Query(m => m.SniHeads)
-                    .First(s => s.SniHeadId == _secondSniHead)
-                    .Title;
+                    var sniHeads = _repository.Query(m => m.SniHeads);
+                    var sniHead = sniHeads.FirstOrDefault(s => s.SniHeadId == _secondSniHead);
+                    return sniHead != null ? sniHead.Title : string.Empty;
+
             }
         }
 

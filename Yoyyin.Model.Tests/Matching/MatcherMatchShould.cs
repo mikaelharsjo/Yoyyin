@@ -136,7 +136,7 @@ namespace Yoyyin.Model.Tests.Matching
             _matcher = new Matcher(user1, user2);
 
             Assert.That(_matcher.Match().SniHeadMatch.IsMatch, Is.EqualTo(true));
-            
+            Assert.That(_matcher.Match().Score, Is.EqualTo(20));
         }
     }
 }

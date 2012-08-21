@@ -37,6 +37,19 @@ namespace Yoyyin.Mvc.Controllers
                         }, JsonRequestBehavior.AllowGet);
         }
 
+        public ActionResult Mega()
+        {
+            var currentUser = _currentUserService.Get();
+            var matcher = new MegaMatcher(currentUser, _repository);
+            var filteredResult = matcher
+                                    .Match()
+                                    .Where(r => r.MatchResult.Score > 0)
+                                    .OrderByDescending(r => r.MatchResult.Score);
+
+            return Json(filteredResult.Select(mmr => new {mmr.MatchResult, User = _converter.Convert(mmr.User)}),
+                        JsonRequestBehavior.AllowGet);
+        }
+
         public ActionResult GetQuickSearchTypeAheadItems()
         {
             // TODO: move to class

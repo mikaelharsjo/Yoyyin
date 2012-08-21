@@ -5,6 +5,12 @@ namespace Yoyyin.Model.Users.Entities
 {
     public class SearchProfile
     {
+        public SearchProfile()
+        {
+            CompetencesNeeded = new List<string>();
+            UserTypesNeeded = new UserTypesNeeded();
+        }
+
         public IEnumerable<string> SearchWords { get; set; }
         public IEnumerable<string> CompetencesNeeded { get; set; }
         public UserTypesNeeded UserTypesNeeded { get; set; }

@@ -296,6 +296,7 @@
     <Content Include="Scripts\yoyyin\models\user.js" />
     <Content Include="Scripts\yoyyin\routers\router.js" />
     <Content Include="Scripts\yoyyin\templates\CurrentUser\dashboard.htm" />
+    <Content Include="Scripts\yoyyin\templates\CurrentUser\editIdea.htm" />
     <Content Include="Scripts\yoyyin\templates\CurrentUser\navigation.htm" />
     <Content Include="Scripts\yoyyin\templates\idea\item.htm" />
     <Content Include="Scripts\yoyyin\templates\matching\megaMatchItem.htm" />
@@ -306,6 +307,7 @@
     <Content Include="Scripts\yoyyin\templates\User\container.htm" />
     <Content Include="Scripts\yoyyin\templates\User\newMessage.htm" />
     <Content Include="Scripts\yoyyin\views\currentUser\dashboard.js" />
+    <Content Include="Scripts\yoyyin\views\currentUser\editIdea.js" />
     <Content Include="Scripts\yoyyin\views\currentUser\editProfile.js" />
     <Content Include="Scripts\yoyyin\register\idea.js" />
     <Content Include="Scripts\yoyyin\register\wanted.js" />

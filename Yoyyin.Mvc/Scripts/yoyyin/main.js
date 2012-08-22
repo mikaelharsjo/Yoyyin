@@ -10,10 +10,12 @@
             var dashboard = new DashboardView({ model: currentUser, el: $("#body") });
             dashboard.render();
 
-            var navigation = new NavigationView({ el: $("#subMenu") });
+            var navigation = new NavigationView({ el: $("#subMenu"), model: currentUser });
             navigation.render();
         }
     });
+    
+
 
     //userBox.render();
     var router = new Router();

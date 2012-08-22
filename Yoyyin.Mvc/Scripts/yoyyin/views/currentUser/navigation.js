@@ -22,7 +22,7 @@
             console.log(this.collection.length);
         },
         editIdea: function () {
-            var view = new EditIdeaView({ el: $("#body") });
+            var view = new EditIdeaView({ el: $("#body"), model: this.model });
             view.render();
         }
     });

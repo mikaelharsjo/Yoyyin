@@ -2,7 +2,7 @@
     return Backbone.Model.extend({
         urlRoot: "/CurrentUser/Get",
         initialize: function () {
-            //this.fetch();
+            this.on("all", function(e) { console.log(e); });
         }
     });
 });

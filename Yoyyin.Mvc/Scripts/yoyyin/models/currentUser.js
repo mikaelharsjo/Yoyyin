@@ -1,6 +1,6 @@
 ﻿define(["backbone"], function (Backbone) {
     return Backbone.Model.extend({
-        urlRoot: "/CurrentUser/Get",
+        urlRoot: "/CurrentUser",
         initialize: function () {
             this.on("all", function(e) { console.log(e); });
         }

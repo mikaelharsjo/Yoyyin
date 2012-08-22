@@ -23,6 +23,13 @@
             $.get("/Tagging/Competences/", function (competences) {
                 $("#competencesNeeded").tagit({ availableTags: competences });
             });
+        },
+        events: {
+            "click a.btn": "save"
+        },
+        save: function () {
+            this.model.save();
+            console.log("save");
         }
     });
 });

@@ -29,7 +29,6 @@
         },
         save: function () {
             this.model.save();
-            console.log("save");
         }
     });
 });

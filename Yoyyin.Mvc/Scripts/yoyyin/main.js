@@ -15,6 +15,8 @@
         }
     });
     
+    //currentUser.on("sync", function)
+    
 
 
     //userBox.render();

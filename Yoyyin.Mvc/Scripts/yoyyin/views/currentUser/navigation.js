@@ -3,6 +3,8 @@
         collection: MatchCollection,
         initialize: function () {
             this.collection = new MatchCollection();
+            var that = this;
+            this.model.on("sync", function (e) { that.render(); });
         },
         render: function () {
             var that = this;

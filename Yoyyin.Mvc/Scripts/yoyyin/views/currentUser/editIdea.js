@@ -28,6 +28,9 @@
             "click a.btn": "save"
         },
         save: function () {
+            var ideas = this.model.get("Ideas");
+            ideas[0].SearchProfile.CompetencesNeeded = $("#competencesNeeded").tagit("assignedTags");
+            
             this.model.save();
         }
     });

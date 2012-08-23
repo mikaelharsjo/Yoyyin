@@ -1,5 +1,8 @@
 ﻿using System.Web.Mvc;
 using AttributeRouting.Web.Mvc;
+using Yoyyin.Model.Users;
+using Yoyyin.Model.Users.AggregateRoots;
+using Yoyyin.Model.Users.Commands;
 using Yoyyin.Mvc.Models.Presenters;
 using CurrentUserService = Yoyyin.Mvc.Services.CurrentUserService;
 
@@ -9,22 +12,27 @@ namespace Yoyyin.Mvc.Controllers
     {
         private readonly CurrentUserService _currentUserService;
         private readonly CurrentUserConverter _converter;
+        private readonly IUserRepository _repository;
 
-        public CurrentUserController(CurrentUserService currentUserService, CurrentUserConverter converter)
+        public CurrentUserController(CurrentUserService currentUserService, CurrentUserConverter converter, IUserRepository repository)
         {
             _currentUserService = currentUserService;
             _converter = converter;
+            _repository = repository;
         }
 
         [GET("CurrentUser")] 
         public ActionResult Get()
         {
-            return Json(_converter.Convert(_currentUserService.Get()), JsonRequestBehavior.AllowGet);
+            //return Json(_converter.Convert(_currentUserService.Get()), JsonRequestBehavior.AllowGet);
+            return Json(_currentUserService.Get(), JsonRequestBehavior.AllowGet);
         }
 
-        [POST("CurrentUser")]
-        public ActionResult Save()
+        [PUT("CurrentUser/{id}")]
+        public ActionResult Update(User user)
         {
+            _repository.Execute(new UpdateUserCommand(user));
+
             return new EmptyResult();
         }
     }

@@ -1,5 +1,4 @@
 ﻿require(["routers/router", "views/currentUser/dashboard", "views/currentUser/userBox", "views/currentUser/navigation", "models/currentUser"], function (Router, DashboardView, UserBox, NavigationView, CurrentUserModel) {
-    var that = this;
     var currentUser = new CurrentUserModel();
 
     currentUser.fetch({
@@ -16,9 +15,6 @@
     });
     
     //currentUser.on("sync", function)
-    
-
-
     //userBox.render();
     var router = new Router();
     Backbone.history.start(); //{ pushState: true, root: '/' });

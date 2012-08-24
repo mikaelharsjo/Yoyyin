@@ -3,6 +3,7 @@
         render: function () {
             var pageHeader = mustache.render(pageHeaderTemplate, { Heading: "Redigera din affärsidé" });
             var firstIdea = this.model.get("Ideas")[0];
+            console.log(firstIdea);
             firstIdea.competencesNeededMarkup = "";
             $.each(firstIdea.SearchProfile.CompetencesNeeded, function (index, competence) {
                 firstIdea.competencesNeededMarkup += "<li>" + competence + "</li>";
@@ -30,7 +31,7 @@
         save: function () {
             var ideas = this.model.get("Ideas");
             ideas[0].SearchProfile.CompetencesNeeded = $("#competencesNeeded").tagit("assignedTags");
-            
+
             this.model.save();
         }
     });

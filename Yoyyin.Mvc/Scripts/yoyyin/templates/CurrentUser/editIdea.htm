@@ -1,17 +1,62 @@
-﻿<h3>
+﻿<div class="row-fluid">
+    <div class="span6">
+        <label for='title'>
+            Rubrik för din verksamhet/affärsidé:</label><input type='text' id='title' class='input-xlarge'
+                value="{{Title}}" /><label for='description'>Om verksamheten/affärsidén eller om dig
+                    själv:</label><textarea class='input-xlarge' id='description'>{{Description}}</textarea>
+    </div>
+    <div class="span6">
+        <label>
+            Bransch/affärsområde:</label>
+        <select id="heads" class='input-xlarge'>
+            <option>Välj först här</option>
+        </select>
+        <select id="items" class='input-xlarge  hide'>
+        </select>
+        <label class='radio'>
+            <input name='optionsRadios' id='optionsRadios1' value='PartnerToMyIdea' type='radio' />Jag
+            letar efter en partner til min idé</label>
+        <label class='radio'>
+            <input name='optionsRadios' id='Radio2' value='IdeasToJoin' type='radio' />Jag letar
+            efter idéer att delta i</label>
+        <label class='radio'>
+            <input name='optionsRadios' id='Radio1' value='JoinOrBeJoined' type='radio' checked="checked" />Jag
+            har en idé men är öppen för att delta i andras också</label>
+        <label class='radio'>
+            <input name='optionsRadios' id='Radio3' value='Investements' type='radio' />Jag
+            har pengar att investera i bra affärsidéer</label>
+    </div>
+</div>
+<div class="row-fluid">
+    <div class="span6">
+        <label class="checkbox">
+            Söker du finansiering?<input type="checkbox" id="wantsFinancing" /></label>
+        <label>
+            Ungefär hur mycket?<select class='input-xlarge'><option>0-10 000 kr</option>
+                <option>10 000-100 000 kr</option>
+            </select></label>
+    </div>
+    <div class="span6">
+        <label>
+            Vad ska du ha pengarna till?<textarea class='input-xlarge'></textarea></label>
+    </div>
+</div>
+<h3>
     Kompetenser du söker</h3>
 <label>
-    Här anger du kompetenser du söker hos en ev affärspartner. För kortare meningar skriv bindestreck emellan.<br />
+    Här anger du kompetenser du söker hos en ev affärspartner. För kortare meningar
+    skriv bindestreck emellan.<br />
     <i>Ex. telefonförsäljning,restaurang,bygga-hus</i></label>
-    <ul id='competencesNeeded'>{{{competencesNeededMarkup}}}</ul>
+<ul id='competencesNeeded'>
+    {{{competencesNeededMarkup}}}</ul>
 <h3>
     Tagga din affärsidé</h3>
 <label>
     För att andra lättare ska kunna hitta din affärsidé kan du lägga till egenskaper/taggar.<br />
     <i>Ex. pizzeria,städbolag,e-handel</i></label>
-<ul id='tags'>{{{searchWordsMarkup}}}</ul>
-
+<ul id='tags'>
+    {{{searchWordsMarkup}}}</ul>
 <div class='form-actions'>
     <a class='btn btn-primary'>Spara</a>
-</div><form>
-
+</div>
+<form>

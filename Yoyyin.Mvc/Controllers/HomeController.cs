@@ -33,14 +33,12 @@ namespace Yoyyin.Mvc.Controllers
 
         public ActionResult Index()
         {
-            ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
             ViewBag.Title = "Hem";
-            return View(
-            _repository
-                .Query(m => m.Users)
-                .Take(12)
-                .OrderBy(u => u.Ideas.First().SniNo)
-                .Select(_userConverter.ConvertToViewModel));
+            return View(_repository
+                            .Query(m => m.Users)
+                            .Take(12)
+                            .OrderBy(u => u.Ideas.First().SniNo)
+                            .Select(_userConverter.ConvertToViewModel));
         }
 
         public ActionResult About()

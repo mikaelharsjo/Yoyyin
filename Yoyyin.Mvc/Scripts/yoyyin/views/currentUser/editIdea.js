@@ -1,4 +1,4 @@
-﻿define(["backbone", "mustache", "text!templates/shared/pageHeader.htm", "text!templates/currentUser/editIdea.htm"], function (Backbone, mustache, pageHeaderTemplate, editIdeaTemplate) {
+﻿define(["backbone", "mustache", "text!templates/shared/pageHeader.htm", "text!templates/currentUser/editIdea.htm", "views/shared/tags/competences", "views/shared/tags/searchWords"], function (Backbone, mustache, pageHeaderTemplate, editIdeaTemplate, CompetencesTagsView, SearchWordsTagsView) {
     return Backbone.View.extend({
         render: function () {
             var pageHeader = mustache.render(pageHeaderTemplate, { Heading: "Redigera din affärsidé" });
@@ -16,14 +16,9 @@
 
             var body = mustache.render(editIdeaTemplate, firstIdea);
             this.$el.html(pageHeader + body);
-
-            $.get("/Matching/GetQuickSearchTypeAheadItems/", function (items) {
-                $("#tags").tagit({ availableTags: items });
-            });
-
-            $.get("/Tagging/Competences/", function (competences) {
-                $("#competencesNeeded").tagit({ availableTags: competences });
-            });
+            
+            var cmpView = new CompetencesTagsView({ el: $("#competencesNeeded") });
+            var swView = new SearchWordsTagsView({ el: $("#tags") });
         },
         events: {
             "click a.btn": "save"

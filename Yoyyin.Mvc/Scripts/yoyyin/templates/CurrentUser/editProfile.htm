@@ -1,8 +1,5 @@
-﻿<div class="page-header">
-    <h1>Redigera din profil. <small>Spara när du är klar</small></h1>
-</div>
-<div class="ui-helper-clearfix">
-    <div class='stepLeft'>
+﻿<div class="row-fluid">
+    <div class='span6'>
         <label class='control-label' for='name'>
             Namn:</label><input type='text' class='input-xlarge' id='name' value="{{Name}}" />
         <label class='control-label' for='alias'>
@@ -13,17 +10,14 @@
             emellan.<br />
             <i>Ex. klippa-hår,redovisning,köra-truck</i>
         </label>
-        <ul id='competences'>
+        <ul id='competences'>{{{competencesMarkup}}}
         </ul>
         <label for="userDescription">
             Presentera dig själv:</label>
-        <textarea id="userDescription" style="width: 98%" class='input-xlarge' rows="3">{{Presentation}}</textarea>
+        <textarea id="userDescription" class='input-xxlarge' rows="3">{{Presentation}}</textarea>
     </div>
-    <div class="stepRight">
-        <label for='title'>
-            Rubrik för din verksamhet/affärsidé:</label><input type='text' id='title' class='input-xlarge' value="{{Ideas[0].Title}}" /><label
-                for='description'>Om verksamheten/affärsidén eller om dig själv:</label><textarea
-                    class='input-xlarge' id='description'>{{Ideas[0].Description}}</textarea>
+    <div class="span6">
+ 
         <label class='radio'>
             <input name='optionsRadios' id='optionsRadios1' value='PartnerToMyIdea' type='radio' />Jag
             letar efter en partner til min idé</label>
@@ -36,15 +30,8 @@
         <label class='radio'>
             <input name='optionsRadios' id='Radio3' value='Investements' type='radio' />Jag
             har pengar att investera i bra affärsidéer</label>
-        <label class="checkbox">
-            Söker du finansiering?<input type="checkbox" id="wantsFinancing" /></label>
-        <div id="financing" class="hide">
-            <label>
-                Ungefär hur mycket?<select class='input-xlarge'><option>0-10 000 kr</option>
-                    <option>10 000-100 000 kr</option>
-                </select></label>
-            <label>
-                Vad ska du ha pengarna till?<textarea class='input-xlarge'></textarea></label>
-        </div>
     </div>
+</div>
+<div class='form-actions'>
+    <a class='btn btn-primary'>Spara</a>
 </div>

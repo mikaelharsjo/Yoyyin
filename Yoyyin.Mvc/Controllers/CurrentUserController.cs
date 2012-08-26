@@ -1,5 +1,6 @@
 ﻿using System.Web.Mvc;
 using AttributeRouting.Web.Mvc;
+using Yoyyin.Model.Extensions;
 using Yoyyin.Model.Users;
 using Yoyyin.Model.Users.AggregateRoots;
 using Yoyyin.Model.Users.Commands;
@@ -25,6 +26,8 @@ namespace Yoyyin.Mvc.Controllers
         public ActionResult Get()
         {
             //return Json(_converter.Convert(_currentUserService.Get()), JsonRequestBehavior.AllowGet);
+            var currUser = _currentUserService.Get();
+            currUser.LastLoginFormatted = currUser.LastLogin.ToFormattedString();
             return Json(_currentUserService.Get(), JsonRequestBehavior.AllowGet);
         }
 

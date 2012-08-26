@@ -5,6 +5,7 @@
         },
         render: function () {
             var user = this.model.toJSON();
+            user.ProfileImageSrc = this.model.getImageSrc();
             var dashboard = { ProfileMarkup: mustache.render(profileTemplate, user), user: user };
 
             $(this.el).html(mustache.render(dashboardTemplate, dashboard));

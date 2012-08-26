@@ -31,7 +31,10 @@ namespace Yoyyin.Model.Users.AggregateRoots
         public string DisplayName { get; set; }
 
         public DateTime LastLogin { get; set; }
+        public string LastLoginFormatted { get; set; }
+
         public DateTime Created { get; set; }
+
 
         public bool HasImage { get; set; }
         public string Email { get; set; }

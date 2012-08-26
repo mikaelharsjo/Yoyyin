@@ -1,18 +1,30 @@
-﻿define(["backbone", "models/currentUser", "text!templates/CurrentUser/editProfile.htm"], function (Backbone, CurrentUserModel, template) {
+﻿define(["backbone", "mustache", "text!templates/CurrentUser/editProfile.htm", "text!templates/shared/pageHeader.htm", "views/shared/tags/competences"], function (Backbone, mustache, template, headerTemplate, CompetencesView) {
     return Backbone.View.extend({
-        initialize: function () {
-            //this.model.bind("change", this.render, this);
-            var that = this;
-            this.model = new CurrentUserModel();
-            this.model.fetch({
-                success: function () {
-                    that.render();
-                }
-            });
-        },
         render: function () {
-            $(this.el).html(Mustache.render(template, this.model.toJSON));
+            console.log(this.collection);
+            var markup = mustache.render(headerTemplate, { Heading: "Redigera din profil", SubHeading: "Spara när du är klar" });
+
+            var user = this.model.toJSON();
+            //console.log(this)
+
+            user.competencesMarkup = "";
+            $.each(user.Competences, function (index, competence) {
+                user.competencesMarkup += "<li>" + competence + "</li>";
+            });
+            markup += Mustache.render(template, user);
+            $(this.el).html(markup);
+
+            var view = new CompetencesView({ el: $("#competences") });
+
             return this;
+        },
+        events: {
+            "click a#btn": "save"
+        },
+        save: function () {
+            console.log("save");
+            this.model.get("Competences").set($("#competences").tagit("assignedTags"));
+            this.model.save();
         }
     });
 });

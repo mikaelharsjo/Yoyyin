@@ -297,6 +297,7 @@
     <Content Include="Scripts\lib\sammy.js" />
     <Content Include="Scripts\lib\tag-it.js" />
     <Content Include="Scripts\lib\underscore.js" />
+    <Content Include="Scripts\yoyyin\collections\competences.js" />
     <Content Include="Scripts\yoyyin\collections\ideas.js" />
     <Content Include="Scripts\yoyyin\collections\megaMatch.js" />
     <Content Include="Scripts\yoyyin\collections\messages.js" />
@@ -338,6 +339,8 @@
     <Content Include="Scripts\yoyyin\views\ideas\idea.js" />
     <Content Include="Scripts\yoyyin\views\matching\dialogMatcher.js" />
     <Content Include="Scripts\yoyyin\views\matching\megaMatch.js" />
+    <Content Include="Scripts\yoyyin\views\shared\tags\competences.js" />
+    <Content Include="Scripts\yoyyin\views\shared\tags\searchWords.js" />
     <Content Include="Scripts\yoyyin\views\users\newMessage.js" />
     <Content Include="Scripts\yoyyin\views\users\users.js" />
     <Content Include="Scripts\yoyyin\views\users\user.js" />

@@ -51,6 +51,7 @@ namespace Yoyyin.Mvc.Controllers
             return tags;
         }
 
+
         public ActionResult Competences()
         {
             var allCompetences = userRepository

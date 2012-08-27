@@ -3,6 +3,8 @@
 
     currentUser.fetch({
         success: function () {
+            currentUser.set("DisplayName", currentUser.get("Alias") || currentUser.get("Name"));
+
             var userBox = new UserBox({ model: currentUser, el: $("#userBox") });
             userBox.render();
 
@@ -13,10 +15,7 @@
             navigation.render();
         }
     });
-    
-    //currentUser.on("sync", function)
-    //userBox.render();
+
     var router = new Router();
     Backbone.history.start(); //{ pushState: true, root: '/' });
-    //router.navigate();
 });

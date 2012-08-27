@@ -26,9 +26,10 @@ namespace Yoyyin.Model.Users.AggregateRoots
         bool HasImage { get; set; }
         string Presentation { get; set; }
         LookingFor LookingFor { get; set; }
-        string DisplayName { get; set; }
+        //string DisplayName { get; set; }
         DateTime LastLogin { get; set; }
         DateTime Created { get; set; }
         string LastLoginFormatted { get; set; }
+        string GetDisplayName();
     }
 }

@@ -24,7 +24,7 @@ namespace Yoyyin.Mvc.Models.Presenters
                            Address = user.Address,
                            Competences = user.Competences,
                            CVFileName = user.CVFileName,
-                           DisplayName = user.DisplayName,
+                           DisplayName = user.GetDisplayName(),
                            Email = user.Email,
                            ProfileImageSrc = _imageProvider.GetProfileImageSrc(user),
                            Ideas = user.Ideas,

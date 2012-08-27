@@ -23,12 +23,17 @@ namespace Yoyyin.Model.Users.AggregateRoots
 
         public Guid UserId { get; set; }
         public string Name { get; set; }
+        public string Alias { get; set; }
         //byte[] Image { get; set; }
         public string CVFileName { get; set; }
         //string FacebookID { get; set; }
         public bool Active { get; set; }
         public string UserTypeDescription { get; set; }
-        public string DisplayName { get; set; }
+        
+        public string GetDisplayName()
+        {
+            return Alias ?? Name;
+        }
 
         public DateTime LastLogin { get; set; }
         public string LastLoginFormatted { get; set; }

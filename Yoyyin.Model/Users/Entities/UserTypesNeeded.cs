@@ -12,7 +12,7 @@ namespace Yoyyin.Model.Users.Entities
         }
 
         public IEnumerable<int> UserTypeIds { get; set; }
-        public Dictionary<int, string> UserTypesNeededDescriptions { get; set; }
+        //public Dictionary<int, string> UserTypesNeededDescriptions { get; set; }
 
         public bool WantsFinancing()
         {

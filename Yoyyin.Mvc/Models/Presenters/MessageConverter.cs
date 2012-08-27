@@ -26,7 +26,7 @@ namespace Yoyyin.Mvc.Models.Presenters
                            Created = message.Created.ToFormattedString(),
                            ImageSrc = _imageProvider.GetProfileImageSrc(from),
                            UserId = message.UserId,
-                           DisplayName = from.DisplayName
+                           DisplayName = from.GetDisplayName()
                        };
         }
     }

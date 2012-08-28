@@ -4,12 +4,11 @@
 @Html.Partial("Breadcrumb")
 @Html.PageHeader((string)@ViewBag.Title, (string)@ViewBag.SubTitle)
 
-<div class="ui-helper-clearfix">
-    @foreach (var user in Model)
-    {
-        @Html.Partial("~/Views/Idea/UserRow.cshtml", user)
-    }
-</div>
+@foreach (var user in Model)
+{
+    @Html.Partial("~/Views/Idea/UserRow.cshtml", user)
+}
+
 
 
 

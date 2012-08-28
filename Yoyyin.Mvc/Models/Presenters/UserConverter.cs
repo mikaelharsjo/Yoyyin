@@ -56,7 +56,7 @@ namespace Yoyyin.Mvc.Models.Presenters
                        {
                            DisplayName = user.DisplayName,
                            FirstIdea = _ideaConverter.Convert(user.Ideas.First()),
-                           SmallProfileImageSrc = user.HasImage ? string.Format("/Content/Upload/Images/{0}.jpg?width=100&height=100&mode=crop' />", user.UserId) : "/Images/glyphicons_003_user@2x.png",
+                           SmallProfileImageSrc = user.HasImage ? string.Format("/Content/Upload/Images/{0}.jpg?width=70&mode=crop' />", user.UserId) : "/Images/glyphicons_003_user@2x.png",
                            LargeProfileImageSrc = user.HasImage ? string.Format("/Content/Upload/Images/{0}.jpg?width=200&height=200' />", user.UserId) : "/Images/glyphicons_003_user@2x.png",
                            DetailsHref = string.Format("/User/Details/{0}", user.UserId),
                            UserTypesNeededMarkup = _userTypesNeededMarkupProvider.ToLabelList((user.Ideas.First().SearchProfile.UserTypesNeeded)),

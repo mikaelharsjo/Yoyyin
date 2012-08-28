@@ -1,15 +1,16 @@
 ﻿@model Yoyyin.Mvc.Models.UserWithFirstIdea
-<div class="well ui-helper-clearfix">
-    <div class="listedUserLeft">
-        <a href=@Model.DetailsHref class="thumbnail">
-            <img src="@Model.SmallProfileImageSrc" />
+<div class="row-fluid">
+    <div class="span1">
+        <a href=@Model.DetailsHref>
+            <img class="thumbnail" src="@Model.SmallProfileImageSrc" />
         </a><a href=@Model.DetailsHref>
                 <strong>@Model.DisplayName</strong>
-        </a>, @Model.City
+        </a> @Model.City
     </div>
-    <div class="listedUserRight">
+    <div class="span11 well">
         <span class="label">@Html.ActionLink(Model.SniHeadTitle, "ListBySniHead", new { id = Model.SniHeadId })</span>
         <h2>@Model.FirstIdea.Title</h2>
         <p>@Html.Raw(Model.FirstIdea.Description)</p>
     </div>
 </div>
+<br />

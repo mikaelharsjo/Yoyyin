@@ -30,6 +30,6 @@ namespace Yoyyin.Model.Users.AggregateRoots
         DateTime LastLogin { get; set; }
         DateTime Created { get; set; }
         string LastLoginFormatted { get; set; }
-        string GetDisplayName();
+        string DisplayName { get; }
     }
 }

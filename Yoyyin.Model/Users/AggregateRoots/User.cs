@@ -30,9 +30,9 @@ namespace Yoyyin.Model.Users.AggregateRoots
         public bool Active { get; set; }
         public string UserTypeDescription { get; set; }
         
-        public string GetDisplayName()
+        public string DisplayName
         {
-            return Alias ?? Name;
+            get { return Alias ?? Name; }
         }
 
         public DateTime LastLogin { get; set; }

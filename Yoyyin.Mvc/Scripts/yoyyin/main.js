@@ -3,8 +3,6 @@
 
     currentUser.fetch({
         success: function () {
-            currentUser.set("DisplayName", currentUser.get("Alias") || currentUser.get("Name"));
-
             var userBox = new UserBox({ model: currentUser, el: $("#userBox") });
             userBox.render();
 

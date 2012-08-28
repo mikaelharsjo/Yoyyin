@@ -36,7 +36,7 @@ namespace Yoyyin.Mvc.Models.Presenters
             return new User
             {
                 id = user.UserId,
-                DisplayName = user.GetDisplayName(),
+                DisplayName = user.DisplayName,
                 ProfileImageSrc = _imageProvider.GetProfileImageSrc(user),
                 Competences = user.Competences,
                 City = user.Address.City,
@@ -54,7 +54,7 @@ namespace Yoyyin.Mvc.Models.Presenters
         {
             return new UserWithFirstIdea(GetSniArray(user))
                        {
-                           DisplayName = user.GetDisplayName(),
+                           DisplayName = user.DisplayName,
                            FirstIdea = _ideaConverter.Convert(user.Ideas.First()),
                            SmallProfileImageSrc = user.HasImage ? string.Format("/Content/Upload/Images/{0}.jpg?width=100&height=100&mode=crop' />", user.UserId) : "/Images/glyphicons_003_user@2x.png",
                            LargeProfileImageSrc = user.HasImage ? string.Format("/Content/Upload/Images/{0}.jpg?width=200&height=200' />", user.UserId) : "/Images/glyphicons_003_user@2x.png",

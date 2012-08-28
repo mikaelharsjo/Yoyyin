@@ -26,7 +26,7 @@ namespace Yoyyin.Mvc.Models.Presenters
                            Created = comment.Created.ToFormattedString(),
                            Comments = comment.Comments != null ? comment.Comments.Select(Convert) : new List<Comment>(),
                            UserImageSrc = _imageProvider.GetProfileImageSrc(commenter),
-                           UserDisplayName = commenter != null ? commenter.GetDisplayName() : string.Empty
+                           UserDisplayName = commenter != null ? commenter.DisplayName : string.Empty
                        };
         }
     }

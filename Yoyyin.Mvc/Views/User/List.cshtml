@@ -1,18 +1,36 @@
 ﻿@using Yoyyin.Mvc.Helpers
 @model System.Collections.Generic.IEnumerable<Yoyyin.Mvc.Models.User>
 @Html.PageHeader("Personer", "Kanske din nästa affärspartner?")
-<div class="ui-helper-clearfix">
-    @foreach (var user in Model)
-    {
-        <div class="ui-helper-clearfix">
-            <div class="listedUserLeft">
-                <a href="" class="thumbnail">
-                    <img src="@user.ProfileImageSrc" />
-                </a><a href=""><strong>@user.DisplayName</strong> </a>, @user.City
-            </div>
-            <div class="listedUserRight ">
-                <div class="well">apa</div>
-            </div>
+@foreach (var user in Model)
+{
+    <div class="row-fluid well">
+        <div class="span2">
+            <a href="/User/Details/@user.id" class="thumbnail">
+                <img src="@user.ProfileImageSrc" />
+            </a><a href="/User/Details/@user.id"><strong>@user.DisplayName</strong> </a>, @user.City
         </div>
-    }
-</div>
+        <div class="span10">
+            Jag är<br />
+            <span class="label label-success">@user.UserType</span><br />
+            
+            ..och kan<br />
+            @foreach (var competence in @user.Competences)
+            {
+                <span class="label label-info">@competence</span>
+            }
+            <hr />
+            Jag söker<br />
+            @foreach (var userType in @user.UserTypesNeeded)
+            {
+                <span class="label label-success">@userType</span>
+            }
+            <br />
+            ..som kan<br />
+            @foreach (var competenceNeeded in @user.CompetencesNeeded)
+            {
+                <span class="label label-info">@competenceNeeded</span>
+            }
+        </div>
+    </div>
+}
+

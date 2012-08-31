@@ -4,12 +4,12 @@
     var getPosition = function (callback) {
         this.callback = callback;
         navigator.geolocation.getCurrentPosition(
-            lookupCountry,
+            geoCodeCoords,
             null,
             callback);
     };
 
-    var lookupCountry = function (position) {
+    var geoCodeCoords = function (position) {
         var latlng = new google.maps.LatLng(
             position.coords.latitude,
             position.coords.longitude);
@@ -52,16 +52,11 @@
                 Description: "Vi har hämtat adressen nedan från din nuvarande position. Vi använder bara denna för visning på karta och liknande i samband med sökningar."
             });
 
-            //this.appendButtons({ markup: template, previousStep: "personalInfo", nextStep: "location" });
-            //callback =
             var that = this;
             getPosition(function (data) {
                 var html = Mustache.render(template, data);
-                that.$el.html(html);
-
-                //this.appendButtons({ markup: html, previousStep: "wanted", nextStep: "userType" });
-
-                $("div.form-actions").append("<a class='btn btn-warning' href='/#/register/userType'>Visa mig inte på kartor</a>")
+                var btnMarkup = "<a class='btn btn-warning' href='/#/register/userType'>Visa mig inte på kartor</a>";
+                that.appendButtons({ markup: html, previousStep: "wanted", nextStep: "userType", extraButtonMarkup: btnMarkup });
             });
         }
     });

@@ -1,12 +1,17 @@
-﻿define(["backbone", "views/registration/stepPersonalInfo"], function (Backbone, StepView) {
+﻿define(["backbone", "views/registration/stepPersonalInfo", "views/registration/wanted"], function (Backbone, StepView, WantedView) {
     return Backbone.Router.extend({
         routes: {
-            "step1": "step1"
+            "personalInfo": "personalInfo",
+            "wanted": "wanted"
         },
-        step1: function () {
+        personalInfo: function () {
             console.log("step1");
-            var view = new StepView({ el: $("#sectionMainContent") });
+            var view = new StepView();
             view.render();
+        },
+        wanted: function () {
+            var view = new WantedView();
+            view.render();            
         }
     });
 });

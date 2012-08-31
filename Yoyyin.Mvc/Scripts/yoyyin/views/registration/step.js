@@ -1,11 +1,12 @@
 ﻿define(["backbone", "mustache", "text!templates/registration/hero.htm"], function (Backbone, mustache, heroTemplate) {
-    var buttonsMarkup = "<div class='form-actions'><a class='btn' href='/#/register/{{previousStep}}'>Föregående</a><a class='btn btn-primary' href='/#/register/{{nextStep}}'>Nästa</a></div><form>";
+    var buttonsMarkup = "<div class='form-actions'><a class='btn' href='/#/{{previousStep}}'>Föregående</a><a class='btn btn-primary' href='/#/{{nextStep}}'>Nästa</a></div><form>";
 
     return Backbone.View.extend({
+        el: $("#sectionMainContent"),
 
         appendButtons: function (step) {
             var buttons = mustache.to_html(buttonsMarkup, step);
-            return step.markup + buttons;
+            this.$el.html(step.markup + buttons);
         },
 
         setHero: function (params) {

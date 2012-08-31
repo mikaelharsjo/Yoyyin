@@ -5,7 +5,7 @@
         },
         render: function () {
             this.setHero({ Headline: "Kul att du vill bli medlem, först vill vi höra om dig själv" });
-            this.$el.html(this.appendButtons({ markup: template, previousStep: "personalInfo", nextStep: "wanted" }));
+            this.appendButtons({ markup: template, previousStep: "personalInfo", nextStep: "wanted" });
             var view = new CompetencesView({ el: $("#competences") });
         }
     });

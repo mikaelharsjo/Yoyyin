@@ -1,9 +1,10 @@
-﻿define(["backbone", "views/registration/stepPersonalInfo", "views/registration/wanted", "views/registration/location"], function (Backbone, PersonalInfoView, WantedView, LocationView) {
+﻿define(["backbone", "views/registration/stepPersonalInfo", "views/registration/wanted", "views/registration/location", "views/registration/userType"], function (Backbone, PersonalInfoView, WantedView, LocationView, UserTypeView) {
     return Backbone.Router.extend({
         routes: {
             "personalInfo": "personalInfo",
             "wanted": "wanted",
-            "location": "location"
+            "location": "location",
+            "userType": "userType"
         },
         personalInfo: function () {
             console.log("step1");
@@ -16,6 +17,10 @@
         },
         location: function () {
             var view = new LocationView();
+            view.render();
+        },
+        userType: function () {
+            var view = new UserTypeView();
             view.render();
         }
     });

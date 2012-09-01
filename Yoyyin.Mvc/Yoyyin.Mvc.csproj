@@ -213,7 +213,7 @@
     <Compile Include="Controllers\IdeaController.cs" />
     <Compile Include="Controllers\TeaserController.cs" />
     <Compile Include="Controllers\UserController.cs" />
-    <Compile Include="Controllers\UserTypeController.cs" />
+    <Compile Include="Controllers\UserTypesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -302,12 +302,14 @@
     <Content Include="Scripts\yoyyin\collections\megaMatch.js" />
     <Content Include="Scripts\yoyyin\collections\messages.js" />
     <Content Include="Scripts\yoyyin\collections\users.js" />
+    <Content Include="Scripts\yoyyin\collections\userTypes.js" />
     <Content Include="Scripts\yoyyin\main.js" />
     <Content Include="Scripts\yoyyin\models\idea.js" />
     <Content Include="Scripts\yoyyin\models\matching\match.js" />
     <Content Include="Scripts\yoyyin\models\message.js" />
     <Content Include="Scripts\yoyyin\models\currentUser.js" />
     <Content Include="Scripts\yoyyin\models\user.js" />
+    <Content Include="Scripts\yoyyin\models\userType.js" />
     <Content Include="Scripts\yoyyin\registrationMain.js" />
     <Content Include="Scripts\yoyyin\routers\registrationRouter.js" />
     <Content Include="Scripts\yoyyin\routers\router.js" />
@@ -346,6 +348,7 @@
     <Content Include="Scripts\yoyyin\views\registration\location.js" />
     <Content Include="Scripts\yoyyin\views\registration\step.js" />
     <Content Include="Scripts\yoyyin\views\registration\stepPersonalInfo.js" />
+    <Content Include="Scripts\yoyyin\views\registration\userType.js" />
     <Content Include="Scripts\yoyyin\views\registration\wanted.js" />
     <Content Include="Scripts\yoyyin\views\shared\tags\competences.js" />
     <Content Include="Scripts\yoyyin\views\shared\tags\searchWords.js" />

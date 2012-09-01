@@ -1,21 +1,12 @@
-﻿define(["views/registration/step", "collections/userTypes"], function (StepView, UserTypes) {
+﻿define(["views/registration/step", "views/shared/userTypeRadioButtonList"], function (StepView, UserTypesRadioButtonList) {
     return StepView.extend({
         //collection: UserTypes,
-        initialize: function () {
-            console.log("initialize");
-            var that = this;
-            this.collection = new UserTypes();
-            this.collection.fetch({
-                success: function () {
-                    that.render();
-                }
-            });
-        },
+
         render: function () {
             this.setHero({ Headline: "Vilken är din roll/titel?" });
-            this.collection.each(function (userType) {
-                console.log(userType);
-            });
+            var radios = new UserTypesRadioButtonList({ el: this.el });
+            radios.render();
+            //this.$el.html(radios.render());
         }
     })
 });

@@ -352,6 +352,7 @@
     <Content Include="Scripts\yoyyin\views\registration\wanted.js" />
     <Content Include="Scripts\yoyyin\views\shared\tags\competences.js" />
     <Content Include="Scripts\yoyyin\views\shared\tags\searchWords.js" />
+    <Content Include="Scripts\yoyyin\views\shared\userTypeRadioButtonList.js" />
     <Content Include="Scripts\yoyyin\views\users\newMessage.js" />
     <Content Include="Scripts\yoyyin\views\users\users.js" />
     <Content Include="Scripts\yoyyin\views\users\user.js" />

@@ -26,7 +26,7 @@ namespace Yoyyin.Mvc.Controllers
             return Json(_repository.Query(m => m.UserTypes), JsonRequestBehavior.AllowGet);
         }
 
-        [HttpPost]
+        [POST("UserTypes")]
         public ActionResult Create(UserType userType)
         {
             int maxId = _repository.Query(m => m.UserTypes.Max(u => u.UserTypeId));

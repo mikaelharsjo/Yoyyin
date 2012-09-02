@@ -55,7 +55,7 @@
             var that = this;
             getPosition(function (data) {
                 var html = Mustache.render(template, data);
-                var btnMarkup = "<a class='btn btn-warning' href='/#/register/userType'>Visa mig inte på kartor</a>";
+                var btnMarkup = "<a class='btn btn-warning' href='/#/userType'>Visa mig inte på kartor</a>";
                 that.appendButtons({ markup: html, previousStep: "wanted", nextStep: "userType", extraButtonMarkup: btnMarkup });
             });
         }

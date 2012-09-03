@@ -1,4 +1,6 @@
-﻿define(["mustache", "views/registration/step", "views/shared/userTypeCheckBoxList", "text!templates/registration/userType.htm", "models/userType"], function (mustache, StepView, UserTypesCheckBoxList, template, UserType) {
+﻿
+
+define(["mustache", "views/registration/step", "views/shared/userTypeCheckBoxList", "text!templates/registration/userType.htm", "models/userType"], function (mustache, StepView, UserTypesCheckBoxList, template, UserType) {
     var renderCheckBoxes = function () {
         var checkBoxes = new UserTypesCheckBoxList({ el: $("#radios") });
         checkBoxes.render();

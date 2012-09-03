@@ -348,6 +348,8 @@
     <Content Include="Scripts\yoyyin\views\ideas\idea.js" />
     <Content Include="Scripts\yoyyin\views\matching\dialogMatcher.js" />
     <Content Include="Scripts\yoyyin\views\matching\megaMatch.js" />
+    <Content Include="Scripts\yoyyin\views\registration\tags.js" />
+    <Content Include="Scripts\yoyyin\views\registration\upload.js" />
     <Content Include="Scripts\yoyyin\views\registration\userTypesNeeded.js" />
     <Content Include="Scripts\yoyyin\views\registration\location.js" />
     <Content Include="Scripts\yoyyin\views\registration\step.js" />

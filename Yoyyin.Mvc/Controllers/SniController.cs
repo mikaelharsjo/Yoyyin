@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using AttributeRouting.Web.Mvc;
 using Yoyyin.Model.Users;
 using Yoyyin.Model.Users.ValueObjects;
 using Yoyyin.Mvc.Models;
@@ -39,6 +40,7 @@ namespace Yoyyin.Mvc.Controllers
                             .ToList());
         }
 
+        [GET("SniHeads")]
         public ActionResult Heads()
         {
             return Json(_userRepository.Query(m => m.SniHeads), JsonRequestBehavior.AllowGet);            

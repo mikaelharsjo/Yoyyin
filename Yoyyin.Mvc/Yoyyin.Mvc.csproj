@@ -264,7 +264,11 @@
     <Content Include="Images\glyphicons-halflings.png" />
     <Content Include="Global.asax" />
     <Content Include="Images\glyphicons_003_user%402x.png" />
+    <Content Include="Images\glyphicons_003_user.png" />
+    <Content Include="Images\glyphicons_004_girl.png" />
     <Content Include="Images\glyphicons_025_binoculars.png" />
+    <Content Include="Images\glyphicons_034_old_man.png" />
+    <Content Include="Images\glyphicons_035_woman.png" />
     <Content Include="Images\glyphicons_206_ok_2.png" />
     <Content Include="Images\glyphicons_207_remove_2.png" />
     <Content Include="Images\grid-18px-masked.png" />
@@ -301,6 +305,7 @@
     <Content Include="Scripts\yoyyin\collections\ideas.js" />
     <Content Include="Scripts\yoyyin\collections\megaMatch.js" />
     <Content Include="Scripts\yoyyin\collections\messages.js" />
+    <Content Include="Scripts\yoyyin\collections\sniHeads.js" />
     <Content Include="Scripts\yoyyin\collections\users.js" />
     <Content Include="Scripts\yoyyin\collections\userTypes.js" />
     <Content Include="Scripts\yoyyin\main.js" />
@@ -324,6 +329,7 @@
     <Content Include="Scripts\yoyyin\templates\registration\location.htm" />
     <Content Include="Scripts\yoyyin\templates\registration\userType.htm" />
     <Content Include="Scripts\yoyyin\templates\Shared\alertInfo.htm" />
+    <Content Include="Scripts\yoyyin\templates\Shared\sniDropDowns.htm" />
     <Content Include="Scripts\yoyyin\templates\Shared\userTypeCheckBox.htm" />
     <Content Include="Scripts\yoyyin\templates\Shared\modal.htm" />
     <Content Include="Scripts\yoyyin\templates\Shared\userTypeRadio.htm" />
@@ -348,6 +354,7 @@
     <Content Include="Scripts\yoyyin\views\ideas\idea.js" />
     <Content Include="Scripts\yoyyin\views\matching\dialogMatcher.js" />
     <Content Include="Scripts\yoyyin\views\matching\megaMatch.js" />
+    <Content Include="Scripts\yoyyin\views\registration\idea.js" />
     <Content Include="Scripts\yoyyin\views\registration\tags.js" />
     <Content Include="Scripts\yoyyin\views\registration\upload.js" />
     <Content Include="Scripts\yoyyin\views\registration\userTypesNeeded.js" />
@@ -356,6 +363,7 @@
     <Content Include="Scripts\yoyyin\views\registration\stepPersonalInfo.js" />
     <Content Include="Scripts\yoyyin\views\registration\userType.js" />
     <Content Include="Scripts\yoyyin\views\registration\wanted.js" />
+    <Content Include="Scripts\yoyyin\views\shared\sniCascadingDropDown.js" />
     <Content Include="Scripts\yoyyin\views\shared\userTypeCheckBoxList.js" />
     <Content Include="Scripts\yoyyin\views\shared\tags\competences.js" />
     <Content Include="Scripts\yoyyin\views\shared\tags\searchWords.js" />

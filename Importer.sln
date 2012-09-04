@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yoyyin.Importing", "Yoyyin.Importing\Yoyyin.Importing.csproj", "{C3193C65-D8A6-4BD8-AB11-BF7D1E6C2887}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yoyyin.Data", "Yoyyin.Data\Yoyyin.Data.csproj", "{CA00E16D-2B05-4B84-837B-32DFC2A3FF94}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yoyyin.Model", "Yoyyin.Model\Yoyyin.Model.csproj", "{51B0D69C-28EA-45C8-B4BB-FDD199A723D7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yoyyin.Model.Tests", "Yoyyin.Model.Tests\Yoyyin.Model.Tests.csproj", "{424E6770-20EE-412F-B9B7-8C1FEB17088C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C3193C65-D8A6-4BD8-AB11-BF7D1E6C2887}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3193C65-D8A6-4BD8-AB11-BF7D1E6C2887}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3193C65-D8A6-4BD8-AB11-BF7D1E6C2887}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3193C65-D8A6-4BD8-AB11-BF7D1E6C2887}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA00E16D-2B05-4B84-837B-32DFC2A3FF94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA00E16D-2B05-4B84-837B-32DFC2A3FF94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA00E16D-2B05-4B84-837B-32DFC2A3FF94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA00E16D-2B05-4B84-837B-32DFC2A3FF94}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51B0D69C-28EA-45C8-B4BB-FDD199A723D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51B0D69C-28EA-45C8-B4BB-FDD199A723D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51B0D69C-28EA-45C8-B4BB-FDD199A723D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51B0D69C-28EA-45C8-B4BB-FDD199A723D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{424E6770-20EE-412F-B9B7-8C1FEB17088C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{424E6770-20EE-412F-B9B7-8C1FEB17088C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{424E6770-20EE-412F-B9B7-8C1FEB17088C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{424E6770-20EE-412F-B9B7-8C1FEB17088C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

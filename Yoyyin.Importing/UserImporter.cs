@@ -38,7 +38,7 @@ namespace Yoyyin.Importing
                                 UserId = user.UserId,
                                 Active = user.Active != null && (bool) user.Active,
                                 Name = user.Name,
-                                DisplayName = string.IsNullOrEmpty(user.Alias) ? user.Name : user.Alias,
+                                Alias = user.Alias,
                                 HasImage = user.Image != null,
                                 Competences = GetCompetences(user),
                                 Ideas = new List<Idea>
@@ -52,6 +52,7 @@ namespace Yoyyin.Importing
                                                         SniNo = user.SniNo != null ? user.SniNo.Trim() : "Övrigt",
                                                         SniHeadId =
                                                             user.SniHeadID != null ? user.SniHeadID.Trim() : "Övrigt",
+                                                            Funding = new Funding() { Amount = "0", Description = "", WantsFinancing = user.UserTypesNeeded.Contains("")},
                                                         SearchProfile = new SearchProfile
                                                                             {
                                                                                 SearchWords = GetSearchWords(user),

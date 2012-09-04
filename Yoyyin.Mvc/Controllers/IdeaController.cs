@@ -105,7 +105,7 @@ namespace Yoyyin.Mvc.Controllers
 
             return View("List", _repository
                             .Query(m => m.Users)
-                            .Where(u => u.Ideas.First().SearchProfile.UserTypesNeeded.WantsFinancing())
+                            .Where(u => u.Ideas.First().Funding.WantsFinancing)
                             .Select(u => _userConverter.ConvertToViewModel(u)));
         }
 

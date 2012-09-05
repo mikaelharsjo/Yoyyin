@@ -10,3 +10,4 @@ bin
 # Visual studio
 yoyyin.com.sln.DotSettings.user
 yoyyin.com.suo
+*.user

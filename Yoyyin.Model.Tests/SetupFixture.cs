@@ -32,7 +32,7 @@ namespace Yoyyin.Model.Tests
             
             UserRepository.Purge();
             
-            DevelopmentUserRepository = new DevelopmentUserRepository(new UserImporter(), new SniImporter(), UserRepository);
+            //DevelopmentUserRepository = new DevelopmentUserRepository(new UserImporter(), new SniImporter(), UserRepository);
                      
             QandARepository = new Repository<QandAModel>(new RepositoryConfiguration(), qandAFactory)
                                   {Path = @"c:\Temp\yoyyin\Q&A"};
@@ -46,57 +46,6 @@ namespace Yoyyin.Model.Tests
 
             Console.Out.WriteLine("Revision is now {0}", UserRepository.Revision);
             //Console.Out.WriteLine("Model size is {0}", _repo.Query(m => m.Users.Count));
-        }
-
-        [Test]
-        public void CreatePatch()
-        {
-
-            UserRepository.Execute(
-                new AddUserTypeCommand(new UserType
-                                           {
-                                               UserTypeId = 0,
-                                               Title = "Entreprenör",
-                                               Description = "Affärsutvecklare, person som kan starta upp och driva företag."
-                                           }));
-            UserRepository.Execute(
-                new AddUserTypeCommand(new UserType
-                                           {
-                                               UserTypeId = 1,
-                                               Title = "Uppfinnare",
-                                               Description = "Innovatör, person med idéer."
-                                           }));
-            UserRepository.Execute(
-                new AddUserTypeCommand(new UserType
-                                           {
-                                               UserTypeId = 2,
-                                               Title = "Finansiär",
-                                               Description = "Söker idéer och företag att investera i."
-                                           }));
-            UserRepository.Execute(
-                new AddUserTypeCommand(new UserType
-                                           {
-                                               UserTypeId = 3,
-                                               Title = "Utvecklare",
-                                               //Title = "Finansiär/Drake/Ängel",
-                                               Description = "Person som kan utveckla programvara eler webb."
-                                           }));
-            UserRepository.Execute(
-                new AddUserTypeCommand(new UserType
-                                           {
-                                               UserTypeId = 4,
-                                               Title = "Snart pensionär",
-                                               Description =
-                                                   "Person som vill avveckla/sälja sitt företag."
-                                           }));
-            UserRepository.Execute(
-                new AddUserTypeCommand(new UserType
-                {
-                    UserTypeId = 5,
-                    Title = "Marknadsförare",
-                    Description =
-                        "Person som kan sälja/marknadsföra."
-                }));
         }
 
         private void Add5QuestionsAndAnswersPerUser(IEnumerable<User> users)

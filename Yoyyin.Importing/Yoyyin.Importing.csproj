@@ -33,6 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Kiwi.Prevalence, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="nunit.framework">
       <HintPath>..\packages\NUnit.2.6.0.12054\lib\nunit.framework.dll</HintPath>
     </Reference>
@@ -50,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PatchCreator.cs" />
     <Compile Include="SniImporter.cs" />
     <Compile Include="SniImporterFixture.cs" />
     <Compile Include="UserImageCreater.cs" />

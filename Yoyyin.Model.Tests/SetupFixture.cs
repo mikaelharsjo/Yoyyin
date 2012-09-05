@@ -4,7 +4,6 @@ using System.Linq;
 using FizzWare.NBuilder;
 using Kiwi.Prevalence;
 using NUnit.Framework;
-using Yoyyin.Importing;
 using Yoyyin.Model.Users;
 using Yoyyin.Model.Users.AggregateRoots;
 using Yoyyin.Model.Users.Commands;

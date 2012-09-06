@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Yoyyin.Mvc.Models.BreadCrumb
+namespace Yoyyin.Mvc.ViewModels.BreadCrumb
 {
     public class ListBreadCrumb : BreadCrumb
     {

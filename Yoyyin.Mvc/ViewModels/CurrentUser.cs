@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using Yoyyin.Model.Users.ValueObjects;
 
-namespace Yoyyin.Mvc.Models
+namespace Yoyyin.Mvc.ViewModels
 {
     public class CurrentUser //: Model.Users.AggregateRoots.User
     {

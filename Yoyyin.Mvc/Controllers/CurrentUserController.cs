@@ -4,7 +4,7 @@ using Yoyyin.Model.Extensions;
 using Yoyyin.Model.Users;
 using Yoyyin.Model.Users.AggregateRoots;
 using Yoyyin.Model.Users.Commands;
-using Yoyyin.Mvc.Models.Presenters;
+using Yoyyin.Mvc.ViewModels.Presenters;
 using CurrentUserService = Yoyyin.Mvc.Services.CurrentUserService;
 
 namespace Yoyyin.Mvc.Controllers

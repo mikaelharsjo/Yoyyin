@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
-using Yoyyin.Mvc.Models.BreadCrumb;
+using Yoyyin.Mvc.ViewModels.BreadCrumb;
 
-namespace Yoyyin.Mvc.Models.BreadCrumb
+namespace Yoyyin.Mvc.ViewModels.BreadCrumb
 {
     public class ListBySniNoBreadCrumb : BreadCrumb
     {

@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Yoyyin.Mvc.Models
+namespace Yoyyin.Mvc.ViewModels
 {
     public class User
     {
@@ -13,6 +13,7 @@ namespace Yoyyin.Mvc.Models
         public IEnumerable<string> UserTypesNeeded { get; set; } 
         public IEnumerable<string> Competences { get; set; }
         public IEnumerable<string> CompetencesNeeded { get; set; }
+        public LookingFor LookingFor { get; set; }
 
         public Guid id { get; set; }
     }

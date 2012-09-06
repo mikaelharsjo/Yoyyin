@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Yoyyin.Model.Users.Entities;
 using Yoyyin.Model.Users.ValueObjects;
 
-namespace Yoyyin.Mvc.Models
+namespace Yoyyin.Mvc.ViewModels
 {
     public class Idea
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web.Mvc;
 using Yoyyin.Model.Matching;
 using Yoyyin.Model.Users;
-using Yoyyin.Mvc.Models.Presenters;
+using Yoyyin.Mvc.ViewModels.Presenters;
 using Yoyyin.Mvc.Services;
 
 namespace Yoyyin.Mvc.Controllers

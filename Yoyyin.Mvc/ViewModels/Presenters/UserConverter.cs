@@ -4,7 +4,7 @@ using Yoyyin.Mvc.Providers;
 using Yoyyin.Mvc.Providers.Markup;
 using Yoyyin.Mvc.Services;
 
-namespace Yoyyin.Mvc.Models.Presenters
+namespace Yoyyin.Mvc.ViewModels.Presenters
 {
     public class UserConverter
     {
@@ -14,13 +14,15 @@ namespace Yoyyin.Mvc.Models.Presenters
         private readonly UserTypeService _userTypeService;
         private readonly IdeaConverter _ideaConverter;
         private readonly ImageProvider _imageProvider;
+        private readonly LookingForPresenter _lookingForPresenter;
 
-        public UserConverter(IUserRepository userRepository, IUserTypesNeededMarkupProvider userTypesNeededMarkupProvider, UserTypeService userTypeService, IdeaConverter ideaConverter)
+        public UserConverter(IUserRepository userRepository, IUserTypesNeededMarkupProvider userTypesNeededMarkupProvider, UserTypeService userTypeService, IdeaConverter ideaConverter, LookingForPresenter lookingForPresenter)
         {
             _userRepository = userRepository;
             _userTypesNeededMarkupProvider = userTypesNeededMarkupProvider;
             _userTypeService = userTypeService;
             _ideaConverter = ideaConverter;
+            _lookingForPresenter = lookingForPresenter;
             _competencesNeededMarkupProvider = new CompetencesNeededMarkupProvider();
             _imageProvider = new ImageProvider();
         }
@@ -44,7 +46,8 @@ namespace Yoyyin.Mvc.Models.Presenters
                 // moved to idea?
                 UserTypesNeeded = _userTypeService.GetUserTypesAsStrings(user.Ideas.First().SearchProfile.UserTypesNeeded),
                 CompetencesNeeded = user.Ideas.First().SearchProfile.CompetencesNeeded,
-                Ideas = user.Ideas.Select(_ideaConverter.Convert)
+                Ideas = user.Ideas.Select(_ideaConverter.Convert),
+                LookingFor = _lookingForPresenter.ToViewModel(user.LookingFor)
             };
         }
 

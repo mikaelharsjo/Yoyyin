@@ -218,32 +218,34 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\HtmlHelperExtensions.cs" />
-    <Compile Include="Models\AccountModels.cs" />
-    <Compile Include="Models\BreadCrumb\BreadCrumb.cs" />
-    <Compile Include="Models\BreadCrumb\BreadCrumbItem.cs" />
-    <Compile Include="Models\BreadCrumb\IBreadCrumb.cs" />
-    <Compile Include="Models\BreadCrumb\ListBreadCrumb.cs" />
-    <Compile Include="Models\BreadCrumb\ListBySniHeadBreadCrumb.cs" />
-    <Compile Include="Models\BreadCrumb\ListBySniNoBreadCrumb.cs" />
-    <Compile Include="Models\BreadCrumb\NoBreadCrumb.cs" />
-    <Compile Include="Models\Comment.cs" />
-    <Compile Include="Models\Presenters\CommentConverter.cs" />
-    <Compile Include="Models\Presenters\CurrentUserConverter.cs" />
-    <Compile Include="Models\CurrentUser.cs" />
+    <Compile Include="ViewModels\AccountModels.cs" />
+    <Compile Include="ViewModels\BreadCrumb\BreadCrumb.cs" />
+    <Compile Include="ViewModels\BreadCrumb\BreadCrumbItem.cs" />
+    <Compile Include="ViewModels\BreadCrumb\IBreadCrumb.cs" />
+    <Compile Include="ViewModels\BreadCrumb\ListBreadCrumb.cs" />
+    <Compile Include="ViewModels\BreadCrumb\ListBySniHeadBreadCrumb.cs" />
+    <Compile Include="ViewModels\BreadCrumb\ListBySniNoBreadCrumb.cs" />
+    <Compile Include="ViewModels\BreadCrumb\NoBreadCrumb.cs" />
+    <Compile Include="ViewModels\Comment.cs" />
+    <Compile Include="ViewModels\LookingFor.cs" />
+    <Compile Include="ViewModels\Presenters\CommentConverter.cs" />
+    <Compile Include="ViewModels\Presenters\CurrentUserConverter.cs" />
+    <Compile Include="ViewModels\CurrentUser.cs" />
     <Compile Include="Providers\ImageProvider.cs" />
     <Compile Include="Services\SniService.cs" />
-    <Compile Include="Models\Idea.cs" />
-    <Compile Include="Models\Presenters\IdeaConverter.cs" />
-    <Compile Include="Models\Presenters\MessageConverter.cs" />
-    <Compile Include="Models\Message.cs" />
-    <Compile Include="Models\Sni.cs" />
-    <Compile Include="Models\User.cs" />
-    <Compile Include="Models\UserRoles\Authorizer.cs" />
-    <Compile Include="Models\UserRoles\IAuthorizer.cs" />
-    <Compile Include="Models\UserRoles\IUserRoles.cs" />
-    <Compile Include="Models\UserRoles\UserRoles.cs" />
-    <Compile Include="Models\UserWithFirstIdea.cs" />
-    <Compile Include="Models\Presenters\UserConverter.cs" />
+    <Compile Include="ViewModels\Idea.cs" />
+    <Compile Include="ViewModels\Presenters\IdeaConverter.cs" />
+    <Compile Include="ViewModels\Presenters\LookingForPresenter.cs" />
+    <Compile Include="ViewModels\Presenters\MessageConverter.cs" />
+    <Compile Include="ViewModels\Message.cs" />
+    <Compile Include="ViewModels\Sni.cs" />
+    <Compile Include="ViewModels\User.cs" />
+    <Compile Include="ViewModels\UserRoles\Authorizer.cs" />
+    <Compile Include="ViewModels\UserRoles\IAuthorizer.cs" />
+    <Compile Include="ViewModels\UserRoles\IUserRoles.cs" />
+    <Compile Include="ViewModels\UserRoles\UserRoles.cs" />
+    <Compile Include="ViewModels\UserWithFirstIdea.cs" />
+    <Compile Include="ViewModels\Presenters\UserConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\Markup\CompetencesNeededMarkupProvider.cs" />
     <Compile Include="Providers\Markup\LabelListGenerator.cs" />
@@ -448,7 +450,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\Upload\Images\" />
-    <Folder Include="Models\Matching\" />
+    <Folder Include="ViewModels\Matching\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

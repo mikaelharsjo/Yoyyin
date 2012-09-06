@@ -7,10 +7,10 @@ using System.Web.Mvc;
 using Yoyyin.Model;
 using Yoyyin.Model.Users;
 using Yoyyin.Model.Users.Entities;
-using Yoyyin.Mvc.Models;
-using Yoyyin.Mvc.Models.BreadCrumb;
-using Yoyyin.Mvc.Models.Presenters;
-using Comment = Yoyyin.Mvc.Models.Comment;
+using Yoyyin.Mvc.ViewModels;
+using Yoyyin.Mvc.ViewModels.BreadCrumb;
+using Yoyyin.Mvc.ViewModels.Presenters;
+using Comment = Yoyyin.Mvc.ViewModels.Comment;
 
 namespace Yoyyin.Mvc.Controllers
 {

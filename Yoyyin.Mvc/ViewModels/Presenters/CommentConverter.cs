@@ -4,7 +4,7 @@ using Yoyyin.Model.Extensions;
 using Yoyyin.Model.Users;
 using Yoyyin.Mvc.Providers;
 
-namespace Yoyyin.Mvc.Models.Presenters
+namespace Yoyyin.Mvc.ViewModels.Presenters
 {
     public class CommentConverter
     {

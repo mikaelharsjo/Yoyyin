@@ -2,9 +2,9 @@
 using System.Linq;
 using System.Web.Mvc;
 using Yoyyin.Model.Users;
-using Yoyyin.Mvc.Models;
-using Yoyyin.Mvc.Models.BreadCrumb;
-using Yoyyin.Mvc.Models.Presenters;
+using Yoyyin.Mvc.ViewModels;
+using Yoyyin.Mvc.ViewModels.BreadCrumb;
+using Yoyyin.Mvc.ViewModels.Presenters;
 
 namespace Yoyyin.Mvc.Controllers
 {

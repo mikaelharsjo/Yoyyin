@@ -1,4 +1,4 @@
-namespace Yoyyin.Mvc.Models.BreadCrumb
+namespace Yoyyin.Mvc.ViewModels.BreadCrumb
 {
     public class BreadCrumbItem 
     {

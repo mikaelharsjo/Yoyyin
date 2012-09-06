@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Web;
 using Yoyyin.Model.Users.Entities;
 
-namespace Yoyyin.Mvc.Models
+namespace Yoyyin.Mvc.ViewModels
 {
     public class UserWithFirstIdea
     {

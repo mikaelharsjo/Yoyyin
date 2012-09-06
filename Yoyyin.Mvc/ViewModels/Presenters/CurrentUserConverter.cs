@@ -3,7 +3,7 @@ using Yoyyin.Model.Extensions;
 using Yoyyin.Mvc.Providers;
 using Yoyyin.Mvc.Services;
 
-namespace Yoyyin.Mvc.Models.Presenters
+namespace Yoyyin.Mvc.ViewModels.Presenters
 {
     public class CurrentUserConverter
     {

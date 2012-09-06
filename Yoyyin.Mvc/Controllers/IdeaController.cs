@@ -10,8 +10,8 @@ using Yoyyin.Model.Users;
 using Yoyyin.Model.Users.Entities;
 using Yoyyin.Mvc.Models;
 using Yoyyin.Model.Users.AggregateRoots;
-using Yoyyin.Mvc.Models.BreadCrumb;
-using Yoyyin.Mvc.Models.Presenters;
+using Yoyyin.Mvc.ViewModels.BreadCrumb;
+using Yoyyin.Mvc.ViewModels.Presenters;
 using User = Yoyyin.Model.Users.AggregateRoots.User;
 using Yoyyin.Model.Users.Enumerations;
 

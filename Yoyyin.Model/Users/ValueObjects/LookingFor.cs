@@ -2,11 +2,23 @@ namespace Yoyyin.Model.Users.ValueObjects
 {
     public class LookingFor
     {
+        public LookingFor()
+        {
+            JoinOrBeJoined = true;
+        }
+
         public bool PartnerToMyIdea { get; set; }
         public bool IdeasToJoin { get; set; }
         public bool JoinOrBeJoined { get; set; }
         public bool Investements { get; set; }
         public bool Financing { get; set; }
+
+
+
+        public new string ToString()
+        {
+            return (PartnerToMyIdea ? "PartnerToMyIdea" : "") + (JoinOrBeJoined ? "JoinOrBeJoined" : "");
+        }
 
         public bool MatchWith(LookingFor lookingFor)
         {

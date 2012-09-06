@@ -2,7 +2,7 @@
 using System.Linq;
 using Yoyyin.Mvc.Services;
 
-namespace Yoyyin.Mvc.Models.Presenters
+namespace Yoyyin.Mvc.ViewModels.Presenters
 {
     public class IdeaConverter
     {

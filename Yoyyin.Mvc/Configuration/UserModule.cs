@@ -4,7 +4,7 @@ using Autofac;
 using Kiwi.Prevalence;
 using Yoyyin.Model.Users;
 using Yoyyin.Model.Users.Commands;
-using Yoyyin.Mvc.Models.Presenters;
+using Yoyyin.Mvc.ViewModels.Presenters;
 using Yoyyin.Mvc.Providers.Markup;
 using Yoyyin.Mvc.Services;
 using CurrentUserService = Yoyyin.Mvc.Services.CurrentUserService;
@@ -42,6 +42,7 @@ namespace Yoyyin.Mvc.Configuration
             builder.RegisterType<IdeaConverter>();
             builder.RegisterType<UserConverter>();
             builder.RegisterType<CurrentUserConverter>();
+            builder.RegisterType<LookingForPresenter>();
 
             builder.RegisterType<UserTypesNeededMarkupProvider>().As<IUserTypesNeededMarkupProvider>();
             builder.RegisterType<CurrentUserService>();

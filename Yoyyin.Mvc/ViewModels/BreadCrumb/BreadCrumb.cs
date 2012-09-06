@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Yoyyin.Mvc.Models.BreadCrumb
+namespace Yoyyin.Mvc.ViewModels.BreadCrumb
 {
     public class BreadCrumb : IBreadCrumb
     {
@@ -15,6 +15,7 @@ namespace Yoyyin.Mvc.Models.BreadCrumb
                 string template = "<ul class='breadcrumb'>{0}</ul>";
 
                 string itemsMarkup = string.Join("", Items.Select(item => item.GetMarkup()).ToArray());
+                               
 
                 return string.Format(template, itemsMarkup);
             }

@@ -13,11 +13,9 @@ namespace Yoyyin.Model.Users.ValueObjects
         public bool Investements { get; set; }
         public bool Financing { get; set; }
 
-
-
-        public new string ToString()
+        public new string Description()
         {
-            return (PartnerToMyIdea ? "PartnerToMyIdea" : "") + (JoinOrBeJoined ? "JoinOrBeJoined" : "");
+            return (PartnerToMyIdea ? "letar efter en partner til min idé" : "") + (JoinOrBeJoined ? "har en idé men är öppen för att delta i andras också" : "") + (IdeasToJoin ? "letar efter idéer att delta i" : "") + (Investements ? "har pengar att investera i bra affärsidéer" : "");
         }
 
         public bool MatchWith(LookingFor lookingFor)

@@ -3,34 +3,41 @@
 @Html.PageHeader("Personer", "Kanske din nästa affärspartner?")
 @foreach (var user in Model)
 {
-    <div class="row-fluid well">
-        <div class="span2">
-            <a href="/User/Details/@user.id" class="thumbnail">
-                <img src="@user.ProfileImageSrc" />
-            </a><a href="/User/Details/@user.id"><strong>@user.DisplayName</strong> </a>, @user.City
-        </div>
-        <div class="span10">
-            Jag är<br />
-            <span class="label label-success">@user.UserType</span><br />
+    <div class="well">
+        <div class="row-fluid">
+            <div class="span2">
+                <a href="/User/Details/@user.id" class="thumbnail">
+                    <img src="@user.ProfileImageSrc" />
+                </a><a href="/User/Details/@user.id"><strong>@user.DisplayName</strong> </a>, @user.City
+            </div>
+            <div class="span10">
+                Jag är<br />
+                <span class="label label-success">@user.UserType</span><br />
             
-            ..och kan<br />
-            @foreach (var competence in @user.Competences)
-            {
-                <span class="label label-info">@competence</span>
-            }
-            <hr />
-            Jag söker<br />
-            @foreach (var userType in @user.UserTypesNeeded)
-            {
-                <span class="label label-success">@userType</span>
-            }
-            <br />
-            ..som kan<br />
-            @foreach (var competenceNeeded in @user.CompetencesNeeded)
-            {
-                <span class="label label-info">@competenceNeeded</span>
-            }
+                ..och kan<br />
+                @foreach (var competence in @user.Competences)
+                {
+                    <span class="label label-info">@competence</span>
+                }
+                <hr />
+                Jag söker<br />
+                @foreach (var userType in @user.UserTypesNeeded)
+                {
+                    <span class="label label-success">@userType</span>
+                }
+                <br />
+                ..som kan<br />
+                @foreach (var competenceNeeded in @user.CompetencesNeeded)
+                {
+                    <span class="label label-info">@competenceNeeded</span>
+                }            
+            </div>
+        </div>
+        <br />
+        <div class="alert alert-info">
+            <img src='@user.LookingFor.ImageUrl' /> <small>@user.DisplayName @user.LookingFor.Description</small>
         </div>
     </div>
+    
 }
 

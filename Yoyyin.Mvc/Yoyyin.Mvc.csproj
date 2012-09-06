@@ -271,6 +271,9 @@
     <Content Include="Images\glyphicons_025_binoculars.png" />
     <Content Include="Images\glyphicons_034_old_man.png" />
     <Content Include="Images\glyphicons_035_woman.png" />
+    <Content Include="Images\glyphicons_037_credit.png" />
+    <Content Include="Images\glyphicons_043_group.png" />
+    <Content Include="Images\glyphicons_064_lightbulb.png" />
     <Content Include="Images\glyphicons_206_ok_2.png" />
     <Content Include="Images\glyphicons_207_remove_2.png" />
     <Content Include="Images\grid-18px-masked.png" />

@@ -59,6 +59,15 @@ namespace Yoyyin.Importing
         private void AddAvatars()
         {
             AddAvatar(new Guid("bb887d91-c8ec-4434-9f6f-11309741ee82"), "glyphicons_034_old_man.png");
+            //bb887d91-c8ec-4434-9f6f-11309741ee82 old_man
+            //fb7ff02f-0962-42dc-800b-f00624f47d63 old man
+
+            //f7370b2e-ef22-4d86-b4b8-521b66edee2a girl
+
+            //36c1a00d-dd85-4121-9aac-17a891d25086 woman
+            //b17a04dd-2a8c-472f-86da-638701547027 woman
+            //59e6a416-a0a5-47f3-bafb-ae80e1559528 woman
+            //61eae6b0-6c78-4b19-b8d9-f63db120c398 woman
         }
 
         private void AddAvatar(Guid userId, string avatar)

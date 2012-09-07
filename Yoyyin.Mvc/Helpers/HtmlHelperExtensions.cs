@@ -4,7 +4,7 @@ namespace Yoyyin.Mvc.Helpers
 {
     public static class HtmlHelperExtensions
     {
-        public static IHtmlString PageHeader(this System.Web.Mvc.HtmlHelper html, string title, string byLine)
+        public static IHtmlString PageHeader(this System.Web.Mvc.HtmlHelper html, object title, object byLine)
         {
             if (title == null && byLine == null) return html.Raw("");
 
@@ -12,7 +12,7 @@ namespace Yoyyin.Mvc.Helpers
                                         <h1>{0}. <small>{1}</small></h1>            
                                     </div>";
 
-            return html.Raw(string.Format(template, title, byLine));
+            return html.Raw(string.Format(template, title.ToString(), byLine.ToString()));
         }
     }
 }

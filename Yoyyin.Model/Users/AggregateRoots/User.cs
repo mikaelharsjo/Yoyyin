@@ -41,13 +41,16 @@ namespace Yoyyin.Model.Users.AggregateRoots
         public DateTime Created { get; set; }
 
 
-        public bool HasImage { get; set; }
+        //public bool HasImage { get; set; }
+
         public string Email { get; set; }
 
         public Address Address { get; set; }
         public Settings Settings { get; set; }
         public string Presentation { get; set; }
         public LookingFor LookingFor { get; set; }
+
+        public Image Image { get; set; }
 
         public int UserType { get; set; }
         

@@ -23,13 +23,17 @@ namespace Yoyyin.Model.Users.AggregateRoots
         //IEnumerable<Comment> Comments { get; set; }
         IEnumerable<string> Competences { get; set; }
         IEnumerable<Question> GetQuestions(UserModel userModel);
-        bool HasImage { get; set; }
+
+        Image Image { get; set; }
+        
         string Presentation { get; set; }
         LookingFor LookingFor { get; set; }
-        //string DisplayName { get; set; }
+        
+        // move?
         DateTime LastLogin { get; set; }
         DateTime Created { get; set; }
         string LastLoginFormatted { get; set; }
+
         string DisplayName { get; }
     }
 }

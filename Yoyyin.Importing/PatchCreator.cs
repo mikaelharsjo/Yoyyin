@@ -49,12 +49,29 @@ namespace Yoyyin.Importing
                 _userRepository.Execute(new AddSniHeadCommand(sniHead));
             }
 
-            AddInitialUserTypes();
+            AddUserTypes();
+
+            AddAvatars();
 
             //Console.Out.WriteLine("UserTypes count :{0}", Us);
         }
 
-        private void AddInitialUserTypes()
+        private void AddAvatars()
+        {
+            AddAvatar(new Guid("bb887d91-c8ec-4434-9f6f-11309741ee82"), "glyphicons_034_old_man.png");
+        }
+
+        private void AddAvatar(Guid userId, string avatar)
+        {
+            var user = _userRepository.Query(m => m.Users.First(u => u.UserId == userId));
+            user.Image.Avatar = avatar;
+            _userRepository.Execute(new UpdateUserCommand
+                                        {
+                                            User = user
+                                        });
+        }
+
+        private void AddUserTypes()
         {
             _userRepository.Execute(
                 new AddUserTypeCommand(new UserType

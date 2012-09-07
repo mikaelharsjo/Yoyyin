@@ -18,7 +18,7 @@ namespace Yoyyin.Mvc.Providers
         public string GetProfileImageSrc()
         {
             if (_user == null) return string.Empty;
-            return _user.HasImage ? GetUploadeImage() : GetAvatar();
+            return _user.Image.HasImage ? GetUploadeImage() : GetAvatar();
         }
 
         private string GetUploadeImage()
@@ -28,7 +28,7 @@ namespace Yoyyin.Mvc.Providers
 
         private string GetAvatar()
         {
-            return "/Images/glyphicons_003_user@2x.png";
+            return string.Format("/Images/{0}", string.IsNullOrEmpty(_user.Image.Avatar) ? "glyphicons_003_user@2x.png" : _user.Image.Avatar);
         }
     }
 }

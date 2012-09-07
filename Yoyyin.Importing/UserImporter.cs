@@ -45,7 +45,8 @@ namespace Yoyyin.Importing
                            Active = user.Active != null && (bool) user.Active,
                            Name = user.Name,
                            Alias = user.Alias,
-                           HasImage = user.Image != null,
+                           Image = new Image { HasImage = user.Image != null},
+                           //HasImage = user.Image != null,
                            Competences = GetCompetences(user),
                            Ideas = new List<Idea>
                                        {

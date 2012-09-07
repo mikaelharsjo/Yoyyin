@@ -70,6 +70,7 @@
     <Compile Include="Users\AggregateRoots\IUser.cs" />
     <Compile Include="Users\Entities\IUserTypesNeeded.cs" />
     <Compile Include="Users\ValueObjects\Funding.cs" />
+    <Compile Include="Users\ValueObjects\Image.cs" />
     <Compile Include="Users\ValueObjects\LookingFor.cs" />
     <Compile Include="Users\AggregateRoots\Sni.cs" />
     <Compile Include="Users\Commands\AddSniCommand.cs" />

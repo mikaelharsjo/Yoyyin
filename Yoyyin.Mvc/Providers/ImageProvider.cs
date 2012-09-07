@@ -2,15 +2,33 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Yoyyin.Model.Users.AggregateRoots;
 
 namespace Yoyyin.Mvc.Providers
 {
     public class ImageProvider
     {
-        public string GetProfileImageSrc(Model.Users.AggregateRoots.IUser user)
+        IUser _user;
+
+        public ImageProvider(IUser user)
         {
-            if (user == null) return string.Empty;
-            return user.HasImage ? string.Format("/Content/Upload/Images/{0}.jpg", user.UserId) : "/Images/glyphicons_003_user@2x.png";
+            _user = user;
+        }
+
+        public string GetProfileImageSrc()
+        {
+            if (_user == null) return string.Empty;
+            return _user.HasImage ? GetUploadeImage() : GetAvatar();
+        }
+
+        private string GetUploadeImage()
+        {
+            return string.Format("/Content/Upload/Images/{0}.jpg", _user.UserId);
+        }
+
+        private string GetAvatar()
+        {
+            return "/Images/glyphicons_003_user@2x.png";
         }
     }
 }

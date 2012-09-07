@@ -13,19 +13,19 @@ namespace Yoyyin.Mvc.ViewModels.Presenters
 
         public CommentConverter(IUserRepository repository)
         {
-            _repository = repository;
-            _imageProvider = new ImageProvider();
+            _repository = repository;            
         }
 
         public Comment Convert(Model.Users.Entities.Comment comment)
         {
             var commenter = _repository.Query(m => m.Users.FirstOrDefault(u => u.UserId == comment.UserId));
+            _imageProvider = new ImageProvider(commenter);
             return new Comment
                        {
                            Text = comment.Text,
                            Created = comment.Created.ToFormattedString(),
                            Comments = comment.Comments != null ? comment.Comments.Select(Convert) : new List<Comment>(),
-                           UserImageSrc = _imageProvider.GetProfileImageSrc(commenter),
+                           UserImageSrc = _imageProvider.GetProfileImageSrc(),
                            UserDisplayName = commenter != null ? commenter.DisplayName : string.Empty
                        };
         }

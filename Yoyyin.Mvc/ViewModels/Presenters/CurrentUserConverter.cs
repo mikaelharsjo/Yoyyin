@@ -7,17 +7,17 @@ namespace Yoyyin.Mvc.ViewModels.Presenters
 {
     public class CurrentUserConverter
     {
-        private readonly ImageProvider _imageProvider;
+        private ImageProvider _imageProvider;
         private readonly SniService _sniService;
 
         public CurrentUserConverter(SniService sniService)
         {
-            _sniService = sniService;
-            _imageProvider = new ImageProvider();
+            _sniService = sniService;            
         }
 
         public CurrentUser Convert(Model.Users.AggregateRoots.IUser user)
         {
+            _imageProvider = new ImageProvider(user);
             return new CurrentUser
                        {
                            Active = user.Active,
@@ -26,7 +26,7 @@ namespace Yoyyin.Mvc.ViewModels.Presenters
                            CVFileName = user.CVFileName,
                            DisplayName = user.DisplayName,
                            Email = user.Email,
-                           ProfileImageSrc = _imageProvider.GetProfileImageSrc(user),
+                           ProfileImageSrc = _imageProvider.GetProfileImageSrc(),
                            Ideas = user.Ideas,
                            UserType = _sniService.GetTitle(user.Ideas.First().SniHeadId),
                            Name = user.Name,

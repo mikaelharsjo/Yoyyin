@@ -12,9 +12,9 @@ namespace Yoyyin.Mvc.ViewModels.Presenters
         private readonly IUserTypesNeededMarkupProvider _userTypesNeededMarkupProvider;
         private readonly CompetencesNeededMarkupProvider _competencesNeededMarkupProvider;
         private readonly UserTypeService _userTypeService;
-        private readonly IdeaConverter _ideaConverter;
-        private readonly ImageProvider _imageProvider;
+        private readonly IdeaConverter _ideaConverter;        
         private readonly LookingForPresenter _lookingForPresenter;
+        private ImageProvider _imageProvider;
 
         public UserConverter(IUserRepository userRepository, IUserTypesNeededMarkupProvider userTypesNeededMarkupProvider, UserTypeService userTypeService, IdeaConverter ideaConverter, LookingForPresenter lookingForPresenter)
         {
@@ -23,8 +23,7 @@ namespace Yoyyin.Mvc.ViewModels.Presenters
             _userTypeService = userTypeService;
             _ideaConverter = ideaConverter;
             _lookingForPresenter = lookingForPresenter;
-            _competencesNeededMarkupProvider = new CompetencesNeededMarkupProvider();
-            _imageProvider = new ImageProvider();
+            _competencesNeededMarkupProvider = new CompetencesNeededMarkupProvider();            
         }
 
         public UserConverter(UserTypeService userTypeService, IdeaConverter ideaConverter)
@@ -35,11 +34,12 @@ namespace Yoyyin.Mvc.ViewModels.Presenters
 
         public User Convert(Model.Users.AggregateRoots.IUser user)
         {
+            _imageProvider = new ImageProvider(user);
             return new User
             {
                 id = user.UserId,
                 DisplayName = user.DisplayName,
-                ProfileImageSrc = _imageProvider.GetProfileImageSrc(user),
+                ProfileImageSrc = _imageProvider.GetProfileImageSrc(),
                 Competences = user.Competences,
                 City = user.Address.City,
                 UserType = _userRepository.Query(m => m.UserTypes.First(ut => ut.UserTypeId == user.UserType)).Title,
@@ -51,8 +51,7 @@ namespace Yoyyin.Mvc.ViewModels.Presenters
             };
         }
 
-
-
+        // is this used? needs refactoring
         public UserWithFirstIdea ConvertToViewModel(Model.Users.AggregateRoots.User user)
         {
             return new UserWithFirstIdea(GetSniArray(user))

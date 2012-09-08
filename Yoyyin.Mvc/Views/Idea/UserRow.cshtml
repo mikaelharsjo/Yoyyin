@@ -11,6 +11,8 @@
         <span class="label">@Html.ActionLink(Model.SniHeadTitle, "ListBySniHead", new { id = Model.SniHeadId })</span>
         <h2>@Model.FirstIdea.Title</h2>
         <p>@Html.Raw(Model.FirstIdea.Description)</p>
+        @Model.FirstIdea.Funding.Amount
+        @Model.FirstIdea.Funding.Description
     </div>
 </div>
 <br />

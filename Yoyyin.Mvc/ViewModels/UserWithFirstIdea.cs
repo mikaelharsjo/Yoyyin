@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Web;
 using Yoyyin.Model.Users.Entities;
+using Yoyyin.Model.Users.ValueObjects;
 
 namespace Yoyyin.Mvc.ViewModels
 {
@@ -22,6 +23,7 @@ namespace Yoyyin.Mvc.ViewModels
         public double Latitude { get; set; }
         public double Longitude { get; set; }
         public string City { get; set; }
+        //public Funding Funding { get; set; }
 
         public UserWithFirstIdea(string[] snis)
         {

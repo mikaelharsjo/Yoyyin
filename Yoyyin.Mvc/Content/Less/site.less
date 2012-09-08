@@ -1,4 +1,4 @@
-﻿@import "variables.less"; 
+﻿//@import "variables.less"; 
 
 html {
     background-color: #e2e2e2;
@@ -98,7 +98,7 @@ footer {
         background-image: -webkit-gradient(linear, left top, right top, color-stop(0, #7ac0da), color-stop(1, #a4d4e6));
         background-image: -webkit-linear-gradient(left, #7ac0da 0%, #a4d4e6 100%);
         background-image: linear-gradient(left, #7ac0da 0%, #a4d4e6 100%);
-        color: #3e5667;
+        color: @white;
         padding: 20px 40px 30px 40px;
     }
 
@@ -555,4 +555,4 @@ div.form-actions a.btn { margin-right: 15px;}
 #userBox img { background-color: #fff; margin-right: 15px;}
 .brand small { font-size: 0.6em;}
 h1 img { vertical-align: top;}
-.item { border-bottom: solid 1px @tableBorder; padding: 5px; }
+.item { border-bottom: solid 1px @tableBorder; padding: 5px; 

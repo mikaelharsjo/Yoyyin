@@ -1,5 +1,5 @@
 /*!
- * Bootstrap v2.0.3
+ * Bootstrap v2.1.1
  *
  * Copyright 2012 Twitter, Inc
  * Licensed under the Apache License v2.0
@@ -60,3 +60,57 @@
 
 // Utility classes
 @import "utilities.less"; // Has to be last to override when necessary
+//@import "site.less";
+
+//move later 
+
+.jumbotron:after {
+    background: url("../img/bs-docs-masthead-pattern.png") repeat scroll center center transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    left: 0;
+    opacity: 0.4;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.subhead {
+    border-bottom: 1px solid #DDDDDD;
+    text-align: left;
+}
+.jumbotron {
+    background: -moz-linear-gradient(45deg, #020031 0%, #6D3353 100%) repeat scroll 0 0 transparent;
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.2) inset, 0 -3px 7px rgba(0, 0, 0, 0.2) inset;
+    color: #FFFFFF;
+    padding: 40px 0;
+    position: relative;
+    text-align: center;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 0 30px rgba(0, 0, 0, 0.075);
+}
+
+.subhead h1 {
+    font-size: 60px;
+}
+.jumbotron h1 {
+    font-size: 80px;
+    font-weight: bold;
+    letter-spacing: -1px;
+    line-height: 1;
+}
+
+.subhead p {
+    margin-bottom: 20px;
+}
+.jumbotron p {
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 30px;
+    margin-bottom: 30px;
+}
+.lead {
+    font-size: 21px;
+    font-weight: 200;
+    line-height: 30px;
+    margin-bottom: 20px;
+}

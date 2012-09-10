@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8" />    
     <title>@ViewBag.Title - Yoyyin - Sammanför människor med idéer</title>
     <link href="~/favicon.png" rel="shortcut icon" type="image/x-icon" />
     <link rel="stylesheet" type="text/css" href="/Content/Less/site.less">
@@ -24,16 +24,19 @@
     <script src="/Scripts/yoyyin/registrationMain.js" type="text/javascript"></script>
 @*    <script src="/Scripts/yoyyin/register/register.js" type="text/javascript"></script>
     <script src="/Scripts/yoyyin/user/user.js" type="text/javascript"></script>*@
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
     @Html.Partial(Request.IsAuthenticated ? "HeaderWhenLoggedIn" : "Header")
     <div id="body">
         @*What is this*@
-        @RenderSection("featured", required: false)
-        <section id="sectionMainContent container"> @*class="content-wrapper main-content clear-fix">*@
-            @RenderBody()
-        </section>
+        @RenderSection("jumbotron", required: false)
+
+        <p>
+            <section id="sectionMainContent" class="container"> @*class="content-wrapper main-content clear-fix">*@
+                @RenderBody()
+            </section>
+        </p>
     </div>
     <footer>
             <div class="content-wrapper">

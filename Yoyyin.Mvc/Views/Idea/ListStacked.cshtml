@@ -1,24 +1,23 @@
 ﻿@model IEnumerable<Yoyyin.Mvc.ViewModels.UserWithFirstIdea>
 @foreach (var user in Model)
 {    
-    <div class="well stackedUser">
-        <div class="userWrapper ui-helper-clearfix">
-            <div class="stackedUserLeft">
-                <a href=@user.DetailsHref class="thumbnail">
-                    <img src=@user.ProfileImageSrc />
-                </a>
-            </div>
-            <div class="stackedUserRight">
-                Jag är:<br />
-                @Html.Raw(user.UserTypeMarkup)
-                <hr />
-                Jag söker:<br />
-                @Html.Raw(user.UserTypesNeededMarkup)
-                <hr />
-                Bransch:<br />
-                <span class="label">@Html.ActionLink(user.SniHeadTitle, "ListBySniHead", new { id = user.SniHeadId })</span>
-            </div>
+    <div class="well span4 clearfix">        
+        <div class="span2">
+            <a href=@user.DetailsHref class="thumbnail">
+                <img src=@user.ProfileImageSrc />
+            </a>lite text
         </div>
+        <div class="span2">
+            Jag är:<br />
+            @Html.Raw(user.UserTypeMarkup)
+            <hr />
+            Jag söker:<br />
+            @Html.Raw(user.UserTypesNeededMarkup)
+            <hr />
+            Bransch:<br />
+            <span class="label">@Html.ActionLink(user.SniHeadTitle, "ListBySniHead", new { id = user.SniHeadId })</span>
+        </div>
+        
         <hr/>
         <a href=@user.DetailsHref><strong>@user.DisplayName</strong></a> @user.City
 @*        <h2>@user.FirstIdea.Title</h2>

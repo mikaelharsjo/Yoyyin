@@ -11,7 +11,6 @@
     </header>
 }
 
-
 <div class="row-fluid">
     <div class="span6">
         <div class="well">
@@ -67,8 +66,9 @@
         </div>
     </div>
 </div>
-<br />
-@Html.Partial("~/Views/Idea/ListStacked.cshtml", Model)
+<div class="row-fluid threeColumns">
+    @Html.Partial("~/Views/Idea/ListStacked.cshtml", Model)
+</div>
 
 @*<section class="features">
     <section class="feature">

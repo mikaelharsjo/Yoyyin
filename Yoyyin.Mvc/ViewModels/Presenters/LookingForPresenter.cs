@@ -11,7 +11,12 @@ namespace Yoyyin.Mvc.ViewModels.Presenters
         {
             if (lookingFor == null) { lookingFor = new Yoyyin.Model.Users.ValueObjects.LookingFor(); }
 
-            return new LookingFor() { ImageUrl = "/Images/glyphicons_043_group.png", Description = lookingFor.Description() };
+            return new LookingFor() { ImageUrl = GetImage(lookingFor), Description = lookingFor.Description() };
+        }
+
+        private string GetImage(Model.Users.ValueObjects.LookingFor lookingFor)
+        {
+            return "/Images/" + (lookingFor.PartnerToMyIdea ? "glyphicons_043_group.png" : "") + (lookingFor.JoinOrBeJoined ? "glyphicons_064_lightbulb.png" : "") + (lookingFor.IdeasToJoin ? "glyphicons_003_user.png" : "") + (lookingFor.Investements ? "glyphicons_037_credit.png" : "");
         }
     }
 }

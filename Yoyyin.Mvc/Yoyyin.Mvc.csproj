@@ -263,6 +263,7 @@
     <Content Include="Images\authbuttons\google_64.png" />
     <Content Include="Images\authbuttons\yahoo_64.png" />
     <Content Include="Images\constructionteam.png" />
+    <Content Include="Images\error.png" />
     <Content Include="Images\glyphicons-halflings-white.png" />
     <Content Include="Images\glyphicons-halflings.png" />
     <Content Include="Global.asax" />
@@ -528,7 +529,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>30993</DevelopmentServerPort>
+          <DevelopmentServerPort>8626</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

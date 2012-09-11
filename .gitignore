@@ -10,5 +10,6 @@ bin
 # Visual studio
 yoyyin.com.sln.DotSettings.user
 yoyyin.com.suo
+Importer.suo
 *.user
 *.suo

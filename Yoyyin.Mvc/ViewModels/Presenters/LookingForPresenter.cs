@@ -16,7 +16,7 @@ namespace Yoyyin.Mvc.ViewModels.Presenters
 
         private string GetImage(Model.Users.ValueObjects.LookingFor lookingFor)
         {
-            return "/Images/" + (lookingFor.PartnerToMyIdea ? "glyphicons_043_group@2x.png" : "") + (lookingFor.JoinOrBeJoined ? "glyphicons_064_lightbulb@2x.png" : "") + (lookingFor.IdeasToJoin ? "glyphicons_003_user@2x.png" : "") + (lookingFor.Investements ? "glyphicons_037_credit@2x.png" : "");
+            return "/Images/" + (lookingFor.PartnerToMyIdea ? "glyphicons_064_lightbulb.png" : "") + (lookingFor.JoinOrBeJoined ? "glyphicons_043_group.png" : "") + (lookingFor.IdeasToJoin ? "glyphicons_003_user.png" : "") + (lookingFor.Investements ? "glyphicons_037_credit.png" : "");
         }
     }
 }

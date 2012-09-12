@@ -465,6 +465,10 @@
     <Content Include="Views\Shared\HeaderWhenLoggedIn.cshtml" />
     <Content Include="Views\User\List.cshtml" />
     <Content Include="Views\Errors\PageNotFound.cshtml" />
+    <None Include="Content\Less\yoyyin.less">
+      <Compile>True</Compile>
+      <Minify>True</Minify>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

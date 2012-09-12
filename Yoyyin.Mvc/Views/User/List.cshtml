@@ -3,14 +3,16 @@
 @Html.PageHeader("Personer", "Kanske din nästa affärspartner?")
 @foreach (var user in Model)
 {
-    <div class="well">
-        <div class="row-fluid">
+    <div class="well">        
+        <div class="row-fluid">            
             <div class="span2">
-                <a href="/User/Details/@user.id">
-                    <img src="@user.ProfileImageSrc?width=120" class="img-polaroid" />
-                </a>
-                <br />
-                <a href="/User/Details/@user.id"><strong>@user.DisplayName</strong> </a>, @user.City
+                <div>
+                    <a href="/User/Details/@user.id">
+                        <img src="@user.ProfileImageSrc?width=80" class="img-polaroid profileImage" style="width: 80px;" />
+                    </a>
+                </div>
+                
+                <a href="/User/Details/@user.id"><strong>@user.DisplayName</strong></a>, @user.City
             </div>
             <div class="span10">
                 Jag är<br />

@@ -1,29 +1,31 @@
-﻿@model Yoyyin.Mvc.Models.UserWithFirstIdea
+﻿@model Yoyyin.Mvc.ViewModels.User
 
 @Html.Partial("Breadcrumb")
 <div class="row-fluid">
-    <div class="span2">
-        <a href="#" class="thumbnail">
-            <img src="@Model.LargeProfileImageSrc" />
-        </a><a>@Model.DisplayName</a>
+    <div class="span2">        
+        <img src="@Model.ProfileImageSrc" class="img-polaroid" />
+            <strong>@Model.DisplayName</strong>
         <p>
-            @Html.Raw(Model.UserTypeMarkup)
+            <span class="label label-success">@Model.UserType</span>
         </p>
     </div>
     <div class="span10">
-        <div class="well">
-            <span class="label">@Html.ActionLink(Model.SniHeadTitle, "ListBySniHead", new { id = Model.SniHeadId })</span>
-            <h2>
-                <img src="../../Images/glyphicons_064_lightbulb.png" />
-                @Model.FirstIdea.Title
-            </h2>
-        <p>@Html.Raw(Model.FirstIdea.Description)</p>
+        @foreach (var idea in Model.Ideas)
+        {            
+            <div class="well">
+                <span class="label">@Html.ActionLink(@idea.SniHeadTitle, "ListBySniHead", new { id = @idea.SniHeadId })</span>
+                <h2>
+                    <img src="/Images/glyphicons_064_lightbulb.png" />
+                    @idea.Title
+                </h2>
+            @*<p>@Html.Raw(Model.FirstIdea.Description)</p>*@
         
-            <h3>@Model.DisplayName söker personer som är:</h3>
-            @Html.Raw(Model.UserTypesNeededMarkup)
-            <h3>
-                ...och kan</h3>
-            @Html.Raw(Model.CompetencesNeededmarkup)
-        </div>
+                <h3>@Model.DisplayName söker personer som är:</h3>
+                @*@Html.Raw(Model.UserTypesNeededMarkup)*@
+                <h3>
+                    ...och kan</h3>
+                @*@Html.Raw(Model.CompetencesNeededmarkup)*@
+            </div>
+        }
     </div>
 </div>

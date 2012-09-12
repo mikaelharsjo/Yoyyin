@@ -63,20 +63,19 @@ namespace Yoyyin.Mvc.Controllers
 
         public ActionResult Details(Guid id)
         {
-            var user = _userConverter.ConvertToViewModel(_repository
-                                                             .Query(m => m.Users.First(u => u.UserId == id)));
+            var user = _userConverter.Convert(_repository.Query(m => m.Users.First(u => u.UserId == id)));
             ViewBag.BreadCrumb = new BreadCrumb
             {
                 Items =
                     new List<BreadCrumbItem>     {
                                                      new BreadCrumbItem {Text = "Hem", Url = "/Home"},
-                                                     new BreadCrumbItem {Text = "Affärsidéer", Url = "/User/List"},
-                                                     new BreadCrumbItem { Text = user.SniHeadTitle, Url = "/User/ListBySniHead/" + user.SniHeadId},
+                                                     //new BreadCrumbItem {Text = "Affärsidéer", Url = "/User/List"},
+                                                     //new BreadCrumbItem { Text = user.IdeasSniHeadTitle, Url = "/User/ListBySniHead/" + user.SniHeadId},
                                                      new BreadCrumbItem { Text = user.DisplayName, IsLast = true }
                                                  }
             };
 
-            ViewBag.Title = user.FirstIdea.Title;
+            ViewBag.Title = user.Ideas.First().Title;
             return View(user);
         }
     }

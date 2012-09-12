@@ -12,13 +12,12 @@
 <body>
     @Html.Partial(Request.IsAuthenticated ? "HeaderWhenLoggedIn" : "Header")
     
-        @*What is this*@
-        @RenderSection("jumbotron", required: false)
+    @*What is this*@
+    @RenderSection("jumbotron", required: false)
         
-        <section id="sectionMainContent" class="container"> @*class="content-wrapper main-content clear-fix">*@
-            @RenderBody()
-        </section>
-        
+    <section id="sectionMainContent" class="container"> @*class="content-wrapper main-content clear-fix">*@
+        @RenderBody()
+    </section>        
     
     <footer>
         <div class="container">            

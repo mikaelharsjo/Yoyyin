@@ -14,6 +14,8 @@ namespace Yoyyin.Mvc.ViewModels
         public IEnumerable<string> Competences { get; set; }
         public IEnumerable<string> CompetencesNeeded { get; set; }
         public LookingFor LookingFor { get; set; }
+        public string DetailsHref { get; set; }
+        public string Presentation { get; set; }
 
         public Guid id { get; set; }
     }

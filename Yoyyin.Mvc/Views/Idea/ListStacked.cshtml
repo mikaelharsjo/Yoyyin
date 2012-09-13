@@ -1,25 +1,32 @@
-﻿@model IEnumerable<Yoyyin.Mvc.ViewModels.UserWithFirstIdea>
+﻿@model IEnumerable<Yoyyin.Mvc.ViewModels.User>
 @foreach (var user in Model)
 {    
     <div class="well span4 clearfix">        
-        <div class="span2">
-            <a href=@user.DetailsHref class="thumbnail">
-                <img src=@user.ProfileImageSrc />
-            </a>lite text
+        <div class="pull-left marginRight">
+            <div>
+                <a href=@user.DetailsHref>
+                    <img src=@user.ProfileImageSrc?width=80 class="img-polaroid profileImage" />
+                </a>
+            </div>
+            <a href=@user.DetailsHref><strong>@user.DisplayName</strong></a><br />@user.City
         </div>
-        <div class="span2">
+        <div class="pull-left">
             Jag är:<br />
-            @Html.Raw(user.UserTypeMarkup)
+            <span class="label label-success">@user.UserType</span><br />
+            
             <hr />
             Jag söker:<br />
-            @Html.Raw(user.UserTypesNeededMarkup)
+            @foreach (var userType in @user.UserTypesNeeded)
+            {
+                <span class="label label-success">@userType</span>
+            }
+
             <hr />
             Bransch:<br />
-            <span class="label">@Html.ActionLink(user.SniHeadTitle, "ListBySniHead", new { id = user.SniHeadId })</span>
+            <span class="label">@Html.ActionLink(user.Ideas.FirstOrDefault().SniHeadTitle, "ListBySniHead", new { id = user.Ideas.FirstOrDefault().SniHeadId })</span>
         </div>
         
-        <hr/>
-        <a href=@user.DetailsHref><strong>@user.DisplayName</strong></a> @user.City
+        
 @*        <h2>@user.FirstIdea.Title</h2>
         <p>@Html.Raw(user.FirstIdea.Description)</p>
 *@    </div>

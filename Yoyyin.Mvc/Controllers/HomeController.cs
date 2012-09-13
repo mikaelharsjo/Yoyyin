@@ -17,15 +17,15 @@ namespace Yoyyin.Mvc.Controllers
     public class HomeController : Controller
     {
         private readonly IUserRepository _repository;
-        private readonly UserConverter _userConverter;
+        private readonly UserPresenter _userConverter;
 
-        public HomeController(UserConverter userConverter)
+        public HomeController(UserPresenter userConverter)
         {
             //_repository = repository;
             _userConverter = userConverter;
         }
 
-        public HomeController(IUserRepository repository, UserConverter userConverter)
+        public HomeController(IUserRepository repository, UserPresenter userConverter)
         {
             _repository = repository;
             _userConverter = userConverter;
@@ -38,7 +38,7 @@ namespace Yoyyin.Mvc.Controllers
                             .Query(m => m.Users)
                             .Take(12)
                             .OrderBy(u => u.Ideas.First().SniNo)
-                            .Select(_userConverter.ConvertToViewModel));
+                            .Select(_userConverter.Present));
         }
 
         public ActionResult About()

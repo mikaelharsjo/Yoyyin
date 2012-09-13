@@ -20,14 +20,14 @@ namespace Yoyyin.Mvc.Controllers
     public class IdeaController : Controller
     {
         private readonly IUserRepository _repository;
-        private readonly UserConverter _userConverter;
+        private readonly UserPresenter _userConverter;
 
-        public IdeaController(UserConverter userConverter)
+        public IdeaController(UserPresenter userConverter)
         {
             _userConverter = userConverter;
         }
 
-        public IdeaController(IUserRepository repository, UserConverter userConverter)
+        public IdeaController(IUserRepository repository, UserPresenter userConverter)
         {
             _repository = repository;
             _userConverter = userConverter;
@@ -39,14 +39,14 @@ namespace Yoyyin.Mvc.Controllers
                 .Query(m => m.Users)
                 .Take(8)
                 .OrderBy(u => u.Ideas.First().SniNo)
-                .Select(_userConverter.ConvertToViewModel));
+                .Select(_userConverter.Present));
         }
 
         public ActionResult All()
         {
             return Json(_repository
                             .Query(m => m.Users)
-                            .Select(_userConverter.Convert), JsonRequestBehavior.AllowGet);
+                            .Select(_userConverter.Present), JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult List()
@@ -58,7 +58,7 @@ namespace Yoyyin.Mvc.Controllers
             return View(_repository
                             .Query(m => m.Users)
                             .OrderBy(u => u.Ideas.First().SniNo)
-                            .Select(_userConverter.ConvertToViewModel));
+                            .Select(_userConverter.Present));
         }
 
         public ActionResult ListBySniNo(string id)
@@ -73,20 +73,20 @@ namespace Yoyyin.Mvc.Controllers
             return View("List", _repository
                             .Query(m => m.Users)
                             .Where(u => u.Ideas.Any(idea => idea.SniNo == id))
-                            .Select(u => _userConverter.ConvertToViewModel(u)));
+                            .Select(u => _userConverter.Present(u)));
         }
 
         public ActionResult ListBySniHead(string id)
         {
             string title = _repository.Query(m => m.SniHeads.First(s => s.SniHeadId == id)).Title;
-            ViewBag.Title = "Affärsidéer"; // string.Format("Affärsidéer inom {0}", title);
+            ViewBag.Title = "Affärsidéer";
             ViewBag.SubTitle = string.Format("Här visas alla affärsidéer inom {0}", title);
             ViewBag.BreadCrumb = new ListBySniHeadBreadCrumb(title);
                                      
             return View(_repository
                             .Query(m => m.Users)
                             .Where(u => u.Ideas.First().SniHeadId == id)
-                            .Select(u => _userConverter.ConvertToViewModel(u)));
+                            .Select(u => _userConverter.Present(u)));
         }
 
         public ActionResult ListWantsFinancing()
@@ -106,7 +106,7 @@ namespace Yoyyin.Mvc.Controllers
             return View("List", _repository
                             .Query(m => m.Users)
                             .Where(u => u.Ideas.First().Funding.WantsFinancing)
-                            .Select(u => _userConverter.ConvertToViewModel(u)));
+                            .Select(u => _userConverter.Present(u)));
         }
 
         public ActionResult ListByUserType(int userType, string title)
@@ -116,7 +116,7 @@ namespace Yoyyin.Mvc.Controllers
             return View("List", _repository
                             .Query(m => m.Users)
                             .Where(u => u.UserType == userType)
-                            .Select(u => _userConverter.ConvertToViewModel(u)));
+                            .Select(u => _userConverter.Present(u)));
         }
 
         public ActionResult ListByCompetence(string id)
@@ -126,7 +126,7 @@ namespace Yoyyin.Mvc.Controllers
             return View("List", _repository
                             .Query(m => m.Users)
                             .Where(u => u.Competences.Contains(id))
-                            .Select(u => _userConverter.ConvertToViewModel(u)));
+                            .Select(u => _userConverter.Present(u)));
         }
     }
 }

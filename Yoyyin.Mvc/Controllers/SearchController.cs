@@ -11,9 +11,9 @@ namespace Yoyyin.Mvc.Controllers
     public class SearchController : Controller
     {
         private readonly IUserRepository _repository;
-        private readonly UserConverter _userConverter;
+        private readonly UserPresenter _userConverter;
 
-        public SearchController(IUserRepository repository, UserConverter userConverter)
+        public SearchController(IUserRepository repository, UserPresenter userConverter)
         {
             _repository = repository;
             _userConverter = userConverter;
@@ -34,12 +34,12 @@ namespace Yoyyin.Mvc.Controllers
             return Json(GetUsersByTerm(term), JsonRequestBehavior.AllowGet);
         }
 
-        private IEnumerable<UserWithFirstIdea> GetUsersByTerm(string term)
+        private IEnumerable<User> GetUsersByTerm(string term)
         {
             var users = _repository
                 .Query(m => m.Users)
                 .Where(u => u.Ideas.First().SearchProfile.ContainsString(term.ToLower()))
-                .Select(u => _userConverter.ConvertToViewModel(u));
+                .Select(u => _userConverter.Present(u));
 
             return users;
         }

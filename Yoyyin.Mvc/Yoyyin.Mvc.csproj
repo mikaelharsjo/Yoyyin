@@ -245,8 +245,7 @@
     <Compile Include="ViewModels\UserRoles\IAuthorizer.cs" />
     <Compile Include="ViewModels\UserRoles\IUserRoles.cs" />
     <Compile Include="ViewModels\UserRoles\UserRoles.cs" />
-    <Compile Include="ViewModels\UserWithFirstIdea.cs" />
-    <Compile Include="ViewModels\Presenters\UserConverter.cs" />
+    <Compile Include="ViewModels\Presenters\UserPresenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\Markup\CompetencesNeededMarkupProvider.cs" />
     <Compile Include="Providers\Markup\LabelListGenerator.cs" />

@@ -17,9 +17,9 @@ namespace Yoyyin.Mvc.Controllers
     public class UserController : Controller
     {
         private readonly IUserRepository _repository;
-        private readonly UserConverter _userConverter;
+        private readonly UserPresenter _userConverter;
 
-        public UserController(IUserRepository repository, UserConverter userConverter)
+        public UserController(IUserRepository repository, UserPresenter userConverter)
         {
             _repository = repository;
             _userConverter = userConverter;
@@ -29,14 +29,14 @@ namespace Yoyyin.Mvc.Controllers
         {
             return View(_repository
                             .Query(m => m.Users)
-                            .Select(_userConverter.Convert));
+                            .Select(_userConverter.Present));
         }
 
         public ActionResult All()
         {
             return Json(_repository
                             .Query(m => m.Users)
-                            .Select(_userConverter.Convert), JsonRequestBehavior.AllowGet);
+                            .Select(_userConverter.Present), JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult Get(Guid id)
@@ -58,12 +58,12 @@ namespace Yoyyin.Mvc.Controllers
                                                            }
                                               };
 
-            return Json(_userConverter.Convert(user), JsonRequestBehavior.AllowGet);
+            return Json(_userConverter.Present(user), JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult Details(Guid id)
         {
-            var user = _userConverter.Convert(_repository.Query(m => m.Users.First(u => u.UserId == id)));
+            var user = _userConverter.Present(_repository.Query(m => m.Users.First(u => u.UserId == id)));
             ViewBag.BreadCrumb = new BreadCrumb
             {
                 Items =

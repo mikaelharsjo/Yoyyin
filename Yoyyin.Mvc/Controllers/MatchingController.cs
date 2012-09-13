@@ -13,9 +13,9 @@ namespace Yoyyin.Mvc.Controllers
     {
         private readonly IUserRepository _repository;
         private readonly CurrentUserService _currentUserService;
-        private readonly UserConverter _converter;
+        private readonly UserPresenter _converter;
 
-        public MatchingController(IUserRepository repository, CurrentUserService currentUserService, UserConverter converter)
+        public MatchingController(IUserRepository repository, CurrentUserService currentUserService, UserPresenter converter)
         {
             _repository = repository;
             _currentUserService = currentUserService;
@@ -32,8 +32,8 @@ namespace Yoyyin.Mvc.Controllers
             return Json(new
                         {
                             matchResult,
-                            currentUser = _converter.Convert(currentUser),
-                            userToMatchWith = _converter.Convert(userToMatchWith)
+                            currentUser = _converter.Present(currentUser),
+                            userToMatchWith = _converter.Present(userToMatchWith)
                         }, JsonRequestBehavior.AllowGet);
         }
 
@@ -46,7 +46,7 @@ namespace Yoyyin.Mvc.Controllers
                                     .Where(r => r.MatchResult.Score > 0)
                                     .OrderByDescending(r => r.MatchResult.Score);
 
-            return Json(filteredResult.Select(mmr => new {mmr.MatchResult, User = _converter.Convert(mmr.User)}),
+            return Json(filteredResult.Select(mmr => new { mmr.MatchResult, User = _converter.Present(mmr.User) }),
                         JsonRequestBehavior.AllowGet);
         }
 

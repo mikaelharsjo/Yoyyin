@@ -3,13 +3,17 @@
 @Html.Partial("Breadcrumb")
 <div class="row-fluid">
     <div class="span2">        
-        <img src="@Model.ProfileImageSrc" class="img-polaroid" />
-            <strong>@Model.DisplayName</strong>
+        <div>
+            <img src="@Model.ProfileImageSrc?width=80" class="img-polaroid profileImage" />            
+        </div>
+        <strong>@Model.DisplayName</strong><br />
+        @Model.City
         <p>
             <span class="label label-success">@Model.UserType</span>
         </p>
     </div>
     <div class="span10">
+        @Model.Presentation
         @foreach (var idea in Model.Ideas)
         {            
             <div class="well">

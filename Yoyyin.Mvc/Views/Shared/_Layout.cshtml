@@ -1,3 +1,4 @@
+@using Yoyyin.Mvc.Helpers
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,9 +12,8 @@
 </head>
 <body>
     @Html.Partial(Request.IsAuthenticated ? "HeaderWhenLoggedIn" : "Header")
-    
-    @*What is this*@
-    @RenderSection("jumbotron", required: false)
+        
+    @this.RenderSection("jumbotron", @<div><br /><br /></div>)
         
     <section id="sectionMainContent" class="container"> @*class="content-wrapper main-content clear-fix">*@
         @RenderBody()

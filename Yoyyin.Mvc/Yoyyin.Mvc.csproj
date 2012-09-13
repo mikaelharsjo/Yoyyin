@@ -219,6 +219,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\HtmlHelperExtensions.cs" />
+    <Compile Include="Helpers\RenderSectionHelper.cs" />
     <Compile Include="ViewModels\AccountModels.cs" />
     <Compile Include="ViewModels\BreadCrumb\BreadCrumb.cs" />
     <Compile Include="ViewModels\BreadCrumb\BreadCrumbItem.cs" />

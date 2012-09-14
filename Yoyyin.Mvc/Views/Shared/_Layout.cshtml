@@ -13,7 +13,7 @@
 <body>
     @Html.Partial(Request.IsAuthenticated ? "HeaderWhenLoggedIn" : "Header")
         
-    @this.RenderSection("jumbotron", @<div><br /><br /><br /></div>)
+    @this.RenderSection("jumbotron", required: false)
         
     <section id="sectionMainContent" class="container"> @*class="content-wrapper main-content clear-fix">*@
         @RenderBody()

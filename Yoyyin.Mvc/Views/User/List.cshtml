@@ -4,16 +4,9 @@
 @foreach (var user in Model)
 {
     <div class="well">        
-        <div class="row-fluid">            
-            <div class="span2">
-                <div>
-                    <a href="/User/Details/@user.id">
-                        <img src="@user.ProfileImageSrc?width=80" class="img-polaroid profileImage" style="width: 80px;" />
-                    </a>
-                </div>
-                
-                <a href="/User/Details/@user.id"><strong>@user.DisplayName</strong></a>, @user.City
-            </div>
+        <div class="row-fluid">
+            @Html.Partial("~/Views/User/Profile.cshtml", user)            
+
             <div class="span10">
                 Jag är<br />
                 <span class="label label-success">@user.UserType</span><br />

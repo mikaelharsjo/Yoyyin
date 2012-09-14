@@ -1,0 +1,13 @@
+﻿@model Yoyyin.Mvc.ViewModels.User
+
+<div class="span2">
+    <div>
+        <a href="/User/Details/@Model.id">
+            <img src="@Model.ProfileImageSrc?width=80" class="img-polaroid profileImage" style="width: 80px;" />
+        </a>
+    </div>                
+    <a href="/User/Details/@Model.id"><strong>@Model.DisplayName</strong></a>, @Model.City
+    <p>
+        <span class="label label-success">@Model.UserType</span>
+    </p>
+</div>

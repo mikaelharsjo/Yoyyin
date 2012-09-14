@@ -469,6 +469,7 @@
       <Compile>True</Compile>
       <Minify>True</Minify>
     </None>
+    <Content Include="Views\User\Profile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

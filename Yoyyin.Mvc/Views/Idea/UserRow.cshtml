@@ -1,18 +1,13 @@
-﻿@model Yoyyin.Mvc.ViewModels.UserWithFirstIdea
+﻿@model Yoyyin.Mvc.ViewModels.User
 <div class="row-fluid">
-    <div class="span1">
-        <a href=@Model.DetailsHref>
-            <img class="thumbnail" src="@Model.SmallProfileImageSrc" />
-        </a><a href=@Model.DetailsHref>
-                <strong>@Model.DisplayName</strong>
-        </a> @Model.City
-    </div>
-    <div class="span11 well">
-        <span class="label">@Html.ActionLink(Model.SniHeadTitle, "ListBySniHead", new { id = Model.SniHeadId })</span>
-        <h2>@Model.FirstIdea.Title</h2>
-        <p>@Html.Raw(Model.FirstIdea.Description)</p>
-        @Model.FirstIdea.Funding.Amount
-        @Model.FirstIdea.Funding.Description
+    @Html.Partial("~/Views/User/Profile.cshtml", @Model)   
+
+    <div class="span10 well">
+        @*<span class="label">@Html.ActionLink(Model.SniHeadTitle, "ListBySniHead", new { id = Model.SniHeadId })</span>*@
+        <h2>@Model.Ideas.First().Title</h2>
+        <p>@Html.Raw(Model.Ideas.First().Description)</p>
+        @Model.Ideas.First().Funding.Amount
+        @Model.Ideas.First().Funding.Description
     </div>
 </div>
 <br />

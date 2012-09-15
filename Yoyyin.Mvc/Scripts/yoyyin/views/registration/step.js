@@ -10,20 +10,17 @@
         },
 
         setHero: function (params) {
-            if ($(".featured").html() == null) {
-                $("#body").prepend(mustache.render(heroTemplate, params));
-            } else {
-                this.setQuestion(params.Headline);
-                this.setDescription(params.Description);
-            }
+            $("header.jumbotron").find(".container").html("");
+            this.setQuestion(params.Headline);
+            this.setDescription(params.Description);
         },
 
         setQuestion: function (question) {
-            $(".featured").find("h1").text(question);
+            $("header.jumbotron").find(".container").append("<h1>" + question + "</h1>");
         },
 
         setDescription: function (description) {
-            $(".featured").find("p").text(description);
+            $("header.jumbotron.container").append("<p class='lead'>" + description + "</p>");
         }
     });
 });

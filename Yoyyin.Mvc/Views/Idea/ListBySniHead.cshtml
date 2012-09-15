@@ -5,7 +5,7 @@
     <h1>@ViewBag.Title. <small>@ViewBag.SubTitle</small> </h1>    
 </div>
 
-<div class="ui-helper-clearfix">
+<div class="row-fluid">
     @foreach (var user in Model)
     {
         @Html.Partial("~/Views/Idea/UserRowWithSni.cshtml", user)

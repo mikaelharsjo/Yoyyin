@@ -1,4 +1,4 @@
-﻿define(["backbone", "views/registration/stepPersonalInfo", "views/registration/wanted", "views/registration/location", "views/registration/userType", "views/registration/userTypesNeeded", "views/registration/tags", "views/registration/upload", "views/registration/idea"], function (Backbone, PersonalInfoView, WantedView, LocationView, UserTypeView, UserTypesNeededView, TagsView, UploadView, IdeaView) {
+﻿define(["backbone", "views/registration/personalInfo", "views/registration/wanted", "views/registration/location", "views/registration/userType", "views/registration/userTypesNeeded", "views/registration/tags", "views/registration/upload", "views/registration/idea"], function (Backbone, PersonalInfoView, WantedView, LocationView, UserTypeView, UserTypesNeededView, TagsView, UploadView, IdeaView) {
     return Backbone.Router.extend({
         routes: {
             "personalInfo": "personalInfo",

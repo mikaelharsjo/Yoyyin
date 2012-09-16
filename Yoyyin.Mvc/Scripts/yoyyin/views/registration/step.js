@@ -6,7 +6,7 @@
 
         appendButtons: function (step) {
             var buttons = mustache.render(buttonsTemplate, step);
-            this.$el.html(mustache.render(formTemplate, { markup: step.markup + buttons }));
+            this.$el.html(mustache.render(formTemplate, { markup: step.markup }) + buttons);
         },
 
         setHero: function (params) {

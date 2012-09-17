@@ -259,6 +259,10 @@
       <Compile>True</Compile>
       <Minify>True</Minify>
     </None>
+    <None Include="Content\Less\jQueryUI.less">
+      <Compile>True</Compile>
+      <Minify>True</Minify>
+    </None>
     <None Include="Content\Less\jumbotron.less">
       <Compile>True</Compile>
       <Minify>True</Minify>
@@ -463,6 +467,10 @@
     <Content Include="Views\Shared\HeaderWhenLoggedIn.cshtml" />
     <Content Include="Views\User\List.cshtml" />
     <Content Include="Views\Errors\PageNotFound.cshtml" />
+    <None Include="Content\Less\tagit.less">
+      <Compile>True</Compile>
+      <Minify>True</Minify>
+    </None>
     <None Include="Content\Less\yoyyin.less">
       <Compile>True</Compile>
       <Minify>True</Minify>

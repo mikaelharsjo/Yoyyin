@@ -1,7 +1,6 @@
-ul.tagit {
+﻿ul.tagit {
     padding: 1px 5px;
-    overflow: auto;
-    margin-left: inherit; /* usually we don't want the regular ul margins. */
+    overflow: auto;    
     margin-right: inherit;
 }
 ul.tagit li {
@@ -52,3 +51,11 @@ ul.tagit input[type="text"] {
     background-color: inherit;
     outline: none;
 }
+
+ul.tagit {
+  margin-left: 0;
+  
+  border-color: @tableBorder;
+}
+
+ul.tagit input { box-shadow: none; }

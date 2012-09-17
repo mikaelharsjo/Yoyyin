@@ -34,18 +34,6 @@ namespace Yoyyin.Mvc
             );
 
             routes.MapRoute(
-                name: "ListByUserType",
-                url: "User/ListByUserType/{userType}/{title}",
-                defaults:
-                    new
-                        {
-                            controller = "User",
-                            action = "ListByUserType",
-                            userType = UrlParameter.Optional,
-                            title = UrlParameter.Optional
-                        });
-
-            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }

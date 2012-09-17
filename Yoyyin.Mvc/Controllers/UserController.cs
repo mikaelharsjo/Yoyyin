@@ -1,42 +1,46 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using Yoyyin.Model;
 using Yoyyin.Model.Users;
-using Yoyyin.Model.Users.Entities;
-using Yoyyin.Mvc.ViewModels;
 using Yoyyin.Mvc.ViewModels.BreadCrumb;
 using Yoyyin.Mvc.ViewModels.Presenters;
-using Comment = Yoyyin.Mvc.ViewModels.Comment;
 
 namespace Yoyyin.Mvc.Controllers
 {
     public class UserController : Controller
     {
         private readonly IUserRepository _repository;
-        private readonly UserPresenter _userConverter;
+        private readonly UserPresenter _userPresenter;
 
-        public UserController(IUserRepository repository, UserPresenter userConverter)
+        public UserController(IUserRepository repository, UserPresenter userPresenter)
         {
             _repository = repository;
-            _userConverter = userConverter;
+            _userPresenter = userPresenter;
         }
 
         public ActionResult List()
         {
             return View(_repository
                             .Query(m => m.Users)
-                            .Select(_userConverter.Present));
+                            .Select(_userPresenter.Present));
+        }
+
+        public ActionResult ListByUserType(int id)
+        {
+            var userType = _repository.Query(m => m.UserTypes.First(u => u.UserTypeId == id));
+            ViewBag.SubTitle = string.Format("Affärspartners som är {0}", userType.Title.ToLower());
+            return View("List", _repository
+                            .Query(m => m.Users)
+                            .Where(u => u.UserType == id)
+                            .Select(u => _userPresenter.Present(u)));
         }
 
         public ActionResult All()
         {
             return Json(_repository
                             .Query(m => m.Users)
-                            .Select(_userConverter.Present), JsonRequestBehavior.AllowGet);
+                            .Select(_userPresenter.Present), JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult Get(Guid id)
@@ -58,12 +62,12 @@ namespace Yoyyin.Mvc.Controllers
                                                            }
                                               };
 
-            return Json(_userConverter.Present(user), JsonRequestBehavior.AllowGet);
+            return Json(_userPresenter.Present(user), JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult Details(Guid id)
         {
-            var user = _userConverter.Present(_repository.Query(m => m.Users.First(u => u.UserId == id)));
+            var user = _userPresenter.Present(_repository.Query(m => m.Users.First(u => u.UserId == id)));
             ViewBag.BreadCrumb = new BreadCrumb
             {
                 Items =

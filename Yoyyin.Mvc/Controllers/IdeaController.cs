@@ -109,16 +109,6 @@ namespace Yoyyin.Mvc.Controllers
                             .Select(u => _userConverter.Present(u)));
         }
 
-        public ActionResult ListByUserType(int userType, string title)
-        {
-            //UserTypes type = (UserTypes)Enum.Parse(typeof(UserTypes), userType.ToString());
-            ViewBag.Title = string.Format("Affärspartners som är {0}", title);
-            return View("List", _repository
-                            .Query(m => m.Users)
-                            .Where(u => u.UserType == userType)
-                            .Select(u => _userConverter.Present(u)));
-        }
-
         public ActionResult ListByCompetence(string id)
         {
             string competence = id;

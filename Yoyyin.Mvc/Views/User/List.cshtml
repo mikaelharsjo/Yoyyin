@@ -1,6 +1,7 @@
 ﻿@using Yoyyin.Mvc.Helpers
-@model System.Collections.Generic.IEnumerable<Yoyyin.Mvc.ViewModels.User>
-@Html.PageHeader("Personer", "Kanske din nästa affärspartner?")
+@model IEnumerable<Yoyyin.Mvc.ViewModels.User>
+@Html.PageHeader("Personer", (string)ViewBag.SubTitle ?? "Kanske din framtida affärspartner?")
+@ViewBag.Title
 @foreach (var user in Model)
 {
     <div class="well">        

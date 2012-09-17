@@ -19,14 +19,11 @@ namespace Yoyyin.Model.Users.Commands
 
         public User User;
 
-        public override Func<bool> Prepare(UserModel userModel)
+        public override bool Execute(UserModel userModel)
         {
-            return () =>
-                       {
-                           userModel.Users.Remove(userModel.Users.First(u => u.UserId == User.UserId));
-                           userModel.Users.Add(User);
-                           return true;
-                       };
+            userModel.Users.Remove(userModel.Users.First(u => u.UserId == User.UserId));
+            userModel.Users.Add(User);
+            return true;
         }
     }
 }

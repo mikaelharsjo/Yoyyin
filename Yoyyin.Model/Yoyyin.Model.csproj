@@ -33,12 +33,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Kiwi.Json, Version=2.0.0.7, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Kiwi.Json.2.0.0.7\lib\net40\Kiwi.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="Kiwi.Prevalence, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Kiwi.Json, Version=2.1.5.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Kiwi.Prevalence.0.1.0.0\lib\net40\Kiwi.Prevalence.dll</HintPath>
+      <HintPath>..\packages\Kiwi.Json.2.1.5.0\lib\net40\Kiwi.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Kiwi.Prevalence, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Kiwi.Prevalence.1.0.1.0\lib\net40\Kiwi.Prevalence.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -83,8 +84,6 @@
     <Compile Include="Users\Entities\Visit.cs" />
     <Compile Include="Users\Entities\Comment.cs" />
     <Compile Include="Users\IUserRepository.cs" />
-    <Compile Include="Users\Services\IUserService.cs" />
-    <Compile Include="Users\Services\UserService.cs" />
     <Compile Include="Users\ValueObjects\Coordinate.cs" />
     <Compile Include="Users\Entities\ICategory.cs" />
     <Compile Include="Users\Entities\Idea.cs" />

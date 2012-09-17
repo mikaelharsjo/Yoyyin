@@ -17,10 +17,16 @@ namespace Yoyyin.Model.Users.Commands
 
         public User User { get; set; }
 
-        public override Func<bool> Prepare(UserModel userModel)
+        //public override Func<bool> Prepare(UserModel userModel)
+        //{
+        //    userModel.Users.Add(User);
+        //    return () => true; 
+        //}
+
+        public override bool Execute(UserModel model)
         {
-            userModel.Users.Add(User);
-            return () => true; 
+            model.Users.Add(User);
+            return true;
         }
     }
 }

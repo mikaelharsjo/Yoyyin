@@ -16,21 +16,25 @@ namespace Yoyyin.Mvc.Configuration
         protected override void Load(ContainerBuilder builder)
         {
             base.Load(builder);
-            builder.Register(c => new RepositoryConfiguration { Marshal = new NoMarshal()})
+            builder.Register(
+                c =>
+                new RepositoryConfiguration(
+                    DependencyResolver.Current.GetService<HttpRequestBase>().MapPath(@"~\App_Data\users"))
+                    {Marshal = new NoMarshal()})
                 .OnActivating(
                     c =>
                     c.Instance.CommandSerializer = new CommandSerializer()
-                                                    .WithTypeAlias<AddUserCommand>("addUser")
-                                                    .WithTypeAlias<AddUserTypeCommand>("addUserType")
-                                                    .WithTypeAlias<AddSniHeadCommand>("addSni")
-                                                    .WithTypeAlias<UpdateUserCommand>("updateUser"))
-                                                    .As<IRepositoryConfiguration>();
+                                                       .WithTypeAlias<AddUserCommand>("addUser")
+                                                       .WithTypeAlias<AddUserTypeCommand>("addUserType")
+                                                       .WithTypeAlias<AddSniHeadCommand>("addSni")
+                                                       .WithTypeAlias<UpdateUserCommand>("updateUser"))
+                .As<IRepositoryConfiguration>();
 
             builder.Register(c => new ModelFactory<UserModel>(() => new UserModel())).As<IModelFactory<UserModel>>();
 
             builder.RegisterType<UserRepository>()
-                            .OnActivated(
-                                c => c.Instance.Path = DependencyResolver.Current.GetService<HttpRequestBase>().MapPath(@"~\App_Data\users"))
+                            //.OnActivated(
+                              //  c => c.Instance.Path = DependencyResolver.Current.GetService<HttpRequestBase>().MapPath(@"~\App_Data\users"))
                             .As<IUserRepository>()
                             .SingleInstance();
 

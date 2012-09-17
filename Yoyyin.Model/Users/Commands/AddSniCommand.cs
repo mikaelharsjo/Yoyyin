@@ -18,10 +18,10 @@ namespace Yoyyin.Model.Users.Commands
             SniHead = sni;
         }
 
-        public override Func<bool> Prepare(UserModel model)
+        public override bool Execute(UserModel model)
         {
             model.SniHeads.Add(SniHead);
-            return () => true;
+            return true;
         }
     }
 }

@@ -15,11 +15,11 @@ namespace Yoyyin.Model.Users.Commands.Questions
 
         public Question Question { get; set; }
 
-        public override Func<bool> Prepare(QandAModel model)
+        public override bool Execute(QandAModel model)
         {
             //userModel.Questions.Add(Question);
             // ask joakim why TResult is mandatory
-            return () => true;
+            return true;
         }
     }
 }

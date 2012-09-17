@@ -83,9 +83,9 @@
     <Reference Include="Kiwi.Json, Version=2.0.0.7, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Kiwi.Json.2.0.0.7\lib\net40\Kiwi.Json.dll</HintPath>
     </Reference>
-    <Reference Include="Kiwi.Prevalence, Version=0.1.0.3, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Kiwi.Prevalence, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Kiwi.Prevalence.0.1.0.3\lib\net40\Kiwi.Prevalence.dll</HintPath>
+      <HintPath>..\packages\Kiwi.Prevalence.1.0.1.0\lib\net40\Kiwi.Prevalence.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -193,7 +193,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\AttributeRouting.cs" />
-    <Compile Include="Configuration\DependencyInjectionCommandSerializer.cs" />
     <Compile Include="Configuration\NoMarshal.cs" />
     <Compile Include="Configuration\UserModule.cs" />
     <Compile Include="Configuration\UserRoleModule.cs" />

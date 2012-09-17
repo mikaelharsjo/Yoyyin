@@ -10,6 +10,7 @@ namespace Yoyyin.Mvc.ViewModels
         public string ProfileImageSrc { get; set; }
         public string City { get; set; }
         public string UserType { get; set; }
+        public int UserTypeId { get; set; }
         public IEnumerable<string> UserTypesNeeded { get; set; } 
         public IEnumerable<string> Competences { get; set; }
         public IEnumerable<string> CompetencesNeeded { get; set; }

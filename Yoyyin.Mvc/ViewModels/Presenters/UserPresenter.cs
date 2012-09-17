@@ -43,6 +43,7 @@ namespace Yoyyin.Mvc.ViewModels.Presenters
                 Competences = user.Competences,
                 City = user.Address.City,
                 UserType = _userRepository.Query(m => m.UserTypes.First(ut => ut.UserTypeId == user.UserType)).Title,
+                UserTypeId = user.UserType,
                 // moved to idea?
                 UserTypesNeeded = _userTypeService.GetUserTypesAsStrings(user.Ideas.First().SearchProfile.UserTypesNeeded),
                 CompetencesNeeded = user.Ideas.First().SearchProfile.CompetencesNeeded,

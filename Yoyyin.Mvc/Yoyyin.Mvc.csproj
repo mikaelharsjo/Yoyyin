@@ -26,6 +26,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <FilesToIncludeForPublish>AllFilesInTheProject</FilesToIncludeForPublish>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -233,45 +234,17 @@
     </None>
     <None Include="Content\Less\site.less" />
     <Content Include="Content\Css\loggedIn.css" />
-    <Content Include="favicon.png" />
     <Content Include="Images\authbuttons\google_64.png" />
     <Content Include="Images\authbuttons\yahoo_64.png" />
     <Content Include="Images\Carousel\cross-promote.jpg" />
     <Content Include="Images\Carousel\constructionteam.png" />
     <Content Include="Images\error.png" />
-    <Content Include="Images\glyphicons-halflings-white.png" />
-    <Content Include="Images\glyphicons-halflings.png" />
     <Content Include="Global.asax" />
-    <Content Include="Images\glyphicons_003_user%402x.png" />
-    <Content Include="Images\glyphicons_003_user.png" />
-    <Content Include="Images\glyphicons_004_girl.png" />
-    <Content Include="Images\glyphicons_025_binoculars.png" />
-    <Content Include="Images\glyphicons_034_old_man.png" />
-    <Content Include="Images\glyphicons_035_woman.png" />
-    <Content Include="Images\glyphicons_037_credit.png" />
-    <Content Include="Images\glyphicons_043_group.png" />
-    <Content Include="Images\glyphicons_064_lightbulb.png" />
-    <Content Include="Images\glyphicons_206_ok_2.png" />
-    <Content Include="Images\glyphicons_207_remove_2.png" />
     <Content Include="Images\grid-18px-masked.png" />
     <Content Include="Images\group.png" />
     <Content Include="Images\forumSprite.png" />
     <Content Include="Images\Carousel\handshake.png" />
     <Content Include="Images\logo.png" />
-    <Content Include="Images\ui-bg_flat_0_aaaaaa_40x100.png" />
-    <Content Include="Images\ui-bg_glass_55_fbf9ee_1x400.png" />
-    <Content Include="Images\ui-bg_glass_65_ffffff_1x400.png" />
-    <Content Include="Images\ui-bg_glass_75_dadada_1x400.png" />
-    <Content Include="Images\ui-bg_glass_75_e6e6e6_1x400.png" />
-    <Content Include="Images\ui-bg_glass_75_ffffff_1x400.png" />
-    <Content Include="Images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
-    <Content Include="Images\ui-bg_inset-soft_95_fef1ec_1x100.png" />
-    <Content Include="Images\ui-icons_222222_256x240.png" />
-    <Content Include="Images\ui-icons_2e83ff_256x240.png" />
-    <Content Include="Images\ui-icons_454545_256x240.png" />
-    <Content Include="Images\ui-icons_888888_256x240.png" />
-    <Content Include="Images\ui-icons_cd0a0a_256x240.png" />
-    <Content Include="Images\ui-icons_f6cf3b_256x240.png" />
     <Content Include="Scripts\lib\backbone.js" />
     <Content Include="Scripts\lib\bootstrap.js" />
     <Content Include="Scripts\lib\jquery.gomap-1.3.2.min.js" />
@@ -385,17 +358,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Images\accent.png" />
-    <Content Include="Images\aspNetHome.png" />
     <Content Include="Images\bullet.png" />
-    <Content Include="Images\facebook.png" />
-    <Content Include="Images\findHosting.png" />
-    <Content Include="Images\heroAccent.png" />
-    <Content Include="Images\NuGetGallery.png" />
-    <Content Include="Images\orderedListOne.png" />
-    <Content Include="Images\orderedListTwo.png" />
-    <Content Include="Images\orderedListThree.png" />
-    <Content Include="Images\twitter.png" />
-    <Content Include="Images\windowsLive.png" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />

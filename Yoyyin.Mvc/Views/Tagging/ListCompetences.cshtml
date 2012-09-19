@@ -1,8 +1,11 @@
-﻿@model Yoyyin.Model.Tagging.WeightedTags
+﻿@model IOrderedEnumerable<KeyValuePair<string, int>>
 
 <div class="page-header">
 <h1>Kompetenser som finns. <small>Sorterade efter popularitet</small></h1>
 </div>
 
 <div class="alert alert-info"><button class="close" data-dismiss="alert">×</button>Detta är kompetenser som finns på Yoyyin. Klicka på en kompetens för att komma till medlemmar som har just den kompetensen.</div>
-@Html.Raw(Model.ToMarkup())
+@foreach (var tag in Model)
+{
+    <div class='weightedTag'><a href='/User/ListByCompetence/@tag.Key'><span class='label label-info'>@tag.Key</span></a> x @tag.Value</div>
+}

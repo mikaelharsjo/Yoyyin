@@ -10,7 +10,13 @@ namespace Yoyyin.Model.Tagging
 
         public WeightedTags()
         {
-            _tags = new Dictionary<string, int>();
+            Tags = new Dictionary<string, int>();
+        }
+
+        public Dictionary<string, int> Tags
+        {
+            get { return _tags; }
+            set { _tags = value; }
         }
 
         public void Add(IEnumerable<IEnumerable<string>> words)
@@ -19,13 +25,13 @@ namespace Yoyyin.Model.Tagging
             {
                 foreach (string word in array)
                 {
-                    if (_tags.ContainsKey(word))
+                    if (Tags.ContainsKey(word))
                     {
-                        _tags[word]++;
+                        Tags[word]++;
                     }
                     else
                     {
-                        _tags.Add(word, 1);
+                        Tags.Add(word, 1);
                     }
                 }
             }
@@ -33,7 +39,7 @@ namespace Yoyyin.Model.Tagging
 
         public void Print()
         {
-            foreach(var kvp in _tags)
+            foreach(var kvp in Tags)
             {
                 Console.WriteLine(string.Format("{0} {1}", kvp.Key, kvp.Value));
             }
@@ -41,18 +47,9 @@ namespace Yoyyin.Model.Tagging
 
         public IEnumerable<string> SortedStrings()
         {
-            return _tags
+            return Tags
                 .OrderByDescending(t => t.Value)
                 .Select(t => t.Key);
-        }
-
-        // returns markup sorted by weight
-        public string ToMarkup()
-        {
-            const string format = "<div class='weightedTag'><a href='/User/ListByCompetence/{0}'><span class='label label-info'>{0}</span></a> x{1}</div>";
-            return string.Join(" ", _tags
-                                        .OrderByDescending(t => t.Value)
-                                        .Select(t => string.Format(format, t.Key, t.Value)));
         }
     }
 }

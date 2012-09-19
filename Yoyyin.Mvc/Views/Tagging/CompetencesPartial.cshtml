@@ -1,7 +1,10 @@
-﻿@model Yoyyin.Model.Tagging.WeightedTags
+﻿@model IOrderedEnumerable<KeyValuePair<string, int>>
 
 @{
     Layout = null;
 }
 
-@Html.Raw(Model.ToMarkup())
+@foreach (var tag in Model)
+{
+    <div class='weightedTag'><a href='/User/ListByCompetence/@tag.Key'><span class='label label-info'>@tag.Key</span></a> x @tag.Value</div>
+}

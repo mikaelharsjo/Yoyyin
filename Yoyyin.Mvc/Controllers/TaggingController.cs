@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 using Yoyyin.Model.Tagging;
 using Yoyyin.Model.Users;
@@ -29,18 +30,19 @@ namespace Yoyyin.Mvc.Controllers
             return PartialView(GetWeightedCompetences());
         }
 
-        private WeightedTags GetWeightedCompetences()
+        private IOrderedEnumerable<KeyValuePair<string, int>> GetWeightedCompetences()
         {
             // TODO: include CompetencesNeeded?
             var allCompetences = userRepository
                 .Query(m => m.Users.Select(u => u.Competences));
 
-            WeightedTags tags = new WeightedTags();
+            var tags = new WeightedTags();
             tags.Add(allCompetences);
-            return tags;
+            
+            return tags.Tags.OrderByDescending(t => t.Value);
         }
 
-        private WeightedTags GetWeightedCompetencesNeeded()
+        private IOrderedEnumerable<KeyValuePair<string, int>> GetWeightedCompetencesNeeded()
         {
             // TODO: include CompetencesNeeded?
             var allCompetences = userRepository
@@ -48,7 +50,8 @@ namespace Yoyyin.Mvc.Controllers
 
             WeightedTags tags = new WeightedTags();
             tags.Add(allCompetences);
-            return tags;
+            
+            return tags.Tags.OrderByDescending(t => t.Value);
         }
 
 

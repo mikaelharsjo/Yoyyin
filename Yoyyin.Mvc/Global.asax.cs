@@ -41,7 +41,17 @@ namespace Yoyyin.Mvc
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
 
-            BundleTable.Bundles.RegisterTemplateBundles();
+            //BundleTable.Bundles.RegisterTemplateBundles();
+            App_Start.BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            //var bundle = new Bundle("~/BundledScripts");
+
+
+
+            
+            
+            //bundle.AddFile("~/Scripts/lib/modernizr-2.0.6-development-only.js");
+            //BundleTable.Bundles.Add(bundle);
 
             RegisterAutofac();
         }

@@ -37,6 +37,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Antlr3.Runtime">
+      <HintPath>..\packages\WebGrease.1.1.0\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
     <Reference Include="AttributeRouting">
       <HintPath>..\packages\AttributeRouting.Core.2.5.1.0\lib\net40\AttributeRouting.dll</HintPath>
     </Reference>
@@ -118,8 +121,8 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
     </Reference>
-    <Reference Include="System.Web.Optimization">
-      <HintPath>..\packages\Microsoft.Web.Optimization.1.0.0-beta\lib\net40\System.Web.Optimization.dll</HintPath>
+    <Reference Include="System.Web.Optimization, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.0.0\lib\net40\System.Web.Optimization.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Providers">
       <HintPath>..\packages\System.Web.Providers.Core.1.0\lib\net40\System.Web.Providers.dll</HintPath>
@@ -152,9 +155,13 @@
     <Reference Include="WebActivator">
       <HintPath>..\packages\WebActivator.1.0.0.0\lib\WebActivator.dll</HintPath>
     </Reference>
+    <Reference Include="WebGrease">
+      <HintPath>..\packages\WebGrease.1.1.0\lib\WebGrease.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\AttributeRouting.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="Configuration\NoMarshal.cs" />
     <Compile Include="Configuration\UserModule.cs" />
     <Compile Include="Configuration\UserRoleModule.cs" />
@@ -180,6 +187,9 @@
     </Compile>
     <Compile Include="Helpers\HtmlHelperExtensions.cs" />
     <Compile Include="Helpers\RenderSectionHelper.cs" />
+    <Compile Include="Transform\LessTransform.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="ViewModels\AccountModels.cs" />
     <Compile Include="ViewModels\BreadCrumb\BreadCrumb.cs" />
     <Compile Include="ViewModels\BreadCrumb\BreadCrumbItem.cs" />
@@ -233,6 +243,7 @@
       <Minify>True</Minify>
     </None>
     <None Include="Content\Less\site.less" />
+    <Content Include="Tools\dotless.Compiler.exe" />
     <Content Include="Content\Css\loggedIn.css" />
     <Content Include="Images\authbuttons\google_64.png" />
     <Content Include="Images\authbuttons\yahoo_64.png" />
@@ -493,4 +504,8 @@
     </VisualStudio>
   </ProjectExtensions>
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
 </Project>

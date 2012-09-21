@@ -36,6 +36,16 @@ namespace Yoyyin.Mvc.Controllers
                             .Select(u => _userPresenter.Present(u)));
         }
 
+        public ActionResult ListByCompetence(string id)
+        {
+            string competence = id;
+            ViewBag.SubTitle = string.Format("Affärspartners som kan {0}", competence);
+            return View("List", _repository
+                            .Query(m => m.Users)
+                            .Where(u => u.Competences.Contains(id))
+                            .Select(u => _userPresenter.Present(u)));
+        }
+
         public ActionResult All()
         {
             return Json(_repository

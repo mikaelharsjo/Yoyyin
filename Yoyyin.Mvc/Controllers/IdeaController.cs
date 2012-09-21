@@ -109,10 +109,11 @@ namespace Yoyyin.Mvc.Controllers
                             .Select(u => _userConverter.Present(u)));
         }
 
-        public ActionResult ListByCompetence(string id)
+        public ActionResult ListNeedsCompetence(string id)
         {
             string competence = id;
-            ViewBag.Title = string.Format("Affärspartners som kan {0}", competence);
+            ViewBag.Title = "Affärsidéer";
+            ViewBag.SubTitle = string.Format("som saknar {0}", competence);
             return View("List", _repository
                             .Query(m => m.Users)
                             .Where(u => u.Competences.Contains(id))

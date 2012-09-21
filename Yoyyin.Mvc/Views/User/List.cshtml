@@ -10,12 +10,12 @@
 
             <div class="span10">
                 Jag är<br />
-                <span class="label label-success">@user.UserType</span><br />
+                <span class="label label-success"><a href="/User/ListByUserType/@user.UserTypeId">@user.UserType</a></span><br />
             
                 ..och kan<br />
                 @foreach (var competence in @user.Competences)
                 {
-                    <span class="label label-info">@competence</span>
+                    <span class="label label-info"><a href="/User/ListByCompetence/@competence">@competence</a></span>
                 }
                 <hr />
                 Jag söker<br />
@@ -27,7 +27,7 @@
                 ..som kan<br />
                 @foreach (var competenceNeeded in @user.CompetencesNeeded)
                 {
-                    <span class="label label-info">@competenceNeeded</span>
+                    <span class="label label-info"><a href="/User/ListByCompetence/@competenceNeeded">@competenceNeeded</a></span>
                 }            
             </div>
         </div>

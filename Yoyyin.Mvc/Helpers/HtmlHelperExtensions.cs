@@ -6,7 +6,8 @@ namespace Yoyyin.Mvc.Helpers
     {
         public static IHtmlString PageHeader(this System.Web.Mvc.HtmlHelper html, object title, object byLine)
         {
-            if (title == null && byLine == null) return html.Raw("");
+            title = title ?? string.Empty;
+            byLine = byLine ?? string.Empty;
 
             const string template = @"<div class='page-header'>
                                         <h1>{0}. <small>{1}</small></h1>            

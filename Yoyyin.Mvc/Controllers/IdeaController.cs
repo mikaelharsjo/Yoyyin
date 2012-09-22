@@ -113,7 +113,7 @@ namespace Yoyyin.Mvc.Controllers
         {
             string competence = id;
             ViewBag.Title = "Affärsidéer";
-            ViewBag.SubTitle = string.Format("som saknar {0}", competence);
+            ViewBag.SubTitle = string.Format("som söker {0}", competence);
             return View("List", _repository
                             .Query(m => m.Users)
                             .Where(u => u.Ideas.SelectMany(i => i.SearchProfile.CompetencesNeeded).Contains(competence))          //Competences.Contains(id))

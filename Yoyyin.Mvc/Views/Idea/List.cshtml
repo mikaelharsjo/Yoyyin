@@ -2,7 +2,7 @@
 @model IEnumerable<Yoyyin.Mvc.ViewModels.User>
 
 @Html.Partial("Breadcrumb")
-@Html.PageHeader((string)@ViewBag.Title, (string)@ViewBag.SubTitle)
+@Html.PageHeader("Affärsidéer", (string)@ViewBag.SubHeading)
 
 @foreach (var user in Model)
 {

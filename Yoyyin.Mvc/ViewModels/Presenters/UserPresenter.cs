@@ -12,24 +12,24 @@ namespace Yoyyin.Mvc.ViewModels.Presenters
         private readonly IUserTypesNeededMarkupProvider _userTypesNeededMarkupProvider;
         private readonly CompetencesNeededMarkupProvider _competencesNeededMarkupProvider;
         private readonly UserTypeService _userTypeService;
-        private readonly IdeaConverter _ideaConverter;        
+        private readonly IdeaPresenter _ideaPresenter;        
         private readonly LookingForPresenter _lookingForPresenter;
         private ImageProvider _imageProvider;
 
-        public UserPresenter(IUserRepository userRepository, IUserTypesNeededMarkupProvider userTypesNeededMarkupProvider, UserTypeService userTypeService, IdeaConverter ideaConverter, LookingForPresenter lookingForPresenter)
+        public UserPresenter(IUserRepository userRepository, IUserTypesNeededMarkupProvider userTypesNeededMarkupProvider, UserTypeService userTypeService, IdeaPresenter ideaPresenter, LookingForPresenter lookingForPresenter)
         {
             _userRepository = userRepository;
             _userTypesNeededMarkupProvider = userTypesNeededMarkupProvider;
             _userTypeService = userTypeService;
-            _ideaConverter = ideaConverter;
+            _ideaPresenter = ideaPresenter;
             _lookingForPresenter = lookingForPresenter;
             _competencesNeededMarkupProvider = new CompetencesNeededMarkupProvider();            
         }
 
-        public UserPresenter(UserTypeService userTypeService, IdeaConverter ideaConverter)
+        public UserPresenter(UserTypeService userTypeService, IdeaPresenter ideaPresenter)
         {
             _userTypeService = userTypeService;
-            _ideaConverter = ideaConverter;
+            _ideaPresenter = ideaPresenter;
         }
 
         public User Present(Model.Users.AggregateRoots.IUser user)
@@ -47,7 +47,7 @@ namespace Yoyyin.Mvc.ViewModels.Presenters
                 // moved to idea?
                 UserTypesNeeded = _userTypeService.GetUserTypesAsStrings(user.Ideas.First().SearchProfile.UserTypesNeeded),
                 CompetencesNeeded = user.Ideas.First().SearchProfile.CompetencesNeeded,
-                Ideas = user.Ideas.Select(_ideaConverter.Convert),
+                Ideas = user.Ideas.Select(_ideaPresenter.Convert),
                 LookingFor = _lookingForPresenter.ToViewModel(user.LookingFor),
                 DetailsHref = string.Format("/User/Details/{0}", user.UserId),
                 Presentation = user.Presentation

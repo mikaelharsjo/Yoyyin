@@ -1,9 +1,10 @@
 ﻿@model Yoyyin.Mvc.ViewModels.User
-    @Html.Partial("~/Views/User/Profile.cshtml", @Model)   
+<div class="row-fluid">
+@Html.Partial("~/Views/User/Profile.cshtml", @Model)   
 
     <div class="span10 well">
         @*<span class="label">@Html.ActionLink(Model.SniItemTitle, "ListBySniNo", new { id = Model.SniNo })</span>*@
         <h2>@Model.Ideas.First().Title</h2>
         <p>@Html.Raw(Model.Ideas.First().Description)</p>
     </div>
-
+</div>

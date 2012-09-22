@@ -3,7 +3,10 @@
     @Html.Partial("~/Views/User/Profile.cshtml", @Model)   
 
     <div class="span10 well">
-        @*<span class="label">@Html.ActionLink(Model.SniHeadTitle, "ListBySniHead", new { id = Model.SniHeadId })</span>*@
+        <span class="label">
+            <a href="/Idea/ListBySniHead/@Model.Ideas.First().SniHeadId">@Model.Ideas.First().SniHeadTitle</a>    
+        </span>
+        
         <h2>@Model.Ideas.First().Title</h2>
         <p>@Html.Raw(Model.Ideas.First().Description)</p>
         @Model.Ideas.First().Funding.Amount

@@ -4,13 +4,13 @@ using Yoyyin.Mvc.Services;
 
 namespace Yoyyin.Mvc.ViewModels.Presenters
 {
-    public class IdeaConverter
+    public class IdeaPresenter
     {
         private readonly UserTypeService _userTypeService;
         private SniService _sniService;
         private readonly CommentConverter _commentConverter;
 
-        public IdeaConverter(UserTypeService userTypeService, SniService sniService, CommentConverter commentConverter)
+        public IdeaPresenter(UserTypeService userTypeService, SniService sniService, CommentConverter commentConverter)
         {
             _userTypeService = userTypeService;
             _sniService = sniService;
@@ -24,7 +24,7 @@ namespace Yoyyin.Mvc.ViewModels.Presenters
                            CompanyName = idea.CompanyName,
                            Description = idea.Description,
                            Funding = idea.Funding,
-                           //SniHeadId = idea.SniHeadId,
+                           SniHeadId = idea.SniHeadId,
                            //SniNo = idea.SniNo,
                            Title = idea.Title,
                            UserTypesNeeded = _userTypeService.GetUserTypesAsStrings(idea.SearchProfile.UserTypesNeeded),

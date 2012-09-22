@@ -43,7 +43,7 @@ namespace Yoyyin.Mvc.Configuration
 
             builder.RegisterType<CommentConverter>();
             builder.RegisterType<MessageConverter>();
-            builder.RegisterType<IdeaConverter>();
+            builder.RegisterType<IdeaPresenter>();
             builder.RegisterType<UserPresenter>();
             builder.RegisterType<CurrentUserConverter>();
             builder.RegisterType<LookingForPresenter>();

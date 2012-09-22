@@ -3,7 +3,7 @@
 {    
     <div class="well span4 clearfix">        
         <div class="pull-left marginRight">
-            <div>
+            <div>aa
                 <a href=@user.DetailsHref>
                     <img src=@user.ProfileImageSrc?width=80 class="img-polaroid profileImage" />
                 </a>
@@ -12,13 +12,15 @@
         </div>
         <div class="pull-left">
             Jag är:<br />
-            <span class="label label-success">@user.UserType</span><br />
+            <span class="label label-success"><a href="/User/ListByUserType/@user.UserTypeId">@user.UserType</a></span><br />
             
             <hr />
             Jag söker:<br />
             @foreach (var userType in @user.UserTypesNeeded)
             {
-                <span class="label label-success">@userType</span>
+                <span class="label label-success">
+                    <a href="/User/ListByUserType/@userType">@userType</a>
+                </span>
             }
 
             <hr />

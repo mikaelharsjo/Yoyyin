@@ -52,7 +52,7 @@ namespace Yoyyin.Mvc.Controllers
         public ActionResult List()
         {
             ViewBag.Title = "Alla affärsidéer";
-            ViewBag.SubTitle = "Här visas alla affärsidéer, sorterade på bransch";
+            ViewBag.SubHeading = "Här visas alla affärsidéer, sorterade på bransch";
             ViewBag.BreadCrumb = new ListBreadCrumb();
 
             return View(_repository
@@ -92,6 +92,8 @@ namespace Yoyyin.Mvc.Controllers
         public ActionResult ListWantsFinancing()
         {
             ViewBag.Title = "Affärsidéer som söker finansiering";
+            //ViewBag.Heading = "Affärsidéer som söker finansiering";
+            ViewBag.SubHeading = "som söker finansiering";
             ViewBag.BreadCrumb = new BreadCrumb
             {
                 Items =

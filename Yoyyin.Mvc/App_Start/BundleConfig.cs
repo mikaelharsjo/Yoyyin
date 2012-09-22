@@ -11,10 +11,10 @@ namespace Yoyyin.Mvc.App_Start
                             .Include("~/Scripts/lib/require-jquery.js")
                             .Include("~/Scripts/lib/jquery.gomap-1.3.2.min.js")
                             .Include("~/Scripts/lib/bootstrap.js")
-                            .Include("~/Scripts/lib/tag-it.js")
+                            //.Include("~/Scripts/lib/tag-it.js")
                             .Include("~/Scripts/lib/jquery.gomap-1.3.2.min.js")
                             .Include("~/Scripts/lib/require.js")
-                            .Include("~/Scripts/yoyyin/yoyyin.quickSearch.js")
+                            //.Include("~/Scripts/yoyyin/yoyyin.quickSearch.js")
                             .Include("~/Scripts/yoyyin/yoyyin.init.js")
                             .Include("~/Scripts/yoyyin/registrationMain.js"));
 

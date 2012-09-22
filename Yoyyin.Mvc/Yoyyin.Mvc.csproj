@@ -241,7 +241,6 @@
       <Minify>True</Minify>
     </None>
     <None Include="Content\Less\site.less" />
-    <Content Include="Tools\dotless.Compiler.exe" />
     <Content Include="Content\Css\loggedIn.css" />
     <Content Include="Images\authbuttons\google_64.png" />
     <Content Include="Images\authbuttons\yahoo_64.png" />

@@ -116,7 +116,7 @@ namespace Yoyyin.Mvc.Controllers
             ViewBag.SubTitle = string.Format("som saknar {0}", competence);
             return View("List", _repository
                             .Query(m => m.Users)
-                            .Where(u => u.Competences.Contains(id))
+                            .Where(u => u.Ideas.SelectMany(i => i.SearchProfile.CompetencesNeeded).Contains(competence))          //Competences.Contains(id))
                             .Select(u => _userConverter.Present(u)));
         }
     }

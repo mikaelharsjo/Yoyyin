@@ -4,9 +4,9 @@
 <h1>Kompetenser som söks. <small>Sorterade efter popularitet</small></h1>
 </div>
 
-<div class="alert alert-info"><button class="close" data-dismiss="alert">×</button>Detta är dom mest efterfrågade kompetenserna. Klicka på en kompetens för att komma till medlemmar som har just den kompetensen.</div>
+<div class="alert alert-info"><button class="close" data-dismiss="alert">×</button>Detta är dom mest efterfrågade kompetenserna. Klicka på en kompetens för att komma till affärsidéer som behöver just den kompetensen.</div>
 
 @foreach (var tag in Model)
 {
-    <div class='weightedTag'><a href='/User/ListByCompetence/@tag.Key'><span class='label label-info'>@tag.Key</span></a> x @tag.Value</div>
+    <div class='weightedTag'><a href='/Idea/ListNeedsCompetence/@tag.Key'><span class='label label-info'>@tag.Key</span></a> x @tag.Value</div>
 }

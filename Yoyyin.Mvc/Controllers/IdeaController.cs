@@ -92,7 +92,6 @@ namespace Yoyyin.Mvc.Controllers
         public ActionResult ListWantsFinancing()
         {
             ViewBag.Title = "Affärsidéer som söker finansiering";
-            //ViewBag.Heading = "Affärsidéer som söker finansiering";
             ViewBag.SubHeading = "som söker finansiering";
             ViewBag.BreadCrumb = new BreadCrumb
             {

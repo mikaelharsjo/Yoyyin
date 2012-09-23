@@ -5,8 +5,13 @@
         this.callback = callback;
         navigator.geolocation.getCurrentPosition(
             geoCodeCoords,
-            null,
-            callback);
+            getPositonErrorHandler); //,
+        //callback);
+    };
+
+    var getPositonErrorHandler = function () {
+        console.log("getPositonErrorHandler");
+        this.callback();
     };
 
     var geoCodeCoords = function (position) {
@@ -54,7 +59,7 @@
 
             var that = this;
             getPosition(function (data) {
-                var html = Mustache.render(template, data);
+                var html = Mustache.render(template, data || {});
                 var btnMarkup = "<a class='btn btn-warning' href='/#/userType'>Visa mig inte på kartor</a>";
                 that.appendButtons({ markup: html, previousStep: "wanted", nextStep: "userType", extraButtonMarkup: btnMarkup });
             });

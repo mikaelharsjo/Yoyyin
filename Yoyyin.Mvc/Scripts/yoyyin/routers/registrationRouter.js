@@ -1,5 +1,9 @@
-﻿define(["backbone", "views/registration/personalInfo", "views/registration/wanted", "views/registration/location", "views/registration/userType", "views/registration/userTypesNeeded", "views/registration/tags", "views/registration/upload", "views/registration/idea"], function (Backbone, PersonalInfoView, WantedView, LocationView, UserTypeView, UserTypesNeededView, TagsView, UploadView, IdeaView) {
+﻿define(["backbone", "views/registration/personalInfo", "views/registration/wanted", "views/registration/location", "views/registration/userType", "views/registration/userTypesNeeded", "views/registration/tags", "views/registration/upload", "views/registration/idea", "models/user"], function (Backbone, PersonalInfoView, WantedView, LocationView, UserTypeView, UserTypesNeededView, TagsView, UploadView, IdeaView, User) {
     return Backbone.Router.extend({
+        initialize: function () {
+            this.user = new User();
+            this.user.set("name", "Mikael");
+        },
         routes: {
             "personalInfo": "personalInfo",
             "wanted": "wanted",
@@ -12,10 +16,12 @@
         },
         personalInfo: function () {
             var view = new PersonalInfoView();
+            view.model = this.user;
             view.render();
         },
         wanted: function () {
             var view = new WantedView();
+            view.model = this.user;
             view.render();
         },
         location: function () {

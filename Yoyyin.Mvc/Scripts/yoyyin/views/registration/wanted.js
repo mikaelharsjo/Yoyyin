@@ -7,6 +7,11 @@
             $("#wantsFinancing").change(function () {
                 $("#financing").toggle();
             });
+        },
+
+
+        save: function () {
+            console.log(this.model.toJSON());
         }
     });
 });

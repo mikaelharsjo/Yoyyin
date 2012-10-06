@@ -1,8 +1,17 @@
 ﻿define(["backbone", "mustache", "text!templates/registration/form.htm", "text!templates/registration/hero.htm", "text!templates/registration/buttons.htm"], function (Backbone, mustache, formTemplate, heroTemplate, buttonsTemplate) {
-    //var buttonsMarkup = "<div class='form-actions'><a class='btn' href='/#/{{previousStep}}'>Föregående</a><a class='btn btn-primary' href='/#/{{nextStep}}'>Nästa</a></div><form>";
 
     return Backbone.View.extend({
         el: $("#sectionMainContent"),
+
+        initialize: function (options) {
+            this.delegateEvents(this.buildEvents());
+        },
+
+        buildEvents: function () {
+            return {
+                'click #loadmore': 'loadMore'
+            };
+        },
 
         appendButtons: function (step) {
             var buttons = mustache.render(buttonsTemplate, step);
@@ -21,6 +30,12 @@
 
         setDescription: function (description) {
             $("header.jumbotron.container").append("<p class='lead'>" + description + "</p>");
+        },
+        events: {
+            "click .btn-primary": "save"
+        },
+        save: function () {
+            this.save();
         }
     });
 });

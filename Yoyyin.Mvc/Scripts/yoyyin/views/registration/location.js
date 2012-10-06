@@ -1,12 +1,10 @@
 ﻿define(["views/registration/step", "text!templates/registration/location.htm", "mustache"], function (StepView, template, Mustache) {
-    var callback;
 
     var getPosition = function (callback) {
         this.callback = callback;
         navigator.geolocation.getCurrentPosition(
             geoCodeCoords,
-            getPositonErrorHandler); //,
-        //callback);
+            getPositonErrorHandler); 
     };
 
     var getPositonErrorHandler = function () {
@@ -37,17 +35,33 @@
 
         this.callback(location);
 
-        $("#registerMap").goMap({
-            latitude: location.Latitude,
-            longitude: location.Longitude,
+        var latLng = new google.maps.LatLng(location.Latitude, location.Longitude); 
+        var mapOptions = {
+            center: latLng,
             zoom: 12,
-            maptype: 'ROADMAP',
-            markers: [{
-                latitude: location.Latitude,
-                longitude: location.Longitude,
-                html: { content: "<h2>Hej</h2><p>hoppla</p>" }
-            }]
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("registerMap"),
+            mapOptions);
+
+        var marker = new google.maps.Marker({
+            position: latLng,
+            map: map,
+            title: "Här kommer du att visas"
         });
+
+
+//        $("#registerMap").goMap({
+//            latitude: location.Latitude,
+//            longitude: location.Longitude,
+//            zoom: 12,
+//            maptype: 'ROADMAP',
+//            markers: [{
+//                latitude: location.Latitude,
+//                longitude: location.Longitude,
+//                html: { content: "<h2>Hej</h2><p>hoppla</p>" }
+//            }]
+//        });
     };
 
     return StepView.extend({

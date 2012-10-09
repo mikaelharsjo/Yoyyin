@@ -2,7 +2,6 @@
     return Backbone.Router.extend({
         initialize: function () {
             this.user = new User();
-            this.user.set("name", "Mikael");
         },
         routes: {
             "personalInfo": "personalInfo",
@@ -26,26 +25,32 @@
         },
         location: function () {
             var view = new LocationView();
+            view.model = this.user;
             view.render();
         },
         userType: function () {
             var view = new UserTypeView();
+            view.model = this.user;
             view.render();
         },
         userTypesNeeded: function () {
             var view = new UserTypesNeededView();
+            view.model = this.user;
             view.render();
         },
         tags: function () {
             var view = new TagsView();
+            view.model = this.user;
             view.render();
         },
         upload: function () {
             var view = new UploadView();
+            view.model = this.user;
             view.render();
         },
         idea: function () {
             var view = new IdeaView();
+            view.model = this.user;
             view.render();
         }
     });

@@ -6,6 +6,7 @@ namespace Yoyyin.Model.Users.ValueObjects
         public string ZipCode { get; set; }
         public string City { get; set; }
         public string Phone { get; set; }
+        public string Country { get; set; }
 
         public Coordinate Coordinate { get; set; }
  

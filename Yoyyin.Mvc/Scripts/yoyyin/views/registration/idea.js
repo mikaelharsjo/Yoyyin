@@ -30,6 +30,21 @@
         return view.render();
       };
 
+      Idea.prototype.save = function() {
+        var idea;
+        idea = {
+          CompanyName: this.$el.find('#companyName').val(),
+          Title: this.$el.find('#title').val(),
+          Description: this.$el.find('#description').val(),
+          SniNo: $("#sniDropDowns"),
+          SniHeadId: $("#sniDropDowns"),
+          Funding: {},
+          SearchProfile: {},
+          Comments: []
+        };
+        return this.model.set("Ideas", [idea]);
+      };
+
       return Idea;
 
     })(StepView);

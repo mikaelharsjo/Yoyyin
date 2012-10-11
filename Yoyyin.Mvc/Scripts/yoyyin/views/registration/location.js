@@ -4,47 +4,7 @@
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
   define(["views/registration/step", "text!templates/registration/location.htm", "mustache"], function(StepView, template, Mustache) {
-    var Location, displayResults, geoCodeCoords, getPosition, getPositonErrorHandler;
-    getPosition = function(callback) {
-      this.callback = callback;
-      return navigator.geolocation.getCurrentPosition(geoCodeCoords, getPositonErrorHandler);
-    };
-    getPositonErrorHandler = function() {
-      return this.callback();
-    };
-    geoCodeCoords = function(position) {
-      var geoCoder, latlng;
-      latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-      geoCoder = new google.maps.Geocoder();
-      return geoCoder.geocode({
-        location: latlng
-      }, displayResults);
-    };
-    displayResults = function(results, status) {
-      var latLng, location, map, mapOptions, marker, parts;
-      parts = results[0].address_components;
-      location = {
-        Street: parts[1].long_name + " " + parts[0].long_name,
-        City: parts[2].long_name,
-        Country: parts[3].long_name,
-        ZipCode: parts[4].long_name,
-        Latitude: results[0].geometry.location.lat(),
-        Longitude: results[0].geometry.location.lng()
-      };
-      this.callback(location);
-      latLng = new google.maps.LatLng(location.Latitude, location.Longitude);
-      mapOptions = {
-        center: latLng,
-        zoom: 12,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-      };
-      map = new google.maps.Map(document.getElementById("registerMap"), mapOptions);
-      return marker = new google.maps.Marker({
-        position: latLng,
-        map: map,
-        title: "Här kommer du att visas"
-      });
-    };
+    var Location;
     return Location = (function(_super) {
 
       __extends(Location, _super);
@@ -52,6 +12,50 @@
       function Location() {
         return Location.__super__.constructor.apply(this, arguments);
       }
+
+      Location.prototype.getPosition = function(callback) {
+        this.callback = callback;
+        return navigator.geolocation.getCurrentPosition(geoCodeCoords, getPositonErrorHandler);
+      };
+
+      Location.prototype.getPositonErrorHandler = function() {
+        return this.callback();
+      };
+
+      Location.prototype.geoCodeCoords = function(position) {
+        var geoCoder, latlng;
+        latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+        geoCoder = new google.maps.Geocoder();
+        return geoCoder.geocode({
+          location: latlng
+        }, displayResults);
+      };
+
+      Location.prototype.displayResults = function(results, status) {
+        var latLng, location, map, mapOptions, marker, parts;
+        parts = results[0].address_components;
+        location = {
+          Street: parts[1].long_name + " " + parts[0].long_name,
+          City: parts[2].long_name,
+          Country: parts[3].long_name,
+          ZipCode: parts[4].long_name,
+          Latitude: results[0].geometry.location.lat(),
+          Longitude: results[0].geometry.location.lng()
+        };
+        this.callback(location);
+        latLng = new google.maps.LatLng(location.Latitude, location.Longitude);
+        mapOptions = {
+          center: latLng,
+          zoom: 12,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        map = new google.maps.Map(document.getElementById("registerMap"), mapOptions);
+        return marker = new google.maps.Marker({
+          position: latLng,
+          map: map,
+          title: "Här kommer du att visas"
+        });
+      };
 
       Location.prototype.render = function() {
         var _this = this;
@@ -72,19 +76,19 @@
         });
       };
 
+      Location.prototype.save = function() {
+        var adress;
+        adress = this.model.get("Adress");
+        adress.set("City", this.$el.find("#city").val());
+        adress.set("Country", this.$el.find("#country").val());
+        adress.set("Street", this.$el.find("#street").val());
+        adress.set("ZipCode", this.$el.find("#zipCode").val());
+        return console.log(this.model);
+      };
+
       return Location;
 
     })(StepView);
-  })({
-    save: function() {
-      var adress;
-      adress = this.model.get("Adress");
-      adress.set("City", this.$el.find("#city").val());
-      adress.set("Country", this.$el.find("#country").val());
-      adress.set("Street", this.$el.find("#street").val());
-      adress.set("ZipCode", this.$el.find("#zipCode").val());
-      return console.log(this.model);
-    }
   });
 
 }).call(this);

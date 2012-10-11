@@ -28,6 +28,15 @@
       };
 
       Wanted.prototype.save = function() {
+        var lookingFor;
+        lookingFor = {
+          JoinOrBeJoined: $("#JoinOrBeJoined").is(":checked"),
+          PartnerToMyIdea: $("#PartnerToMyIdea").is(":checked"),
+          IdeasToJoin: $("#IdeasToJoin").is(":checked"),
+          Investements: $("#Investments").is(":checked"),
+          Financing: $("#Financing").is(":checked")
+        };
+        this.model.set("LookingFor", lookingFor);
         return console.log(this.model.toJSON());
       };
 

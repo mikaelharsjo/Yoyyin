@@ -1,10 +1,10 @@
-define ["views/registration/step", "text!templates/registration/location.htm", "mustache"], (StepView, template, Mustache) ->
+define ["views/registration/step", "text!templates/registration/location.htm", "mustache"], (StepView, template, mustache) ->
    class Location extends StepView
         getPosition: (callback) ->
             @callback = callback
-            navigator.geolocation.getCurrentPosition(geoCodeCoords, getPositonErrorHandler)
+            navigator.geolocation.getCurrentPosition(@geoCodeCoords, @getPositonErrorHandler)
 
-        getPositonErrorHandler: ->
+        getPositonErrorHandler: =>
             @callback()
 
         geoCodeCoords: (position) ->
@@ -44,8 +44,8 @@ define ["views/registration/step", "text!templates/registration/location.htm", "
                 Headline: "Vilken adress ska användas för visning på karta?",
                 Description: "Vi har hämtat adressen nedan från din nuvarande position. Vi använder bara denna för visning på karta och liknande i samband med sökningar."
 
-            getPosition((data) =>
-                html = Mustache.render(template, data || {})
+            @getPosition((data) =>
+                html = mustache.render(template, data || {})
                 btnMarkup = "<a class='btn btn-warning' href='/#/userType'>Visa mig inte på kartor</a>"
                 @appendButtons
                     markup: html
@@ -55,8 +55,10 @@ define ["views/registration/step", "text!templates/registration/location.htm", "
 
         save: ->
             adress = @model.get("Adress")
-            adress.set("City", @$el.find("#city").val())
-            adress.set("Country", @$el.find("#country").val())
-            adress.set("Street", @$el.find("#street").val())
-            adress.set("ZipCode", @$el.find("#zipCode").val())
-            console.log(@model)
+            @model.set "Adress", 
+                City: this.$el.find("#city").val()
+                Country: this.$el.find("#country").val()
+                Street: this.$el.find("#street").val()
+                ZipCode: this.$el.find("#zipCode").val()
+
+            console.log @model

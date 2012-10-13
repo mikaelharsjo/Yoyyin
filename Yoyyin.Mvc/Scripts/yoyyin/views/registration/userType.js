@@ -29,14 +29,14 @@
           previousStep: "location",
           nextStep: "userTypesNeeded"
         });
-        return renderRadios();
+        return this._renderRadios();
       };
 
       UserType.prototype.events = {
-        "click button": "save"
+        "click button": "add"
       };
 
-      UserType.prototype.save = function() {
+      UserType.prototype.add = function() {
         var userType;
         userType = new UserType({
           Title: $("#title").val(),
@@ -44,6 +44,10 @@
         });
         userType.save();
         return renderRadios();
+      };
+
+      UserType.prototype.save = function() {
+        return model.set("UserType", $("#radios").find(""));
       };
 
       return UserType;

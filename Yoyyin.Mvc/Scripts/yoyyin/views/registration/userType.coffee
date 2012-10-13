@@ -12,15 +12,18 @@ define ["mustache", "views/registration/step", "views/shared/userTypeRadioButton
                 markup: mustache.render(template)
                 previousStep: "location"
                 nextStep: "userTypesNeeded"
-            renderRadios()        
+            @_renderRadios()        
 
         events: 
-            "click button": "save"
+            "click button": "add"
 
-        save: ->
+        add: ->
             userType = new UserType
                 Title: $("#title").val()
                 Description: $("#description").val()
 
             userType.save()
             renderRadios()
+
+        save:->
+            model.set("UserType", $("#radios").find(""))

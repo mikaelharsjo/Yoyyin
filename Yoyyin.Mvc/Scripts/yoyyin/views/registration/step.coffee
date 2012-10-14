@@ -24,4 +24,5 @@ define ["backbone", "mustache", "text!templates/registration/form.htm", "text!te
             "click .btn-primary": "save"
 
         save: ->
+            console.log "base saving"
             this.save()

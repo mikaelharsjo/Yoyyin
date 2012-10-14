@@ -2,11 +2,10 @@ define ["backbone", "mustache", "collections/userTypes", "text!templates/shared/
     class UserTypeRadioButtonList extends backbone.View
         initialize: ->            
             @collection = new UserTypes()
-            @collection.fetch()
             @collection.on 'reset', @render
+            @collection.fetch()           
                 
-        render: ->
-            console.log 'render'
+        render: =>
             markup = "";
             @collection.each (userType) ->            
                 markup += mustache.render(template, userType.toJSON())

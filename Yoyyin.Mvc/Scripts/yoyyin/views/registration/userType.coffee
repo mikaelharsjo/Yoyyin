@@ -3,7 +3,6 @@ define ["mustache", "views/registration/step", "views/shared/userTypeRadioButton
         _renderRadios: ->
             radios = new UserTypesRadioButtonList
                 el: $ "#radios"
-            radios.render()
 
         render: ->
             @setHero
@@ -16,6 +15,7 @@ define ["mustache", "views/registration/step", "views/shared/userTypeRadioButton
 
         events: 
             "click button": "add"
+            "click .btn-primary": "save"
 
         add: ->
             userType = new UserType
@@ -25,5 +25,5 @@ define ["mustache", "views/registration/step", "views/shared/userTypeRadioButton
             userType.save()
             renderRadios()
 
-        save:->
-            model.set("UserType", $("#radios").find(":checked"))
+        save: ->
+            @model.set("UserType", $("#radios").find(":checked"))

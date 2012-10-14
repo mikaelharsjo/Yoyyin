@@ -14,10 +14,9 @@
 
       UserType.prototype._renderRadios = function() {
         var radios;
-        radios = new UserTypesRadioButtonList({
+        return radios = new UserTypesRadioButtonList({
           el: $("#radios")
         });
-        return radios.render();
       };
 
       UserType.prototype.render = function() {
@@ -33,7 +32,8 @@
       };
 
       UserType.prototype.events = {
-        "click button": "add"
+        "click button": "add",
+        "click .btn-primary": "save"
       };
 
       UserType.prototype.add = function() {
@@ -47,7 +47,7 @@
       };
 
       UserType.prototype.save = function() {
-        return model.set("UserType", $("#radios").find(":checked"));
+        return this.model.set("UserType", $("#radios").find(":checked"));
       };
 
       return UserType;

@@ -46,6 +46,7 @@
       };
 
       Step.prototype.save = function() {
+        console.log("base saving");
         return this.save();
       };
 

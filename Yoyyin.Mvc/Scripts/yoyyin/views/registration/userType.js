@@ -47,7 +47,7 @@
       };
 
       UserType.prototype.save = function() {
-        return model.set("UserType", $("#radios").find(""));
+        return model.set("UserType", $("#radios").find(":checked"));
       };
 
       return UserType;

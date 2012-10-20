@@ -61,4 +61,4 @@ define ["views/registration/step", "text!templates/registration/location.htm", "
                 Street: this.$el.find("#street").val()
                 ZipCode: this.$el.find("#zipCode").val()
 
-            console.log @model
+            console.log @model.toJSON()

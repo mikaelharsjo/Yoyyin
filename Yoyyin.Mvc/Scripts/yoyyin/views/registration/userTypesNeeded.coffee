@@ -33,8 +33,11 @@ define ["mustache", "views/registration/step", "views/shared/userTypeCheckBoxLis
             renderCheckBoxes()
 
         save: ->
-            idea = @model.get("Ideas")[0] || {}
+            console.log @model.toJSON()
+            idea = @model.get("Ideas")[0]
             idea.SearchProfile = {}
-            idea.SearchProfile.UserTypesNeeded.UserTypeIds =  $("#radios").find(":checked").each((index, item) ->
-                item.val())
+            idea.SearchProfile.UserTypesNeeded = {}
+            idea.SearchProfile.UserTypesNeeded.UserTypeIds =  $("#radios").find(":checked").map((index, item) ->
+                item.value)
+
             console.log idea.SearchProfile.UserTypesNeeded.UserTypeIds

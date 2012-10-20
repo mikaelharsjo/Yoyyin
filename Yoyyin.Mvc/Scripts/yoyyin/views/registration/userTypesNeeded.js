@@ -60,10 +60,12 @@
 
       UserTypesNeeded.prototype.save = function() {
         var idea;
-        idea = this.model.get("Ideas")[0] || {};
+        console.log(this.model.toJSON());
+        idea = this.model.get("Ideas")[0];
         idea.SearchProfile = {};
-        idea.SearchProfile.UserTypesNeeded.UserTypeIds = $("#radios").find(":checked").each(function(index, item) {
-          return item.val();
+        idea.SearchProfile.UserTypesNeeded = {};
+        idea.SearchProfile.UserTypesNeeded.UserTypeIds = $("#radios").find(":checked").map(function(index, item) {
+          return item.value;
         });
         return console.log(idea.SearchProfile.UserTypesNeeded.UserTypeIds);
       };

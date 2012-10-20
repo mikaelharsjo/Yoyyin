@@ -87,7 +87,7 @@
           Street: this.$el.find("#street").val(),
           ZipCode: this.$el.find("#zipCode").val()
         });
-        return console.log(this.model);
+        return console.log(this.model.toJSON());
       };
 
       return Location;

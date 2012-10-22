@@ -79,9 +79,7 @@
       };
 
       Location.prototype.save = function() {
-        var adress;
-        adress = this.model.get("Adress");
-        this.model.set("Adress", {
+        this.model.set("Address", {
           City: this.$el.find("#city").val(),
           Country: this.$el.find("#country").val(),
           Street: this.$el.find("#street").val(),

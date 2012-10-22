@@ -3,7 +3,7 @@
         <div class="controls">
             <label class='radio'>
                 <input name='optionsRadios' id='PartnerToMyIdea' value='PartnerToMyIdea' type='radio' />Jag
-                letar efter en partner til min idé</label>
+                letar efter en partner till min idé</label>
             <label class='radio'>
                 <input name='optionsRadios' id='IdeasToJoin' value='IdeasToJoin' type='radio' />Jag letar
                 efter idéer att delta i</label>
@@ -12,20 +12,23 @@
                 har en idé men är öppen för att delta i andras också</label>
             <label class='radio'>
                 <input name='optionsRadios' id='Investements' value='Investements' type='radio' />Jag
-                har pengar att investera i bra affärsidéer</label></div>
+                har pengar att investera i bra affärsidéer</label>
+        </div>
     </div>
 </div>
 <div class="span6">
     <div class="control-group">
         <div class="controls">
             <label class="checkbox">
-                Söker du finansiering?<input type="checkbox" id="wantsFinancing" /></label></div>
+                Söker du finansiering?<input type="checkbox" id="wantsFinancing" /></label>
+        </div>
     </div>
     <div id="financing" class="hide">
         <div class="control-group">
             <label class="control-label">
-                Ungefär hur mycket?</label><div class="controls">
-                    <select class='input-xlarge'>
+                Ungefär hur mycket?</label>
+                <div class="controls">
+                    <select class='input-xlarge' id="amount">
                         <option>0-10 000 kr</option>
                         <option>10 000-100 000 kr</option>
                     </select>
@@ -33,8 +36,10 @@
         </div>
         <div class="control-group">
             <label class="control-label">
-                Vad ska du ha pengarna till?</label><div class="controls">
-                    <textarea class='input-xlarge'></textarea>
+                Vad ska du ha pengarna till?</label>
+                <div class="controls">
+                    <textarea class='input-xlarge' id="description"></textarea>
                 </div>
         </div>
-</div> </div> 
+    </div>
+</div>

@@ -22,7 +22,12 @@
         CVFileName: '',
         Active: true,
         UserTypeDescription: '',
-        Address: {},
+        Address: {
+          Coordinate: {
+            Latitude: null,
+            Longitude: null
+          }
+        },
         Settings: {},
         Email: '',
         UserType: 0,

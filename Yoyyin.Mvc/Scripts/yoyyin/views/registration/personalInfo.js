@@ -36,7 +36,7 @@
         this.model.set("Name", this.$el.find('#name').val());
         this.model.set("Alias", this.$el.find('#alias').val());
         this.model.set("Email", this.$el.find('#email').val());
-        this.model.set("Presentation", this.$el.find('#presentation').val());
+        this.model.set("Presentation", this.$el.find('#userDescription').val());
         return console.log(this.model.toJSON());
       };
 

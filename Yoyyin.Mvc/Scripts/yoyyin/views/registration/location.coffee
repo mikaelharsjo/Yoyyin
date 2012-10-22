@@ -54,11 +54,15 @@ define ["views/registration/step", "text!templates/registration/location.htm", "
                     extraButtonMarkup: btnMarkup)
 
         save: ->
-            adress = @model.get("Adress")
-            @model.set "Adress", 
+            #adress = @model.get("Address")
+
+            @model.set "Address", 
                 City: this.$el.find("#city").val()
                 Country: this.$el.find("#country").val()
                 Street: this.$el.find("#street").val()
                 ZipCode: this.$el.find("#zipCode").val()
+                #Coordinate:
+                 #   Latitude: @location.Latitude
+                  #  Longitude: @location.Longitude
 
             console.log @model.toJSON()

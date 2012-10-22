@@ -34,10 +34,12 @@ define ["mustache", "views/registration/step", "views/shared/userTypeCheckBoxLis
 
         save: ->
             console.log @model.toJSON()
-            idea = @model.get("Ideas")[0]
+            idea = @model.get("Ideas")[0] || {}
             idea.SearchProfile = {}
             idea.SearchProfile.UserTypesNeeded = {}
             idea.SearchProfile.UserTypesNeeded.UserTypeIds =  $("#radios").find(":checked").map((index, item) ->
                 item.value)
 
             console.log idea.SearchProfile.UserTypesNeeded.UserTypeIds
+
+            @model.set 'ideas', [idea]

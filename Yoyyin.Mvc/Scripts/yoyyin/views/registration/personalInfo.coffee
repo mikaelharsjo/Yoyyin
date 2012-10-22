@@ -13,5 +13,5 @@ define ["views/registration/step", "views/shared/tags/competences", "text!templa
             @model.set("Name", @$el.find('#name').val())
             @model.set("Alias", @$el.find('#alias').val())
             @model.set("Email", @$el.find('#email').val())
-            @model.set("Presentation", @$el.find('#presentation').val())
+            @model.set("Presentation", @$el.find('#userDescription').val())
             console.log @model.toJSON()

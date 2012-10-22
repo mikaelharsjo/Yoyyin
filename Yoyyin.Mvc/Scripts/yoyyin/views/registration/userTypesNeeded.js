@@ -61,13 +61,14 @@
       UserTypesNeeded.prototype.save = function() {
         var idea;
         console.log(this.model.toJSON());
-        idea = this.model.get("Ideas")[0];
+        idea = this.model.get("Ideas")[0] || {};
         idea.SearchProfile = {};
         idea.SearchProfile.UserTypesNeeded = {};
         idea.SearchProfile.UserTypesNeeded.UserTypeIds = $("#radios").find(":checked").map(function(index, item) {
           return item.value;
         });
-        return console.log(idea.SearchProfile.UserTypesNeeded.UserTypeIds);
+        console.log(idea.SearchProfile.UserTypesNeeded.UserTypeIds);
+        return this.model.set('ideas', [idea]);
       };
 
       return UserTypesNeeded;

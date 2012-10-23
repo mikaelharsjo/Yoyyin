@@ -32,7 +32,7 @@
         });
       };
 
-      PersonalInfo.prototype.save = function() {
+      PersonalInfo.prototype.saveStep = function() {
         this.model.set("Name", this.$el.find('#name').val());
         this.model.set("Alias", this.$el.find('#alias').val());
         this.model.set("Email", this.$el.find('#email').val());

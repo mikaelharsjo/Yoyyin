@@ -9,7 +9,7 @@ define ["views/registration/step", "views/shared/tags/competences", "text!templa
             view = new CompetencesView
                 el: $ "#competences"
 
-        save: ->
+        saveStep: ->
             @model.set("Name", @$el.find('#name').val())
             @model.set("Alias", @$el.find('#alias').val())
             @model.set("Email", @$el.find('#email').val())

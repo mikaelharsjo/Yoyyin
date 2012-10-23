@@ -58,7 +58,7 @@
         return renderCheckBoxes();
       };
 
-      UserTypesNeeded.prototype.save = function() {
+      UserTypesNeeded.prototype.saveStep = function() {
         var idea;
         console.log(this.model.toJSON());
         idea = this.model.get("Ideas")[0] || {};

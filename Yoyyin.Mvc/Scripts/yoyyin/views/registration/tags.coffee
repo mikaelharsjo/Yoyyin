@@ -2,7 +2,7 @@ define ["views/registration/step", "views/shared/tags/competences", "views/share
     class Tags extends StepView
         render: ->
             @setHero
-                Headline: "Vilka kompetenser söker du?"            
+                Headline: "Vilka kompetenser söker du?"
             @appendButtons
                 markup: template
                 previousStep: "userTypesNeeded"
@@ -15,3 +15,17 @@ define ["views/registration/step", "views/shared/tags/competences", "views/share
             searchWordsTagsView = new SearchWordsTagsView
                 el: $ "#tags"
             searchWordsTagsView.render()
+
+        saveStep: ->
+            ideas = @model.get "Ideas"
+            idea = ideas[0] || {}
+            idea.SeachProfile = idea.SeachProfile || {}
+            idea.SeachProfile.CompetencesNeeded = @_getTags 'competencesNeeded'
+            idea.SearchWords = @_getTags 'tags'
+            @model.set 'Ideas', ideas
+
+            console.log idea
+
+        _getTags: (id) ->
+            $("#" + id).tagit 'assignedTags'
+            

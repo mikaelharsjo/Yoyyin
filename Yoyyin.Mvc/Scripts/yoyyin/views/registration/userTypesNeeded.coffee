@@ -32,7 +32,7 @@ define ["mustache", "views/registration/step", "views/shared/userTypeCheckBoxLis
             userType.save()
             renderCheckBoxes()
 
-        save: ->
+        saveStep: ->
             console.log @model.toJSON()
             idea = @model.get("Ideas")[0] || {}
             idea.SearchProfile = {}

@@ -25,4 +25,4 @@ define ["backbone", "mustache", "text!templates/registration/form.htm", "text!te
 
         save: ->
             console.log "base saving"
-            this.save()
+            @saveStep()

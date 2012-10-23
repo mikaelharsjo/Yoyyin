@@ -33,6 +33,21 @@
         return searchWordsTagsView.render();
       };
 
+      Tags.prototype.saveStep = function() {
+        var idea, ideas;
+        ideas = this.model.get("Ideas");
+        idea = ideas[0] || {};
+        idea.SeachProfile = idea.SeachProfile || {};
+        idea.SeachProfile.CompetencesNeeded = this._getTags('competencesNeeded');
+        idea.SearchWords = this._getTags('tags');
+        this.model.set('Ideas', ideas);
+        return console.log(idea);
+      };
+
+      Tags.prototype._getTags = function(id) {
+        return $("#" + id).tagit('assignedTags');
+      };
+
       return Tags;
 
     })(StepView);

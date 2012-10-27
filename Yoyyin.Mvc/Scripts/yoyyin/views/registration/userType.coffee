@@ -25,5 +25,5 @@ define ["mustache", "views/registration/step", "views/shared/userTypeRadioButton
             userType.save()
             renderRadios()
 
-        save: ->
+        saveStep: ->
             @model.set("UserType", $("#radios").find(":checked"))

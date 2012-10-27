@@ -53,7 +53,7 @@ define ["views/registration/step", "text!templates/registration/location.htm", "
                     nextStep: "userType"
                     extraButtonMarkup: btnMarkup)
 
-        save: ->
+        saveStep: ->
             #adress = @model.get("Address")
 
             @model.set "Address", 

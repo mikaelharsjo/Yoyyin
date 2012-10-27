@@ -14,7 +14,6 @@
       }
 
       Idea.prototype.render = function() {
-        var view;
         this.setHero({
           Headline: "Sista steget - Nu vill vi höra om din affärsidé"
         });
@@ -24,24 +23,26 @@
           nextStep: "idea"
         });
         $("div.form-actions").append("<a class='btn btn-warning' href='/#/register/userType'>Jag har ingen affärsidé</a>");
-        view = new CascadingDropDownView({
+        this.dropDown = new CascadingDropDownView({
           el: $("#sniDropDowns")
         });
-        return view.render();
+        return this.dropDown.render();
       };
 
-      Idea.prototype.save = function() {
+      Idea.prototype.saveStep = function() {
         var idea;
+        idea = this.model.get('idea');
         idea = {
           CompanyName: this.$el.find('#companyName').val(),
           Title: this.$el.find('#title').val(),
           Description: this.$el.find('#description').val(),
-          SniNo: $("#sniDropDowns"),
-          SniHeadId: $("#sniDropDowns"),
+          SniNo: this.dropDown.getHeadVal(),
+          SniHeadId: this.dropDown.getItemVal(),
           Funding: {},
           SearchProfile: {},
           Comments: []
         };
+        console.log(idea);
         return this.model.set("Ideas", [idea]);
       };
 

@@ -46,7 +46,7 @@
         return renderRadios();
       };
 
-      UserType.prototype.save = function() {
+      UserType.prototype.saveStep = function() {
         return this.model.set("UserType", $("#radios").find(":checked"));
       };
 

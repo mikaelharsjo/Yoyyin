@@ -78,7 +78,7 @@
         });
       };
 
-      Location.prototype.save = function() {
+      Location.prototype.saveStep = function() {
         this.model.set("Address", {
           City: this.$el.find("#city").val(),
           Country: this.$el.find("#country").val(),

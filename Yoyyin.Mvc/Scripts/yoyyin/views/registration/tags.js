@@ -35,13 +35,14 @@
 
       Tags.prototype.saveStep = function() {
         var idea, ideas;
+        console.log(this.model);
         ideas = this.model.get("Ideas");
-        idea = ideas[0] || {};
-        idea.SeachProfile = idea.SeachProfile || {};
-        idea.SeachProfile.CompetencesNeeded = this._getTags('competencesNeeded');
+        idea = ideas[0];
+        console.log(idea);
+        idea.SearchProfile.CompetencesNeeded = this._getTags('competencesNeeded');
         idea.SearchWords = this._getTags('tags');
         this.model.set('Ideas', ideas);
-        return console.log(idea);
+        return console.log(this.model);
       };
 
       Tags.prototype._getTags = function(id) {

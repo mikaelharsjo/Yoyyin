@@ -23,9 +23,7 @@ define ["views/registration/step", "text!templates/registration/idea.htm", "view
        	        Description: @$el.find('#description').val()
        	        SniNo: @dropDown.getHeadVal()
        	        SniHeadId: @dropDown.getItemVal()
-       	        Funding: {}
-       	        SearchProfile: {}
-       	        Comments: []
             console.log idea    
             @model.set "Ideas", [idea]
+            console.log @model
 

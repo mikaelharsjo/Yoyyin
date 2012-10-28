@@ -60,7 +60,6 @@
 
       UserTypesNeeded.prototype.saveStep = function() {
         var idea;
-        console.log(this.model.toJSON());
         idea = this.model.get("Ideas")[0] || {};
         idea.SearchProfile = {};
         idea.SearchProfile.UserTypesNeeded = {};
@@ -68,7 +67,8 @@
           return item.value;
         });
         console.log(idea.SearchProfile.UserTypesNeeded.UserTypeIds);
-        return this.model.set('ideas', [idea]);
+        this.model.set('Ideas', [idea]);
+        return console.log(this.model);
       };
 
       return UserTypesNeeded;

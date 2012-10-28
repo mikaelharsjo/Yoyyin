@@ -1,7 +1,7 @@
-define ["backbone"], (Backbone) ->
-    class User extends Backbone.Model
+define ["backbone"], (backbone) ->
+    class User extends backbone.Model
         url: ->
-            return "/User/Get/" + @id
+            "/User/Get/#{@id}"
             
         defaults:
        		Name: ''
@@ -16,7 +16,11 @@ define ["backbone"], (Backbone) ->
         	Email: ''        
         	UserType: 0
         	Urls: []
-        	Ideas:[]
+        	Ideas:[
+                SearchProfile: {}
+                Funding: {}
+                Comments: []                
+            ]
         	Competences: []
         	Image: {}
         	Presentation: ''

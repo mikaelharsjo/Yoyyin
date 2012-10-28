@@ -17,14 +17,16 @@ define ["views/registration/step", "views/shared/tags/competences", "views/share
             searchWordsTagsView.render()
 
         saveStep: ->
+            console.log @model
             ideas = @model.get "Ideas"
-            idea = ideas[0] || {}
-            idea.SeachProfile = idea.SeachProfile || {}
-            idea.SeachProfile.CompetencesNeeded = @_getTags 'competencesNeeded'
+            idea = ideas[0]
+            console.log idea
+            #idea.SeachProfile = idea.SeachProfile || {}
+            idea.SearchProfile.CompetencesNeeded = @_getTags 'competencesNeeded'
             idea.SearchWords = @_getTags 'tags'
             @model.set 'Ideas', ideas
 
-            console.log idea
+            console.log @model
 
         _getTags: (id) ->
             $("#" + id).tagit 'assignedTags'

@@ -27,9 +27,10 @@
           previousStep: "personalInfo",
           nextStep: "wanted"
         });
-        return view = new CompetencesView({
+        view = new CompetencesView({
           el: $("#competences")
         });
+        return $('#urls').tagit();
       };
 
       PersonalInfo.prototype.saveStep = function() {
@@ -37,7 +38,13 @@
         this.model.set("Alias", this.$el.find('#alias').val());
         this.model.set("Email", this.$el.find('#email').val());
         this.model.set("Presentation", this.$el.find('#userDescription').val());
+        this.model.set("Competences", this._getTags('competences'));
+        this.model.set('Urls', this._getTags('urls'));
         return console.log(this.model.toJSON());
+      };
+
+      PersonalInfo.prototype._getTags = function(id) {
+        return $("#" + id).tagit('assignedTags');
       };
 
       return PersonalInfo;

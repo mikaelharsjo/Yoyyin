@@ -37,13 +37,11 @@
           Title: this.$el.find('#title').val(),
           Description: this.$el.find('#description').val(),
           SniNo: this.dropDown.getHeadVal(),
-          SniHeadId: this.dropDown.getItemVal(),
-          Funding: {},
-          SearchProfile: {},
-          Comments: []
+          SniHeadId: this.dropDown.getItemVal()
         };
         console.log(idea);
-        return this.model.set("Ideas", [idea]);
+        this.model.set("Ideas", [idea]);
+        return console.log(this.model);
       };
 
       return Idea;

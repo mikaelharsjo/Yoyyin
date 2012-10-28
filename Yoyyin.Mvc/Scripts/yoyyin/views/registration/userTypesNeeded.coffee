@@ -5,18 +5,21 @@ define ["mustache", "views/registration/step", "views/shared/userTypeCheckBoxLis
                 el: $ "#radios"
 
         _wireCheckBoxes: ->
-            $(":checkbox").change(()->
+            $(":checkbox").change(->
                 if ($(this).is(":checked"))                 
-                    $(this).parent().append($("<div><label>Lägg till valfri text: <input type='text' /></label></div>"))            
+                    $(this).parent().append $("<div><label>Lägg till valfri text: <input type='text' /></label></div>")      
                 else
                     $(this).parent().find("div").remove())
 
         render: ->
-            @setHero({ Headline: "Vilken är din roll/titel?" })
+            @setHero
+                Headline: "Vilken är din roll/titel?"
+
             @appendButtons
                 markup: mustache.render(template)
                 previousStep: "userType"
                 nextStep: "tags"
+
             @_renderCheckBoxes()
             @_wireCheckBoxes()
 
@@ -33,7 +36,6 @@ define ["mustache", "views/registration/step", "views/shared/userTypeCheckBoxLis
             renderCheckBoxes()
 
         saveStep: ->
-            console.log @model.toJSON()
             idea = @model.get("Ideas")[0] || {}
             idea.SearchProfile = {}
             idea.SearchProfile.UserTypesNeeded = {}
@@ -42,4 +44,5 @@ define ["mustache", "views/registration/step", "views/shared/userTypeCheckBoxLis
 
             console.log idea.SearchProfile.UserTypesNeeded.UserTypeIds
 
-            @model.set 'ideas', [idea]
+            @model.set 'Ideas', [idea]
+            console.log @model

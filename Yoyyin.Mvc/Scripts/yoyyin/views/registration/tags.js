@@ -38,7 +38,6 @@
         console.log(this.model);
         ideas = this.model.get("Ideas");
         idea = ideas[0];
-        console.log(idea);
         idea.SearchProfile.CompetencesNeeded = this._getTags('competencesNeeded');
         idea.SearchWords = this._getTags('tags');
         this.model.set('Ideas', ideas);

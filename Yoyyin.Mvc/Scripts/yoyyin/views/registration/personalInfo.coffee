@@ -1,5 +1,7 @@
 define ["views/registration/step", "views/shared/tags/competences", "text!templates/registration/personalInfo.htm"], (StepView, CompetencesView, template) ->
     class PersonalInfo extends StepView
+        className: 'personalInfo'
+
         initialize: ->
             console.log("step personal")
         

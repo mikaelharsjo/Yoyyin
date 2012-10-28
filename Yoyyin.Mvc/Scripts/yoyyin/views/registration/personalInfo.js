@@ -13,6 +13,8 @@
         return PersonalInfo.__super__.constructor.apply(this, arguments);
       }
 
+      PersonalInfo.prototype.className = 'personalInfo';
+
       PersonalInfo.prototype.initialize = function() {
         return console.log("step personal");
       };

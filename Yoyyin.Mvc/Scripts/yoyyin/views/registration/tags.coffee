@@ -20,8 +20,6 @@ define ["views/registration/step", "views/shared/tags/competences", "views/share
             console.log @model
             ideas = @model.get "Ideas"
             idea = ideas[0]
-            console.log idea
-            #idea.SeachProfile = idea.SeachProfile || {}
             idea.SearchProfile.CompetencesNeeded = @_getTags 'competencesNeeded'
             idea.SearchWords = @_getTags 'tags'
             @model.set 'Ideas', ideas

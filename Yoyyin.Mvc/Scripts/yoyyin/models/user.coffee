@@ -1,7 +1,11 @@
 define ["backbone"], (backbone) ->
     class User extends backbone.Model
-        url: ->
-            "/User/Get/#{@id}"
+        initialize: ->
+            @on 'all', (e) ->
+                console.log e 
+
+        urlRoot: ->
+            "/User/"
             
         defaults:
        		Name: ''

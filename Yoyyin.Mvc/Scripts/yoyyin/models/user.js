@@ -13,8 +13,14 @@
         return User.__super__.constructor.apply(this, arguments);
       }
 
-      User.prototype.url = function() {
-        return "/User/Get/" + this.id;
+      User.prototype.initialize = function() {
+        return this.on('all', function(e) {
+          return console.log(e);
+        });
+      };
+
+      User.prototype.urlRoot = function() {
+        return "/User/";
       };
 
       User.prototype.defaults = {

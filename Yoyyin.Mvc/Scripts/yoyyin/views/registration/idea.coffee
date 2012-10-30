@@ -26,4 +26,5 @@ define ["views/registration/step", "text!templates/registration/idea.htm", "view
             console.log idea    
             @model.set "Ideas", [idea]
             console.log @model
+            @model.save()
 

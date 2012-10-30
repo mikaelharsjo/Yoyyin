@@ -41,7 +41,8 @@
         };
         console.log(idea);
         this.model.set("Ideas", [idea]);
-        return console.log(this.model);
+        console.log(this.model);
+        return this.model.save();
       };
 
       return Idea;

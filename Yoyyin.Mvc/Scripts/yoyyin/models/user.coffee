@@ -16,6 +16,7 @@ define ["backbone"], (backbone) ->
                 Coordinate:
                     Latitude: null
                     Longitude: null
+                    
         	Settings: {}
         	Email: ''        
         	UserType: 0
@@ -26,7 +27,10 @@ define ["backbone"], (backbone) ->
                 Comments: []                
             ]
         	Competences: []
-        	Image: {}
+        	Image:
+                HasImage: false
+                Avatar: ''
+
         	Presentation: ''
         	LookingFor: {}
         	

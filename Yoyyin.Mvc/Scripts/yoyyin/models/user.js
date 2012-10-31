@@ -46,7 +46,10 @@
           }
         ],
         Competences: [],
-        Image: {},
+        Image: {
+          HasImage: false,
+          Avatar: ''
+        },
         Presentation: '',
         LookingFor: {}
       };

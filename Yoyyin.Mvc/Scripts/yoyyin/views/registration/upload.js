@@ -17,11 +17,12 @@
         this.setHero({
           Headline: "Bild och CV"
         });
-        return this.appendButtons({
+        this.appendButtons({
           markup: template,
           previousStep: "tags",
           nextStep: "idea"
         });
+        return $('.btn-group').find('btn').button();
       };
 
       Upload.prototype.saveStep = function() {

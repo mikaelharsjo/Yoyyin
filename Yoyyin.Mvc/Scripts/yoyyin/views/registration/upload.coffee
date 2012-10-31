@@ -7,6 +7,7 @@ define ["views/registration/step", "text!templates/registration/upload.htm"], (S
             	markup: template
             	previousStep: "tags"
             	nextStep: "idea"
+            $('.btn-group').find('btn').button()
 
         saveStep: ->
             console.log 'To implement'

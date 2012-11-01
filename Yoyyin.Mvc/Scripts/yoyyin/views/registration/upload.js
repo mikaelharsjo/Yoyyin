@@ -26,7 +26,9 @@
       };
 
       Upload.prototype.saveStep = function() {
-        return console.log('To implement');
+        var image;
+        image = this.model.get('Image');
+        return image.Avatar = $('input[name=avatar]:checked').val();
       };
 
       return Upload;

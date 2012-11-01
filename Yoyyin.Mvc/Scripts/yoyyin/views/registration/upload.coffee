@@ -10,4 +10,5 @@ define ["views/registration/step", "text!templates/registration/upload.htm"], (S
             $('.btn-group').find('btn').button()
 
         saveStep: ->
-            console.log 'To implement'
+            image = @model.get 'Image'
+            image.Avatar = $('input[name=avatar]:checked').val()

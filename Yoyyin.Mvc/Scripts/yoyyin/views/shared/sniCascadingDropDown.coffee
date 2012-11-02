@@ -26,7 +26,9 @@ define ["backbone", "mustache", "text!templates/shared/sniDropDowns.htm", "colle
             @_wireUpDropDowns()
 
         getHeadVal: ->
-            $('#heads').val()
+            sniHeadVal = $('#heads').val()
+            return null if sniHeadVal is ""
+            sniHeadVal
 
         getItemVal: ->
             $('#items').val()   

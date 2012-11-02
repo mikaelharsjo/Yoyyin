@@ -50,7 +50,12 @@
       };
 
       SniCascadingDropDown.prototype.getHeadVal = function() {
-        return $('#heads').val();
+        var sniHeadVal;
+        sniHeadVal = $('#heads').val();
+        if (sniHeadVal === "") {
+          return null;
+        }
+        return sniHeadVal;
       };
 
       SniCascadingDropDown.prototype.getItemVal = function() {

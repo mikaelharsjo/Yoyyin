@@ -22,7 +22,7 @@ define ["views/registration/step", "views/shared/tags/competences", "views/share
             idea = ideas[0]
             idea.SearchProfile.CompetencesNeeded = @_getTags 'competencesNeeded'
             idea.SearchWords = @_getTags 'tags'
-            @model.set 'Ideas', ideas
+            #@model.set 'Ideas', ideas
 
             console.log @model
 

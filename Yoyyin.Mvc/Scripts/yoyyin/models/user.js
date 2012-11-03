@@ -24,35 +24,50 @@
       };
 
       User.prototype.defaults = {
-        Name: '',
-        CVFileName: '',
-        Active: true,
-        UserTypeDescription: '',
-        Address: {
-          Coordinate: {
-            Latitude: null,
-            Longitude: null
-          }
-        },
-        Settings: {},
-        Email: '',
-        UserType: 0,
-        Urls: [],
-        Ideas: [
-          {
-            SearchProfile: {},
-            Funding: {},
-            Comments: []
-          }
-        ],
-        Competences: [],
-        Image: {
-          HasImage: false,
-          Avatar: ''
-        },
-        Presentation: '',
-        LookingFor: {}
+        Created: new Date()
       };
+
+      User.prototype.Name = '';
+
+      User.prototype.CVFileName = '';
+
+      User.prototype.Active = true;
+
+      User.prototype.UserTypeDescription = '';
+
+      User.prototype.Address = {
+        Coordinate: {
+          Latitude: null,
+          Longitude: null
+        }
+      };
+
+      User.prototype.Settings = {};
+
+      User.prototype.Email = '';
+
+      User.prototype.UserType = 0;
+
+      User.prototype.Urls = [];
+
+      User.prototype.Ideas = [
+        {
+          SearchProfile: {},
+          Funding: {},
+          Comments: []
+        }
+      ];
+
+      User.prototype.Competences = [];
+
+      User.prototype.Image = {
+        HasImage: false,
+        Avatar: ''
+      };
+
+      User.prototype.Presentation = '';
+
+      User.prototype.LookingFor = {};
 
       return User;
 

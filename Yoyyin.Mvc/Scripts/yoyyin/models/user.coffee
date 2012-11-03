@@ -8,6 +8,7 @@ define ["backbone"], (backbone) ->
             "/User/"
             
         defaults:
+            Created: new Date()
        		Name: ''
         	CVFileName: ''
         	Active: true

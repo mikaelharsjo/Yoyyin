@@ -12,6 +12,9 @@ namespace Yoyyin.Model.Users.Commands
 
         public AddUserCommand(User user)
         {
+            user.Created = DateTime.Now;
+            user.UserId = new Guid();
+            user.id = user.UserId;
             User = user;
         }
 

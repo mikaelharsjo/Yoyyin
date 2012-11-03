@@ -40,7 +40,6 @@
         idea = ideas[0];
         idea.SearchProfile.CompetencesNeeded = this._getTags('competencesNeeded');
         idea.SearchWords = this._getTags('tags');
-        this.model.set('Ideas', ideas);
         return console.log(this.model);
       };
 

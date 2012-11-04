@@ -3,7 +3,7 @@
   var __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-  define(["views/registration/step", "text!templates/registration/idea.htm", "views/shared/sniCascadingDropDown"], function(StepView, template, CascadingDropDownView) {
+  define(["views/registration/step", "text!templates/registration/idea.htm", "views/shared/sniCascadingDropDown", "views/shared/tags/competences", "views/shared/tags/searchWords"], function(StepView, template, CascadingDropDownView, CompetencesTagsView, SearchWordsTagsView) {
     var Idea;
     return Idea = (function(_super) {
 
@@ -14,6 +14,7 @@
       }
 
       Idea.prototype.render = function() {
+        var competencesTagsView, searchWordsTagsView;
         this.setHero({
           Headline: "Sista steget - Nu vill vi höra om din affärsidé"
         });
@@ -26,23 +27,33 @@
         this.dropDown = new CascadingDropDownView({
           el: $("#sniDropDowns")
         });
-        return this.dropDown.render();
+        this.dropDown.render();
+        competencesTagsView = new CompetencesTagsView({
+          el: $("#competencesNeeded")
+        });
+        competencesTagsView.render();
+        searchWordsTagsView = new SearchWordsTagsView({
+          el: $("#tags")
+        });
+        return searchWordsTagsView.render();
+      };
+
+      Idea.prototype._getTags = function(id) {
+        return $("#" + id).tagit('assignedTags');
       };
 
       Idea.prototype.saveStep = function() {
-        var idea;
-        idea = this.model.get('idea');
-        idea = {
-          CompanyName: this.$el.find('#companyName').val(),
-          Title: this.$el.find('#title').val(),
-          Description: this.$el.find('#description').val(),
-          SniNo: this.dropDown.getHeadVal(),
-          SniHeadId: this.dropDown.getItemVal()
-        };
-        console.log(idea);
-        this.model.set("Ideas", [idea]);
-        console.log(this.model);
-        return this.model.save();
+        var idea, ideas;
+        ideas = this.model.get("Ideas");
+        idea = ideas[0];
+        idea.CompanyName = this.$el.find('#companyName').val();
+        idea.Title = this.$el.find('#title').val();
+        idea.Description = this.$el.find('#description').val();
+        idea.SniNo = this.dropDown.getHeadVal();
+        idea.SniHeadId = this.dropDown.getItemVal();
+        idea.SearchProfile.CompetencesNeeded = this._getTags('competencesNeeded');
+        idea.SearchWords = this._getTags('tags');
+        return console.log(this.model);
       };
 
       return Idea;

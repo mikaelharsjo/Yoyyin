@@ -19,7 +19,7 @@
         });
         this.appendButtons({
           markup: template,
-          previousStep: "tags",
+          previousStep: "userTypesNeeded",
           nextStep: "idea"
         });
         return $('.btn-group').find('btn').button();

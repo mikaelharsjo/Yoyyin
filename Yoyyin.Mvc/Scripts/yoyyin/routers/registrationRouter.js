@@ -38,11 +38,6 @@
             view.model = this.user;
             view.render();
         },
-        tags: function () {
-            var view = new TagsView();
-            view.model = this.user;
-            view.render();
-        },
         upload: function () {
             var view = new UploadView();
             view.model = this.user;

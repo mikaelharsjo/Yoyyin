@@ -37,7 +37,7 @@
         this.appendButtons({
           markup: mustache.render(template),
           previousStep: "userType",
-          nextStep: "tags"
+          nextStep: "upload"
         });
         this._renderCheckBoxes();
         return this._wireCheckBoxes();

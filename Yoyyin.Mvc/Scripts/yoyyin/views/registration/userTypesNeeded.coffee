@@ -18,7 +18,7 @@ define ["mustache", "views/registration/step", "views/shared/userTypeCheckBoxLis
             @appendButtons
                 markup: mustache.render(template)
                 previousStep: "userType"
-                nextStep: "tags"
+                nextStep: "upload"
 
             @_renderCheckBoxes()
             @_wireCheckBoxes()

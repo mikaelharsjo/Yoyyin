@@ -5,7 +5,7 @@ define ["views/registration/step", "text!templates/registration/upload.htm"], (S
             	Headline: "Bild och CV"
             @appendButtons
             	markup: template
-            	previousStep: "tags"
+            	previousStep: "userTypesNeeded"
             	nextStep: "idea"
             $('.btn-group').find('btn').button()
 

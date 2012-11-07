@@ -36,7 +36,7 @@ define ["views/registration/step", "text!templates/registration/idea.htm", "view
        	    idea.SniHeadId = @dropDown.getItemVal()
             idea.SearchProfile.CompetencesNeeded = @_getTags 'competencesNeeded'
             idea.SearchWords = @_getTags 'tags'
-            #@model.set "Ideas", [idea]
+
             console.log @model
-            #@model.save()
+            @model.save()
 

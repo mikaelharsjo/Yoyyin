@@ -17,7 +17,8 @@ namespace Yoyyin.Mvc.Providers
 
         public string GetProfileImageSrc()
         {
-            if (_user == null) return string.Empty;
+            if (_user == null || _user.Image == null) return string.Empty;
+            
             return _user.Image.HasImage ? GetUploadeImage() : GetAvatar();
         }
 

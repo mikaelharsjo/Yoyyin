@@ -59,8 +59,11 @@
       };
 
       UserTypesNeeded.prototype.saveStep = function() {
-        var idea;
-        idea = this.model.get("Ideas")[0] || {};
+        var idea, ideas;
+        ideas = this.model.get("Ideas");
+        console.log(this.model);
+        console.log(ideas);
+        idea = ideas[0];
         idea.SearchProfile = {};
         idea.SearchProfile.UserTypesNeeded = {};
         idea.SearchProfile.UserTypesNeeded.UserTypeIds = $("#radios").find(":checked").map(function(index, item) {

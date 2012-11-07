@@ -36,7 +36,10 @@ define ["mustache", "views/registration/step", "views/shared/userTypeCheckBoxLis
             renderCheckBoxes()
 
         saveStep: ->
-            idea = @model.get("Ideas")[0] || {}
+            ideas = @model.get("Ideas")
+            console.log @model
+            console.log ideas 
+            idea = ideas[0]
             idea.SearchProfile = {}
             idea.SearchProfile.UserTypesNeeded = {}
             idea.SearchProfile.UserTypesNeeded.UserTypeIds =  $("#radios").find(":checked").map((index, item) ->

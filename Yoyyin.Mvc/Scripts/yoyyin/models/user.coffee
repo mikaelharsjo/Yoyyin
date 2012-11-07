@@ -1,37 +1,31 @@
 define ["backbone"], (backbone) ->
     class User extends backbone.Model
-        initialize: ->
-            @on 'all', (e) ->
-                console.log e 
-
         urlRoot: ->
             "/User/"
             
         defaults:
             Created: new Date()
-       		Name: ''
-        	CVFileName: ''
-        	Active: true
-        	UserTypeDescription: ''
-        	Address:
+            Name: ''
+            CVFileName: ''
+            Active: true
+            UserTypeDescription: ''
+            Address:
                 Coordinate:
                     Latitude: null
                     Longitude: null
-                    
-        	Settings: {}
-        	Email: ''        
-        	UserType: 0
-        	Urls: []
-        	Ideas:[
+            Settings: {}
+            Email: ''
+            UserType: 0
+            Urls: []
+            Ideas:[
                 SearchProfile: {}
                 Funding: {}
                 Comments: []                
             ]
-        	Competences: []
-        	Image:
+            Competences: []
+            Image:
                 HasImage: false
                 Avatar: ''
-
-        	Presentation: ''
-        	LookingFor: {}
+            Presentation: ''
+            LookingFor: {}
         	

@@ -64,9 +64,12 @@ namespace Yoyyin.Mvc.Controllers
 
             foreach (var array in concatenated)
             {
-                foreach (string word in array)
+                if (array != null)
                 {
-                    words.Add(word);
+                    foreach (string word in array)
+                    {
+                        words.Add(word);
+                    }
                 }
             }
 

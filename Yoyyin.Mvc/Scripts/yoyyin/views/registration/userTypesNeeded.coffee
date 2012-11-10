@@ -6,17 +6,17 @@ define ["mustache", "views/registration/step", "views/shared/userTypeCheckBoxLis
 
         _wireCheckBoxes: ->
             $(":checkbox").change(->
-                if ($(this).is(":checked"))                 
+                if $(this).is ":checked"                 
                     $(this).parent().append $("<div><label>Lägg till valfri text: <input type='text' /></label></div>")      
                 else
                     $(this).parent().find("div").remove())
 
         render: ->
             @setHero
-                Headline: "Vilken är din roll/titel?"
+                Headline: "Vad söker du för roller?"
 
             @appendButtons
-                markup: mustache.render(template)
+                markup: mustache.render template
                 previousStep: "userType"
                 nextStep: "upload"
 
@@ -36,16 +36,13 @@ define ["mustache", "views/registration/step", "views/shared/userTypeCheckBoxLis
             renderCheckBoxes()
 
         saveStep: ->
-            ideas = @model.get("Ideas")
-            console.log @model
-            console.log ideas 
+            ideas = @model.get "Ideas"
             idea = ideas[0]
             idea.SearchProfile = {}
             idea.SearchProfile.UserTypesNeeded = {}
-            idea.SearchProfile.UserTypesNeeded.UserTypeIds =  $("#radios").find(":checked").map((index, item) ->
-                item.value)
 
-            console.log idea.SearchProfile.UserTypesNeeded.UserTypeIds
+            idea.SearchProfile.UserTypesNeeded.UserTypeIds = []
+            for $checkBox in $("#radios").find(":checked")
+                idea.SearchProfile.UserTypesNeeded.UserTypeIds.push $checkBox.value
 
             @model.set 'Ideas', [idea]
-            console.log @model

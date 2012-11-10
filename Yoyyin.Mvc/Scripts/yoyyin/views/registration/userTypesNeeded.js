@@ -32,7 +32,7 @@
 
       UserTypesNeeded.prototype.render = function() {
         this.setHero({
-          Headline: "Vilken är din roll/titel?"
+          Headline: "Vad söker du för roller?"
         });
         this.appendButtons({
           markup: mustache.render(template),
@@ -59,19 +59,18 @@
       };
 
       UserTypesNeeded.prototype.saveStep = function() {
-        var idea, ideas;
+        var $checkBox, idea, ideas, _i, _len, _ref;
         ideas = this.model.get("Ideas");
-        console.log(this.model);
-        console.log(ideas);
         idea = ideas[0];
         idea.SearchProfile = {};
         idea.SearchProfile.UserTypesNeeded = {};
-        idea.SearchProfile.UserTypesNeeded.UserTypeIds = $("#radios").find(":checked").map(function(index, item) {
-          return item.value;
-        });
-        console.log(idea.SearchProfile.UserTypesNeeded.UserTypeIds);
-        this.model.set('Ideas', [idea]);
-        return console.log(this.model);
+        idea.SearchProfile.UserTypesNeeded.UserTypeIds = [];
+        _ref = $("#radios").find(":checked");
+        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+          $checkBox = _ref[_i];
+          idea.SearchProfile.UserTypesNeeded.UserTypeIds.push($checkBox.value);
+        }
+        return this.model.set('Ideas', [idea]);
       };
 
       return UserTypesNeeded;

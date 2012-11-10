@@ -1,4 +1,4 @@
-define ["views/registration/step", "text!templates/registration/idea.htm", "views/shared/sniCascadingDropDown", "views/shared/tags/competences", "views/shared/tags/searchWords"], (StepView, template, CascadingDropDownView, CompetencesTagsView, SearchWordsTagsView) ->
+  define ["views/registration/step", "text!templates/registration/idea.htm", "views/shared/sniCascadingDropDown", "views/shared/tags/competences", "views/shared/tags/searchWords"], (StepView, template, CascadingDropDownView, CompetencesTagsView, SearchWordsTagsView) ->
     class Idea extends StepView
         render: ->
             @setHero
@@ -34,6 +34,7 @@ define ["views/registration/step", "text!templates/registration/idea.htm", "view
        	    idea.Description = @$el.find('#description').val()
        	    idea.SniNo = @dropDown.getHeadVal()
        	    idea.SniHeadId = @dropDown.getItemVal()
+            # Uncaught TypeError: Accessing selectionDirection on an input element that cannot have a selection
             idea.SearchProfile.CompetencesNeeded = @_getTags 'competencesNeeded'
             idea.SearchWords = @_getTags 'tags'
 

@@ -53,7 +53,7 @@
         idea.SniHeadId = this.dropDown.getItemVal();
         idea.SearchProfile.CompetencesNeeded = this._getTags('competencesNeeded');
         idea.SearchWords = this._getTags('tags');
-        console.log(this.model);
+        console.log(this.model.toJSON().Ideas[0]);
         return this.model.save();
       };
 

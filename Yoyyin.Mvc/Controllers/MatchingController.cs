@@ -53,25 +53,30 @@ namespace Yoyyin.Mvc.Controllers
         public ActionResult GetQuickSearchTypeAheadItems()
         {
             // TODO: move to class
+
             HashSet<string> words = new HashSet<string>();
-            var competences = _repository
-                .Query(m => m.Users.Select(u => u.Ideas.First().SearchProfile.CompetencesNeeded));
-
-            var searchWords = _repository
-                .Query(m => m.Users.Select(u => u.Ideas.First().SearchProfile.SearchWords));
-
-            var concatenated = competences.Concat(searchWords);
-
-            foreach (var array in concatenated)
+            try
             {
-                if (array != null)
+                var competences = _repository
+                    .Query(m => m.Users.Select(u => u.Ideas.First().SearchProfile.CompetencesNeeded));
+
+                var searchWords = _repository
+                    .Query(m => m.Users.Select(u => u.Ideas.First().SearchProfile.SearchWords));
+
+                var concatenated = competences.Concat(searchWords);
+
+                foreach (var array in concatenated)
                 {
-                    foreach (string word in array)
+                    if (array != null)
                     {
-                        words.Add(word);
+                        foreach (string word in array)
+                        {
+                            words.Add(word);
+                        }
                     }
                 }
             }
+            catch {}
 
             return Json(words, JsonRequestBehavior.AllowGet);
         }

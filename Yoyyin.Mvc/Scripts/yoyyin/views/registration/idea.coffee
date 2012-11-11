@@ -38,6 +38,6 @@
             idea.SearchProfile.CompetencesNeeded = @_getTags 'competencesNeeded'
             idea.SearchWords = @_getTags 'tags'
 
-            console.log @model
+            console.log @model.toJSON().Ideas[0]
             @model.save()
 

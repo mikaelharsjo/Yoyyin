@@ -18,9 +18,11 @@ namespace Yoyyin.Model.Users.AggregateRoots
         public Guid id
         {
             get { return UserId; }
-            set { UserId = value; }
+            //set { UserId = value; }
         }
 
+        // OpenId username/email
+        public string AuthKey { get; set; }
         public Guid UserId { get; set; }
         public string Name { get; set; }
         public string Alias { get; set; }
@@ -39,9 +41,6 @@ namespace Yoyyin.Model.Users.AggregateRoots
         public string LastLoginFormatted { get; set; }
 
         public DateTime Created { get; set; }
-
-
-        //public bool HasImage { get; set; }
 
         public string Email { get; set; }
 

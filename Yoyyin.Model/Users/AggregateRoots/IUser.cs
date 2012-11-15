@@ -7,6 +7,7 @@ namespace Yoyyin.Model.Users.AggregateRoots
 {
     public interface IUser
     {
+        string AuthKey { get; set; }
         Guid UserId { get; set; }
         string Name { get; set; }
         string CVFileName { get; set; }
@@ -15,12 +16,9 @@ namespace Yoyyin.Model.Users.AggregateRoots
         Address Address { get; set; }
         Settings Settings { get; set; }
         string Email { get; set; }
-        //SniCategory Category { get; set; }
         int UserType { get; set; }
         IEnumerable<string> Urls { get; set; }
         IEnumerable<Idea> Ideas { get; set; }
-        //IEnumerable<Bookmark> Bookmarks { get; set; }
-        //IEnumerable<Comment> Comments { get; set; }
         IEnumerable<string> Competences { get; set; }
         IEnumerable<Question> GetQuestions(UserModel userModel);
 

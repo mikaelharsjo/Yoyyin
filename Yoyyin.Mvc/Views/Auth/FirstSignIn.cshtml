@@ -1,25 +1,25 @@
-﻿@model dynamic
+﻿@using Yoyyin.Mvc.Helpers
+@model dynamic
 <div class="page-header">
     <h1>
-        Logga in. <small>Klicka på din openID-leverantör</small></h1>
+        Hur vill du logga in? <small></small></h1>
 </div>
+
 <p>
-    Logga in med någon av nedanstående populära tjänster.
+    Logga in med någon av nedanstående populära tjänster. Du måste alltså redan ha ett konto hos dom men åandra sidan så slipper du ytterligare ett konto och lösenord.  
 </p>
 <p>
-    <div class="container-fluid">
-        <span class="span3">
+    <div class="row-fluid">
+        <span class="span2">
             <form class="form-inline" method="POST">
             @Html.Hidden("openIdProviderUrl", "https://www.google.com/accounts/o8/id")
                 <input type="image" src="@Url.Content("~/Images/authbuttons/google_64.png")"/>
-
             </form>
-        </span><span class="span3">
+        </span><span class="span2">
             <form class="form-inline" method="POST">
             @Html.Hidden("openIdProviderUrl", "http://yahoo.com/")
                 <input type="image" src="@Url.Content("~/Images/authbuttons/yahoo_64.png")"/>
-
-            </form>
+             </form>
         </span>
     </div>
     <div class="alert alert-info">

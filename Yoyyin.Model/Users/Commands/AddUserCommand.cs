@@ -14,7 +14,6 @@ namespace Yoyyin.Model.Users.Commands
         {
             user.Created = DateTime.Now;
             user.UserId = Guid.NewGuid();
-            user.id = user.UserId;
             User = user;
         }
 

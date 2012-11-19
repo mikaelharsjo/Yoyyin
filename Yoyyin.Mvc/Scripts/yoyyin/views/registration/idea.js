@@ -54,7 +54,8 @@
         idea.SearchProfile.CompetencesNeeded = this._getTags('competencesNeeded');
         idea.SearchWords = this._getTags('tags');
         console.log(this.model.toJSON().Ideas[0]);
-        return this.model.save();
+        this.model.save();
+        return location.href = '/FirstSignIn';
       };
 
       return Idea;

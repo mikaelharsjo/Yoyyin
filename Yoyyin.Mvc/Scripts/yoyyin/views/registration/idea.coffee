@@ -26,18 +26,20 @@
         _getTags: (id) ->
             $("#" + id).tagit 'assignedTags'
 
-          saveStep: ->
+        saveStep: ->
             ideas = @model.get "Ideas"
             idea = ideas[0]
             idea.CompanyName = @$el.find('#companyName').val()
-       	    idea.Title = @$el.find('#title').val()
-       	    idea.Description = @$el.find('#description').val()
-       	    idea.SniNo = @dropDown.getHeadVal()
-       	    idea.SniHeadId = @dropDown.getItemVal()
+            idea.Title = @$el.find('#title').val()
+            idea.Description = @$el.find('#description').val()
+            idea.SniNo = @dropDown.getHeadVal()
+            idea.SniHeadId = @dropDown.getItemVal()
             # Uncaught TypeError: Accessing selectionDirection on an input element that cannot have a selection
             idea.SearchProfile.CompetencesNeeded = @_getTags 'competencesNeeded'
             idea.SearchWords = @_getTags 'tags'
 
             console.log @model.toJSON().Ideas[0]
             @model.save()
+            location.href = '/FirstSignIn'
+
 
